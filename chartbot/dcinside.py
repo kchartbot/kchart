@@ -193,6 +193,7 @@ class DcUploader:
                 up.on("response", lambda r: msgs.append(f"http {r.status} {r.url[:120]} body={self._body(r)}") if "upimg_file" in r.url else None)
                 up.on("requestfailed", lambda r: msgs.append("requestfailed: " + r.url[:120]))
                 up.wait_for_load_state("domcontentloaded")
+                up.evaluate("() => { $('#fileupload').fileupload('option', 'xhrFields', {withCredentials: true}); }")  # 교차 도메인 업로드에 로그인 쿠키를 싣는다
                 up.evaluate("""() => { const f = $('#fileupload');
                     f.on('fileuploaddone fileuploadfail fileuploadalways', function (e, d) {
                         let r = ''; try { r = JSON.stringify(d.result) + ' | ' + (d.jqXHR && d.jqXHR.responseText || '').slice(0, 500) + ' | ' + (d.textStatus || '') + ' ' + (d.errorThrown || ''); } catch (x) { r = String(x); }
