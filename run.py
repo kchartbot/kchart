@@ -59,6 +59,15 @@ def make_uploader(cfg, headed):
         out_dir = Path(cfg["bot"].get("out_dir", ROOT / "out"))
         out_dir.mkdir(parents=True, exist_ok=True)
         state_file = str(out_dir / ".dc_session.json")
+        # 시크릿의 계정이 바뀌면 캐시에 남은 예전 계정의 로그인 상태는 버린다
+        import hashlib
+
+        who = hashlib.sha256((os.environ.get("DC_ID") or "state").strip().encode()).hexdigest()[:16]
+        marker = out_dir / ".dc_session.who"
+        if marker.exists() and marker.read_text().strip() != who:
+            Path(state_file).unlink(missing_ok=True)
+            log.info("로그인 계정이 바뀌어 저장된 로그인 상태를 지웠습니다")
+        marker.write_text(who)
         if os.environ.get("DC_STORAGE_STATE") and not Path(state_file).exists():
             fd = os.open(state_file, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
             with os.fdopen(fd, "w", encoding="utf-8") as f:
