@@ -78,6 +78,7 @@ def snap(now):
         mine = {song_key(x): x["rank"] for x in pred["predicted"]}
         stats["records"].append({"time": hk, "내 예측": score_ranks(mine, actual), "지금 순위 그대로": score_ranks(base, actual)})
         save(DATA / "stats.json", stats)
+    gaisum_try(now)                              # 이용자수: 열려 있을 때만 저장됨
     # 계산 점수(HOT100 5곡 + 실시간 3곡) 저장
     h = load(DATA / "hot100" / f"{hk}.json")
     if h:
@@ -88,6 +89,29 @@ def snap(now):
             "time": hk, "HOT100": hot, "factor": fac,
             "실시간": {r["name"]: round(HOT_BY_RANK[r["rank"]] / fac, 3) for r in top5[:3]},
             "참고": "1위는 상한 7.0이라 실시간 1위 값은 하한(실제는 더 클 수 있음). 순위별 중앙값 모델."})
+
+
+def gaisum_try(now):
+    """가이섬 24시간 이용자수 차트를 하루 몇 번만 조심스럽게 시도한다. 막히면(429 등) 기록만 남기고 6시간 쉰다."""
+    log = load(DATA / "gaisum_log.json", {"tries": []})
+    last = log["tries"][-1] if log["tries"] else None
+    if last and last["ok"] is False and (now - datetime.fromisoformat(last["time"])) < timedelta(hours=6):
+        return
+    if last and last["ok"] and (now - datetime.fromisoformat(last["time"])) < timedelta(minutes=50):
+        return
+    rec = {"time": now.isoformat(timespec="seconds"), "ok": False, "msg": ""}
+    try:
+        from chartbot.fetch import Fetcher, get_chart
+        f = Fetcher(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36", min_gap=5.0, retries=0)
+        c = get_chart("melon_24h_count", now, f, tempfile.mkdtemp())
+        rows = [{"rank": r.rank, "name": r.name, "artists": r.artists, "count": getattr(r, "count", None),
+                 "count1": getattr(r, "count1", None), "count2": getattr(r, "count2", None)} for r in c.rows]
+        save(DATA / "users" / f"{hour_key(now.replace(minute=0))}.json", {"time": hour_key(now.replace(minute=0)), "rows": rows})
+        rec.update(ok=True, msg=f"{len(rows)}곡")
+    except Exception as e:                       # 막혀도 전체 기록은 계속 진행
+        rec["msg"] = f"{type(e).__name__}: {str(e)[:120]}"
+    log["tries"] = (log["tries"] + [rec])[-60:]
+    save(DATA / "gaisum_log.json", log)
 
 
 def predict(now):
