@@ -48,8 +48,9 @@ class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
                  minor: bool = True, headed: bool = False, storage_state: str | None = None,
                  login_id: str | None = None, login_pw: str | None = None,
-                 anon_nick: str | None = None, anon_pw: str | None = None):
+                 anon_nick: str | None = None, anon_pw: str | None = None, kind: str | None = None):
         self.gallery_id = gallery_id
+        self._kind = {"mini": "mini/board", "minor": "mgallery/board", "mgallery": "mgallery/board", "main": "board", "board": "board"}.get((kind or "").strip().lower())
         self.headtext = headtext
         self.profile_dir = str(Path(profile_dir).expanduser())
         self.sel = {**DEFAULT_SELECTORS, **(selectors or {})}
@@ -76,11 +77,11 @@ class DcUploader:
 
     @property
     def write_url(self):
-        kind = getattr(self, "_kind", None) or ("mgallery/board" if self.minor else "board")
+        kind = self._kind or ("mgallery/board" if self.minor else "board")
         return f"https://gall.dcinside.com/{kind}/write/?id={self.gallery_id}"
 
     def _open_write(self, page, alerts) -> None:
-        first = "mgallery/board" if self.minor else "board"
+        first = self._kind or ("mgallery/board" if self.minor else "board")
         order = [first] + [k for k in ("mgallery/board", "board", "mini/board") if k != first]
         tried = []
         for kind in order:

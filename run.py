@@ -42,6 +42,8 @@ def load_config(path: str) -> dict:
         cfg.setdefault("dc", {})["gallery_id"] = os.environ["DC_GALLERY_ID"]
     if "DC_HEADTEXT" in os.environ:  # 빈 값이면 말머리 선택 생략
         cfg.setdefault("dc", {})["headtext"] = os.environ["DC_HEADTEXT"].strip()
+    if os.environ.get("DC_KIND"):
+        cfg.setdefault("dc", {})["kind"] = os.environ["DC_KIND"].strip()
     if os.environ.get("DC_MINOR"):
         cfg.setdefault("dc", {})["minor"] = os.environ["DC_MINOR"].lower() == "true"
     if os.environ.get("DRY_RUN"):
@@ -74,6 +76,7 @@ def make_uploader(cfg, headed):
         anon_nick=os.environ.get("DC_ANON_NICK"), anon_pw=os.environ.get("DC_ANON_PW"),
         gallery_id=dc["gallery_id"], headtext=dc.get("headtext", "차트봇"), profile_dir=dc.get("profile_dir", "~/.chartbot/profile"),
         selectors=dc.get("selectors"), minor=dc.get("minor", True), headed=headed,
+        kind=dc.get("kind"),
     )
 
 
