@@ -46,6 +46,8 @@ def load_config(path: str) -> dict:
         cfg.setdefault("dc", {})["kind"] = os.environ["DC_KIND"].strip()
     if os.environ.get("DC_MINOR"):
         cfg.setdefault("dc", {})["minor"] = os.environ["DC_MINOR"].lower() == "true"
+    if os.environ.get("CHARTS", "").strip():
+        cfg["bot"]["charts"] = [c.strip() for c in os.environ["CHARTS"].split(",") if c.strip()]
     if os.environ.get("DRY_RUN"):
         cfg["bot"]["dry_run"] = os.environ["DRY_RUN"].lower() != "false"
     return cfg
@@ -110,6 +112,7 @@ def process(key, cfg, fetcher, uploader, state, out):
     title, body = post_title(chart), body_text(chart)
     if b.get("dry_run", True):
         log.info("[dry-run] 업로드 생략: %s -> %s", title, png)
+        return
     else:
         uploader.post(title, body, png, out)
         log.info("업로드 완료: %s", title)
