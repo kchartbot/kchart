@@ -1,10 +1,3 @@
-"""네트워크 없이 samples/ 폴더로 가이섬 응답을 흉내 내는 Fetcher.
-
-`python run.py render` 와 테스트가 운영과 똑같은 코드 경로(get_chart -> 이력 수집 -> 렌더)를 오프라인으로 돌리게 해 준다.
-  차트 페이지   samples/{플랫폼}-{차트}.json              (현재 시간대)
-  지난 시간대   samples/hist-{차트}.json                  (요청 시각이 샘플 시각보다 과거일 때)
-  곡 상세       samples/song-melon-{곡ID}.json
-"""
 from __future__ import annotations
 
 import json
@@ -44,7 +37,6 @@ class SampleFetcher(Fetcher):
 
 
 def seed_sample_history(platform: str, now, fetcher, store_dir) -> None:
-    """render 용: 최신 순위를 저장한 뒤, 지난 26시간의 순위를 무작위 변동으로 채워 그래프를 그릴 수 있게 한다 (샘플 전용)."""
     import random
     from datetime import timedelta
 

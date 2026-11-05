@@ -1,10 +1,3 @@
-"""가이섬.com 에서 멜론/지니/플로/벅스 차트를 가져와 파싱한다.
-
-가이섬 페이지는 Next.js 서버 렌더링이라 HTML 안의 <script id="__NEXT_DATA__"> 에
-차트 데이터가 JSON으로 그대로 들어 있다. JS 실행 없이 일반 HTTP GET 한 번이면 된다.
-
-이용약관(6조 2항)에 따라 출처 표기가 필요하다. 렌더/업로드 단계에서 SOURCE_CREDIT 을 항상 붙인다.
-"""
 from __future__ import annotations
 
 import json
@@ -17,21 +10,21 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 
-BASE = "https://xn--o39an51b2re.com"  # 가이섬.com (punycode)
+BASE = "https://xn--o39an51b2re.com"
 SOURCE_CREDIT = "출처: 가이섬.com"
 
 
 @dataclass(frozen=True)
 class Spec:
     key: str
-    platform: str     # 사이트 경로의 플랫폼 (melon / genie / flo / bugs)
-    path: str         # 사이트 경로의 차트 이름
-    title: str        # 게시글 제목에 쓰는 이름
-    layout: str       # five | graph24 | table | table_counts | table_users
-    cadence: str      # five = 5분마다, hourly = 정시 기준 시간당 1회
-    slots: int = 0    # 그래프 칸 수 (five=13, graph24=24)
+    platform: str
+    path: str
+    title: str
+    layout: str
+    cadence: str
+    slots: int = 0
     max_rows: int = 100
-    source: str = "gaisum"   # gaisum = 가이섬.com, direct = 각 플랫폼 공개 차트 페이지에서 직접 수집 (direct.py)
+    source: str = "gaisum"
 
     @property
     def credit(self) -> str:
@@ -40,7 +33,6 @@ class Spec:
         return SOURCE_CREDIT
 
 
-# 요청하신 구성: 멜론 6종 + 지니/플로/벅스는 가이섬에 있는 해당 항목만
 SPECS = {s.key: s for s in [
     Spec("melon_top100",       "melon", "top100",        "멜론 TOP100",         "table_counts", "hourly"),
     Spec("melon_hot100_five",  "melon", "hot100-five",   "멜론 HOT100 5분 차트", "five",         "five",   13),
@@ -52,7 +44,6 @@ SPECS = {s.key: s for s in [
     Spec("flo_chart",          "flo",   "24hour",        "플로 차트",           "table",        "hourly"),
     Spec("bugs_realtime",      "bugs",  "realtime",      "벅스 실시간 차트",     "table",        "hourly"),
 ]}
-# 가이섬을 거치지 않고 각 플랫폼 공개 차트에서 직접 수집하는 순위 중심 차트 (이용자 수·점수는 없음)
 for _p, _n in (("melon", "멜론"), ("genie", "지니"), ("bugs", "벅스")):
     for _s in (
         Spec(f"{_p}_rank",       _p, "direct", f"{_n} 실시간 순위",          "table",       "hourly", source="direct"),
@@ -61,10 +52,8 @@ for _p, _n in (("melon", "멜론"), ("genie", "지니"), ("bugs", "벅스")):
     ):
         SPECS[_s.key] = _s
 
-# 이전 버전 설정 키 호환
 ALIASES = {"five": "melon_five", "hot100": "melon_hot100_five"}
 
-# samples/ 폴더의 샘플 파일 이름 (python run.py render 용)
 def sample_name(spec: Spec) -> str:
     return f"{spec.platform}-{spec.path}.json"
 
@@ -87,15 +76,15 @@ class Row:
     artists: str
     album: str
     image: str
-    values: list | None = None      # 그래프 차트: 칸마다 값 (없는 칸 None, 차트 밖 0)
-    count1: int | None = None       # TOP100: 1시간 이용자 수
-    count2: int | None = None       # TOP100: 24시간 이용자 수
+    values: list | None = None
+    count1: int | None = None
+    count2: int | None = None
     count1_diff: int | None = None
     count2_diff: int | None = None
-    count: int | None = None        # 24시간 이용자 수 차트
+    count: int | None = None
     count_diff: int | None = None
-    ratio: dict | None = None       # 24시간 이용자 수 차트: 성별/연령 비율
-    sid: str = ""                   # 가이섬 곡 ID (곡 상세 페이지 /song/melon/{sid})
+    ratio: dict | None = None
+    sid: str = ""
 
 
 @dataclass
@@ -103,8 +92,8 @@ class Chart:
     spec: Spec
     hour_start: datetime
     rows: list
-    total: int = 0                  # 사이트 기준 전체 곡 수 (rows 는 max_rows 로 잘릴 수 있음)
-    history: list | None = None     # 24시간 이용자 수 차트: 곡별 시간대별 이력 (history.py)
+    total: int = 0
+    history: list | None = None
 
     @property
     def title(self):
@@ -112,7 +101,6 @@ class Chart:
 
     @property
     def latest_slot(self):
-        """그래프 차트에서 값이 하나라도 채워진 마지막 칸 인덱스. 없으면 None."""
         n = self.spec.slots
         last = None
         for i in range(n):
@@ -122,7 +110,6 @@ class Chart:
 
     @property
     def stamp(self):
-        """게시글 제목에 쓰는 기준 시각. 5분 차트는 가장 최근 칸, 나머지는 정시."""
         if self.spec.cadence == "five":
             s = self.latest_slot
             if s is not None:
@@ -136,14 +123,12 @@ def build_url(key: str, hour_start: datetime) -> str:
 
 
 def extract_page_props(text: str) -> dict:
-    """페이지 HTML(또는 저장해 둔 JSON)에서 pageProps 전체를 꺼낸다 (곡 상세 페이지 등)."""
     m = _NEXT.search(text)
     obj = json.loads(m.group(1)) if m else json.loads(text)
     return obj["props"]["pageProps"] if "props" in obj else obj
 
 
 def extract_data(text: str) -> dict:
-    """페이지 HTML(또는 저장해 둔 JSON)에서 차트 데이터 dict 를 꺼낸다."""
     m = _NEXT.search(text)
     obj = json.loads(m.group(1)) if m else json.loads(text)
     if "props" in obj:
@@ -183,11 +168,10 @@ def parse_chart(key: str, text: str) -> Chart:
 
 
 class RateLimited(RuntimeError):
-    """가이섬이 429 를 돌려줌. 재시도하지 않고 이번 주기를 중단한다 (차단/제한 상태에서 계속 요청하지 않기 위해)."""
+    pass
 
 
 class Fetcher:
-    """요청 간격을 지키는 단순 HTTP 클라이언트 (사이트 부하 최소화)."""
 
     def __init__(self, user_agent="chartbot/1.0", min_gap=3.0, timeout=15, retries=2):
         self.ua = user_agent
@@ -199,7 +183,6 @@ class Fetcher:
     def get(self, url: str) -> str:
         err = None
         for attempt in range(self.retries + 1):
-            # 간격에 약간의 무작위를 섞어 요청이 일정한 박자로 몰리지 않게 한다 (사이트 부하 분산)
             wait = self.min_gap * random.uniform(1.0, 1.5) - (time.monotonic() - self._last)
             if wait > 0:
                 time.sleep(wait)
@@ -214,7 +197,7 @@ class Fetcher:
                 if e.code == 429:
                     ra = e.headers.get("Retry-After") if e.headers else None
                     raise RateLimited(f"요청이 제한되었습니다 (HTTP 429, Retry-After={ra}): {url}") from e
-                if e.code >= 500:  # 서버가 느리거나 제한을 건 경우: 천천히 재시도
+                if e.code >= 500:
                     time.sleep(10 * (attempt + 1))
                     continue
                 raise
@@ -225,11 +208,6 @@ class Fetcher:
 
 
 def get_chart(key: str, now: datetime, fetcher: Fetcher, cache_dir=None) -> Chart:
-    """현재 시각 기준 최신 차트. 정시 직후라 새 시간대 페이지가 비어 있으면 직전 시간대를 쓴다.
-
-    24시간 이용자 수 차트는 곡별 24시간 이력(chart.history)까지 함께 채운다.
-    cache_dir 는 지난 시간대 페이지를 저장해 두는 폴더다 (과거 데이터는 변하지 않으므로 한 번만 받는다).
-    """
     spec = resolve(key)
     if spec.source == "direct":
         from .direct import get_direct_chart

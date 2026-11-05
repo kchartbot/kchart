@@ -1,15 +1,13 @@
 name: chartbot
 
 on:
-  # schedule:
-  #   - cron: "*/5 * * * *"
-  workflow_dispatch: {}         # Actions 탭에서 수동 실행
+  workflow_dispatch: {}
 
 permissions:
   contents: read
 
 concurrency:
-  group: chartbot               # 겹쳐 실행되면 중복 게시되므로 한 번에 하나만
+  group: chartbot
   cancel-in-progress: false
 
 jobs:
@@ -31,7 +29,6 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps chromium
 
-      # 어느 시간대/5분 칸을 이미 올렸는지(state.json)와 앨범 이미지·지난 시간대 캐시를 실행 사이에 보관
       - name: 상태 복원
         uses: actions/cache/restore@v4
         with:
@@ -62,7 +59,6 @@ jobs:
           path: out
           key: chartbot-state-${{ github.run_id }}
 
-      # 확인용: 만들어진 차트 이미지(출처 표기 포함, 민감 정보 없음)를 Actions 실행 화면 하단 Artifacts 에서 내려받을 수 있다
       - name: 차트 이미지 보관
         if: always()
         uses: actions/upload-artifact@v4
@@ -72,7 +68,6 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
-      # 비공개 저장소에서만 실패 화면을 보관 (공개 저장소에서는 계정 화면이 노출될 수 있어 올리지 않음)
       - name: 실패 화면 보관
         if: failure() && github.event.repository.private
         uses: actions/upload-artifact@v4

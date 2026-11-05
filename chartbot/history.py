@@ -1,15 +1,3 @@
-"""24시간 이용자 수 차트용: 곡별 시간대별 이력.
-
-표의 각 열이 어디서 오는지 (가이섬 데이터, 참고 이미지와 값을 대조해 확인함)
-  이용자수 / 증감   곡 상세 페이지 trends 의 MELON_24HOUR_COUNT
-  순위              실시간 차트 순위 (trends 의 MELON_REALTIME_CHART). 없으면 24시간 이용자 수 차트의 순위
-  T100              TOP100 순위 (trends 의 MELON_TOP100_CHART)
-  최고 이용자수     곡 상세 페이지 records 의 MELON_24HOUR_COUNT / PEAK_COUNT
-
-곡 상세 페이지 trends 는 최근 24시간(현재 시각 -23h ~ 현재)이라, 표의 맨 윗줄(현재 -24h)만
-그 시각의 차트 페이지 3개(24시간 이용자 수 / 실시간 / TOP100)에서 따로 가져온다.
-이 페이지들은 과거 데이터라 변하지 않으므로 cache_dir 에 저장해 두고 다시 받지 않는다.
-"""
 from __future__ import annotations
 
 import json
@@ -19,9 +7,9 @@ from pathlib import Path
 
 from .fetch import BASE, Chart, Fetcher, extract_data, extract_page_props
 
-HOURS = 25            # 현재 -24h ... 현재, 총 25행
-MAX_SONGS = 6         # 한 이미지에 담는 최대 곡 수 (3곡씩 줄바꿈)
-NIGHT = range(2, 8)   # 2~7시: 새벽 시간대 (음영 표시, 실시간 순위 데이터가 비면 직전 값을 이어 씀)
+HOURS = 25
+MAX_SONGS = 6
+NIGHT = range(2, 8)
 
 
 @dataclass
@@ -41,7 +29,7 @@ class SongHistory:
     album: str
     image: str
     peak: int | None
-    rows: list  # HRow, 오래된 시간 -> 최신
+    rows: list
 
     @property
     def window_max(self):
@@ -50,7 +38,6 @@ class SongHistory:
 
 
 def _hour_maps(hour: datetime, fetcher: Fetcher, cache_dir) -> dict:
-    """한 시간대의 {곡ID: {"rt": 실시간순위, "top": TOP100순위, "cnt": [순위, 이용자수, 증감]}}."""
     cache = Path(cache_dir) / "hist" / f"{hour:%Y%m%d%H}.json" if cache_dir else None
     if cache and cache.exists():
         return json.loads(cache.read_text(encoding="utf-8"))
@@ -59,7 +46,7 @@ def _hour_maps(hour: datetime, fetcher: Fetcher, cache_dir) -> dict:
         url = f"{BASE}/chart/melon/{path}/{hour:%Y%m%d}/{hour:%H}"
         try:
             data = extract_data(fetcher.get(url))
-        except Exception:  # 페이지가 없거나 비어 있으면 그 열만 비운다 (이번엔 캐시하지 않고 다음에 다시 시도)
+        except Exception:
             complete = False
             continue
         for item in data["data"]:
@@ -95,7 +82,7 @@ def build_song_history(row, end: datetime, fetcher: Fetcher, first_hour_maps: di
     rows, last_rank = [], None
     for i in range(HOURS):
         h = end - timedelta(hours=HOURS - 1 - i)
-        if i == 0:  # trends 가 닿지 않는 맨 윗줄
+        if i == 0:
             c = first.get("cnt") or [None, None, None]
             rt_rank, t100, c_rank, count, diff = first.get("rt"), first.get("top"), c[0], c[1], c[2]
         else:
@@ -105,7 +92,7 @@ def build_song_history(row, end: datetime, fetcher: Fetcher, first_hour_maps: di
             c_rank, count, diff = ci.get("ranking"), ci.get("count"), ci.get("countDiff")
         rank = rt_rank if rt_rank is not None else c_rank
         if rank is None and last_rank is not None and h.hour in NIGHT:
-            rank = last_rank  # 새벽에 실시간 순위가 수집되지 않은 구간은 직전 순위를 이어 쓴다
+            rank = last_rank
         if rank is not None:
             last_rank = rank
         rows.append(HRow(h, rank, t100, count, diff))

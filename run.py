@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-"""차트봇 실행기.
-
-  python run.py render [--only 키]   샘플 데이터로 디자인만 확인 (네트워크/로그인 불필요)
-  python run.py login                디시 로그인 창 열기 (1회)
-  python run.py export-session       로그인 상태를 dc_session.json 으로 내보내기 (GitHub Actions 용)
-  python run.py once                 지금 시점 차트를 수집 -> 렌더 -> (dry_run 이 아니면) 업로드
-  python run.py loop                 5분 주기로 반복 (5분 차트는 매번, 나머지는 시간당 1회)
-  옵션: --config config.toml  --headed
-"""
 from __future__ import annotations
 
 import argparse
@@ -39,10 +29,9 @@ def load_config(path: str) -> dict:
     if not p.exists():
         sys.exit(f"설정 파일이 없습니다: {p}  (config.example.toml 을 복사해서 만드세요)")
     cfg = tomllib.loads(p.read_text(encoding="utf-8"))
-    # 환경변수로 덮어쓰기 (GitHub Actions 의 Variables/Secrets 용). 설정 파일에는 민감한 값을 두지 않는다.
     if os.environ.get("DC_GALLERY_ID"):
         cfg.setdefault("dc", {})["gallery_id"] = os.environ["DC_GALLERY_ID"]
-    if "DC_HEADTEXT" in os.environ:  # 빈 값이면 말머리 선택 생략
+    if "DC_HEADTEXT" in os.environ:
         cfg.setdefault("dc", {})["headtext"] = os.environ["DC_HEADTEXT"].strip()
     if os.environ.get("DC_MINOR"):
         cfg.setdefault("dc", {})["minor"] = os.environ["DC_MINOR"].lower() == "true"
@@ -55,11 +44,9 @@ def make_uploader(cfg, headed):
     dc = cfg["dc"]
     state_file = None
     if os.environ.get("DC_STORAGE_STATE") or os.environ.get("DC_ID"):
-        # 세션(쿠키) 파일 위치. out/ 은 실행 사이에 캐시되므로 한 번 로그인하면 이후 실행에서 재사용된다.
         out_dir = Path(cfg["bot"].get("out_dir", ROOT / "out"))
         out_dir.mkdir(parents=True, exist_ok=True)
         state_file = str(out_dir / ".dc_session.json")
-        # 시크릿의 계정이 바뀌면 캐시에 남은 예전 계정의 로그인 상태는 버린다
         import hashlib
 
         who = hashlib.sha256((os.environ.get("DC_ID") or "state").strip().encode()).hexdigest()[:16]
@@ -82,19 +69,14 @@ def make_uploader(cfg, headed):
 def process(key, cfg, fetcher, uploader, state, out):
     spec = resolve(key)
     b = cfg["bot"]
-    # 가이섬은 한국시간 기준이라, 서버 시계/타임존과 무관하게 KST 로 시각을 계산한다
     now = datetime.now(KST).replace(tzinfo=None)
 
-    # 사람 확인 요구를 받은 뒤에는 일정 시간 게시(와 그를 위한 수집)를 쉰다
     paused = state.get("dc_pause_until")
     if not b.get("dry_run", True) and paused and now < datetime.fromisoformat(paused):
         log.info("디시 게시 일시중지 중 (%s 까지), 건너뜀", paused)
         return
 
     if spec.cadence == "hourly":
-        # 시간당 1회: 정시 직후엔 가이섬 갱신 전일 수 있어 hourly_after_minute 이후에만 시도하고,
-        # 이미 올린 시간대면 요청 자체를 하지 않는다.
-        # (직접 수집 차트는 사이트가 이미 최신이라 기다릴 필요가 없다. 수동 실행/밀린 스케줄에서도 바로 올라가게 한다)
         if spec.source != "direct" and now.minute < int(b.get("hourly_after_minute", 5)):
             return
         if state.get(spec.key) == f"{now:%Y%m%d%H}00":
@@ -123,12 +105,11 @@ def process(key, cfg, fetcher, uploader, state, out):
             raise
         log.info("업로드 완료: %s", title)
     state[spec.key] = stamp
-    for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
+    for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:
         f.unlink(missing_ok=True)
 
 
 def collect_direct(cfg, fetcher, out):
-    """직접 수집 차트가 하나라도 있는 플랫폼은 올릴 차트가 없는 주기에도 순위를 기록해 둔다 (그래프용 기록)."""
     now = datetime.now(KST).replace(tzinfo=None)
     for platform in dict.fromkeys(resolve(k).platform for k in cfg["bot"]["charts"] if resolve(k).source == "direct"):
         try:
@@ -176,7 +157,6 @@ def main():
         for key, spec in SPECS.items():
             if a_only and resolve(a_only).key != key:
                 continue
-            # 샘플 파일의 시각을 "지금"으로 보고 운영과 같은 경로(get_chart -> 이력 수집 -> 렌더)로 그린다
             if spec.source == "direct":
                 sample_time = datetime(2026, 11, 5, 14, 35)
                 sdir = out / "rank_sample"
@@ -193,7 +173,7 @@ def main():
 
     cfg = load_config(a.config)
     for k in cfg["bot"]["charts"]:
-        resolve(k)  # 잘못된 키는 시작할 때 바로 알려준다
+        resolve(k)
     out = Path(cfg["bot"].get("out_dir", ROOT / "out"))
     out.mkdir(parents=True, exist_ok=True)
     uploader = make_uploader(cfg, a.headed)
@@ -217,7 +197,7 @@ def main():
         return
 
     interval = int(b.get("interval_minutes", 5)) * 60
-    delay = int(b.get("delay_seconds", 20))  # 정각 직후엔 사이트 갱신 전일 수 있어 약간 늦춰서 실행
+    delay = int(b.get("delay_seconds", 20))
     log.info("loop 시작: %d분 주기, 정각+%d초에 실행, dry_run=%s, 차트=%s", interval // 60, delay, b.get("dry_run", True), b["charts"])
     while True:
         now = time.time()

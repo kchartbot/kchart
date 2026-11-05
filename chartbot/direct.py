@@ -1,10 +1,3 @@
-"""멜론·지니·벅스 공개 차트 페이지에서 직접 순위를 수집한다 (가이섬을 거치지 않는 경로).
-
-가져오는 것은 각 사이트 실시간 차트의 순위·곡·아티스트·앨범·이미지·직전 대비 변동뿐이다.
-이용자 수·점수는 이 경로로 얻을 수 없다 (가이섬이 자체 계산하는 값).
-수집할 때마다 순위를 out/rank/{플랫폼}.json 에 쌓아 두고, 순위 변화 그래프는 이 기록으로 그린다.
-각 사이트의 이용약관과 요청 부하(플랫폼당 5분에 1~2회)를 확인하고 사용할 것.
-"""
 from __future__ import annotations
 
 import json
@@ -21,13 +14,11 @@ KEEP_HOURS = 30
 GRAPH_TOP = 5
 
 
-# ───────────────────────── 파싱 ─────────────────────────
 def _txt(el) -> str:
     return " ".join(el.get_text(" ", strip=True).replace("\xa0", " ").split()) if el else ""
 
 
 def _prev(rank: int, kind: str, n: int | None) -> int | None:
-    """직전 순위. 신규 진입이면 None."""
     if kind == "new":
         return None
     if kind == "up":
@@ -110,7 +101,6 @@ def urls(platform: str, now: datetime) -> list[str]:
 PARSERS = {"melon": parse_melon, "genie": parse_genie, "bugs": parse_bugs}
 
 
-# ───────────────────────── 수집·저장 ─────────────────────────
 def _stamp(dt: datetime) -> str:
     return f"{dt:%Y%m%d%H%M}"
 
@@ -124,7 +114,6 @@ def _load(path: Path) -> dict:
 
 
 def ensure_snapshot(platform: str, now: datetime, fetcher: Fetcher, store_dir) -> dict:
-    """이번 5분 칸의 순위를 아직 저장하지 않았다면 사이트에서 받아 저장한다. 저장된 기록을 돌려준다."""
     store_dir = Path(store_dir)
     store_dir.mkdir(parents=True, exist_ok=True)
     path = store_dir / f"{platform}.json"
@@ -154,14 +143,12 @@ def ensure_snapshot(platform: str, now: datetime, fetcher: Fetcher, store_dir) -
     return st
 
 
-# ───────────────────────── Chart 만들기 ─────────────────────────
 def _row(d: dict, **kw) -> Row:
     return Row(rank=d["rank"], previous=d["previous"], name=d["name"], artists=d["artists"], album=d["album"],
                image=d["image"], sid=d["sid"], **kw)
 
 
 def _value_at(hist: dict, when: datetime, sid: str, window_min: int):
-    """when 이후 window_min 분 안에 저장된 가장 이른 기록에서 곡의 순위. 없으면 None."""
     for k in range(0, window_min, 5):
         snap = hist.get(_stamp(when + timedelta(minutes=k)))
         if snap is not None:
@@ -182,7 +169,7 @@ def build_chart(spec: Spec, now: datetime, store: dict) -> Chart:
         if spec.layout == "rankgraph24":
             vals = [_value_at(hist, hour - timedelta(hours=spec.slots - 1 - i), sid, 20) for i in range(spec.slots)]
             vals[-1] = d["rank"]
-        else:  # rankfive: 이번 시각의 5분 칸
+        else:
             vals = [hist.get(_stamp(hour + timedelta(minutes=5 * i)), {}).get(sid) if _stamp(hour + timedelta(minutes=5 * i)) <= latest["stamp"] else None
                     for i in range(spec.slots)]
         out.append(_row(d, values=vals))
