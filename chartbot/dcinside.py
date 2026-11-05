@@ -53,6 +53,13 @@ class DcUploader:
         self.anon_nick, self.anon_pw = anon_nick, anon_pw  # 로그인이 안 될 때 쓰는 유동(비로그인) 글쓰기용 닉네임/글 비밀번호
         self.storage_state = storage_state  # 있으면 프로필 대신 이 쿠키 파일로 로그인 상태를 복원 (GitHub Actions 등)
 
+    @staticmethod
+    def _body(r):
+        try:
+            return r.text()[:600]
+        except Exception as e:
+            return f'(읽기 실패: {str(e)[:80]})'
+
     @property
     def write_url(self):
         kind = "mgallery/board" if self.minor else "board"
@@ -165,7 +172,7 @@ class DcUploader:
                 up.on("dialog", lambda d: (msgs.append("dialog: " + d.message), d.dismiss()))
                 up.on("console", lambda m: msgs.append("console: " + m.text[:200]))
                 up.on("pageerror", lambda e: msgs.append("pageerror: " + str(e)[:200]))
-                up.on("response", lambda r: msgs.append(f"http {r.status} {r.url[:120]}") if ("upimg" in r.url or "upload" in r.url) else None)
+                up.on("response", lambda r: msgs.append(f"http {r.status} {r.url[:120]} body={self._body(r)}") if "upimg_file" in r.url else None)
                 up.on("requestfailed", lambda r: msgs.append("requestfailed: " + r.url[:120]))
                 up.wait_for_load_state("domcontentloaded")
                 up.set_input_files("input.file_add", str(image_path))
