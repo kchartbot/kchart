@@ -1,0 +1,36 @@
+name: hot5
+on:
+  push:
+    paths: [".github/workflows/hot5.yml"]
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: |
+          python - <<'PY'
+          import sys, tempfile, json
+          from datetime import datetime, timedelta, timezone
+          sys.path.insert(0, ".")
+          from chartbot.fetch import Fetcher
+          from chartbot.direct import get_direct_chart
+          now = datetime.now(timezone(timedelta(hours=9))).replace(tzinfo=None)
+          f = Fetcher(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36", min_gap=3.0)
+          c = get_direct_chart("melonhot_rank", now, f, tempfile.mkdtemp())
+          out = {"now": str(now), "stamp": str(c.stamp), "rows": [
+              {"rank": r.rank, "previous": r.previous, "name": r.name, "artists": r.artists, "album": getattr(r, "album", ""), "image": r.image}
+              for r in c.rows[:5]]}
+          json.dump(out, open("/tmp/hot5.json", "w"), ensure_ascii=False, indent=1)
+          print(json.dumps(out, ensure_ascii=False, indent=1))
+          PY
+      - run: |
+          git config user.name bot; git config user.email bot@example.com
+          git checkout --orphan livedata
+          git rm -rf -q . ; cp /tmp/hot5.json hot5.json
+          git add hot5.json; git commit -qm hot5; git push -f origin livedata
