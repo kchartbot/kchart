@@ -5,11 +5,12 @@ charts = [
   # "melon_rank_five",
   # "melonhot_rank_five",
   # 1시간 차트 (정시부터 15분 안에서만)
-  "melon_rank",
-  "melonhot_rank",
-  "genie_rank",
-  "bugs_rank",
-  "flo_rank",
+  # 순위표 업로드 중지 (요청에 따라 주석 처리, 다시 켜려면 아래 주석 해제)
+  # "melon_rank",
+  # "melonhot_rank",
+  # "genie_rank",
+  # "bugs_rank",
+  # "flo_rank",
   # 그래프는 아직 사용 안 함
   # "melon_rank_graph",
   # "melonhot_rank_graph",
