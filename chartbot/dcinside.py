@@ -60,6 +60,14 @@ class DcUploader:
         self.storage_state = storage_state  # 있으면 프로필 대신 이 쿠키 파일로 로그인 상태를 복원 (GitHub Actions 등)
 
     @staticmethod
+    def _is_human_check(msg: str) -> bool:
+        import re
+        import unicodedata
+
+        t = re.sub(r"\s", "", unicodedata.normalize("NFKC", msg))
+        return "사람인지" in t or ("사람" in t and "확인" in t and "체크" in t)
+
+    @staticmethod
     def _body(r):
         try:
             return r.text()[:600]
@@ -297,7 +305,7 @@ class DcUploader:
                 except Exception:
                     pass
                 page.wait_for_timeout(1000)
-                if "/write" in page.url and any("사람인지" in m for m in dlg):
+                if "/write" in page.url and any(self._is_human_check(m) for m in dlg):
                     raise HumanCheckRequired("디시가 '사람인지 확인'을 요구했습니다. 자동 게시를 중단합니다 (수동 게시 또는 갤러리 운영진 협의 필요).")
                 if "/write" in page.url:
                     cap =page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
