@@ -339,6 +339,8 @@ def main():
         return
 
     b = cfg["bot"]
+    import chartbot.render as _render
+    _render.RANK_STYLE = os.environ.get("RANK_STYLE") or b.get("rank_style", "classic")
     fetcher = Fetcher(user_agent=b.get("user_agent", "chartbot/1.0"), min_gap=b.get("min_request_gap", 3.0))
     sf = out / "state.json"
     state = json.loads(sf.read_text()) if sf.exists() else {}

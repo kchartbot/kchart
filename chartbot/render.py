@@ -163,7 +163,39 @@ border-top:1px solid var(--rule);align-items:stretch}
 .hr .c{justify-content:flex-end;padding-right:10px}
 .hr .mx{background:#2ea043;color:#fff;font-weight:800}
 .hr .rk{font-weight:700}
+/* 순위표 새 디자인: 앨범 커버 위주 (rank_style = list1 / list2) */
+.rc-row{display:grid;grid-template-columns:70px 112px minmax(0,1fr) 92px;gap:22px;align-items:center;padding:14px 6px;border-bottom:1px solid var(--rule)}
+.rc-row>div{min-width:0}
+.rc-rank{font-size:34px;font-weight:300;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.rc-art{width:112px;height:112px;border-radius:10px;box-shadow:0 6px 18px rgba(20,26,43,.16);background:var(--card2);overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:34px;color:var(--muted)}
+.rc-art img{width:100%;height:100%;object-fit:cover;display:block}
+.rc-name{font-size:25px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-artist{font-size:17px;color:var(--muted);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-chg{font-size:16px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.rc-top{grid-template-columns:70px 204px minmax(0,1fr) 92px;padding:24px 6px}
+.rc-top .rc-art{width:204px;height:204px;border-radius:16px;box-shadow:0 12px 30px rgba(20,26,43,.22);font-size:64px}
+.rc-top .rc-rank{color:var(--accent);font-size:62px;font-weight:200}
+.rc-top .rc-name{font-size:36px;white-space:normal;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.rc-top .rc-artist{font-size:21px;margin-top:8px}
+.rc-top .rc-chg{font-size:19px}
+.rc-sep{height:3px;background:var(--accent);width:64px;margin:6px 0 4px}
+/* 2열형 */
+.rc-hero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin:6px 0 30px}
+.rc-card{text-align:center;min-width:0}
+.rc-card .rc-art{width:100%;height:auto;aspect-ratio:1/1;border-radius:18px;box-shadow:0 16px 38px rgba(20,26,43,.24);font-size:110px;position:relative}
+.rc-card .rc-badge{display:inline-block;margin:18px 0 6px;font-size:15px;font-weight:700;letter-spacing:.24em;color:var(--accent)}
+.rc-card .rc-name{font-size:30px;font-weight:800}
+.rc-card .rc-artist{font-size:19px}
+.rc-card .rc-chg{text-align:center;margin-top:6px;font-size:17px}
+.rc-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+.rc-cols .rc-row{grid-template-columns:54px 96px minmax(0,1fr) 70px;gap:18px;padding:11px 4px}
+.rc-cols .rc-art{width:96px;height:96px;border-radius:9px;font-size:30px}
+.rc-cols .rc-rank{font-size:28px}
+.rc-cols .rc-name{font-size:22px}
+.rc-cols .rc-artist{font-size:15.5px}
+.rc-cols .rc-chg{font-size:15px}
 """
+
 
 
 # ───────────────────────── 그래프형 (선 그래프) ─────────────────────────
@@ -343,6 +375,33 @@ def _table(chart: Chart, images):
         cols.append(f"<div>{''.join(cells)}</div>")
     return f'<div class="cols">{"".join(cols)}</div>'
 
+RANK_STYLE = "classic"      # classic(기존 2단 표) / list1(1열, 앨범 큰 목록) / list2(2열, 1~3위 큰 카드 + 2열 목록)
+
+
+def _rc_row(r, images, top=False):
+    c, cls = _rank_change(r.rank, r.previous)
+    return (f'<div class="rc-row{" rc-top" if top else ""}"><div class="rc-rank">{r.rank}</div>'
+            f'<div class="rc-art">{_art(r, images)}</div>'
+            f'<div><div class="rc-name">{html.escape(r.name)}</div><div class="rc-artist">{html.escape(r.artists)}</div></div>'
+            f'<div class="rc-chg {cls}">{c}</div></div>')
+
+
+def _rank_cards(chart: Chart, images, style: str):
+    rows = chart.rows
+    if style == "list1":
+        return "".join(_rc_row(r, images, top=r.rank <= 3) for r in rows)
+    hero = []
+    for r in rows[:3]:
+        c, cls = _rank_change(r.rank, r.previous)
+        hero.append(f'<div class="rc-card"><div class="rc-art">{_art(r, images)}</div><div class="rc-badge">{r.rank}위</div>'
+                    f'<div class="rc-name">{html.escape(r.name)}</div><div class="rc-artist">{html.escape(r.artists)}</div>'
+                    f'<div class="rc-chg {cls}">{c}</div></div>')
+    rest = rows[3:]
+    per = math.ceil(len(rest) / 2)
+    cols = "".join(f'<div>{"".join(_rc_row(r, images) for r in part)}</div>' for part in (rest[:per], rest[per:]))
+    return f'<div class="rc-hero">{"".join(hero)}</div><div class="rc-cols">{cols}</div>'
+
+
 
 def _table_counts(chart: Chart, images):
     out = ['<div class="tc head"><div></div><div></div><div></div><div>곡</div><div>1시간 이용자 수</div><div>24시간 이용자 수</div></div>']
@@ -441,7 +500,12 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
     else:
         rng = f"1~{shown}위" if shown == chart.total or not chart.total else f"1~{shown}위 (전체 {chart.total}곡)"
         sub, stamp = f"{day} {start:%H}시 기준 · {rng}", f"{start:%H}:00"
-        body = _table_counts(chart, images) if layout == "table_counts" else _table(chart, images)
+        if layout == "table" and RANK_STYLE in ("list1", "list2") and len(chart.rows) > 10:
+            body = _rank_cards(chart, images, RANK_STYLE)
+            if RANK_STYLE == "list2":
+                body = '<style>body{width:1480px}</style>' + body
+        else:
+            body = _table_counts(chart, images) if layout == "table_counts" else _table(chart, images)
         if chart.spec.layout == "table_counts" and layout == "table":
             note = "※ 이 시간대는 가이섬에서 이용자 수치를 제공하지 않아 순위만 표시합니다"
     foot_r = f"{shown}곡" if layout in ("five", "graph24", "table_users", "rankgraph24", "rankfive") or shown == chart.total or not chart.total else f"상위 {shown}곡"
@@ -458,6 +522,8 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
 def png_scale(chart: Chart) -> float:
     """곡이 많은 표는 이미지가 너무 길어지지 않게 배율을 낮춘다 (100곡 수치 표는 세로 6400px 안팎)."""
     layout = effective_layout(chart)
+    if layout == "table" and RANK_STYLE in ("list1", "list2") and len(chart.rows) > 10:
+        return 1.0 if RANK_STYLE == "list1" else 1.4     # 1열은 세로가 길어 배율을 낮춤
     if len(chart.rows) > 30:
         if layout == "table_counts":
             return 1.0
