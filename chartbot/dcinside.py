@@ -57,7 +57,8 @@ class DcUploader:
         self.minor = minor
         self.headed = headed
         self.login_id, self.login_pw = login_id, login_pw  # 있으면 세션이 없을 때 이 계정으로 직접 로그인 (비밀번호는 로그/화면에 남기지 않음)
-        self.anon_nick, self.anon_pw = anon_nick, anon_pw  # 로그인이 안 될 때 쓰는 유동(비로그인) 글쓰기용 닉네임/글 비밀번호
+        import os as _os
+        self.anon_nick, self.anon_pw = anon_nick, (anon_pw if _os.environ.get("DC_ALLOW_ANON", "").lower() == "true" else None)  # 로그인이 안 될 때 쓰는 유동(비로그인) 글쓰기용 닉네임/글 비밀번호
         self.storage_state = storage_state  # 있으면 프로필 대신 이 쿠키 파일로 로그인 상태를 복원 (GitHub Actions 등)
 
     @staticmethod
@@ -79,6 +80,15 @@ class DcUploader:
     def write_url(self):
         kind = self._kind or ("mgallery/board" if self.minor else "board")
         return f"https://gall.dcinside.com/{kind}/write/?id={self.gallery_id}"
+
+    def _is_anon(self, page) -> bool:
+        try:
+            fields = page.evaluate("() => [...document.querySelectorAll('input')].filter(e => e.offsetParent).map(e => (e.id || '') + '/' + (e.name || '') + '/' + e.type)")
+        except Exception:
+            fields = []
+        anon = any(f.endswith("/password") for f in fields) or any(f.startswith("gall_nick_name/") for f in fields)
+        print("글쓰기 화면 입력칸:", fields[:12], "-> 비로그인" if anon else "-> 로그인됨")
+        return anon
 
     def _click_submit(self, page) -> None:
         cands = [self.sel["submit"], "button.btn_svc.write", ".btn_blue.small.write", "button.write", "a.write",
@@ -200,10 +210,10 @@ class DcUploader:
             ctx.add_init_script(HIDE_WEBDRIVER)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
             alerts = []
-            page.on("dialog", lambda d: (alerts.append(d.message[:200]), d.dismiss()))
+            page.on("dialog", lambda d: (alerts.append(d.message[:300]), d.accept()))
             try:
                 self._open_write(page, alerts)
-                anon = page.locator(self.sel["anon_nick"]).is_visible()
+                anon = self._is_anon(page)
                 if ("login" in page.url or anon) and self.login_id and self.login_pw:
                     try:
                         self._sign_in(page)
@@ -215,7 +225,7 @@ class DcUploader:
                             raise
                         print("로그인 실패, 유동 글쓰기로 진행:", str(e)[:200])
                     self._open_write(page, alerts)
-                    anon = page.locator(self.sel["anon_nick"]).is_visible()
+                    anon = self._is_anon(page)
                     if anon and not self.anon_pw:
                         raise RuntimeError("로그인 후에도 비로그인(유동) 글쓰기 화면입니다. 계정 정보 또는 캡차를 확인하세요.")
                 if anon:
@@ -335,8 +345,7 @@ class DcUploader:
                 page.keyboard.press("Control+End")
                 page.keyboard.type("\n" + body_text, delay=0)
 
-                dlg = []
-                page.on("dialog", lambda d: (dlg.append(d.message[:300]), d.accept()))
+                dlg = alerts
                 net = []
                 page.on("response", lambda r: net.append(f"{r.status} {r.url[:110]}") if ("write" in r.url or "forms" in r.url or "ajax" in r.url) and r.request.method == "POST" else None)
                 self._click_submit(page)
