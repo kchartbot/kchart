@@ -1,9 +1,9 @@
 # GitHub Actions 용 설정. 갤러리ID/마이너 여부/dry_run 은 저장소 Variables 로 덮어씁니다 (README 참고).
 [bot]
 charts = [
-  # 5분 차트 (5분 칸마다)
-  "melon_rank_five",
-  "melonhot_rank_five",
+  # 5분 차트는 점수 데이터가 생기기 전까지 사용 안 함
+  # "melon_rank_five",
+  # "melonhot_rank_five",
   # 1시간 차트 (정시부터 15분 안에서만)
   "melon_rank",
   "melonhot_rank",
