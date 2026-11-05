@@ -31,7 +31,9 @@ DEFAULT_SELECTORS = {
 
 
 # 디시 이미지 업로드(gall -> upimg 서브도메인)는 document.domain 공유에 의존하는데 최신 크롬은 이를 기본 차단한다
-CHROME_ARGS = ["--disable-features=OriginAgentClusterDefaultEnabled", "--disable-web-security"]
+CHROME_ARGS = ["--disable-features=OriginAgentClusterDefaultEnabled", "--disable-web-security", "--disable-blink-features=AutomationControlled"]
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+HIDE_WEBDRIVER = "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
 
 
 class UploadFailed(RuntimeError):
@@ -67,7 +69,7 @@ class DcUploader:
 
     def _context(self, p, headless):
         return p.chromium.launch_persistent_context(
-            self.profile_dir, headless=headless, args=CHROME_ARGS, locale="ko-KR", viewport={"width": 1280, "height": 900}
+            self.profile_dir, headless=headless, args=CHROME_ARGS, user_agent=UA, locale="ko-KR", viewport={"width": 1280, "height": 900}
         )
 
     def export_session(self, path: str) -> None:
@@ -99,6 +101,11 @@ class DcUploader:
 
     def _sign_in(self, page) -> None:
         """로그인 화면(sign.dcinside.com)에 아이디/비밀번호를 입력한다. 캡차가 뜨면 우회하지 않고 실패 처리한다."""
+        ev = []
+        page.on("console", lambda m: ev.append("console: " + m.text[:200]))
+        page.on("pageerror", lambda e: ev.append("pageerror: " + str(e)[:200]))
+        page.on("requestfailed", lambda r: ev.append("requestfailed: " + r.url[:100]))
+        page.on("response", lambda r: ev.append(f"http {r.status} {r.url[:90]}") if r.status >= 400 or "sign.dcinside" in r.url else None)
         if "sign.dcinside.com" not in page.url:
             from urllib.parse import quote
 
@@ -108,6 +115,7 @@ class DcUploader:
         except Exception:
             # 로그인 입력칸이 안 보임: 어떤 화면이 떴는지 로그에 남긴다 (캡차/차단/점검 구분용, 비밀번호는 포함되지 않음)
             body = " ".join(page.inner_text("body").split())[:300] if page.locator("body").count() else ""
+            print("로그인 화면 이벤트:", ev[-20:], "html길이:", len(page.content()))
             raise RuntimeError(f"로그인 입력칸을 찾지 못했습니다. url={page.url} title={page.title()!r} body={body!r}")
         user = page.locator("form input:not([type=hidden]):not([type=password]):not([type=checkbox]):visible").first
         user.fill(self.login_id)
@@ -127,9 +135,10 @@ class DcUploader:
             if self.storage_state:
                 browser = p.chromium.launch(headless=not self.headed, args=CHROME_ARGS)
                 saved = self.storage_state if Path(self.storage_state).exists() else None
-                ctx = browser.new_context(storage_state=saved, locale="ko-KR", viewport={"width": 1280, "height": 900})
+                ctx = browser.new_context(storage_state=saved, user_agent=UA, locale="ko-KR", viewport={"width": 1280, "height": 900})
             else:
                 ctx = self._context(p, headless=not self.headed)
+            ctx.add_init_script(HIDE_WEBDRIVER)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
             try:
                 page.goto(self.write_url, wait_until="domcontentloaded")
