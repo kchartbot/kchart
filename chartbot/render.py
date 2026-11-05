@@ -164,36 +164,36 @@ border-top:1px solid var(--rule);align-items:stretch}
 .hr .mx{background:#2ea043;color:#fff;font-weight:800}
 .hr .rk{font-weight:700}
 /* 순위표 새 디자인: 앨범 커버 위주 (rank_style = list1 / list2) */
-.rc-row{display:grid;grid-template-columns:70px 112px minmax(0,1fr) 92px;gap:22px;align-items:center;padding:14px 6px;border-bottom:1px solid var(--rule)}
+.rc-row{display:grid;grid-template-columns:78px 112px minmax(0,1fr) 124px;gap:22px;align-items:center;padding:14px 6px;border-bottom:1px solid var(--rule)}
 .rc-row>div{min-width:0}
-.rc-rank{font-size:34px;font-weight:300;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.rc-rank{font-size:42px;font-weight:300;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .rc-art{width:112px;height:112px;border-radius:10px;box-shadow:0 6px 18px rgba(20,26,43,.16);background:var(--card2);overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:34px;color:var(--muted)}
 .rc-art img{width:100%;height:100%;object-fit:cover;display:block}
-.rc-name{font-size:25px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rc-artist{font-size:17px;color:var(--muted);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rc-chg{font-size:16px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
-.rc-top{grid-template-columns:70px 204px minmax(0,1fr) 92px;padding:24px 6px}
+.rc-name{font-size:31px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-artist{font-size:22px;color:var(--muted);margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rc-chg{font-size:28px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.rc-top{grid-template-columns:78px 204px minmax(0,1fr) 124px;padding:24px 6px}
 .rc-top .rc-art{width:204px;height:204px;border-radius:16px;box-shadow:0 12px 30px rgba(20,26,43,.22);font-size:64px}
-.rc-top .rc-rank{color:var(--accent);font-size:62px;font-weight:200}
-.rc-top .rc-name{font-size:36px;white-space:normal;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.rc-top .rc-artist{font-size:21px;margin-top:8px}
-.rc-top .rc-chg{font-size:19px}
+.rc-top .rc-rank{color:var(--accent);font-size:72px;font-weight:200}
+.rc-top .rc-name{font-size:44px;white-space:normal;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.rc-top .rc-artist{font-size:26px;margin-top:8px}
+.rc-top .rc-chg{font-size:34px}
 .rc-sep{height:3px;background:var(--accent);width:64px;margin:6px 0 4px}
 /* 2열형 */
 .rc-hero{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin:6px 0 30px}
 .rc-card{text-align:center;min-width:0}
 .rc-card .rc-art{width:100%;height:auto;aspect-ratio:1/1;border-radius:18px;box-shadow:0 16px 38px rgba(20,26,43,.24);font-size:110px;position:relative}
-.rc-card .rc-badge{display:inline-block;margin:18px 0 6px;font-size:15px;font-weight:700;letter-spacing:.24em;color:var(--accent)}
-.rc-card .rc-name{font-size:30px;font-weight:800}
-.rc-card .rc-artist{font-size:19px}
-.rc-card .rc-chg{text-align:center;margin-top:6px;font-size:17px}
+.rc-card .rc-badge{display:inline-block;margin:18px 0 6px;font-size:22px;font-weight:700;letter-spacing:.24em;color:var(--accent)}
+.rc-card .rc-name{font-size:38px;font-weight:800}
+.rc-card .rc-artist{font-size:24px}
+.rc-card .rc-chg{text-align:center;margin-top:8px;font-size:32px}
 .rc-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
-.rc-cols .rc-row{grid-template-columns:54px 96px minmax(0,1fr) 70px;gap:18px;padding:11px 4px}
+.rc-cols .rc-row{grid-template-columns:64px 96px minmax(0,1fr) 96px;gap:18px;padding:11px 4px}
 .rc-cols .rc-art{width:96px;height:96px;border-radius:9px;font-size:30px}
-.rc-cols .rc-rank{font-size:28px}
-.rc-cols .rc-name{font-size:22px}
-.rc-cols .rc-artist{font-size:15.5px}
-.rc-cols .rc-chg{font-size:15px}
+.rc-cols .rc-rank{font-size:36px}
+.rc-cols .rc-name{font-size:27px}
+.rc-cols .rc-artist{font-size:19px}
+.rc-cols .rc-chg{font-size:24px}
 """
 
 
