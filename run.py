@@ -41,7 +41,7 @@ def load_config(path: str) -> dict:
     if os.environ.get("DC_GALLERY_ID"):
         cfg.setdefault("dc", {})["gallery_id"] = os.environ["DC_GALLERY_ID"]
     if "DC_HEADTEXT" in os.environ:  # 빈 값이면 말머리 선택 생략
-        cfg.setdefault("dc", {})["headtext"] = os.environ["DC_HEADTEXT"]
+        cfg.setdefault("dc", {})["headtext"] = os.environ["DC_HEADTEXT"].strip()
     if os.environ.get("DC_MINOR"):
         cfg.setdefault("dc", {})["minor"] = os.environ["DC_MINOR"].lower() == "true"
     if os.environ.get("DRY_RUN"):

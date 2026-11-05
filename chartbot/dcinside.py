@@ -155,7 +155,7 @@ class DcUploader:
                 up = pop.value
                 up.wait_for_load_state("domcontentloaded")
                 up.set_input_files("input.file_add", str(image_path))
-                up.wait_for_function("document.getElementById('upload_ing').value !== 'Y' && document.querySelectorAll('.files li, tbody.files tr').length > 0", timeout=30000)
+                up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=45000)
                 up.wait_for_timeout(1500)
                 up.click("button.btn_apply")
                 try:
