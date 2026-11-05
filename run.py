@@ -22,7 +22,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from chartbot.dcinside import DcUploader
-from chartbot.fetch import SPECS, Fetcher, get_chart, resolve
+from chartbot.fetch import SPECS, Fetcher, RateLimited, get_chart, resolve
 from chartbot.samples import SampleFetcher
 from chartbot.render import body_text, embed_images, png_scale, post_title, render_html, render_png
 
@@ -107,6 +107,9 @@ def run_cycle(cfg, fetcher, uploader, state, out):
     for key in cfg["bot"]["charts"]:
         try:
             process(key, cfg, fetcher, uploader, state, out)
+        except RateLimited as e:
+            log.error("%s — 이번 주기의 나머지 요청을 중단합니다. 이 환경(IP)에서 가이섬 접근이 막혀 있을 수 있습니다.", e)
+            break
         except Exception:
             log.exception("%s 처리 실패 (다음 차트로 계속)", key)
     (out / "state.json").write_text(json.dumps(state), encoding="utf-8")

@@ -164,6 +164,10 @@ def parse_chart(key: str, text: str) -> Chart:
     return Chart(spec=spec, hour_start=datetime.fromisoformat(d["time"]), rows=rows[: spec.max_rows], total=total)
 
 
+class RateLimited(RuntimeError):
+    """가이섬이 429 를 돌려줌. 재시도하지 않고 이번 주기를 중단한다 (차단/제한 상태에서 계속 요청하지 않기 위해)."""
+
+
 class Fetcher:
     """요청 간격을 지키는 단순 HTTP 클라이언트 (사이트 부하 최소화)."""
 
@@ -187,7 +191,9 @@ class Fetcher:
                     return resp.read().decode("utf-8", "replace")
             except urllib.error.HTTPError as e:
                 err = e
-                if e.code == 429 or e.code >= 500:  # 서버가 느리거나 제한을 건 경우: 천천히 재시도
+                if e.code == 429:
+                    raise RateLimited(f"가이섬이 요청을 제한했습니다 (HTTP 429): {url}") from e
+                if e.code >= 500:  # 서버가 느리거나 제한을 건 경우: 천천히 재시도
                     time.sleep(10 * (attempt + 1))
                     continue
                 raise
