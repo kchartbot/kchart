@@ -30,6 +30,10 @@ DEFAULT_SELECTORS = {
 }
 
 
+# 디시 이미지 업로드(gall -> upimg 서브도메인)는 document.domain 공유에 의존하는데 최신 크롬은 이를 기본 차단한다
+CHROME_ARGS = ["--disable-features=OriginAgentClusterDefaultEnabled", "--disable-web-security"]
+
+
 class UploadFailed(RuntimeError):
     pass
 
@@ -56,7 +60,7 @@ class DcUploader:
 
     def _context(self, p, headless):
         return p.chromium.launch_persistent_context(
-            self.profile_dir, headless=headless, locale="ko-KR", viewport={"width": 1280, "height": 900}
+            self.profile_dir, headless=headless, args=CHROME_ARGS, locale="ko-KR", viewport={"width": 1280, "height": 900}
         )
 
     def export_session(self, path: str) -> None:
@@ -114,7 +118,7 @@ class DcUploader:
         with sync_playwright() as p:
             browser = None
             if self.storage_state:
-                browser = p.chromium.launch(headless=not self.headed)
+                browser = p.chromium.launch(headless=not self.headed, args=CHROME_ARGS)
                 saved = self.storage_state if Path(self.storage_state).exists() else None
                 ctx = browser.new_context(storage_state=saved, locale="ko-KR", viewport={"width": 1280, "height": 900})
             else:
