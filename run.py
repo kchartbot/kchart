@@ -91,7 +91,8 @@ def make_uploader(cfg, headed):
 _LAST_POST = [0.0]
 
 
-def process(key, cfg, fetcher, uploader, state, out):
+def prepare(key, cfg, fetcher, out, state):
+    """차트를 받아 이미지(PNG)와 제목·본문까지 만든다. 올리지는 않는다. 올릴 게 없으면 None."""
     spec = resolve(key)
     b = cfg["bot"]
     # 가이섬은 한국시간 기준이라, 서버 시계/타임존과 무관하게 KST 로 시각을 계산한다
@@ -102,23 +103,30 @@ def process(key, cfg, fetcher, uploader, state, out):
         # 그 밖의 시각(예: 02:37)에 실행해도 올리지 않는다. (force 로 시험할 때만 예외)
         if not b.get("force") and now.minute >= int(b.get("hourly_window_minutes", 15)):
             log.info("%s 정시 창(%d분) 밖이라 건너뜀 (%s)", spec.key, int(b.get("hourly_window_minutes", 15)), f"{now:%H:%M}")
-            return False
+            return None
         # 시간당 1회: 정시 직후엔 가이섬 갱신 전일 수 있어 hourly_after_minute 이후에만 시도하고,
         # 이미 올린 시간대면 요청 자체를 하지 않는다.
         # (직접 수집 차트는 사이트가 이미 최신이라 기다릴 필요가 없다. 수동 실행/밀린 스케줄에서도 바로 올라가게 한다)
         if spec.source != "direct" and now.minute < int(b.get("hourly_after_minute", 5)):
-            return False
+            return None
         if state.get(spec.key) == f"{now:%Y%m%d%H}00":
-            return False
+            return None
 
     chart = get_chart(spec.key, now, fetcher, cache_dir=out / "cache")
     stamp = f"{chart.stamp:%Y%m%d%H%M}"
     if state.get(spec.key) == stamp:
         log.info("%s %s 이미 처리함, 건너뜀", spec.key, stamp)
-        return False
+        return None
 
-    images = embed_images(chart, fetcher, out / "cache", budget=int(b.get("image_budget", 30)), gap=float(b.get("image_gap", 1.0)),
-                         size=400 if spec.layout == "table_users" else (None if spec.source == "direct" else 80))
+    size = 400 if spec.layout == "table_users" else (None if spec.source == "direct" else 80)
+    budget, gap = int(b.get("image_budget", 30)), float(b.get("image_gap", 1.0))
+    images = embed_images(chart, fetcher, out / "cache", budget=budget, gap=gap, size=size)
+    missing = [r for r in chart.rows if r.image and r.image not in images]
+    if missing:   # 못 받은 앨범 이미지는 한 번 더 시도 (커버가 빠지지 않게)
+        images = embed_images(chart, fetcher, out / "cache", budget=budget, gap=gap, size=size)
+        missing = [r for r in chart.rows if r.image and r.image not in images]
+        if missing:
+            log.warning("%s 앨범 이미지 %d곡 못 받음: %s", spec.key, len(missing), ", ".join(f"{r.rank}위" for r in missing[:10]))
     html = render_html(chart, images)
     png = out / f"{spec.key}_{stamp}.png"
     (out / f"{spec.key}_{stamp}.html").write_text(html, encoding="utf-8")
@@ -126,23 +134,25 @@ def process(key, cfg, fetcher, uploader, state, out):
     title, body = post_title(chart), body_text(chart)
     if b.get("dry_run", True):
         log.info("[dry-run] 업로드 생략: %s -> %s", title, png)
-        return False
-    else:
-        # 같은 실행에서 여러 개를 올릴 때는 글 사이에 20~30초(설정값) 간격을 둔다
-        _g = [float(x) for x in str(b.get("post_gap_seconds", "20-30")).split("-")]
-        lo, hi = _g[0], _g[-1]
-        gap = random.uniform(lo, hi)
-        wait = _LAST_POST[0] + gap - time.monotonic()
-        if _LAST_POST[0] and wait > 0:
-            log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
-            time.sleep(wait)
-        _LAST_POST[0] = time.monotonic()      # 간격은 앞 글이 시작된 시각 기준 (업로드에 걸리는 시간이 간격에 포함됨 → 5개가 2분 안에 끝남)
-        uploader.post(title, body, png, out)
-        log.info("업로드 완료: %s", title)
-    state[spec.key] = stamp
-    for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
+        return None
+    return {"key": spec.key, "stamp": stamp, "title": title, "body": body, "png": png}
+
+
+def publish(job, cfg, uploader, state, out):
+    """준비된 글 하나를 올린다. 글 사이 간격은 앞 글이 시작된 시각 기준(post_gap_seconds)이라 업로드 시간이 간격에 포함된다."""
+    b = cfg["bot"]
+    _g = [float(x) for x in str(b.get("post_gap_seconds", "20-30")).split("-")]
+    gap = random.uniform(_g[0], _g[-1])
+    wait = _LAST_POST[0] + gap - time.monotonic()
+    if _LAST_POST[0] and wait > 0:
+        log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
+        time.sleep(wait)
+    _LAST_POST[0] = time.monotonic()
+    uploader.post(job["title"], job["body"], job["png"], out)
+    log.info("업로드 완료: %s (%s)", job["title"], f"{datetime.now(KST):%H:%M:%S}")
+    state[job["key"]] = job["stamp"]
+    for f in sorted(out.glob(f"{job['key']}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
         f.unlink(missing_ok=True)
-    return True
 
 
 def _kst():
@@ -175,8 +185,8 @@ def wait_until(target):
         time.sleep(min(left, 5) if left > 5 else max(left, 0.02))
 
 
-def post_top_on_time(cfg, fetcher, uploader, state, out):
-    """정각 전에 시작한 실행: 준비를 끝내 두고 정각이 되자마자 TOP100(첫 차트)을 올린 뒤, 나머지는 설정된 간격으로 올린다."""
+def precise_wait(cfg, fetcher, out):
+    """정각 전에 시작한 실행: 이미지 등 준비를 끝내 두고 정각까지 기다린다. 이어서 run_cycle 이 첫 차트(TOP100)부터 올린다."""
     b = cfg["bot"]
     top = (b.get("charts") or [None])[0]
     now = _kst()
@@ -209,14 +219,6 @@ def post_top_on_time(cfg, fetcher, uploader, state, out):
             log.info("%s 아직 갱신 전 (직전 순위와 동일) — 5초 뒤 다시 확인", top)
             time.sleep(5)
         fetcher._last = 0.0
-    try:
-        if process(top, cfg, fetcher, uploader, state, out):
-            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
-            log.info("정각 게시 완료 (%s)", f"{_kst():%H:%M:%S}")
-    except (RateLimited, UploadFailed):
-        log.exception("정각 게시 실패")
-    except Exception:
-        log.exception("정각 게시 처리 실패")
 
 
 def collect_direct(cfg, fetcher, out):
@@ -232,30 +234,61 @@ def collect_direct(cfg, fetcher, out):
 
 
 def run_cycle(cfg, fetcher, uploader, state, out):
-    try:
-        collect_direct(cfg, fetcher, out)
-    except RateLimited as e:
-        log.error("%s — 이번 주기를 중단합니다.", e)
-        return
-    limit = int(cfg["bot"].get("max_posts", 1))  # 한 번 실행에 올리는 글 수 (연속 게시로 사람 확인에 걸리는 것을 막음)
+    """준비 스레드가 차트를 차례로 만들어 두고(수집·이미지·렌더), 메인은 만들어진 것부터 간격을 두고 올린다.
+    첫 글(TOP100)을 올리는 동안 나머지가 이미 준비되므로 글 사이 대기가 업로드 시간뿐이다."""
+    import queue
+    import threading
+    b = cfg["bot"]
+    limit = int(b.get("max_posts", 1))  # 한 번 실행에 올리는 글 수
+    q, stop = queue.Queue(), threading.Event()
+
+    def worker():
+        try:
+            for n, key in enumerate(b["charts"]):
+                if stop.is_set():
+                    break
+                try:
+                    job = prepare(key, cfg, fetcher, out, state)
+                    if job:
+                        q.put(job)
+                except RateLimited as e:
+                    log.error("%s — 이번 주기의 나머지 요청을 중단합니다. 이 환경(IP)에서 가이섬 접근이 막혀 있을 수 있습니다.", e)
+                    break
+                except Exception:
+                    log.exception("%s 준비 실패 (다음 차트로 계속)", key)
+                if n == 0:
+                    try:
+                        collect_direct(cfg, fetcher, out)   # 올리지 않는 플랫폼도 순위를 기록해 둔다 (그래프용)
+                    except RateLimited as e:
+                        log.error("%s — 이번 주기를 중단합니다.", e)
+                        break
+        finally:
+            q.put(None)
+
+    t = threading.Thread(target=worker, daemon=True)
+    t.start()
     posted = 0
-    for key in cfg["bot"]["charts"]:
+    while True:
+        job = q.get()
+        if job is None:
+            break
+        if stop.is_set():
+            continue
         if posted >= limit:
             log.info("이번 실행의 게시 한도(%d개)에 도달, 나머지는 다음 실행에서 처리", limit)
-            break
+            stop.set()
+            continue
         try:
-            if process(key, cfg, fetcher, uploader, state, out):
-                posted += 1
-        except RateLimited as e:
-            log.error("%s — 이번 주기의 나머지 요청을 중단합니다. 이 환경(IP)에서 가이섬 접근이 막혀 있을 수 있습니다.", e)
-            break
+            publish(job, cfg, uploader, state, out)
+            posted += 1
+            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
         except UploadFailed:
-            log.exception("%s 업로드 실패 — 이번 주기의 나머지 업로드를 중단합니다.", key)
-            break
+            log.exception("%s 업로드 실패 — 이번 주기의 나머지 업로드를 중단합니다.", job["key"])
+            stop.set()
         except Exception:
-            log.exception("%s 처리 실패 (다음 차트로 계속)", key)
+            log.exception("%s 처리 실패 (다음 차트로 계속)", job["key"])
+    t.join(timeout=5)
     (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
-
 
 def main():
     ap = argparse.ArgumentParser()
@@ -312,7 +345,7 @@ def main():
 
     if a.cmd == "once":
         if b.get("precise_top", False):
-            post_top_on_time(cfg, fetcher, uploader, state, out)
+            precise_wait(cfg, fetcher, out)
         run_cycle(cfg, fetcher, uploader, state, out)
         return
 

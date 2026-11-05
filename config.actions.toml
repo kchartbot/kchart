@@ -29,7 +29,7 @@ precise_top = true           # 정각 전에 미리 준비해 두고 정각에 �
 precise_lead_minutes = 16     # 정각 16분 전부터 시작한 실행은 준비 후 정각까지 기다림
 min_request_gap = 3.0
 image_budget = 100            # 정각 전에 미리 받아 두므로 100곡 전부 앨범 이미지 넣음
-image_gap = 1.0
+image_gap = 0.5
 dry_run = true                 # Variables 의 DRY_RUN=false 로 바꾸기 전까지 업로드하지 않습니다
 user_agent = "chartbot/1.0"
 out_dir = "out"
