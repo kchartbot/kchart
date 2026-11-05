@@ -1,8 +1,10 @@
 name: chartbot
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"      # GitHub 스케줄은 수 분~수십 분 밀릴 수 있습니다 (README 참고)
+  # 일시 중지: 가이섬이 GitHub 서버 IP 에 429(Too Many Requests)를 돌려줘서 수집이 안 됨.
+  # 해결된 뒤 아래 두 줄의 주석을 풀면 다시 5분마다 돕니다.
+  # schedule:
+  #   - cron: "*/5 * * * *"
   workflow_dispatch: {}         # Actions 탭에서 수동 실행
 
 permissions:
