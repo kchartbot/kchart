@@ -183,75 +183,63 @@ RANK_COLORS = ["#2563eb", "#dc2626", "#059669", "#d97706", "#7c3aed"]
 
 
 def _rank_linechart(chart: Chart):
-    W, H = 1000, 600
-    L, R, T, B = 56, 320, 40, 58
     n = chart.spec.slots
     rows = chart.rows[:TOP_LINES]
-    vals = [int(v) for r in rows for v in (r.values or []) if v]
-    top = max(5, max(vals, default=5))
-    top = top if top <= 10 else int(math.ceil(top / 5) * 5)
-    ys = lambda v: T + (H - T - B) * (v - 1) / (top - 1)
-    xs = lambda i: L + (W - L - R) * (i + .5) / n
-    g = []
-    g.append(f'<rect x="{L}" y="{ys(1) - 18:.1f}" width="{W - R - L}" height="{ys(3) - ys(1) + 36:.1f}" fill="#fbf4e2"/>')
-    for t in range(1, top + 1):
-        major = t == 1 or t % 5 == 0 or top <= 10
-        y = ys(t)
-        g.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="{"#d3cfc4" if major else "#ece9e0"}" stroke-width="{1.4 if major else 1}"/>')
-        if major:
-            g.append(f'<text x="{L - 12}" y="{y + 7:.1f}" font-size="22" font-weight="700" text-anchor="end">{t}</text>')
+    RH, W = 170, 1000
+    H = RH * len(rows) + 56
+    X0, X1 = 470, 960
+    xs = lambda i: X0 + (X1 - X0) * (i + .5) / n
     labels = _x_labels(chart)
-    every = 1 if n <= 14 else 2
-    for i, lab in enumerate(labels):
-        g.append(f'<line x1="{xs(i):.1f}" x2="{xs(i):.1f}" y1="{T - 10}" y2="{H - B}" stroke="#f0ede5" stroke-width="1"/>')
-        if i % every == (n - 1) % every:
-            g.append(f'<text x="{xs(i):.1f}" y="{H - B + 32}" font-size="20" text-anchor="middle">{lab}</text>')
-    ends, dots = [], []
+    every = 4 if chart.spec.layout == "rankgraph24" else 3
+    g = []
     for k, r in enumerate(rows):
         col = RANK_COLORS[k % len(RANK_COLORS)]
+        y0 = k * RH
+        if k % 2 == 0:
+            g.append(f'<rect x="0" y="{y0}" width="{W}" height="{RH}" fill="#faf8f2"/>')
         pts = [(i, int(v)) for i, v in enumerate(r.values or []) if v]
-        segs, cur, prev = [], [], None
-        for i, v in pts:
-            if prev is not None and i != prev + 1:
-                segs.append(cur)
-                cur = []
-            cur.append((xs(i), ys(v), v))
-            prev = i
-        if cur:
-            segs.append(cur)
-        for sg in segs:
-            if len(sg) > 1:
-                d = " ".join(f"{x:.1f},{y:.1f}" for x, y, _ in sg)
-                g.append(f'<polyline points="{d}" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>')
-                g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="4.6" stroke-linejoin="round" stroke-linecap="round"/>')
-            for j, (x, y, v) in enumerate(sg):
-                last = (j == len(sg) - 1 and sg is segs[-1])
-                dots.append((x, y, v, col, last))
+        cur = pts[-1][1] if pts else r.rank
+        g.append(f'<circle cx="62" cy="{y0 + RH / 2 - 6}" r="44" fill="{col}"/>')
+        g.append(f'<text x="62" y="{y0 + RH / 2 + 6}" font-size="46" font-weight="800" text-anchor="middle" style="fill:#fff">{cur}</text>')
+        g.append(f'<text x="62" y="{y0 + RH / 2 + 30}" font-size="18" font-weight="700" text-anchor="middle" style="fill:#fff" opacity=".9">\uc704</text>')
+        name = r.name if len(r.name) <= 12 else r.name[:11] + "\u2026"
+        art = r.artists if len(r.artists) <= 20 else r.artists[:19] + "\u2026"
+        g.append(f'<text x="128" y="{y0 + 66}" font-size="30" font-weight="800" style="fill:#141a2b">{html.escape(name)}</text>')
+        g.append(f'<text x="128" y="{y0 + 102}" font-size="22" style="fill:#6b7080">{html.escape(art)}</text>')
         if pts:
-            i, v = pts[-1]
-            ends.append({"x": xs(i), "y0": ys(v), "y": ys(v), "rank": v, "name": r.name, "col": col})
-    for x, y, v, col, last in dots:
-        rad = 17 if last else 12.5
-        g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rad}" fill="{col}" stroke="#fff" stroke-width="2.5"/>')
-        g.append(f'<text x="{x:.1f}" y="{y + (6.5 if last else 5):.1f}" font-size="{19 if last else 14}" font-weight="800" text-anchor="middle" style="fill:#ffffff">{v}</text>')
-    ends.sort(key=lambda e: e["y0"])
-    gap = 44
-    for j in range(1, len(ends)):
-        if ends[j]["y"] - ends[j - 1]["y"] < gap:
-            ends[j]["y"] = ends[j - 1]["y"] + gap
-    over = (ends[-1]["y"] - (H - B)) if ends else 0
-    if over > 0:
-        for e in ends:
-            e["y"] -= over
-        for j in range(len(ends) - 2, -1, -1):
-            if ends[j + 1]["y"] - ends[j]["y"] < gap:
-                ends[j]["y"] = ends[j + 1]["y"] - gap
-    lx = W - R + 40
-    for e in ends:
-        name = e["name"] if len(e["name"]) <= 12 else e["name"][:11] + "\u2026"
-        g.append(f'<path d="M{e["x"] + 20:.1f},{e["y0"]:.1f} L{lx - 10},{e["y"]:.1f}" stroke="{e["col"]}" stroke-width="2" fill="none" opacity=".6"/>')
-        g.append(f'<text x="{lx}" y="{e["y"] + 8:.1f}" font-size="26" font-weight="800" style="fill:{e["col"]}">{e["rank"]}\uc704</text>')
-        g.append(f'<text x="{lx + 56}" y="{e["y"] + 8:.1f}" font-size="22" font-weight="700" style="fill:#141a2b">{html.escape(name)}</text>')
+            vs = [v for _, v in pts]
+            best, worst = min(vs), max(vs)
+            g.append(f'<text x="128" y="{y0 + 140}" font-size="21" font-weight="700" style="fill:#4a5060">\ucd5c\uace0 {best}\uc704 \u00b7 \ucd5c\uc800 {worst}\uc704</text>')
+            lo, hi = best, worst
+            if lo == hi:
+                lo, hi = lo - 1, hi + 1
+            ty, by = y0 + 34, y0 + RH - 34
+            ys = lambda v: ty + (by - ty) * (v - lo) / (hi - lo)
+            g.append(f'<line x1="{X0 - 14}" x2="{X1 + 6}" y1="{ty}" y2="{ty}" stroke="#e1ddd2"/>')
+            g.append(f'<line x1="{X0 - 14}" x2="{X1 + 6}" y1="{by}" y2="{by}" stroke="#e1ddd2"/>')
+            g.append(f'<text x="{X0 - 22}" y="{ty + 7}" font-size="19" text-anchor="end" style="fill:#8a8f9c">{max(lo, 1)}</text>')
+            g.append(f'<text x="{X0 - 22}" y="{by + 7}" font-size="19" text-anchor="end" style="fill:#8a8f9c">{hi}</text>')
+            segs, curseg, prev = [], [], None
+            for i, v in pts:
+                if prev is not None and i != prev + 1:
+                    segs.append(curseg)
+                    curseg = []
+                curseg.append((xs(i), ys(v)))
+                prev = i
+            if curseg:
+                segs.append(curseg)
+            for sg in segs:
+                if len(sg) > 1:
+                    d = " ".join(f"{x:.1f},{y:.1f}" for x, y in sg)
+                    g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>')
+            lx, ly = xs(pts[-1][0]), ys(pts[-1][1])
+            g.append(f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="10" fill="{col}" stroke="#fff" stroke-width="3"/>')
+    yb = RH * len(rows)
+    g.append(f'<line x1="{X0 - 14}" x2="{X1 + 6}" y1="{yb + 6}" y2="{yb + 6}" stroke="#d3cfc4"/>')
+    g.append(f'<text x="128" y="{yb + 38}" font-size="19" style="fill:#8a8f9c">\uc120\uc774 \uc704\ucabd\uc77c\uc218\ub85d \ub192\uc740 \uc21c\uc704</text>')
+    for i, lab in enumerate(labels):
+        if i % every == (n - 1) % every:
+            g.append(f'<text x="{xs(i):.1f}" y="{yb + 38}" font-size="21" text-anchor="middle" style="fill:#4a5060">{lab}</text>')
     return f'<svg class="lc" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">{"".join(g)}</svg>'
 
 
