@@ -30,6 +30,10 @@ DEFAULT_SELECTORS = {
 }
 
 
+class UploadFailed(RuntimeError):
+    pass
+
+
 class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
                  minor: bool = True, headed: bool = False, storage_state: str | None = None,
@@ -153,9 +157,25 @@ class DcUploader:
                 with page.expect_popup(timeout=15000) as pop:
                     page.click(self.sel["image_button"])
                 up = pop.value
+                msgs = []
+                up.on("dialog", lambda d: (msgs.append("dialog: " + d.message), d.dismiss()))
+                up.on("console", lambda m: msgs.append("console: " + m.text[:200]))
+                up.on("pageerror", lambda e: msgs.append("pageerror: " + str(e)[:200]))
+                up.on("response", lambda r: msgs.append(f"http {r.status} {r.url[:120]}") if ("upimg" in r.url or "upload" in r.url) else None)
+                up.on("requestfailed", lambda r: msgs.append("requestfailed: " + r.url[:120]))
                 up.wait_for_load_state("domcontentloaded")
                 up.set_input_files("input.file_add", str(image_path))
-                up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=45000)
+                try:
+                    up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=25000)
+                except Exception:
+                    try:
+                        up.screenshot(path=str(err_dir / "dc_popup.png"))
+                        info = up.evaluate("({ing: document.getElementById('upload_ing') && document.getElementById('upload_ing').value, sortable: (document.getElementById('sortable')||{}).innerHTML, files: (document.querySelector('tbody.files')||{}).innerHTML, text: document.body.innerText.slice(0, 400)})")
+                    except Exception as e:
+                        info = "popup 상태 읽기 실패: " + str(e)[:150]
+                    print("팝업 진단:", str(info)[:1500])
+                    print("팝업 이벤트:", msgs[-25:])
+                    raise UploadFailed("이미지 팝업 업로드가 끝나지 않음")
                 up.wait_for_timeout(1500)
                 up.click("button.btn_apply")
                 try:

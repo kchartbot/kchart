@@ -21,7 +21,7 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from chartbot.dcinside import DcUploader
+from chartbot.dcinside import DcUploader, UploadFailed
 from chartbot.fetch import SPECS, Fetcher, RateLimited, get_chart, resolve
 from chartbot.direct import ensure_snapshot
 from chartbot.samples import SampleFetcher, seed_sample_history
@@ -129,6 +129,9 @@ def run_cycle(cfg, fetcher, uploader, state, out):
             process(key, cfg, fetcher, uploader, state, out)
         except RateLimited as e:
             log.error("%s — 이번 주기의 나머지 요청을 중단합니다. 이 환경(IP)에서 가이섬 접근이 막혀 있을 수 있습니다.", e)
+            break
+        except UploadFailed:
+            log.exception("%s 업로드 실패 — 이번 주기의 나머지 업로드를 중단합니다.", key)
             break
         except Exception:
             log.exception("%s 처리 실패 (다음 차트로 계속)", key)
