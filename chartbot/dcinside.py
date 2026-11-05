@@ -198,7 +198,22 @@ class DcUploader:
                     f.on('fileuploaddone fileuploadfail fileuploadalways', function (e, d) {
                         let r = ''; try { r = JSON.stringify(d.result) + ' | ' + (d.jqXHR && d.jqXHR.responseText || '').slice(0, 500) + ' | ' + (d.textStatus || '') + ' ' + (d.errorThrown || ''); } catch (x) { r = String(x); }
                         console.log('UPLOAD ' + e.type + ': ' + r); }); }""")
-                up.set_input_files("input.file_add", str(image_path))
+                # 팝업 스크립트 자신의 XHR 은 서버에서 빈 응답을 받으므로, 같은 요청을 직접 보내고 응답을 '업로드 성공' 이벤트로 넘겨 준다
+                import base64
+                up.evaluate("""async (b64) => {
+                    const o = $('#fileupload').fileupload('option');
+                    const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+                    const fd = new FormData(); fd.append('files[]', new Blob([bin], {type: 'image/png'}), 'chart.png');
+                    ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
+                    fd.append('upload_ing', 'Y');
+                    const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'});
+                    const json = JSON.parse(await r.text());
+                    console.log('DIRECT ' + r.status + ' ' + JSON.stringify(json).slice(0, 300));
+                    document.getElementById('upload_ing').value = 'N';
+                    $('.info_box').hide();
+                    const inst = $('#fileupload').data('blueimp-fileupload') || $('#fileupload').data('fileupload');
+                    inst._trigger('done', $.Event('done'), {result: json, textStatus: 'success', jqXHR: {}, files: [{name: 'chart.png'}]});
+                }""", base64.b64encode(Path(image_path).read_bytes()).decode())
                 try:
                     up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=25000)
                 except Exception:
