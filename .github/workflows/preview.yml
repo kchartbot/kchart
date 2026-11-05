@@ -1,14 +1,14 @@
 name: preview
-# 새 순위표 디자인을 실제 멜론 TOP100과 앨범 커버로 그려 preview 브랜치에 올림 (확인용)
+# 순위표 디자인 후보를 실제 멜론 TOP100과 앨범 커버로 그려 preview 브랜치에 올림 (확인용). 로그도 같이 저장.
 on:
   push:
-    paths: [".github/workflows/preview.yml", "tools/preview_design.py"]
+    paths: [".github/workflows/preview.yml", "tools/preview_design.py", "chartbot/rankstyles.py"]
 permissions:
   contents: write
 jobs:
   go:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,9 +20,12 @@ jobs:
           sudo apt-get install -y -qq fonts-noto-cjk
           pip install -r requirements.txt pillow
           playwright install --with-deps chromium
-      - run: python tools/preview_design.py /tmp/preview
       - run: |
+          mkdir -p /tmp/preview
+          python tools/preview_design.py /tmp/preview 2>&1 | tee /tmp/preview/log.txt
+      - if: always()
+        run: |
           git config user.name preview; git config user.email preview@users.noreply.github.com
           git checkout -q --orphan preview; git rm -rfq . || true
-          cp /tmp/preview/*.png .; git add *.png
-          git commit -qm "preview"; git push -qf origin preview
+          cp /tmp/preview/* . 2>/dev/null || true
+          git add -A; git commit -qm "preview $(date -u +%T)"; git push -qf origin preview

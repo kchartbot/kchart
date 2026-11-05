@@ -522,7 +522,12 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
     else:
         rng = f"1~{shown}위" if shown == chart.total or not chart.total else f"1~{shown}위 (전체 {chart.total}곡)"
         sub, stamp = f"{day} {start:%H}시 기준 · {rng}", f"{start:%H}:00"
-        if layout == "table" and RANK_STYLE in ("list1", "list2") and len(chart.rows) > 10:
+        from . import rankstyles
+        if layout == "table" and RANK_STYLE in rankstyles.STYLES and len(chart.rows) > 10:
+            fn, width, _scale, _desc = rankstyles.STYLES[RANK_STYLE]
+            css_x, body = fn(chart, images)
+            body = f"<style>body{{width:{width}px}}{css_x}</style>" + body
+        elif layout == "table" and RANK_STYLE in ("list1", "list2") and len(chart.rows) > 10:
             body = _rank_cards(chart, images, RANK_STYLE)
             if RANK_STYLE == "list2":
                 body = '<style>body{width:1480px}</style>' + body
@@ -544,6 +549,9 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
 def png_scale(chart: Chart) -> float:
     """곡이 많은 표는 이미지가 너무 길어지지 않게 배율을 낮춘다 (100곡 수치 표는 세로 6400px 안팎)."""
     layout = effective_layout(chart)
+    from . import rankstyles
+    if layout == "table" and RANK_STYLE in rankstyles.STYLES and len(chart.rows) > 10:
+        return rankstyles.STYLES[RANK_STYLE][2]
     if layout == "table" and RANK_STYLE in ("list1", "list2") and len(chart.rows) > 10:
         return 1.0 if RANK_STYLE == "list1" else 1.4     # 1열은 세로가 길어 배율을 낮춤
     if len(chart.rows) > 30:
