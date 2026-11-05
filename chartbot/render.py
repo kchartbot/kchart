@@ -301,8 +301,18 @@ def _linechart(chart: Chart):
                 g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>')
             for x, y in sg:
                 g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2" fill="{col}"/>')
+        # 시점마다 점수 표시: 바로 위 선과 가까우면 점 아래에, 아니면 위에 쓴다
+        for i, v in enumerate(r.values or []):
+            if not v:
+                continue
+            higher = [o.values[i] for o in rows if o is not r and o.values and i < len(o.values) and o.values[i] and o.values[i] > v]
+            near = bool(higher) and (min(higher) - v) / top * (H - T - B) < 26
+            ty = ys(v) + (19 if near else -9)
+            lab = f"{v:.3f}".rstrip("0").rstrip(".")
+            g.append(f'<text x="{xs(i):.1f}" y="{ty:.1f}" font-size="{12 if n > 13 else 13}" font-weight="600" text-anchor="middle" '
+                     f'style="fill:{col};stroke:#fff;stroke-width:3;paint-order:stroke">{lab}</text>')
         # 가장 최근 값 표시 (소수 첫째 자리, 겹치지 않게 위아래로 조금씩 밀어냄)
-        idx = [i for i, v in enumerate(r.values or []) if v]
+        idx = [i for i, v in enumerate(r.values or []) if v and rank_mode]
         if idx:
             i = idx[-1]
             ends.append([xs(i), ys(r.values[i]) - 10, (f"{int(r.values[i])}위" if rank_mode else f"{r.values[i]:.1f}"), col])
