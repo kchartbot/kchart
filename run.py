@@ -77,7 +77,8 @@ def process(key, cfg, fetcher, uploader, state, out):
     if spec.cadence == "hourly":
         # 시간당 1회: 정시 직후엔 가이섬 갱신 전일 수 있어 hourly_after_minute 이후에만 시도하고,
         # 이미 올린 시간대면 요청 자체를 하지 않는다.
-        if now.minute < int(b.get("hourly_after_minute", 5)):
+        # (직접 수집 차트는 사이트가 이미 최신이라 기다릴 필요가 없다. 수동 실행/밀린 스케줄에서도 바로 올라가게 한다)
+        if spec.source != "direct" and now.minute < int(b.get("hourly_after_minute", 5)):
             return
         if state.get(spec.key) == f"{now:%Y%m%d%H}00":
             return
