@@ -46,6 +46,7 @@ SPECS = {s.key: s for s in [
     Spec("melon_hot100_five",  "melon", "hot100-five",   "멜론 HOT100 5분 차트", "five",         "five",   13),
     Spec("melon_hot100_graph", "melon", "hot100-graph",  "멜론 HOT100 그래프",   "graph24",      "hourly", 24),
     Spec("melon_five",         "melon", "realtime-five", "멜론 5분 차트",        "five",         "five",   13),
+    Spec("melon_graph",        "melon", "realtime-graph", "멜론 실시간 그래프",  "graph24",      "hourly", 24),
     Spec("melon_realtime",     "melon", "realtime",      "멜론 실시간 차트",     "table",        "hourly"),
     Spec("melon_24h_count",    "melon", "24hour-count",  "멜론 이용자수 추이", "table_users",  "hourly"),
     Spec("genie_realtime",     "genie", "realtime",      "지니 실시간 차트",     "table",        "hourly"),
