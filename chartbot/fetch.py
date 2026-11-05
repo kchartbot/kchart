@@ -36,7 +36,7 @@ class Spec:
     @property
     def credit(self) -> str:
         if self.source == "direct":
-            return f"출처: {({'melon': '멜론', 'genie': '지니', 'bugs': '벅스'})[self.platform]} 차트 (공개 순위)"
+            return f"출처: {({'melon': '멜론', 'melonhot': '멜론 HOT100', 'genie': '지니', 'bugs': '벅스', 'flo': '플로'})[self.platform]} 차트 (공개 순위)"
         return SOURCE_CREDIT
 
 
@@ -53,11 +53,18 @@ SPECS = {s.key: s for s in [
     Spec("bugs_realtime",      "bugs",  "realtime",      "벅스 실시간 차트",     "table",        "hourly"),
 ]}
 # 가이섬을 거치지 않고 각 플랫폼 공개 차트에서 직접 수집하는 순위 중심 차트 (이용자 수·점수는 없음)
-for _p, _n in (("melon", "멜론"), ("genie", "지니"), ("bugs", "벅스")):
+_DIRECT = (
+    ("melon", "멜론 실시간 차트", "멜론 실시간 그래프", "멜론 5분 차트"),
+    ("melonhot", "멜론 HOT100(100일) 차트", "멜론 HOT100 그래프", "멜론 HOT100 5분 차트"),
+    ("genie", "지니 실시간 차트", "지니 실시간 그래프", "지니 5분 차트"),
+    ("bugs", "벅스 실시간 차트", "벅스 실시간 그래프", "벅스 5분 차트"),
+    ("flo", "플로 24시간 차트", "플로 24시간 그래프", "플로 5분 차트"),
+)
+for _p, _t, _g, _f in _DIRECT:
     for _s in (
-        Spec(f"{_p}_rank",       _p, "direct", f"{_n} 실시간 순위",          "table",       "hourly", source="direct"),
-        Spec(f"{_p}_rank_graph", _p, "direct", f"{_n} 순위 추이 (24시간)",   "rankgraph24", "hourly", 24, source="direct"),
-        Spec(f"{_p}_rank_five",  _p, "direct", f"{_n} 순위 5분 추이",        "rankfive",    "five",   13, source="direct"),
+        Spec(f"{_p}_rank",       _p, "direct", _t, "table",       "hourly", source="direct"),
+        Spec(f"{_p}_rank_graph", _p, "direct", _g, "rankgraph24", "hourly", 24, source="direct"),
+        Spec(f"{_p}_rank_five",  _p, "direct", _f, "rankfive",    "five",   13, source="direct"),
     ):
         SPECS[_s.key] = _s
 

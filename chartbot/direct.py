@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 
 from .fetch import Chart, Fetcher, Row, Spec, resolve
 
-PLATFORM_NAMES = {"melon": "멜론", "genie": "지니", "bugs": "벅스"}
+PLATFORM_NAMES = {"melon": "멜론", "melonhot": "멜론 HOT100", "genie": "지니", "bugs": "벅스", "flo": "플로"}
 KEEP_HOURS = 30
 GRAPH_TOP = 5
 
@@ -96,9 +96,25 @@ def parse_bugs(html: str) -> list[dict]:
     return out
 
 
+def parse_flo(text: str) -> list[dict]:
+    out = []
+    data = json.loads(text).get("data", {})
+    for i, t in enumerate(data.get("trackList", []), 1):
+        al = t.get("album") or {}
+        imgs = sorted(al.get("imgList") or [], key=lambda x: abs(x.get("size", 0) - 200))
+        art = (t.get("representationArtist") or {}).get("name") or ", ".join(a.get("name", "") for a in t.get("artistList", []))
+        out.append(dict(rank=i, previous=i, sid=str(t.get("id", "")), name=t.get("name", ""), artists=art,
+                        album=al.get("title", ""), image=imgs[0]["url"] if imgs else ""))
+    return out
+
+
 def urls(platform: str, now: datetime) -> list[str]:
     if platform == "melon":
         return ["https://www.melon.com/chart/index.htm"]
+    if platform == "melonhot":
+        return ["https://www.melon.com/chart/hot100/index.htm"]
+    if platform == "flo":
+        return ["https://www.music-flo.com/api/display/v1/browser/chart/1/track/list?size=100"]
     if platform == "genie":
         base = f"https://www.genie.co.kr/chart/top200?ditc=D&ymd={now:%Y%m%d}&hh={now:%H}&rtm=Y&pg="
         return [base + "1", base + "2"]
@@ -107,7 +123,7 @@ def urls(platform: str, now: datetime) -> list[str]:
     raise KeyError(platform)
 
 
-PARSERS = {"melon": parse_melon, "genie": parse_genie, "bugs": parse_bugs}
+PARSERS = {"melon": parse_melon, "melonhot": parse_melon, "genie": parse_genie, "bugs": parse_bugs, "flo": parse_flo}
 
 
 # ───────────────────────── 수집·저장 ─────────────────────────
@@ -121,6 +137,17 @@ def _floor5(now: datetime) -> datetime:
 
 def _load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"latest": None, "names": {}, "hist": {}}
+
+
+def _previous_from_history(rows: list[dict], st: dict, now: datetime) -> None:
+    """플로는 직전 순위를 주지 않아서, 약 1시간 전에 저장한 순위와 비교해 변동을 계산한다 (기록이 없으면 변동 없음)."""
+    limit = _stamp(_floor5(now) - timedelta(minutes=55))
+    older = [k for k in st["hist"] if k <= limit]
+    if not older:
+        return
+    snap = st["hist"][max(older)]
+    for r in rows:
+        r["previous"] = snap.get(r["sid"])
 
 
 def ensure_snapshot(platform: str, now: datetime, fetcher: Fetcher, store_dir) -> dict:
@@ -141,6 +168,8 @@ def ensure_snapshot(platform: str, now: datetime, fetcher: Fetcher, store_dir) -
             seen.add(r["rank"])
             uniq.append(r)
     uniq = uniq[:100]
+    if platform == "flo" and uniq:
+        _previous_from_history(uniq, st, now)
     if not uniq:
         raise RuntimeError(f"{PLATFORM_NAMES[platform]} 차트에서 곡을 찾지 못했습니다 (사이트 구조가 바뀌었을 수 있음)")
     st["latest"] = {"stamp": stamp, "rows": uniq}

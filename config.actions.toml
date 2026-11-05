@@ -1,7 +1,18 @@
 # GitHub Actions 용 설정. 갤러리ID/마이너 여부/dry_run 은 저장소 Variables 로 덮어씁니다 (README 참고).
 [bot]
 charts = [
-  "melon_rank",   # 멜론 실시간 순위 표 (100위) - 한 번에 하나만 올린다
+  "melon_rank",
+  # "melonhot_rank",
+  # "genie_rank",
+  # "bugs_rank",
+  # "flo_rank",
+  # "melon_rank_graph",
+  # "melonhot_rank_graph",
+  # "genie_rank_graph",
+  # "bugs_rank_graph",
+  # "flo_rank_graph",
+  # "melon_rank_five",
+  # "melonhot_rank_five",
 ]
 hourly_after_minute = 5
 min_request_gap = 3.0

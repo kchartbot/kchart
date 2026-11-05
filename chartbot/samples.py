@@ -21,6 +21,8 @@ class SampleFetcher(Fetcher):
         self.root = Path(root)
 
     def get(self, url: str) -> str:
+        if "music-flo.com" in url:
+            return (self.root / "direct-flo.json").read_text(encoding="utf-8")
         if "melon.com/chart" in url:
             return (self.root / "direct-melon.html").read_text(encoding="utf-8")
         if "genie.co.kr/chart" in url:
