@@ -266,7 +266,7 @@ def _linechart(chart: Chart):
         ticks = [1] + list(range(step if step > 1 else 2, top + 1, step)) if step == 1 else [1] + list(range(5, top + 1, 5))
         ys = lambda v: T + (H - T - B) * (v - 1) / (top - 1)
     else:
-        top = max(1, math.ceil(max(vals))) if vals else 1
+        top = max(1, math.ceil(max(vals) + 0.45)) if vals else 1   # 맨 위 값의 라벨이 잘리지 않게 여백을 둔다
         step = 1 if top <= 10 else (2 if top <= 20 else 5)
         top = math.ceil(top / step) * step
         ticks = list(range(0, top + 1, step))
