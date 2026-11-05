@@ -1,0 +1,266 @@
+{
+ "chart": "MELON_TOP100_CHART",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {
+  "count1": "1시간 이용자 수",
+  "count2": "24시간 이용자 수"
+ },
+ "size": 100,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": 1,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 51234
+  },
+  {
+   "ranking": 2,
+   "previous": 2,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 63567
+  },
+  {
+   "ranking": 3,
+   "previous": 3,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요?",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 59436
+  },
+  {
+   "ranking": 4,
+   "previous": 4,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 30867
+  },
+  {
+   "ranking": 5,
+   "previous": 5,
+   "song": {
+    "name": "LOVE ATTACK",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 169311
+  },
+  {
+   "ranking": 6,
+   "previous": 6,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84)",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 60165
+  },
+  {
+   "ranking": 7,
+   "previous": 8,
+   "song": {
+    "name": "Deja Vu",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 75902
+  },
+  {
+   "ranking": 8,
+   "previous": 7,
+   "song": {
+    "name": "체포하겠어",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 23913
+  },
+  {
+   "ranking": 9,
+   "previous": 9,
+   "song": {
+    "name": "Finest Thing",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 28869
+  },
+  {
+   "ranking": 10,
+   "previous": 10,
+   "song": {
+    "name": "MEME",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 25734
+  },
+  {
+   "ranking": 11,
+   "previous": 12,
+   "song": {
+    "name": "Pretty Girl",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 79456
+  },
+  {
+   "ranking": 12,
+   "previous": 13,
+   "song": {
+    "name": "Dragon",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "count1": null,
+   "count2": null,
+   "count1Diff": null,
+   "count2Diff": null,
+   "like": 25133
+  }
+ ]
+}

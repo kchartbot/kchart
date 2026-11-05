@@ -1,0 +1,36 @@
+# 이 파일을 config.toml 로 복사해서 사용하세요.
+
+[bot]
+# 올릴 차트. 필요 없는 줄은 지우세요.
+#   멜론: melon_top100 / melon_hot100_five / melon_hot100_graph / melon_five / melon_realtime / melon_24h_count
+#   지니: genie_realtime      플로: flo_chart      벅스: bugs_realtime
+charts = [
+  "melon_top100",
+  "melon_hot100_five",
+  "melon_hot100_graph",
+  "melon_five",
+  "melon_realtime",
+  "melon_24h_count",
+  "genie_realtime",
+  "flo_chart",
+  "bugs_realtime",
+]
+interval_minutes = 5
+delay_seconds = 20             # 5분 정각 + 20초에 실행 (가이섬 갱신 대기)
+hourly_after_minute = 5        # 시간당 1회 차트는 매시 이 분 이후에 올림 (가이섬이 새 시간대를 채운 뒤)
+min_request_gap = 3.0          # 가이섬 요청 사이 최소 간격(초). 줄이지 마세요.
+image_budget = 30              # 한 번 실행에서 새로 받는 앨범 이미지 최대 장수 (나머지는 다음 주기에 캐시)
+image_gap = 1.0                # 앨범 이미지 요청 사이 간격(초)
+dry_run = true                 # true 면 수집·렌더만 하고 업로드는 안 함. 확인 후 false 로 바꾸세요.
+user_agent = "chartbot/1.0"    # 가이섬 운영자가 알아볼 수 있는 이름/연락처를 넣는 것을 권장
+out_dir = "out"
+
+[dc]
+gallery_id = "여기에갤러리ID"   # 주소의 ?id= 뒤 값 (예: gaon)
+minor = true                   # 마이너 갤러리면 true, 정식 갤러리면 false
+headtext = "차트봇"            # 갤러리 설정에서 미리 만들어 둔 말머리 이름
+profile_dir = "~/.chartbot/profile"   # 로그인 세션이 저장되는 브라우저 프로필 위치
+
+# 글쓰기 화면이 바뀌어 동작하지 않을 때만 수정 (기본값은 chartbot/dcinside.py 참고)
+# [dc.selectors]
+# title = "#subject"

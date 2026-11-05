@@ -1,0 +1,1736 @@
+{
+ "chart": "MELON_REALTIME_CHART",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {},
+ "size": 100,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": -1,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 2,
+   "previous": 1,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 3,
+   "previous": 3,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 4,
+   "previous": 5,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요?",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 5,
+   "previous": 7,
+   "song": {
+    "name": "LOVE ATTACK",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 6,
+   "previous": 4,
+   "song": {
+    "name": "Deja Vu",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 7,
+   "previous": 6,
+   "song": {
+    "name": "Finest Thing",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 8,
+   "previous": 8,
+   "song": {
+    "name": "MEME",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 9,
+   "previous": 10,
+   "song": {
+    "name": "Dragon",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 10,
+   "previous": 12,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84)",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 11,
+   "previous": 9,
+   "song": {
+    "name": "체포하겠어",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 12,
+   "previous": 11,
+   "song": {
+    "name": "Pretty Girl",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 13,
+   "previous": 13,
+   "song": {
+    "name": "With 13",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 14,
+   "previous": 15,
+   "song": {
+    "name": "백화요란 (Inside Out) 14",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 15,
+   "previous": 17,
+   "song": {
+    "name": "NEON 15",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 16,
+   "previous": 14,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 16",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 17,
+   "previous": 16,
+   "song": {
+    "name": "LOVE ATTACK 17",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 18,
+   "previous": 18,
+   "song": {
+    "name": "Deja Vu 18",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 19,
+   "previous": 20,
+   "song": {
+    "name": "Finest Thing 19",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 20,
+   "previous": 22,
+   "song": {
+    "name": "MEME 20",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 21,
+   "previous": 19,
+   "song": {
+    "name": "Dragon 21",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 22,
+   "previous": 21,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 22",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 23,
+   "previous": 23,
+   "song": {
+    "name": "체포하겠어 23",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 24,
+   "previous": 25,
+   "song": {
+    "name": "Pretty Girl 24",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 25,
+   "previous": 27,
+   "song": {
+    "name": "With 25",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 26,
+   "previous": 24,
+   "song": {
+    "name": "백화요란 (Inside Out) 26",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 27,
+   "previous": 26,
+   "song": {
+    "name": "NEON 27",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 28,
+   "previous": 28,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 28",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 29,
+   "previous": 30,
+   "song": {
+    "name": "LOVE ATTACK 29",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 30,
+   "previous": 32,
+   "song": {
+    "name": "Deja Vu 30",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 31,
+   "previous": 29,
+   "song": {
+    "name": "Finest Thing 31",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 32,
+   "previous": 31,
+   "song": {
+    "name": "MEME 32",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 33,
+   "previous": 33,
+   "song": {
+    "name": "Dragon 33",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 34,
+   "previous": 35,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 34",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 35,
+   "previous": 37,
+   "song": {
+    "name": "체포하겠어 35",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 36,
+   "previous": 34,
+   "song": {
+    "name": "Pretty Girl 36",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 37,
+   "previous": 36,
+   "song": {
+    "name": "With 37",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 38,
+   "previous": 38,
+   "song": {
+    "name": "백화요란 (Inside Out) 38",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 39,
+   "previous": 40,
+   "song": {
+    "name": "NEON 39",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 40,
+   "previous": 42,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 40",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 41,
+   "previous": 39,
+   "song": {
+    "name": "LOVE ATTACK 41",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 42,
+   "previous": 41,
+   "song": {
+    "name": "Deja Vu 42",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 43,
+   "previous": 43,
+   "song": {
+    "name": "Finest Thing 43",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 44,
+   "previous": 45,
+   "song": {
+    "name": "MEME 44",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 45,
+   "previous": 47,
+   "song": {
+    "name": "Dragon 45",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 46,
+   "previous": 44,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 46",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 47,
+   "previous": 46,
+   "song": {
+    "name": "체포하겠어 47",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 48,
+   "previous": 48,
+   "song": {
+    "name": "Pretty Girl 48",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 49,
+   "previous": 50,
+   "song": {
+    "name": "With 49",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 50,
+   "previous": 52,
+   "song": {
+    "name": "백화요란 (Inside Out) 50",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 51,
+   "previous": 49,
+   "song": {
+    "name": "NEON 51",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 52,
+   "previous": 51,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 52",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 53,
+   "previous": 53,
+   "song": {
+    "name": "LOVE ATTACK 53",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 54,
+   "previous": 55,
+   "song": {
+    "name": "Deja Vu 54",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 55,
+   "previous": 57,
+   "song": {
+    "name": "Finest Thing 55",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 56,
+   "previous": 54,
+   "song": {
+    "name": "MEME 56",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 57,
+   "previous": 56,
+   "song": {
+    "name": "Dragon 57",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 58,
+   "previous": 58,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 58",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 59,
+   "previous": 60,
+   "song": {
+    "name": "체포하겠어 59",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 60,
+   "previous": 62,
+   "song": {
+    "name": "Pretty Girl 60",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 61,
+   "previous": 59,
+   "song": {
+    "name": "With 61",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 62,
+   "previous": 61,
+   "song": {
+    "name": "백화요란 (Inside Out) 62",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 63,
+   "previous": 63,
+   "song": {
+    "name": "NEON 63",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 64,
+   "previous": 65,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 64",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 65,
+   "previous": 67,
+   "song": {
+    "name": "LOVE ATTACK 65",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 66,
+   "previous": 64,
+   "song": {
+    "name": "Deja Vu 66",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 67,
+   "previous": 66,
+   "song": {
+    "name": "Finest Thing 67",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 68,
+   "previous": 68,
+   "song": {
+    "name": "MEME 68",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 69,
+   "previous": 70,
+   "song": {
+    "name": "Dragon 69",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 70,
+   "previous": 72,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 70",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 71,
+   "previous": 69,
+   "song": {
+    "name": "체포하겠어 71",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 72,
+   "previous": 71,
+   "song": {
+    "name": "Pretty Girl 72",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 73,
+   "previous": 73,
+   "song": {
+    "name": "With 73",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 74,
+   "previous": 75,
+   "song": {
+    "name": "백화요란 (Inside Out) 74",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 75,
+   "previous": 77,
+   "song": {
+    "name": "NEON 75",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 76,
+   "previous": 74,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 76",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 77,
+   "previous": 76,
+   "song": {
+    "name": "LOVE ATTACK 77",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 78,
+   "previous": 78,
+   "song": {
+    "name": "Deja Vu 78",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 79,
+   "previous": 80,
+   "song": {
+    "name": "Finest Thing 79",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 80,
+   "previous": 82,
+   "song": {
+    "name": "MEME 80",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 81,
+   "previous": 79,
+   "song": {
+    "name": "Dragon 81",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 82,
+   "previous": 81,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 82",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 83,
+   "previous": 83,
+   "song": {
+    "name": "체포하겠어 83",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 84,
+   "previous": 85,
+   "song": {
+    "name": "Pretty Girl 84",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 85,
+   "previous": 87,
+   "song": {
+    "name": "With 85",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 86,
+   "previous": 84,
+   "song": {
+    "name": "백화요란 (Inside Out) 86",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 87,
+   "previous": 86,
+   "song": {
+    "name": "NEON 87",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 88,
+   "previous": 88,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 88",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 89,
+   "previous": 90,
+   "song": {
+    "name": "LOVE ATTACK 89",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 90,
+   "previous": 92,
+   "song": {
+    "name": "Deja Vu 90",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Dearest",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 91,
+   "previous": 89,
+   "song": {
+    "name": "Finest Thing 91",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 92,
+   "previous": 91,
+   "song": {
+    "name": "MEME 92",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 93,
+   "previous": 93,
+   "song": {
+    "name": "Dragon 93",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 94,
+   "previous": 95,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84) 94",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 95,
+   "previous": 97,
+   "song": {
+    "name": "체포하겠어 95",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 96,
+   "previous": 94,
+   "song": {
+    "name": "Pretty Girl 96",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 97,
+   "previous": 96,
+   "song": {
+    "name": "With 97",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 98,
+   "previous": 98,
+   "song": {
+    "name": "백화요란 (Inside Out) 98",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 99,
+   "previous": 100,
+   "song": {
+    "name": "NEON 99",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "like": 1
+  },
+  {
+   "ranking": 100,
+   "previous": 102,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요? 100",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "like": 1
+  }
+ ],
+ "totalSize": 100
+}

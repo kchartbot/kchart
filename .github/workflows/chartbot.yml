@@ -1,0 +1,68 @@
+name: chartbot
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"      # GitHub 스케줄은 수 분~수십 분 밀릴 수 있습니다 (README 참고)
+  workflow_dispatch: {}         # Actions 탭에서 수동 실행
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chartbot               # 겹쳐 실행되면 중복 게시되므로 한 번에 하나만
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 한글 폰트 + 의존성
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      # 어느 시간대/5분 칸을 이미 올렸는지(state.json)와 앨범 이미지·지난 시간대 캐시를 실행 사이에 보관
+      - name: 상태 복원
+        uses: actions/cache/restore@v4
+        with:
+          path: out
+          key: chartbot-state-${{ github.run_id }}
+          restore-keys: chartbot-state-
+
+      - name: 가이섬 갱신 대기
+        run: sleep 20
+
+      - name: 실행
+        env:
+          DC_GALLERY_ID: ${{ vars.DC_GALLERY_ID }}
+          DC_MINOR: ${{ vars.DC_MINOR }}
+          DRY_RUN: ${{ vars.DRY_RUN }}
+          DC_STORAGE_STATE: ${{ secrets.DC_STORAGE_STATE }}
+        run: python run.py once --config config.actions.toml
+
+      - name: 상태 저장
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: out
+          key: chartbot-state-${{ github.run_id }}
+
+      # 비공개 저장소에서만 실패 화면을 보관 (공개 저장소에서는 계정 화면이 노출될 수 있어 올리지 않음)
+      - name: 실패 화면 보관
+        if: failure() && github.event.repository.private
+        uses: actions/upload-artifact@v4
+        with:
+          name: dc-error
+          path: out/dc_error.png
+          retention-days: 2
+          if-no-files-found: ignore
