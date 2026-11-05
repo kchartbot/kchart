@@ -206,7 +206,20 @@ class DcUploader:
                         info = up.evaluate("({ing: document.getElementById('upload_ing') && document.getElementById('upload_ing').value, sortable: (document.getElementById('sortable')||{}).innerHTML, files: (document.querySelector('tbody.files')||{}).innerHTML, text: document.body.innerText.slice(0, 400)})")
                     except Exception as e:
                         info = "popup 상태 읽기 실패: " + str(e)[:150]
-                    print("팝업 진단:", str(info)[:1500])
+                    print("팝업 진단:", str(info)[:700])
+                    try:
+                        diag = up.evaluate("""async () => {
+                            const o = $('#fileupload').fileupload('option');
+                            const out = {url: o.url, formData: JSON.stringify(typeof o.formData === 'function' ? o.formData($('#fileupload')) : o.formData), dataType: o.dataType, forceIframe: o.forceIframeTransport, ck: document.cookie.split(';').map(c => c.split('=')[0].trim())};
+                            const c = document.createElement('canvas'); c.width = 200; c.height = 120; const g = c.getContext('2d'); g.fillStyle = '#fc0'; g.fillRect(0, 0, 200, 120);
+                            const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+                            const fd = new FormData(); fd.append('files[]', blob, 'test.png');
+                            (JSON.parse(out.formData || '[]') || []).forEach(x => fd.append(x.name, x.value));
+                            try { const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'}); out.test = {status: r.status, ct: r.headers.get('content-type'), body: (await r.text()).slice(0, 400)}; } catch (e) { out.test = 'fetch 실패: ' + e; }
+                            return out; }""")
+                        print("업로드 진단:", str(diag)[:1500])
+                    except Exception as e:
+                        print("업로드 진단 실패:", str(e)[:300])
                     print("팝업 이벤트:", msgs[-25:])
                     raise UploadFailed("이미지 팝업 업로드가 끝나지 않음")
                 up.wait_for_timeout(1500)
