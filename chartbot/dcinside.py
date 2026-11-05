@@ -13,7 +13,7 @@ from __future__ import annotations
 from pathlib import Path
 
 DEFAULT_SELECTORS = {
-    "title": "#subject",
+    "title": "#subject, input[placeholder*='제목']",
     # 말머리 드롭다운을 여는 요소 / 옵션을 텍스트로 찾는 선택자 템플릿 ({text} 가 말머리 이름으로 치환)
     "headtext_open": ".write_subject .subject_list, .write_subject select, #headtext_dropdown",
     "headtext_option": "text={text}",
@@ -29,13 +29,15 @@ DEFAULT_SELECTORS = {
 
 class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
-                 minor: bool = True, headed: bool = False, storage_state: str | None = None):
+                 minor: bool = True, headed: bool = False, storage_state: str | None = None,
+                 login_id: str | None = None, login_pw: str | None = None):
         self.gallery_id = gallery_id
         self.headtext = headtext
         self.profile_dir = str(Path(profile_dir).expanduser())
         self.sel = {**DEFAULT_SELECTORS, **(selectors or {})}
         self.minor = minor
         self.headed = headed
+        self.login_id, self.login_pw = login_id, login_pw  # 있으면 세션이 없을 때 이 계정으로 직접 로그인 (비밀번호는 로그/화면에 남기지 않음)
         self.storage_state = storage_state  # 있으면 프로필 대신 이 쿠키 파일로 로그인 상태를 복원 (GitHub Actions 등)
 
     @property
@@ -75,6 +77,16 @@ class DcUploader:
                 pass
             ctx.close()
 
+    def _sign_in(self, page) -> None:
+        """로그인 화면(sign.dcinside.com)에 아이디/비밀번호를 입력한다. 캡차가 뜨면 우회하지 않고 실패 처리한다."""
+        page.fill("input[placeholder='식별 코드'], input[name=user_id]", self.login_id)
+        page.fill("input[type=password]", self.login_pw)
+        page.click("button[type=submit]")
+        page.wait_for_load_state("domcontentloaded")
+        page.wait_for_timeout(1500)
+        if "sign.dcinside.com" in page.url:
+            raise RuntimeError("로그인에 실패했습니다 (캡차 또는 계정 정보 오류). 캡차는 자동으로 풀지 않습니다.")
+
     def post(self, title: str, body_text: str, image_path: Path, err_dir: Path) -> None:
         from playwright.sync_api import sync_playwright
 
@@ -83,18 +95,25 @@ class DcUploader:
             browser = None
             if self.storage_state:
                 browser = p.chromium.launch(headless=not self.headed)
-                ctx = browser.new_context(storage_state=self.storage_state, locale="ko-KR", viewport={"width": 1280, "height": 900})
+                saved = self.storage_state if Path(self.storage_state).exists() else None
+                ctx = browser.new_context(storage_state=saved, locale="ko-KR", viewport={"width": 1280, "height": 900})
             else:
                 ctx = self._context(p, headless=not self.headed)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
             try:
                 page.goto(self.write_url, wait_until="domcontentloaded")
+                if "login" in page.url and self.login_id and self.login_pw:
+                    self._sign_in(page)
+                    if self.storage_state:  # 다음 실행에서 다시 로그인하지 않도록 세션 저장
+                        ctx.storage_state(path=self.storage_state)
+                        Path(self.storage_state).chmod(0o600)
+                    page.goto(self.write_url, wait_until="domcontentloaded")
                 if "login" in page.url:
                     raise RuntimeError("로그인 세션이 없습니다. `python run.py login` 을 먼저 실행하세요 (Actions 라면 DC_STORAGE_STATE 시크릿이 만료된 것입니다: 다시 `export-session` 으로 만들어 교체).")
 
                 page.fill(self.sel["title"], title)
 
-                if self.headtext:
+                if self.headtext and page.locator(self.sel["headtext_open"]).count():
                     page.click(self.sel["headtext_open"])
                     page.click(self.sel["headtext_option"].format(text=self.headtext))
 

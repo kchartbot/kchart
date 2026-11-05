@@ -39,6 +39,8 @@ def load_config(path: str) -> dict:
     # 환경변수로 덮어쓰기 (GitHub Actions 의 Variables/Secrets 용). 설정 파일에는 민감한 값을 두지 않는다.
     if os.environ.get("DC_GALLERY_ID"):
         cfg.setdefault("dc", {})["gallery_id"] = os.environ["DC_GALLERY_ID"]
+    if "DC_HEADTEXT" in os.environ:  # 빈 값이면 말머리 선택 생략
+        cfg.setdefault("dc", {})["headtext"] = os.environ["DC_HEADTEXT"]
     if os.environ.get("DC_MINOR"):
         cfg.setdefault("dc", {})["minor"] = os.environ["DC_MINOR"].lower() == "true"
     if os.environ.get("DRY_RUN"):
@@ -49,12 +51,16 @@ def load_config(path: str) -> dict:
 def make_uploader(cfg, headed):
     dc = cfg["dc"]
     state_file = None
-    if os.environ.get("DC_STORAGE_STATE"):  # 로그인 쿠키(JSON)를 환경변수로 받은 경우 임시 파일로 풀어서 쓴다
-        fd = os.open(ROOT / ".dc_session.json", os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
-        with os.fdopen(fd, "w", encoding="utf-8") as f:
-            f.write(os.environ["DC_STORAGE_STATE"])
-        state_file = str(ROOT / ".dc_session.json")
-    return DcUploader(storage_state=state_file,
+    if os.environ.get("DC_STORAGE_STATE") or os.environ.get("DC_ID"):
+        # 세션(쿠키) 파일 위치. out/ 은 실행 사이에 캐시되므로 한 번 로그인하면 이후 실행에서 재사용된다.
+        out_dir = Path(cfg["bot"].get("out_dir", ROOT / "out"))
+        out_dir.mkdir(parents=True, exist_ok=True)
+        state_file = str(out_dir / ".dc_session.json")
+        if os.environ.get("DC_STORAGE_STATE") and not Path(state_file).exists():
+            fd = os.open(state_file, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                f.write(os.environ["DC_STORAGE_STATE"])
+    return DcUploader(storage_state=state_file, login_id=os.environ.get("DC_ID"), login_pw=os.environ.get("DC_PW"),
         gallery_id=dc["gallery_id"], headtext=dc.get("headtext", "차트봇"), profile_dir=dc.get("profile_dir", "~/.chartbot/profile"),
         selectors=dc.get("selectors"), minor=dc.get("minor", True), headed=headed,
     )
