@@ -171,15 +171,9 @@ class DcUploader:
 
                 page.fill(self.sel["title"], title)
 
-                if self.headtext:
-                    if page.locator(self.sel["headtext_open"]).count():
-                        page.click(self.sel["headtext_open"])
-                        opt = page.locator(self.sel["headtext_option"].format(text=self.headtext))
-                        if opt.count() == 0:
-                            raise RuntimeError(f"말머리 '{self.headtext}' 가 갤러리 목록에 없습니다. DC_HEADTEXT 를 확인하세요.")
-                        opt.first.click()
-                    else:
-                        print(f"경고: 말머리 선택 UI를 찾지 못해 '{self.headtext}' 선택을 건너뜁니다 (갤러리에 말머리가 없거나 셀렉터 변경).")
+                if self.headtext and page.locator(self.sel["headtext_open"]).count():
+                    page.click(self.sel["headtext_open"])
+                    page.click(self.sel["headtext_option"].format(text=self.headtext))
 
                 with page.expect_popup(timeout=15000) as pop:
                     page.click(self.sel["image_button"])
@@ -283,21 +277,18 @@ class DcUploader:
                 page.on("dialog", lambda d: (dlg.append(d.message[:300]), d.accept()))
                 net = []
                 page.on("response", lambda r: net.append(f"{r.status} {r.url[:110]}") if ("write" in r.url or "forms" in r.url or "ajax" in r.url) and r.request.method == "POST" else None)
-                print("등록 직전 상태:", {"title": page.input_value(self.sel["title"])[:40], "images": page.locator(self.sel["editor_img"]).count(), "url": page.url})
                 page.click(self.sel["submit"])
                 try:
                     page.wait_for_url(lambda u: "/write" not in u, timeout=20000)
                 except Exception:
                     pass
                 page.wait_for_timeout(1000)
-                if dlg:
-                    print("등록 시 알림창:", dlg)
                 if "/write" in page.url and any(self._is_human_check(m) for m in dlg):
-                    raise HumanCheckRequired("디시가 '사람인지 확인'을 요구했습니다. 자동 게시를 중단합니다 (수동 게시 또는 갤러리 운영진 협의 필요).")
+                    raise HumanCheckRequired("디시가 '사람인지 확인'을 요구했습니다. 자동 게시를 중단합니다 (코드 수정 필요).")
                 if "/write" in page.url:
                     cap =page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
-                    print("등록 후 알림창:", dlg, "| POST응답:", net[-6:], "| 캡차요소:", cap, "| 제목칸:", page.input_value(self.sel["title"])[:40])
-                    raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (캡차/도배 제한/필수 항목 누락 가능). url=" + page.url)
+                    print("등록 후 알림창:", dlg, "| POST응답:", net[-6:], "| 확인 필요:", cap, "| 제목칸:", page.input_value(self.sel["title"])[:40])
+                    raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (수정필요). url=" + page.url)
             except Exception:
                 page.screenshot(path=str(err_dir / "dc_error.png"), full_page=True)
                 print("디시 업로드 실패 위치 url:", page.url)
