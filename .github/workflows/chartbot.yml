@@ -57,6 +57,16 @@ jobs:
           path: out
           key: chartbot-state-${{ github.run_id }}
 
+      # 확인용: 만들어진 차트 이미지(출처 표기 포함, 민감 정보 없음)를 Actions 실행 화면 하단 Artifacts 에서 내려받을 수 있다
+      - name: 차트 이미지 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: charts
+          path: out/*.png
+          retention-days: 1
+          if-no-files-found: ignore
+
       # 비공개 저장소에서만 실패 화면을 보관 (공개 저장소에서는 계정 화면이 노출될 수 있어 올리지 않음)
       - name: 실패 화면 보관
         if: failure() && github.event.repository.private
