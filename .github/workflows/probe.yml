@@ -1,0 +1,46 @@
+name: probe
+
+# 가이섬 접속 진단 (수동 실행 전용). 요청 2번만 보내고 응답 코드/헤더/본문 앞부분을 출력한다.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: 가이섬 응답 확인
+        run: |
+          python3 - <<'PY'
+          import time, urllib.request, urllib.error
+          URL = "https://xn--o39an51b2re.com/chart/melon/realtime/20261105/13"
+          variants = {
+              "A 현재 설정 (chartbot/1.0)": {"User-Agent": "chartbot/1.0", "Accept": "text/html"},
+              "B 연락처 포함 + 일반 헤더": {
+                  "User-Agent": "chartbot/1.0 (+https://github.com/kchartbot/kchart)",
+                  "Accept": "text/html,application/xhtml+xml",
+                  "Accept-Language": "ko-KR,ko;q=0.9",
+              },
+          }
+          for i, (name, headers) in enumerate(variants.items()):
+              if i:
+                  time.sleep(8)
+              print("=" * 60, "\n", name)
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(URL, headers=headers), timeout=20) as r:
+                      body = r.read(400).decode("utf-8", "replace")
+                      print("status", r.status)
+                      for k in ("server", "retry-after", "x-vercel-id", "cf-ray", "x-ratelimit-remaining", "content-type"):
+                          if r.headers.get(k): print(k + ":", r.headers[k])
+                      print("body:", body[:300].replace("\n", " "))
+              except urllib.error.HTTPError as e:
+                  print("status", e.code)
+                  for k in ("server", "retry-after", "x-vercel-id", "cf-ray", "x-ratelimit-remaining", "content-type"):
+                      if e.headers.get(k): print(k + ":", e.headers[k])
+                  print("body:", e.read(400).decode("utf-8", "replace")[:300].replace("\n", " "))
+              except Exception as e:
+                  print("error:", e)
+          PY
