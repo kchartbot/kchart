@@ -1,0 +1,28 @@
+name: preview
+# 새 순위표 디자인을 실제 멜론 TOP100과 앨범 커버로 그려 preview 브랜치에 올림 (확인용)
+on:
+  push:
+    paths: [".github/workflows/preview.yml", "tools/preview_design.py"]
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+          pip install -r requirements.txt pillow
+          playwright install --with-deps chromium
+      - run: python tools/preview_design.py /tmp/preview
+      - run: |
+          git config user.name preview; git config user.email preview@users.noreply.github.com
+          git checkout -q --orphan preview; git rm -rfq . || true
+          cp /tmp/preview/*.png .; git add *.png
+          git commit -qm "preview"; git push -qf origin preview
