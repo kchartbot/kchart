@@ -87,9 +87,14 @@ class DcUploader:
         for kind in order:
             self._kind = kind
             page.goto(self.write_url, wait_until="domcontentloaded")
-            page.wait_for_timeout(800)
-            tried.append(f"{kind} -> {page.url[:90]}")
-            if "login" in page.url or "/write" in page.url:
+            ok = False
+            try:
+                page.wait_for_selector(self.sel["title"], timeout=8000)
+                ok = True
+            except Exception:
+                ok = "login" in page.url
+            tried.append(f"{kind} -> {page.url[:90]} ({'열림' if ok else '안 열림'})")
+            if ok:
                 if kind != first:
                     print("갤러리 종류가 설정과 달라 자동으로 바꿨습니다:", kind)
                 return
