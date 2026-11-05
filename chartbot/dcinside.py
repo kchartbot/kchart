@@ -198,6 +198,7 @@ class DcUploader:
                     f.on('fileuploaddone fileuploadfail fileuploadalways', function (e, d) {
                         let r = ''; try { r = JSON.stringify(d.result) + ' | ' + (d.jqXHR && d.jqXHR.responseText || '').slice(0, 500) + ' | ' + (d.textStatus || '') + ' ' + (d.errorThrown || ''); } catch (x) { r = String(x); }
                         console.log('UPLOAD ' + e.type + ': ' + r); }); }""")
+                up.wait_for_function("document.getElementById('r_key').value && document.getElementById('gall_no').value", timeout=15000)
                 # 팝업 스크립트 자신의 XHR 은 서버에서 빈 응답을 받으므로, 같은 요청을 직접 보내고 응답을 '업로드 성공' 이벤트로 넘겨 준다
                 import base64
                 up.evaluate("""async (b64) => {
@@ -207,8 +208,8 @@ class DcUploader:
                     ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
                     fd.append('upload_ing', 'Y');
                     let json = null, r = null, txt = '';
-                    for (let i = 0; i < 4 && !json; i++) {
-                        if (i) await new Promise(res => setTimeout(res, 2000));
+                    for (let i = 0; i < 8 && !json; i++) {
+                        await new Promise(res => setTimeout(res, i ? 4000 : 6000));
                         const f2 = new FormData(); for (const [k, v] of fd.entries()) f2.append(k, v);
                         r = await fetch(o.url, {method: 'POST', body: f2, credentials: 'include'});
                         txt = await r.text();
