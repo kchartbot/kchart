@@ -17,7 +17,8 @@ images = R.embed_images(chart, f, cache, budget=100, gap=0.4, size=None)
 miss = [r.rank for r in chart.rows if r.image and r.image not in images]
 noimg = [r.rank for r in chart.rows if not r.image]
 print("곡", len(chart.rows), "이미지 받음", len(images), "못 받음", miss, "주소 없음", noimg)
-for style in ("list1", "list2"):
+print("큰 커버:", R.upgrade_covers(images, chart.rows), "/3")
+for style in ("list2",):
     R.RANK_STYLE = style
     png = out / f"{style}.png"
     R.render_png(R.render_html(chart, images), png, R.png_scale(chart))

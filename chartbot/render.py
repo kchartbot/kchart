@@ -86,6 +86,29 @@ def embed_images(chart: Chart, fetcher: Fetcher, cache_dir: Path, budget: int = 
     return out
 
 
+def upgrade_covers(images: dict, rows, n: int = 3, size: int = 500, timeout: int = 10) -> int:
+    """1~n위 앨범 커버를 더 큰 버전으로 바꿔 받는다 (멜론 이미지 주소의 /resize/120/ → /resize/500/). 못 받으면 원래 작은 이미지를 그대로 쓴다."""
+    import re
+    done = 0
+    for r in rows[:n]:
+        url = r.image or ""
+        if not url or "/resize/" not in url:
+            continue
+        big = re.sub(r"/resize/\d+/", f"/resize/{size}/", url)
+        if big == url:
+            continue
+        try:
+            req = urllib.request.Request(big, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                data = resp.read()
+            if len(data) > 5000:
+                images[url] = "data:image/jpeg;base64," + base64.b64encode(data).decode()
+                done += 1
+        except Exception:
+            continue
+    return done
+
+
 # ───────────────────────── 스타일 ─────────────────────────
 CSS = """
 :root{--bg:#ffffff;--card:#ffffff;--card2:#f5f3ee;--text:#1c2230;--muted:#8a8f9c;--rule:#e6e2d8;--line:#3f5bd0;
@@ -396,10 +419,9 @@ def _rank_cards(chart: Chart, images, style: str):
         hero.append(f'<div class="rc-card"><div class="rc-art">{_art(r, images)}</div><div class="rc-badge">{r.rank}위</div>'
                     f'<div class="rc-name">{html.escape(r.name)}</div><div class="rc-artist">{html.escape(r.artists)}</div>'
                     f'<div class="rc-chg {cls}">{c}</div></div>')
-    rest = rows[3:]
-    per = math.ceil(len(rest) / 2)
-    cols = "".join(f'<div>{"".join(_rc_row(r, images) for r in part)}</div>' for part in (rest[:per], rest[per:]))
-    return f'<div class="rc-hero">{"".join(hero)}</div><div class="rc-cols">{cols}</div>'
+    # 4 5 / 6 7 / 8 9 … 가로로 읽는 순서 (왼쪽 열 끝까지 내려갔다 올라오지 않게)
+    cells = "".join(_rc_row(r, images) for r in rows[3:])
+    return f'<div class="rc-hero">{"".join(hero)}</div><div class="rc-cols">{cells}</div>'
 
 
 

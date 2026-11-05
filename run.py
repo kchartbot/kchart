@@ -127,6 +127,10 @@ def prepare(key, cfg, fetcher, out, state):
         missing = [r for r in chart.rows if r.image and r.image not in images]
         if missing:
             log.warning("%s 앨범 이미지 %d곡 못 받음: %s", spec.key, len(missing), ", ".join(f"{r.rank}위" for r in missing[:10]))
+    import chartbot.render as _r
+    if _r.RANK_STYLE == "list2" and spec.layout == "table":
+        ok = _r.upgrade_covers(images, chart.rows)      # 1~3위 커버는 큰 버전으로 (흐릿함 방지)
+        log.info("%s 1~3위 큰 커버 %d/3", spec.key, ok)
     html = render_html(chart, images)
     png = out / f"{spec.key}_{stamp}.png"
     (out / f"{spec.key}_{stamp}.html").write_text(html, encoding="utf-8")
