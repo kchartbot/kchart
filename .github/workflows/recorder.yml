@@ -3,7 +3,7 @@ name: recorder
 # 결과는 livedata 브랜치의 data/ 폴더에 쌓임 (stats.json = 예측 정확도, scores/ = 계산 점수)
 on:
   schedule:
-    - cron: "3,13,50 * * * *"     # 정각 직후 2번(놓침 대비), 50분에 다음 순위 예측
+    - cron: "3,13,25,40,50,58 * * * *"     # 정각 직후 2번(놓침 대비), 50분에 다음 순위 예측
   workflow_dispatch:
     inputs:
       mode:

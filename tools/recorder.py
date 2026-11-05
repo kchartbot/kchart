@@ -123,9 +123,53 @@ def predict(now):
     save(DATA / "predict" / f"{hour_key(nxt)}.json", {"time": hour_key(nxt), "based_on": cur["time"], "predicted": pr})
 
 
+RAW = {
+    "five": ("https://m2.melon.com/m6/chart/hour/five/graph.json", {"v": "4.0", "cpId": "IS40", "cpKey": "17LNM9"}),
+    "hourgraph": ("https://m2.melon.com/m6/chart/hour/graph.json", {"v": "4.0", "cpId": "IS40", "cpKey": "17LNM9"}),
+    "hot100": ("https://m2.melon.com/m6/chart/hot100/list.json", {"chartType": "D100", "cpId": "IS40", "cpKey": "17LNM9", "appVer": "6.22.1"}),
+    "hourly": ("https://m.app.melon.com/chart/hourly/hourlyChartList.json", {"cpId": "AS40", "cpKey": "14LNM3", "v": "4.0", "resolution": "2", "appVer": "4.1.0.1", "osVersion": "11", "isRecom": "N", "pageSize": "100"}),
+}
+REPORT = ("https://m2.melon.com/m6/chart/song/chartReport.json", {"cpId": "AS40", "cpKey": "14LNC3", "appVer": "6.2.0"})
+
+
+def raw_get(url, params):
+    import urllib.request, urllib.parse
+    req = urllib.request.Request(url + "?" + urllib.parse.urlencode(params), headers={"User-Agent": "Mozilla/5.0 (Linux; Android 11) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def raw(now):
+    import time
+    stamp = now.strftime("%Y%m%d-%H%M")
+    five = None
+    for name, (url, params) in RAW.items():
+        try:
+            o = raw_get(url, params)
+            save(DATA / "raw" / name / f"{stamp}.json", o)
+            if name == "five": five = o
+        except Exception as e:
+            print("raw 실패", name, type(e).__name__, str(e)[:100])
+        time.sleep(3)
+    try:
+        lst = sorted(((five or {}).get("response", {}).get("GRAPHDATALIST", [])), key=lambda x: x.get("GRAPHRANK", 99))[:3]
+        for g in lst:
+            try:
+                o = raw_get(REPORT[0], {**REPORT[1], "songId": str(g["SONGID"])})
+                save(DATA / "raw" / "report" / f"{stamp}-{g['SONGID']}.json", o)
+            except Exception as e:
+                print("raw 실패 report", g.get("SONGID"), type(e).__name__, str(e)[:100])
+            time.sleep(3)
+    except Exception as e:
+        print("raw 실패", type(e).__name__, str(e)[:100])
+
+
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "auto"
     now = datetime.now(KST).replace(tzinfo=None)
     if mode == "auto": mode = "snap" if now.minute < 30 else "predict"
     print("모드", mode, now)
-    (snap if mode == "snap" else predict)(now)
+    if mode == "raw": raw(now)
+    else:
+        (snap if mode == "snap" else predict)(now)
+        raw(now)
