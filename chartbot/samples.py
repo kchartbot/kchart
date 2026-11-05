@@ -57,11 +57,11 @@ def seed_sample_history(platform: str, now, fetcher, store_dir) -> None:
         path.unlink()
     st = ensure_snapshot(platform, now, fetcher, store_dir)
     rnd = random.Random(platform)
-    top = [r["sid"] for r in st["latest"]["rows"][:8]]
-    cur = {sid: i + 1 for i, sid in enumerate(top)}
+    order = [r["sid"] for r in st["latest"]["rows"][:8]]
     t = _floor5(now)
     for k in range(1, 26 * 12):
-        for sid in top:
-            cur[sid] = max(1, min(14, cur[sid] + rnd.choice([-1, 0, 0, 0, 1])))
-        st["hist"][_stamp(t - timedelta(minutes=5 * k))] = dict(cur)
+        if rnd.random() < 0.35:
+            j = rnd.randrange(len(order) - 1)
+            order[j], order[j + 1] = order[j + 1], order[j]
+        st["hist"][_stamp(t - timedelta(minutes=5 * k))] = {sid: i + 1 for i, sid in enumerate(order)}
     path.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")

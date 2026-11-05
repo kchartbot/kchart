@@ -18,7 +18,7 @@ from .fetch import Chart, Fetcher, Row, Spec, resolve
 
 PLATFORM_NAMES = {"melon": "멜론", "melonhot": "멜론 HOT100", "genie": "지니", "bugs": "벅스", "flo": "플로"}
 KEEP_HOURS = 30
-GRAPH_TOP = 5
+GRAPH_TOP = 3
 
 
 # ───────────────────────── 파싱 ─────────────────────────
