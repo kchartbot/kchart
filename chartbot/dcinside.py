@@ -206,8 +206,16 @@ class DcUploader:
                     const fd = new FormData(); fd.append('files[]', new Blob([bin], {type: 'image/png'}), 'chart.png');
                     ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
                     fd.append('upload_ing', 'Y');
-                    const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'});
-                    const json = JSON.parse(await r.text());
+                    let json = null, r = null, txt = '';
+                    for (let i = 0; i < 4 && !json; i++) {
+                        if (i) await new Promise(res => setTimeout(res, 2000));
+                        const f2 = new FormData(); for (const [k, v] of fd.entries()) f2.append(k, v);
+                        r = await fetch(o.url, {method: 'POST', body: f2, credentials: 'include'});
+                        txt = await r.text();
+                        console.log('DIRECT try' + i + ' ' + r.status + ' len=' + txt.length);
+                        try { json = JSON.parse(txt); } catch (e) { json = null; }
+                    }
+                    if (!json) throw new Error('업로드 응답 없음: ' + r.status + ' ' + txt.slice(0, 200));
                     console.log('DIRECT ' + r.status + ' ' + JSON.stringify(json).slice(0, 300));
                     document.getElementById('upload_ing').value = 'N';
                     $('.info_box').hide();
