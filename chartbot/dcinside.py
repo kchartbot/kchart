@@ -283,10 +283,19 @@ class DcUploader:
                 page.keyboard.press("Control+End")
                 page.keyboard.type("\n" + body_text, delay=0)
 
+                dlg = []
+                page.on("dialog", lambda d: (dlg.append(d.message[:300]), d.accept()))
+                net = []
+                page.on("response", lambda r: net.append(f"{r.status} {r.url[:110]}") if ("write" in r.url or "forms" in r.url or "ajax" in r.url) and r.request.method == "POST" else None)
                 page.click(self.sel["submit"])
-                page.wait_for_load_state("domcontentloaded")
-                page.wait_for_timeout(2000)
+                try:
+                    page.wait_for_url(lambda u: "/write" not in u, timeout=20000)
+                except Exception:
+                    pass
+                page.wait_for_timeout(1000)
                 if "/write" in page.url:
+                    cap = page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
+                    print("등록 후 알림창:", dlg, "| POST응답:", net[-6:], "| 캡차요소:", cap, "| 제목칸:", page.input_value(self.sel["title"])[:40])
                     raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (캡차/도배 제한/필수 항목 누락 가능). url=" + page.url)
             except Exception:
                 page.screenshot(path=str(err_dir / "dc_error.png"), full_page=True)
