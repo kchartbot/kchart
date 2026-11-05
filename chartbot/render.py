@@ -183,8 +183,8 @@ RANK_COLORS = ["#2563eb", "#dc2626", "#059669", "#d97706", "#7c3aed"]
 
 
 def _rank_linechart(chart: Chart):
-    W, H = 1000, 560
-    L, R, T, B = 52, 310, 34, 52
+    W, H = 1000, 600
+    L, R, T, B = 56, 320, 40, 58
     n = chart.spec.slots
     rows = chart.rows[:TOP_LINES]
     vals = [int(v) for r in rows for v in (r.values or []) if v]
@@ -193,19 +193,20 @@ def _rank_linechart(chart: Chart):
     ys = lambda v: T + (H - T - B) * (v - 1) / (top - 1)
     xs = lambda i: L + (W - L - R) * (i + .5) / n
     g = []
+    g.append(f'<rect x="{L}" y="{ys(1) - 18:.1f}" width="{W - R - L}" height="{ys(3) - ys(1) + 36:.1f}" fill="#fbf4e2"/>')
     for t in range(1, top + 1):
         major = t == 1 or t % 5 == 0 or top <= 10
         y = ys(t)
-        g.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="{"#d9d5ca" if major else "#efece4"}" stroke-width="{1.4 if major else 1}"/>')
+        g.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="{"#d3cfc4" if major else "#ece9e0"}" stroke-width="{1.4 if major else 1}"/>')
         if major:
-            g.append(f'<text x="{L - 12}" y="{y + 6:.1f}" font-size="18" font-weight="600" text-anchor="end">{t}</text>')
+            g.append(f'<text x="{L - 12}" y="{y + 7:.1f}" font-size="22" font-weight="700" text-anchor="end">{t}</text>')
     labels = _x_labels(chart)
     every = 1 if n <= 14 else 2
     for i, lab in enumerate(labels):
-        g.append(f'<line x1="{xs(i):.1f}" x2="{xs(i):.1f}" y1="{T}" y2="{H - B}" stroke="#f1eee7" stroke-width="1"/>')
+        g.append(f'<line x1="{xs(i):.1f}" x2="{xs(i):.1f}" y1="{T - 10}" y2="{H - B}" stroke="#f0ede5" stroke-width="1"/>')
         if i % every == (n - 1) % every:
-            g.append(f'<text x="{xs(i):.1f}" y="{H - B + 28}" font-size="17" text-anchor="middle">{lab}</text>')
-    ends = []
+            g.append(f'<text x="{xs(i):.1f}" y="{H - B + 32}" font-size="20" text-anchor="middle">{lab}</text>')
+    ends, dots = [], []
     for k, r in enumerate(rows):
         col = RANK_COLORS[k % len(RANK_COLORS)]
         pts = [(i, int(v)) for i, v in enumerate(r.values or []) if v]
@@ -214,23 +215,27 @@ def _rank_linechart(chart: Chart):
             if prev is not None and i != prev + 1:
                 segs.append(cur)
                 cur = []
-            cur.append((xs(i), ys(v)))
+            cur.append((xs(i), ys(v), v))
             prev = i
         if cur:
             segs.append(cur)
         for sg in segs:
             if len(sg) > 1:
-                d = " ".join(f"{x:.1f},{y:.1f}" for x, y in sg)
-                g.append(f'<polyline points="{d}" fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>')
-                g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="4.2" stroke-linejoin="round" stroke-linecap="round"/>')
-            for x, y in sg[:-1]:
-                g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="{col}" stroke="#fff" stroke-width="1.5"/>')
+                d = " ".join(f"{x:.1f},{y:.1f}" for x, y, _ in sg)
+                g.append(f'<polyline points="{d}" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>')
+                g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="4.6" stroke-linejoin="round" stroke-linecap="round"/>')
+            for j, (x, y, v) in enumerate(sg):
+                last = (j == len(sg) - 1 and sg is segs[-1])
+                dots.append((x, y, v, col, last))
         if pts:
             i, v = pts[-1]
-            g.append(f'<circle cx="{xs(i):.1f}" cy="{ys(v):.1f}" r="8" fill="{col}" stroke="#fff" stroke-width="3"/>')
             ends.append({"x": xs(i), "y0": ys(v), "y": ys(v), "rank": v, "name": r.name, "col": col})
+    for x, y, v, col, last in dots:
+        rad = 17 if last else 12.5
+        g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rad}" fill="{col}" stroke="#fff" stroke-width="2.5"/>')
+        g.append(f'<text x="{x:.1f}" y="{y + (6.5 if last else 5):.1f}" font-size="{19 if last else 14}" font-weight="800" text-anchor="middle" style="fill:#ffffff">{v}</text>')
     ends.sort(key=lambda e: e["y0"])
-    gap = 36
+    gap = 44
     for j in range(1, len(ends)):
         if ends[j]["y"] - ends[j - 1]["y"] < gap:
             ends[j]["y"] = ends[j - 1]["y"] + gap
@@ -241,12 +246,12 @@ def _rank_linechart(chart: Chart):
         for j in range(len(ends) - 2, -1, -1):
             if ends[j + 1]["y"] - ends[j]["y"] < gap:
                 ends[j]["y"] = ends[j + 1]["y"] - gap
-    lx = W - R + 34
+    lx = W - R + 40
     for e in ends:
-        name = e["name"] if len(e["name"]) <= 13 else e["name"][:12] + "\u2026"
-        g.append(f'<path d="M{e["x"] + 10:.1f},{e["y0"]:.1f} L{lx - 8},{e["y"]:.1f}" stroke="{e["col"]}" stroke-width="1.6" fill="none" opacity=".55"/>')
-        g.append(f'<text x="{lx}" y="{e["y"] + 6:.1f}" font-size="21" font-weight="800" style="fill:{e["col"]}">{e["rank"]}\uc704</text>')
-        g.append(f'<text x="{lx + 44}" y="{e["y"] + 6:.1f}" font-size="19" font-weight="600" style="fill:#141a2b">{html.escape(name)}</text>')
+        name = e["name"] if len(e["name"]) <= 12 else e["name"][:11] + "\u2026"
+        g.append(f'<path d="M{e["x"] + 20:.1f},{e["y0"]:.1f} L{lx - 10},{e["y"]:.1f}" stroke="{e["col"]}" stroke-width="2" fill="none" opacity=".6"/>')
+        g.append(f'<text x="{lx}" y="{e["y"] + 8:.1f}" font-size="26" font-weight="800" style="fill:{e["col"]}">{e["rank"]}\uc704</text>')
+        g.append(f'<text x="{lx + 56}" y="{e["y"] + 8:.1f}" font-size="22" font-weight="700" style="fill:#141a2b">{html.escape(name)}</text>')
     return f'<svg class="lc" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">{"".join(g)}</svg>'
 
 
