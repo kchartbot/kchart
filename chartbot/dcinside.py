@@ -86,7 +86,7 @@ class DcUploader:
             fields = page.evaluate("() => [...document.querySelectorAll('input')].filter(e => e.offsetParent).map(e => (e.id || '') + '/' + (e.name || '') + '/' + e.type)")
         except Exception:
             fields = []
-        anon = any(f.endswith("/password") for f in fields) or any(f.startswith("gall_nick_name/") for f in fields)
+        anon = any(f.startswith(("password/", "name/", "gall_nick_name/")) for f in fields)
         print("글쓰기 화면 입력칸:", fields[:12], "-> 비로그인" if anon else "-> 로그인됨")
         return anon
 
