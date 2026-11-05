@@ -119,8 +119,9 @@ class DcUploader:
             print("로그인 화면 이벤트:", ev[-20:], "html길이:", len(page.content()))
             raise RuntimeError(f"로그인 입력칸을 찾지 못했습니다. url={page.url} title={page.title()!r} body={body!r}")
         user = page.locator("form input:not([type=hidden]):not([type=password]):not([type=checkbox]):visible").first
-        user.fill(self.login_id)
-        page.locator("input[type=password]:visible").first.fill(self.login_pw)
+        print("로그인 입력칸:", user.get_attribute("name"), user.get_attribute("id"), "| 아이디 길이:", len(self.login_id.strip()), "비밀번호 길이:", len(self.login_pw.strip()))
+        user.fill(self.login_id.strip())
+        page.locator("input[type=password]:visible").first.fill(self.login_pw.strip())
         page.locator("button[type=submit]:visible, input[type=submit]:visible").first.click()
         page.wait_for_load_state("domcontentloaded")
         page.wait_for_timeout(2000)
