@@ -1,0 +1,29 @@
+name: probe-users
+on:
+  push:
+    paths: [".github/workflows/probe-users.yml"]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          python3 - <<'PY'
+          import re, urllib.request
+          UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+          def get(u, ref="https://www.melon.com/"):
+              r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9", "Referer": ref}), timeout=20)
+              return r.read().decode("utf-8", "replace")
+          for sid in ("603712834",):
+              u = f"https://www.melon.com/song/detail.htm?songId={sid}"
+              try:
+                  t = get(u)
+                  print("OK", u, len(t))
+                  for kw in ("청취자", "이용자", "감상", "재생", "24시간", "성별", "연령", "listener", "Listener"):
+                      for m in list(re.finditer(kw, t))[:4]:
+                          s = " ".join(t[max(0, m.start()-60):m.end()+100].split())
+                          print("  [%s] %s" % (kw, s))
+                  print("  ajax:", sorted(set(re.findall(r"['\"](/[A-Za-z0-9_/]+\.json)['\"]", t)))[:40])
+                  print("  ajax2:", sorted(set(re.findall(r"url\s*:\s*['\"]([^'\"]+)['\"]", t)))[:40])
+              except Exception as e:
+                  print("FAIL", u, str(e)[:120])
+          PY
