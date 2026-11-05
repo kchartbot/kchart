@@ -8,31 +8,14 @@ jobs:
     steps:
       - run: |
           python3 - <<'PY'
-          import re, urllib.request
+          import json, urllib.request
           UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-          def get(u, ref="https://www.melon.com/"):
-              r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9", "Referer": ref}), timeout=20)
-              return r.read().decode("utf-8", "replace")
-          for u in ("https://m2.melon.com/songInfo/detail.htm?songId=603712834","https://m2.melon.com/m6/chart/ent/songChartList.json","https://m2.melon.com/m6/chart/ent/songChartList.htm","https://m2.melon.com/chart/index.htm","https://m2.melon.com/m6/song/info.json?songId=603712834"):
-              try:
-                  t = get(u, "https://m2.melon.com/")
-                  print("OK2", u, len(t), " ".join(t[:200].split()))
-                  for kw in ("청취자", "이용자", "감상자", "24시간", "listener", "Listener", "성별"):
-                      for m in list(re.finditer(kw, t))[:3]:
-                          print("  [%s] %s" % (kw, " ".join(t[max(0, m.start()-60):m.end()+100].split())))
-              except Exception as e:
-                  print("FAIL2", u, str(e)[:100])
-          for sid in ("603712834",):
-              u = f"https://www.melon.com/song/detail.htm?songId={sid}"
-              try:
-                  t = get(u)
-                  print("OK", u, len(t))
-                  for kw in ("청취자", "이용자", "감상", "재생", "24시간", "성별", "연령", "listener", "Listener"):
-                      for m in list(re.finditer(kw, t))[:4]:
-                          s = " ".join(t[max(0, m.start()-60):m.end()+100].split())
-                          print("  [%s] %s" % (kw, s))
-                  print("  ajax:", sorted(set(re.findall(r"['\"](/[A-Za-z0-9_/]+\.json)['\"]", t)))[:40])
-                  print("  ajax2:", sorted(set(re.findall(r"url\s*:\s*['\"]([^'\"]+)['\"]", t)))[:40])
-              except Exception as e:
-                  print("FAIL", u, str(e)[:120])
+          u = "https://m2.melon.com/m6/chart/ent/songChartList.json"
+          t = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA, "Referer": "https://m2.melon.com/"}), timeout=20).read().decode("utf-8", "replace")
+          d = json.loads(t)["response"]
+          print("KEYS", [k for k in d if k != "SONGLIST"])
+          print("META", {k: d[k] for k in d if k != "SONGLIST"})
+          for it in d["SONGLIST"][:3]:
+              print("ITEM", json.dumps(it, ensure_ascii=False))
+          print("N", len(d["SONGLIST"]))
           PY
