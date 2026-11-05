@@ -149,16 +149,20 @@ class DcUploader:
                     page.click(self.sel["headtext_open"])
                     page.click(self.sel["headtext_option"].format(text=self.headtext))
 
-                # 이미지 첨부: 숨겨진 파일 입력에 바로 넣고, 편집기에 이미지가 들어갔는지 확인
-                page.set_input_files(self.sel["image_input"], str(image_path))
+                # 이미지 첨부: 툴바 '이미지' 버튼이 /upload/image 팝업을 연다 -> 팝업의 파일 입력에 넣고 '적용'
+                with page.expect_popup(timeout=15000) as pop:
+                    page.click(self.sel["image_button"])
+                up = pop.value
+                up.wait_for_load_state("domcontentloaded")
+                up.set_input_files("input.file_add", str(image_path))
+                up.wait_for_function("document.getElementById('upload_ing').value !== 'Y' && document.querySelectorAll('.files li, tbody.files tr').length > 0", timeout=30000)
+                up.wait_for_timeout(1500)
+                up.click("button.btn_apply")
                 try:
-                    page.wait_for_selector(self.sel["editor_img"], timeout=20000)
+                    up.wait_for_event("close", timeout=20000)
                 except Exception:
-                    # 입력칸이 반응하지 않으면 툴바의 '이미지' 버튼으로 파일 선택창을 연다
-                    with page.expect_file_chooser(timeout=8000) as fc:
-                        page.click(self.sel["image_button"])
-                    fc.value.set_files(str(image_path))
-                    page.wait_for_selector(self.sel["editor_img"], timeout=20000)
+                    pass
+                page.wait_for_selector(self.sel["editor_img"], timeout=20000)
 
                 # 본문 텍스트: 이미지 뒤에 이어 붙인다
                 page.click(self.sel["editor"])
