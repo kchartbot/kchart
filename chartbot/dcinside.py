@@ -80,6 +80,22 @@ class DcUploader:
         kind = self._kind or ("mgallery/board" if self.minor else "board")
         return f"https://gall.dcinside.com/{kind}/write/?id={self.gallery_id}"
 
+    def _click_submit(self, page) -> None:
+        cands = [self.sel["submit"], "button.btn_svc.write", ".btn_blue.small.write", "button.write", "a.write",
+                 "input[type=submit][value*='등록']", "button:text-is('등록')", "a:text-is('등록')", "button:has-text('등록')", "a:has-text('등록')"]
+        for c in cands:
+            loc = page.locator(c)
+            try:
+                if loc.count() and loc.first.is_visible():
+                    print("등록 버튼:", c)
+                    loc.first.click()
+                    return
+            except Exception:
+                continue
+        info = page.evaluate("() => [...document.querySelectorAll('button, a.btn, input[type=submit], input[type=button]')].filter(e => e.offsetParent).map(e => (e.tagName + '.' + (e.className || '') + ' ' + (e.innerText || e.value || '')).trim().slice(0, 70)).slice(0, 40)")
+        print("등록 버튼을 못 찾음. 보이는 버튼들:", info)
+        raise RuntimeError("등록 버튼을 찾지 못했습니다")
+
     def _open_write(self, page, alerts) -> None:
         first = self._kind or ("mgallery/board" if self.minor else "board")
         order = [first] + [k for k in ("mgallery/board", "board", "mini/board") if k != first]
@@ -323,7 +339,7 @@ class DcUploader:
                 page.on("dialog", lambda d: (dlg.append(d.message[:300]), d.accept()))
                 net = []
                 page.on("response", lambda r: net.append(f"{r.status} {r.url[:110]}") if ("write" in r.url or "forms" in r.url or "ajax" in r.url) and r.request.method == "POST" else None)
-                page.click(self.sel["submit"])
+                self._click_submit(page)
                 try:
                     page.wait_for_url(lambda u: "/write" not in u, timeout=20000)
                 except Exception:
