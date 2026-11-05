@@ -217,7 +217,30 @@ class DcUploader:
                             (JSON.parse(out.formData || '[]') || []).forEach(x => fd.append(x.name, x.value));
                             try { const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'}); out.test = {status: r.status, ct: r.headers.get('content-type'), body: (await r.text()).slice(0, 400)}; } catch (e) { out.test = 'fetch 실패: ' + e; }
                             return out; }""")
-                        print("업로드 진단:", str(diag)[:1500])
+                        print("업로드 진단:", str(diag)[:600])
+                        import base64
+                        b64 = base64.b64encode(Path(image_path).read_bytes()).decode()
+                        real = up.evaluate("""async (b64) => {
+                            const o = $('#fileupload').fileupload('option'); const res = {};
+                            const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+                            const img = await createImageBitmap(new Blob([bin], {type: 'image/png'}));
+                            res.dim = img.width + 'x' + img.height;
+                            async function send(blob, name) {
+                                const fd = new FormData(); fd.append('files[]', blob, name);
+                                JSON.parse($('#fileupload').fileupload('option', 'formData') ? '[]' : '[]');
+                                ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
+                                fd.append('upload_ing', 'Y');
+                                try { const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'}); const t = await r.text(); return r.status + ' ' + t.length + ' ' + t.slice(0, 160); } catch (e) { return 'fail ' + e; }
+                            }
+                            res.orig = await send(new Blob([bin], {type: 'image/png'}), 'chart.png');
+                            for (const w of [1000, 700]) {
+                                const c = document.createElement('canvas'); c.width = w; c.height = Math.round(img.height * w / img.width);
+                                c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+                                const b = await new Promise(r => c.toBlob(r, 'image/png'));
+                                res['w' + w] = c.width + 'x' + c.height + ' ' + b.size + 'B -> ' + await send(b, 'chart.png');
+                            }
+                            return res; }""", b64)
+                        print("실제 이미지 진단:", str(real)[:1200])
                     except Exception as e:
                         print("업로드 진단 실패:", str(e)[:300])
                     print("팝업 이벤트:", msgs[-25:])
