@@ -102,6 +102,7 @@ class DcUploader:
     def _sign_in(self, page) -> None:
         """로그인 화면(sign.dcinside.com)에 아이디/비밀번호를 입력한다. 캡차가 뜨면 우회하지 않고 실패 처리한다."""
         ev = []
+        page.on("dialog", lambda d: (ev.append("dialog: " + d.message[:200]), d.dismiss()))
         page.on("console", lambda m: ev.append("console: " + m.text[:200]))
         page.on("pageerror", lambda e: ev.append("pageerror: " + str(e)[:200]))
         page.on("requestfailed", lambda r: ev.append("requestfailed: " + r.url[:100]))
@@ -124,6 +125,13 @@ class DcUploader:
         page.wait_for_load_state("domcontentloaded")
         page.wait_for_timeout(2000)
         if "sign.dcinside.com" in page.url:
+            txt = " ".join(page.inner_text("body").split())[:400]
+            cap = page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], iframe[src*='hcaptcha'], [class*='captcha'], [id*='captcha']").count()
+            print("로그인 제출 후 화면:", txt, "| 캡차요소 수:", cap, "| 이벤트:", ev[-10:])
+            try:
+                page.screenshot(path="out/dc_login.png")
+            except Exception:
+                pass
             raise RuntimeError("로그인에 실패했습니다 (캡차 또는 계정 정보 오류). 캡차는 자동으로 풀지 않습니다.")
 
     def post(self, title: str, body_text: str, image_path: Path, err_dir: Path) -> None:
