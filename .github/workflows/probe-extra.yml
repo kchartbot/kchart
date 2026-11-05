@@ -1,0 +1,33 @@
+name: probe-extra
+on:
+  push:
+    paths: [".github/workflows/probe-extra.yml"]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          python3 - <<'PY'
+          import re, urllib.request
+          UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+          urls = [
+            "https://www.melon.com/chart/hot100/index.htm",
+            "https://www.melon.com/chart/index.htm",
+            "https://www.melon.com/chart/day/index.htm",
+            "https://www.melon.com/chart/rise/index.htm",
+            "https://www.music-flo.com/api/display/v1/browser/chart/1/track/list?size=100",
+            "https://www.music-flo.com/api/display/v1/browser/chart/1/track/list",
+            "https://www.music-flo.com/browse",
+          ]
+          for u in urls:
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA, "Accept-Language": "ko-KR,ko;q=0.9", "Referer": "https://www.music-flo.com/" if "flo" in u else "https://www.melon.com/"}), timeout=20)
+                  t = r.read().decode("utf-8", "replace")
+                  title = re.search(r"<title>(.*?)</title>", t, re.S)
+                  print("OK", r.status, u, "len", len(t), "title", (title.group(1).strip()[:60] if title else None),
+                        "lst50", len(re.findall(r'class="lst50"', t)), "lst100", len(re.findall(r'class="lst100"', t)),
+                        "trackId", len(re.findall(r'"id"\s*:', t)))
+                  print("   head:", " ".join(t[:260].split()))
+              except Exception as e:
+                  print("FAIL", u, str(e)[:100])
+          PY
