@@ -40,6 +40,10 @@ class UploadFailed(RuntimeError):
     pass
 
 
+class HumanCheckRequired(UploadFailed):
+    """디시가 '사람인지 확인' 을 요구함. 자동으로 넘기지 않고 중단한다 (호출한 쪽이 한동안 게시를 쉰다)."""
+
+
 class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
                  minor: bool = True, headed: bool = False, storage_state: str | None = None,
@@ -293,8 +297,10 @@ class DcUploader:
                 except Exception:
                     pass
                 page.wait_for_timeout(1000)
+                if "/write" in page.url and any("사람인지" in m for m in dlg):
+                    raise HumanCheckRequired("디시가 '사람인지 확인'을 요구했습니다. 자동 게시를 중단합니다 (수동 게시 또는 갤러리 운영진 협의 필요).")
                 if "/write" in page.url:
-                    cap = page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
+                    cap =page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
                     print("등록 후 알림창:", dlg, "| POST응답:", net[-6:], "| 캡차요소:", cap, "| 제목칸:", page.input_value(self.sel["title"])[:40])
                     raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (캡차/도배 제한/필수 항목 누락 가능). url=" + page.url)
             except Exception:

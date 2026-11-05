@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import json
+import random
 import re
 import time
 import urllib.error
@@ -198,18 +199,21 @@ class Fetcher:
     def get(self, url: str) -> str:
         err = None
         for attempt in range(self.retries + 1):
-            wait = self.min_gap - (time.monotonic() - self._last)
+            # 간격에 약간의 무작위를 섞어 요청이 일정한 박자로 몰리지 않게 한다 (사이트 부하 분산)
+            wait = self.min_gap * random.uniform(1.0, 1.5) - (time.monotonic() - self._last)
             if wait > 0:
                 time.sleep(wait)
             self._last = time.monotonic()
-            req = urllib.request.Request(url, headers={"User-Agent": self.ua, "Accept": "text/html"})
+            req = urllib.request.Request(url, headers={"User-Agent": self.ua, "Accept": "text/html",
+                                                       "Accept-Language": "ko-KR,ko;q=0.9"})
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                     return resp.read().decode("utf-8", "replace")
             except urllib.error.HTTPError as e:
                 err = e
                 if e.code == 429:
-                    raise RateLimited(f"가이섬이 요청을 제한했습니다 (HTTP 429): {url}") from e
+                    ra = e.headers.get("Retry-After") if e.headers else None
+                    raise RateLimited(f"요청이 제한되었습니다 (HTTP 429, Retry-After={ra}): {url}") from e
                 if e.code >= 500:  # 서버가 느리거나 제한을 건 경우: 천천히 재시도
                     time.sleep(10 * (attempt + 1))
                     continue

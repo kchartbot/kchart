@@ -21,7 +21,9 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from chartbot.dcinside import DcUploader, UploadFailed
+from datetime import timedelta
+
+from chartbot.dcinside import DcUploader, HumanCheckRequired, UploadFailed
 from chartbot.fetch import SPECS, Fetcher, RateLimited, get_chart, resolve
 from chartbot.direct import ensure_snapshot
 from chartbot.samples import SampleFetcher, seed_sample_history
@@ -74,6 +76,12 @@ def process(key, cfg, fetcher, uploader, state, out):
     # 가이섬은 한국시간 기준이라, 서버 시계/타임존과 무관하게 KST 로 시각을 계산한다
     now = datetime.now(KST).replace(tzinfo=None)
 
+    # 사람 확인 요구를 받은 뒤에는 일정 시간 게시(와 그를 위한 수집)를 쉰다
+    paused = state.get("dc_pause_until")
+    if not b.get("dry_run", True) and paused and now < datetime.fromisoformat(paused):
+        log.info("디시 게시 일시중지 중 (%s 까지), 건너뜀", paused)
+        return
+
     if spec.cadence == "hourly":
         # 시간당 1회: 정시 직후엔 가이섬 갱신 전일 수 있어 hourly_after_minute 이후에만 시도하고,
         # 이미 올린 시간대면 요청 자체를 하지 않는다.
@@ -99,7 +107,11 @@ def process(key, cfg, fetcher, uploader, state, out):
     if b.get("dry_run", True):
         log.info("[dry-run] 업로드 생략: %s -> %s", title, png)
     else:
-        uploader.post(title, body, png, out)
+        try:
+            uploader.post(title, body, png, out)
+        except HumanCheckRequired:
+            state["dc_pause_until"] = (now + timedelta(hours=int(b.get("pause_hours_on_human_check", 6)))).isoformat()
+            raise
         log.info("업로드 완료: %s", title)
     state[spec.key] = stamp
     for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
