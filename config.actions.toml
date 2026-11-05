@@ -1,10 +1,7 @@
 # GitHub Actions 용 설정. 갤러리ID/마이너 여부/dry_run 은 저장소 Variables 로 덮어씁니다 (README 참고).
 [bot]
 charts = [
-  # 멜론·지니·벅스 공개 차트에서 직접 수집 (가이섬은 GitHub 서버 접속을 거부해서 사용 불가)
-  "melon_rank", "genie_rank", "bugs_rank",                      # 실시간 순위 표 (100위, 시간당 1회)
-  "melon_rank_graph", "genie_rank_graph", "bugs_rank_graph",    # 24시간 순위 추이 그래프 (시간당 1회)
-  # "melon_rank_five", "genie_rank_five", "bugs_rank_five",     # 5분 순위 추이 그래프 (5분마다: 글이 많아짐)
+  "melon_rank",   # 멜론 실시간 순위 표 (100위) - 한 번에 하나만 올린다
 ]
 hourly_after_minute = 5
 min_request_gap = 3.0
