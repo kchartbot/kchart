@@ -136,7 +136,9 @@ class DcUploader:
                 if anon:
                     if not self.anon_pw:
                         raise RuntimeError("로그인이 안 된 글쓰기 화면입니다. DC_ID/DC_PW 또는 DC_ANON_PW 를 설정하세요.")
-                    page.fill(self.sel["anon_nick"], self.anon_nick or "차트봇")
+                    nick = page.locator(self.sel["anon_nick"])
+                    if nick.is_editable():  # 갤러리가 닉네임을 고정(readonly)해 둔 경우는 그대로 둔다
+                        nick.fill(self.anon_nick or "차트봇")
                     page.fill(self.sel["anon_pw"], self.anon_pw)
                 if "login" in page.url:
                     raise RuntimeError("로그인 세션이 없습니다. DC_ID/DC_PW 를 넣거나 `python run.py login` 후 세션을 내보내세요.")
