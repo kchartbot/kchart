@@ -85,11 +85,18 @@ class DcUploader:
             from urllib.parse import quote
 
             page.goto("https://sign.dcinside.com/login?s_url=" + quote(self.write_url, safe=""), wait_until="domcontentloaded")
-        page.fill("input[placeholder='식별 코드'], input[name=user_id]", self.login_id)
-        page.fill("input[type=password]", self.login_pw)
-        page.click("button[type=submit]")
+        try:
+            page.wait_for_selector("input[type=password]", state="visible", timeout=20000)
+        except Exception:
+            # 로그인 입력칸이 안 보임: 어떤 화면이 떴는지 로그에 남긴다 (캡차/차단/점검 구분용, 비밀번호는 포함되지 않음)
+            body = " ".join(page.inner_text("body").split())[:300] if page.locator("body").count() else ""
+            raise RuntimeError(f"로그인 입력칸을 찾지 못했습니다. url={page.url} title={page.title()!r} body={body!r}")
+        user = page.locator("form input:not([type=hidden]):not([type=password]):not([type=checkbox]):visible").first
+        user.fill(self.login_id)
+        page.locator("input[type=password]:visible").first.fill(self.login_pw)
+        page.locator("button[type=submit]:visible, input[type=submit]:visible").first.click()
         page.wait_for_load_state("domcontentloaded")
-        page.wait_for_timeout(1500)
+        page.wait_for_timeout(2000)
         if "sign.dcinside.com" in page.url:
             raise RuntimeError("로그인에 실패했습니다 (캡차 또는 계정 정보 오류). 캡차는 자동으로 풀지 않습니다.")
 
