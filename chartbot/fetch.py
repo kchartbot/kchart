@@ -14,6 +14,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from pathlib import Path
 
 BASE = "https://xn--o39an51b2re.com"  # 가이섬.com (punycode)
 SOURCE_CREDIT = "출처: 가이섬.com"
@@ -29,6 +30,13 @@ class Spec:
     cadence: str      # five = 5분마다, hourly = 정시 기준 시간당 1회
     slots: int = 0    # 그래프 칸 수 (five=13, graph24=24)
     max_rows: int = 100
+    source: str = "gaisum"   # gaisum = 가이섬.com, direct = 각 플랫폼 공개 차트 페이지에서 직접 수집 (direct.py)
+
+    @property
+    def credit(self) -> str:
+        if self.source == "direct":
+            return f"출처: {({'melon': '멜론', 'genie': '지니', 'bugs': '벅스'})[self.platform]} 차트 (공개 순위)"
+        return SOURCE_CREDIT
 
 
 # 요청하신 구성: 멜론 6종 + 지니/플로/벅스는 가이섬에 있는 해당 항목만
@@ -43,6 +51,15 @@ SPECS = {s.key: s for s in [
     Spec("flo_chart",          "flo",   "24hour",        "플로 차트",           "table",        "hourly"),
     Spec("bugs_realtime",      "bugs",  "realtime",      "벅스 실시간 차트",     "table",        "hourly"),
 ]}
+# 가이섬을 거치지 않고 각 플랫폼 공개 차트에서 직접 수집하는 순위 중심 차트 (이용자 수·점수는 없음)
+for _p, _n in (("melon", "멜론"), ("genie", "지니"), ("bugs", "벅스")):
+    for _s in (
+        Spec(f"{_p}_rank",       _p, "direct", f"{_n} 실시간 순위",          "table",       "hourly", source="direct"),
+        Spec(f"{_p}_rank_graph", _p, "direct", f"{_n} 순위 추이 (24시간)",   "rankgraph24", "hourly", 24, source="direct"),
+        Spec(f"{_p}_rank_five",  _p, "direct", f"{_n} 순위 5분 추이",        "rankfive",    "five",   13, source="direct"),
+    ):
+        SPECS[_s.key] = _s
+
 # 이전 버전 설정 키 호환
 ALIASES = {"five": "melon_five", "hot100": "melon_hot100_five"}
 
@@ -210,6 +227,10 @@ def get_chart(key: str, now: datetime, fetcher: Fetcher, cache_dir=None) -> Char
     cache_dir 는 지난 시간대 페이지를 저장해 두는 폴더다 (과거 데이터는 변하지 않으므로 한 번만 받는다).
     """
     spec = resolve(key)
+    if spec.source == "direct":
+        from .direct import get_direct_chart
+
+        return get_direct_chart(key, now, fetcher, Path(cache_dir).parent / "rank" if cache_dir else "rank")
     hour = now.replace(minute=0, second=0, microsecond=0)
     for h in (hour, hour - timedelta(hours=1)):
         chart = parse_chart(key, fetcher.get(build_url(key, h)))

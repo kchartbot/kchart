@@ -21,6 +21,12 @@ class SampleFetcher(Fetcher):
         self.root = Path(root)
 
     def get(self, url: str) -> str:
+        if "melon.com/chart" in url:
+            return (self.root / "direct-melon.html").read_text(encoding="utf-8")
+        if "genie.co.kr/chart" in url:
+            return (self.root / f"direct-genie-{url[-1]}.html").read_text(encoding="utf-8")
+        if "music.bugs.co.kr/chart" in url:
+            return (self.root / "direct-bugs.html").read_text(encoding="utf-8")
         m = re.search(r"/song/melon/(\d+)$", url)
         if m:
             return (self.root / f"song-melon-{m.group(1)}.json").read_text(encoding="utf-8")
@@ -35,3 +41,25 @@ class SampleFetcher(Fetcher):
         if asked < sample_time and hist.exists():
             return hist.read_text(encoding="utf-8")
         return main.read_text(encoding="utf-8")
+
+
+def seed_sample_history(platform: str, now, fetcher, store_dir) -> None:
+    """render 용: 최신 순위를 저장한 뒤, 지난 26시간의 순위를 무작위 변동으로 채워 그래프를 그릴 수 있게 한다 (샘플 전용)."""
+    import random
+    from datetime import timedelta
+
+    from .direct import _floor5, _stamp, ensure_snapshot
+
+    path = Path(store_dir) / f"{platform}.json"
+    if path.exists():
+        path.unlink()
+    st = ensure_snapshot(platform, now, fetcher, store_dir)
+    rnd = random.Random(platform)
+    top = [r["sid"] for r in st["latest"]["rows"][:8]]
+    cur = {sid: i + 1 for i, sid in enumerate(top)}
+    t = _floor5(now)
+    for k in range(1, 26 * 12):
+        for sid in top:
+            cur[sid] = max(1, min(14, cur[sid] + rnd.choice([-1, 0, 0, 0, 1])))
+        st["hist"][_stamp(t - timedelta(minutes=5 * k))] = dict(cur)
+    path.write_text(json.dumps(st, ensure_ascii=False), encoding="utf-8")

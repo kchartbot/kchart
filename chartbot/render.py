@@ -59,7 +59,7 @@ def _wd(dt):
     return "월화수목금토일"[dt.weekday()]
 
 
-def embed_images(chart: Chart, fetcher: Fetcher, cache_dir: Path, budget: int = 30, gap: float = 1.0, size: int = 80) -> dict:
+def embed_images(chart: Chart, fetcher: Fetcher, cache_dir: Path, budget: int = 30, gap: float = 1.0, size: int | None = 80) -> dict:
     """앨범 이미지를 받아 로컬에 캐시하고 data URI 로 돌려준다.
 
     CDN 부하를 줄이기 위해 (1) 한 번 받은 이미지는 다시 받지 않고, (2) 한 번 실행에서 새로 받는 장수를
@@ -76,7 +76,8 @@ def embed_images(chart: Chart, fetcher: Fetcher, cache_dir: Path, budget: int = 
                 if fetched:
                     time.sleep(gap)
                 fetched += 1
-                req = urllib.request.Request(url + ("&" if "?" in url else "?") + f"size={size}", headers={"User-Agent": fetcher.ua})
+                full = url if size is None else url + ("&" if "?" in url else "?") + f"size={size}"
+                req = urllib.request.Request(full, headers={"User-Agent": fetcher.ua})
                 with urllib.request.urlopen(req, timeout=10) as resp:
                     f.write_bytes(resp.read())
             out[url] = "data:image/jpeg;base64," + base64.b64encode(f.read_bytes()).decode()
@@ -173,26 +174,36 @@ TOP_LINES = 5
 def _x_labels(chart: Chart):
     """칸마다 x축 라벨. 5분 차트는 시:분, 24시간 그래프는 시각(숫자)."""
     n, start = chart.spec.slots, chart.hour_start
-    if chart.spec.layout == "five":
+    if chart.spec.layout in ("five", "rankfive"):
         return [f"{start + timedelta(minutes=5 * i):%H:%M}" for i in range(n)]
     return [f"{(start - timedelta(hours=n - 1 - i)).hour}" for i in range(n)]
 
 
 def _linechart(chart: Chart):
+    rank_mode = chart.spec.layout in ("rankgraph24", "rankfive")  # 순위 그래프: 1위가 위쪽
     W, H = 1000, 440
-    L, R, T, B = 46, 16, 14, 40
+    L, R, T, B = 46, 16, (30 if rank_mode else 14), 40
     n = chart.spec.slots
     rows = chart.rows[:TOP_LINES]
     vals = [v for r in rows for v in (r.values or []) if v]
-    top = max(1, math.ceil(max(vals))) if vals else 1
-    step = 1 if top <= 10 else (2 if top <= 20 else 5)
-    top = math.ceil(top / step) * step
+    if rank_mode:
+        top = max(5, max(vals, default=5))
+        top = int(math.ceil(top / (1 if top <= 10 else 5)) * (1 if top <= 10 else 5))
+        step = 1 if top <= 10 else 5
+        ticks = [1] + list(range(step if step > 1 else 2, top + 1, step)) if step == 1 else [1] + list(range(5, top + 1, 5))
+        ys = lambda v: T + (H - T - B) * (v - 1) / (top - 1)
+    else:
+        top = max(1, math.ceil(max(vals))) if vals else 1
+        step = 1 if top <= 10 else (2 if top <= 20 else 5)
+        top = math.ceil(top / step) * step
+        ticks = list(range(0, top + 1, step))
+        ys = lambda v: T + (H - T - B) * (1 - v / top)
     xs = lambda i: L + (W - L - R) * (i + .5) / n
-    ys = lambda v: T + (H - T - B) * (1 - v / top)
     g = []
-    for t in range(0, top + 1, step):
+    for t in ticks:
         y = ys(t)
-        g.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="{"#222a3d" if t == 0 else "#e3e0d8"}" stroke-width="{1.4 if t == 0 else 1}"/>')
+        base = (t == 1) if rank_mode else (t == 0)
+        g.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="{"#222a3d" if (t == 0 and not rank_mode) else "#e3e0d8"}" stroke-width="{1.4 if (t == 0 and not rank_mode) else 1}"/>')
         g.append(f'<text x="{L - 10}" y="{y + 5:.1f}" font-size="15" text-anchor="end">{t}</text>')
     for i, lab in enumerate(_x_labels(chart)):
         g.append(f'<text x="{xs(i):.1f}" y="{H - B + 24}" font-size="15" text-anchor="middle">{lab}</text>')
@@ -221,7 +232,7 @@ def _linechart(chart: Chart):
         idx = [i for i, v in enumerate(r.values or []) if v]
         if idx:
             i = idx[-1]
-            ends.append([xs(i), ys(r.values[i]) - 10, f"{r.values[i]:.1f}", col])
+            ends.append([xs(i), ys(r.values[i]) - 10, (f"{int(r.values[i])}위" if rank_mode else f"{r.values[i]:.1f}"), col])
     ends.sort(key=lambda e: e[1])
     for j in range(1, len(ends)):
         if ends[j][1] - ends[j - 1][1] < 16:
@@ -327,9 +338,15 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
     start = chart.hour_start
     day = f"{start:%Y.%m.%d} ({_wd(start)})"
     shown = (len(chart.history) if layout == "table_users" and chart.history is not None
-             else min(TOP_LINES, len(chart.rows)) if layout in ("five", "graph24") else len(chart.rows))
+             else min(TOP_LINES, len(chart.rows)) if layout in ("five", "graph24", "rankgraph24", "rankfive") else len(chart.rows))
     note = ""
-    if layout == "five":
+    if layout in ("rankgraph24", "rankfive"):
+        if layout == "rankfive":
+            sub, stamp = f"{day} {start:%H}시 구간 · 5분 단위 순위 · 상위 {min(TOP_LINES, len(chart.rows))}곡", f"{chart.stamp:%H:%M}"
+        else:
+            sub, stamp = f"{day} · 최근 24시간 순위 · 상위 {min(TOP_LINES, len(chart.rows))}곡", f"{start:%H}:00"
+        body = _linechart(chart)
+    elif layout == "five":
         sub, stamp = f"{day} {start:%H}시 구간 · 5분 단위 · 상위 {min(TOP_LINES, len(chart.rows))}곡", f"{chart.stamp:%H:%M}"
         body = _linechart(chart)
     elif layout == "graph24":
@@ -344,14 +361,14 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
         body = _table_counts(chart, images) if layout == "table_counts" else _table(chart, images)
         if chart.spec.layout == "table_counts" and layout == "table":
             note = "※ 이 시간대는 가이섬에서 이용자 수치를 제공하지 않아 순위만 표시합니다"
-    foot_r = f"{shown}곡" if layout in ("five", "graph24", "table_users") or shown == chart.total or not chart.total else f"상위 {shown}곡"
+    foot_r = f"{shown}곡" if layout in ("five", "graph24", "table_users", "rankgraph24", "rankfive") or shown == chart.total or not chart.total else f"상위 {shown}곡"
     return (
         f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>{html.escape(chart.title)} {chart.stamp:%H:%M}</title>'
         f"<style>{CSS}</style></head><body>"
         f'<header><div><h1>{html.escape(chart.title)}</h1><div class="sub">{sub}</div></div>'
         f'<div class="stamp">{stamp}<small>기준</small></div></header>'
         f"{body}"
-        f'<footer><span>{SOURCE_CREDIT}{(" · " + note) if note else ""}</span><span>{foot_r}</span></footer></body></html>'
+        f'<footer><span>{chart.spec.credit}{(" · " + note) if note else ""}</span><span>{foot_r}</span></footer></body></html>'
     )
 
 
@@ -390,6 +407,11 @@ def body_text(chart: Chart) -> str:
                 vals = "|".join("-" if v is None else f"{v:g}" for v in r.values)
             lines.append(f"[{r.rank}위] {r.name} - {r.artists}\n{vals}")
         sep = "\n\n"
+    elif layout in ("rankgraph24", "rankfive"):
+        for r in chart.rows[:TOP_LINES]:
+            c, _ = _rank_change(r.rank, r.previous)
+            lines.append(f"{r.rank}위 ({c}) {r.name} - {r.artists}")
+        sep = "\n"
     elif layout == "table_users":
         rows = {r.sid: r for r in chart.rows}
         for h in chart.history or []:
@@ -413,7 +435,7 @@ def body_text(chart: Chart) -> str:
                 extra = f" | 1시간 {_num(r.count1)} / 24시간 {_num(r.count2)}"
             lines.append(f"{r.rank}위 ({c}) {r.name} - {r.artists}{extra}")
         sep = "\n"
-    return sep.join(lines) + f"\n\n{SOURCE_CREDIT}"
+    return sep.join(lines) + f"\n\n{chart.spec.credit}"
 
 
 def post_title(chart: Chart) -> str:

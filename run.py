@@ -23,7 +23,8 @@ from zoneinfo import ZoneInfo
 
 from chartbot.dcinside import DcUploader
 from chartbot.fetch import SPECS, Fetcher, RateLimited, get_chart, resolve
-from chartbot.samples import SampleFetcher
+from chartbot.direct import ensure_snapshot
+from chartbot.samples import SampleFetcher, seed_sample_history
 from chartbot.render import body_text, embed_images, png_scale, post_title, render_html, render_png
 
 ROOT = Path(__file__).parent
@@ -87,7 +88,7 @@ def process(key, cfg, fetcher, uploader, state, out):
         return
 
     images = embed_images(chart, fetcher, out / "cache", budget=int(b.get("image_budget", 30)), gap=float(b.get("image_gap", 1.0)),
-                         size=400 if spec.layout == "table_users" else 80)
+                         size=400 if spec.layout == "table_users" else (None if spec.source == "direct" else 80))
     html = render_html(chart, images)
     png = out / f"{spec.key}_{stamp}.png"
     (out / f"{spec.key}_{stamp}.html").write_text(html, encoding="utf-8")
@@ -103,7 +104,24 @@ def process(key, cfg, fetcher, uploader, state, out):
         f.unlink(missing_ok=True)
 
 
+def collect_direct(cfg, fetcher, out):
+    """직접 수집 차트가 하나라도 있는 플랫폼은 올릴 차트가 없는 주기에도 순위를 기록해 둔다 (그래프용 기록)."""
+    now = datetime.now(KST).replace(tzinfo=None)
+    for platform in dict.fromkeys(resolve(k).platform for k in cfg["bot"]["charts"] if resolve(k).source == "direct"):
+        try:
+            ensure_snapshot(platform, now, fetcher, out / "rank")
+        except RateLimited:
+            raise
+        except Exception:
+            log.exception("%s 순위 수집 실패", platform)
+
+
 def run_cycle(cfg, fetcher, uploader, state, out):
+    try:
+        collect_direct(cfg, fetcher, out)
+    except RateLimited as e:
+        log.error("%s — 이번 주기를 중단합니다.", e)
+        return
     for key in cfg["bot"]["charts"]:
         try:
             process(key, cfg, fetcher, uploader, state, out)
@@ -133,8 +151,14 @@ def main():
             if a_only and resolve(a_only).key != key:
                 continue
             # 샘플 파일의 시각을 "지금"으로 보고 운영과 같은 경로(get_chart -> 이력 수집 -> 렌더)로 그린다
-            sample_time = datetime.fromisoformat(json.loads((ROOT / "samples" / f"{spec.platform}-{spec.path}.json").read_text(encoding="utf-8"))["time"])
-            c = get_chart(key, sample_time, sf, cache_dir=None)
+            if spec.source == "direct":
+                sample_time = datetime(2026, 11, 5, 14, 35)
+                sdir = out / "rank_sample"
+                seed_sample_history(spec.platform, sample_time, sf, sdir / "rank")
+                c = get_chart(key, sample_time, sf, cache_dir=sdir / "cache")
+            else:
+                sample_time = datetime.fromisoformat(json.loads((ROOT / "samples" / f"{spec.platform}-{spec.path}.json").read_text(encoding="utf-8"))["time"])
+                c = get_chart(key, sample_time, sf, cache_dir=None)
             h = render_html(c)
             (out / f"{key}.html").write_text(h, encoding="utf-8")
             render_png(h, out / f"{key}.png", png_scale(c))
