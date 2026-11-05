@@ -170,11 +170,15 @@ class DcUploader:
                 up = pop.value
                 msgs = []
                 up.on("dialog", lambda d: (msgs.append("dialog: " + d.message), d.dismiss()))
-                up.on("console", lambda m: msgs.append("console: " + m.text[:200]))
+                up.on("console", lambda m: msgs.append("console: " + m.text[:900]))
                 up.on("pageerror", lambda e: msgs.append("pageerror: " + str(e)[:200]))
                 up.on("response", lambda r: msgs.append(f"http {r.status} {r.url[:120]} body={self._body(r)}") if "upimg_file" in r.url else None)
                 up.on("requestfailed", lambda r: msgs.append("requestfailed: " + r.url[:120]))
                 up.wait_for_load_state("domcontentloaded")
+                up.evaluate("""() => { const f = $('#fileupload');
+                    f.on('fileuploaddone fileuploadfail fileuploadalways', function (e, d) {
+                        let r = ''; try { r = JSON.stringify(d.result) + ' | ' + (d.jqXHR && d.jqXHR.responseText || '').slice(0, 500) + ' | ' + (d.textStatus || '') + ' ' + (d.errorThrown || ''); } catch (x) { r = String(x); }
+                        console.log('UPLOAD ' + e.type + ': ' + r); }); }""")
                 up.set_input_files("input.file_add", str(image_path))
                 try:
                     up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=25000)
