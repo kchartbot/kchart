@@ -11,6 +11,8 @@
 from __future__ import annotations
 
 import argparse
+import random
+import time
 import json
 import logging
 import os
@@ -86,6 +88,9 @@ def make_uploader(cfg, headed):
     )
 
 
+_LAST_POST = [0.0]
+
+
 def process(key, cfg, fetcher, uploader, state, out):
     spec = resolve(key)
     b = cfg["bot"]
@@ -123,7 +128,15 @@ def process(key, cfg, fetcher, uploader, state, out):
         log.info("[dry-run] 업로드 생략: %s -> %s", title, png)
         return False
     else:
+        # 같은 실행에서 여러 개를 올릴 때는 글 사이에 20~30초(설정값) 간격을 둔다
+        lo, hi = (float(x) for x in str(b.get("post_gap_seconds", "20-30")).split("-"))
+        gap = random.uniform(lo, hi)
+        wait = _LAST_POST[0] + gap - time.monotonic()
+        if _LAST_POST[0] and wait > 0:
+            log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
+            time.sleep(wait)
         uploader.post(title, body, png, out)
+        _LAST_POST[0] = time.monotonic()
         log.info("업로드 완료: %s", title)
     state[spec.key] = stamp
     for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
