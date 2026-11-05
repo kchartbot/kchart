@@ -50,6 +50,8 @@ jobs:
           DC_HEADTEXT: ${{ vars.DC_HEADTEXT }}
           DC_ID: ${{ secrets.DC_ID }}
           DC_PW: ${{ secrets.DC_PW }}
+          DC_ANON_NICK: ${{ vars.DC_ANON_NICK }}
+          DC_ANON_PW: ${{ secrets.DC_ANON_PW }}
           DC_STORAGE_STATE: ${{ secrets.DC_STORAGE_STATE }}
         run: python run.py once --config config.actions.toml
 

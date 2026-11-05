@@ -15,7 +15,8 @@ from pathlib import Path
 DEFAULT_SELECTORS = {
     # 실제 글쓰기 화면(2026-11, fullgirlidol)에서 확인한 값
     "title": "#subject",
-    "anon_nick": "#gall_nick_name",          # 이 칸이 보이면 로그인이 안 된 상태(유동 글쓰기)
+    "anon_nick": "#gall_nick_name",
+    "anon_pw": "#password",          # 이 칸이 보이면 로그인이 안 된 상태(유동 글쓰기)
     # 말머리: 갤러리에 말머리가 없으면 이 요소가 없어서 건너뜀
     "headtext_open": ".write_subject .subject_list, .write_subject select, #headtext_dropdown",
     "headtext_option": "text={text}",
@@ -32,7 +33,8 @@ DEFAULT_SELECTORS = {
 class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
                  minor: bool = True, headed: bool = False, storage_state: str | None = None,
-                 login_id: str | None = None, login_pw: str | None = None):
+                 login_id: str | None = None, login_pw: str | None = None,
+                 anon_nick: str | None = None, anon_pw: str | None = None):
         self.gallery_id = gallery_id
         self.headtext = headtext
         self.profile_dir = str(Path(profile_dir).expanduser())
@@ -40,6 +42,7 @@ class DcUploader:
         self.minor = minor
         self.headed = headed
         self.login_id, self.login_pw = login_id, login_pw  # 있으면 세션이 없을 때 이 계정으로 직접 로그인 (비밀번호는 로그/화면에 남기지 않음)
+        self.anon_nick, self.anon_pw = anon_nick, anon_pw  # 로그인이 안 될 때 쓰는 유동(비로그인) 글쓰기용 닉네임/글 비밀번호
         self.storage_state = storage_state  # 있으면 프로필 대신 이 쿠키 파일로 로그인 상태를 복원 (GitHub Actions 등)
 
     @property
@@ -117,13 +120,24 @@ class DcUploader:
                 page.goto(self.write_url, wait_until="domcontentloaded")
                 anon = page.locator(self.sel["anon_nick"]).is_visible()
                 if ("login" in page.url or anon) and self.login_id and self.login_pw:
-                    self._sign_in(page)
-                    if self.storage_state:  # 다음 실행에서 다시 로그인하지 않도록 세션 저장
-                        ctx.storage_state(path=self.storage_state)
-                        Path(self.storage_state).chmod(0o600)
+                    try:
+                        self._sign_in(page)
+                        if self.storage_state:  # 다음 실행에서 다시 로그인하지 않도록 세션 저장
+                            ctx.storage_state(path=self.storage_state)
+                            Path(self.storage_state).chmod(0o600)
+                    except Exception as e:
+                        if not self.anon_pw:
+                            raise
+                        print("로그인 실패, 유동 글쓰기로 진행:", str(e)[:200])
                     page.goto(self.write_url, wait_until="domcontentloaded")
-                    if page.locator(self.sel["anon_nick"]).is_visible():
+                    anon = page.locator(self.sel["anon_nick"]).is_visible()
+                    if anon and not self.anon_pw:
                         raise RuntimeError("로그인 후에도 비로그인(유동) 글쓰기 화면입니다. 계정 정보 또는 캡차를 확인하세요.")
+                if anon:
+                    if not self.anon_pw:
+                        raise RuntimeError("로그인이 안 된 글쓰기 화면입니다. DC_ID/DC_PW 또는 DC_ANON_PW 를 설정하세요.")
+                    page.fill(self.sel["anon_nick"], self.anon_nick or "차트봇")
+                    page.fill(self.sel["anon_pw"], self.anon_pw)
                 if "login" in page.url:
                     raise RuntimeError("로그인 세션이 없습니다. DC_ID/DC_PW 를 넣거나 `python run.py login` 후 세션을 내보내세요.")
 

@@ -62,6 +62,7 @@ def make_uploader(cfg, headed):
             with os.fdopen(fd, "w", encoding="utf-8") as f:
                 f.write(os.environ["DC_STORAGE_STATE"])
     return DcUploader(storage_state=state_file, login_id=os.environ.get("DC_ID"), login_pw=os.environ.get("DC_PW"),
+        anon_nick=os.environ.get("DC_ANON_NICK"), anon_pw=os.environ.get("DC_ANON_PW"),
         gallery_id=dc["gallery_id"], headtext=dc.get("headtext", "차트봇"), profile_dir=dc.get("profile_dir", "~/.chartbot/profile"),
         selectors=dc.get("selectors"), minor=dc.get("minor", True), headed=headed,
     )
