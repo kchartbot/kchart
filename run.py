@@ -19,7 +19,7 @@ import os
 import sys
 import time
 import tomllib
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -129,19 +129,94 @@ def process(key, cfg, fetcher, uploader, state, out):
         return False
     else:
         # 같은 실행에서 여러 개를 올릴 때는 글 사이에 20~30초(설정값) 간격을 둔다
-        lo, hi = (float(x) for x in str(b.get("post_gap_seconds", "20-30")).split("-"))
+        _g = [float(x) for x in str(b.get("post_gap_seconds", "20-30")).split("-")]
+        lo, hi = _g[0], _g[-1]
         gap = random.uniform(lo, hi)
         wait = _LAST_POST[0] + gap - time.monotonic()
         if _LAST_POST[0] and wait > 0:
             log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
             time.sleep(wait)
+        _LAST_POST[0] = time.monotonic()      # 간격은 앞 글이 시작된 시각 기준 (업로드에 걸리는 시간이 간격에 포함됨 → 5개가 2분 안에 끝남)
         uploader.post(title, body, png, out)
-        _LAST_POST[0] = time.monotonic()
         log.info("업로드 완료: %s", title)
     state[spec.key] = stamp
     for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
         f.unlink(missing_ok=True)
     return True
+
+
+def _kst():
+    return datetime.now(KST).replace(tzinfo=None)
+
+
+def prewarm(cfg, fetcher, out, deadline):
+    """정각 전에 미리: 직전 순위를 저장하고 앨범 이미지를 캐시에 받아 둔다 (정각엔 새로 받을 이미지를 줄이려고)."""
+    b = cfg["bot"]
+    for key in b["charts"]:
+        left = (deadline - _kst()).total_seconds()
+        if left <= 0:
+            break
+        try:
+            spec = resolve(key)
+            chart = get_chart(key, _kst(), fetcher, cache_dir=out / "cache")
+            gap = float(b.get("image_gap", 1.0))
+            budget = int(min(int(b.get("image_budget", 30)), max(0, left / max(gap, 0.5))))
+            embed_images(chart, fetcher, out / "cache", budget=budget, gap=gap,
+                         size=400 if spec.layout == "table_users" else (None if spec.source == "direct" else 80))
+        except Exception:
+            log.exception("%s 미리 준비 실패 (정각에 다시 시도)", key)
+
+
+def wait_until(target):
+    while True:
+        left = (target - _kst()).total_seconds()
+        if left <= 0:
+            return
+        time.sleep(min(left, 5) if left > 5 else max(left, 0.02))
+
+
+def post_top_on_time(cfg, fetcher, uploader, state, out):
+    """정각 전에 시작한 실행: 준비를 끝내 두고 정각이 되자마자 TOP100(첫 차트)을 올린 뒤, 나머지는 설정된 간격으로 올린다."""
+    b = cfg["bot"]
+    top = (b.get("charts") or [None])[0]
+    now = _kst()
+    lead = int(b.get("precise_lead_minutes", 12))
+    if not top or b.get("force") or now.minute < 60 - lead:
+        return
+    target = now.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
+    log.info("정각(%s)에 맞춰 올리려고 준비합니다", f"{target:%H:%M}")
+    prewarm(cfg, fetcher, out, target - timedelta(seconds=45))
+    wait_until(target)
+    # 정각 직후 사이트가 아직 직전 시간 순위를 보여 줄 수 있어, 직전 저장본과 같으면 몇 초씩 기다려 본다 (최대 90초)
+    spec = resolve(top)
+    if spec.source == "direct":
+        from chartbot.direct import PARSERS, urls
+        prev = None
+        try:
+            prev = json.loads((out / "rank" / f"{spec.platform}.json").read_text(encoding="utf-8"))["latest"]["rows"]
+        except Exception:
+            pass
+        sig = lambda rows: [(r["sid"], r["rank"]) for r in rows]
+        t0 = time.monotonic()
+        while prev and time.monotonic() - t0 < 90:
+            try:
+                fetcher._last = 0.0
+                cur = PARSERS[spec.platform](fetcher.get(urls(spec.platform, _kst())[0]))
+            except Exception:
+                break
+            if sig(cur) != sig(prev):
+                break
+            log.info("%s 아직 갱신 전 (직전 순위와 동일) — 5초 뒤 다시 확인", top)
+            time.sleep(5)
+        fetcher._last = 0.0
+    try:
+        if process(top, cfg, fetcher, uploader, state, out):
+            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
+            log.info("정각 게시 완료 (%s)", f"{_kst():%H:%M:%S}")
+    except (RateLimited, UploadFailed):
+        log.exception("정각 게시 실패")
+    except Exception:
+        log.exception("정각 게시 처리 실패")
 
 
 def collect_direct(cfg, fetcher, out):
@@ -236,6 +311,8 @@ def main():
     state = json.loads(sf.read_text()) if sf.exists() else {}
 
     if a.cmd == "once":
+        if b.get("precise_top", False):
+            post_top_on_time(cfg, fetcher, uploader, state, out)
         run_cycle(cfg, fetcher, uploader, state, out)
         return
 

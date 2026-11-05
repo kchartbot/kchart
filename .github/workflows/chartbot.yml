@@ -2,8 +2,8 @@ name: chartbot
 
 on:
   schedule:
-    # 매시 2분·12분(UTC 기준 매시와 같음). 정각 차트는 15분 창 안에서만 올리고, 이미 올린 건 state.json 으로 건너뜀
-    - cron: "2,12 * * * *"
+    # 정각 15분·8분 전에 시작해 설치와 준비를 끝내 두고 정각에 바로 올림 (GitHub 스케줄은 늦게 시작될 수 있어 두 번 걸어 둠). 12분은 놓쳤을 때 보충
+    - cron: "45,52,12 * * * *"
   workflow_dispatch:
     inputs:
       dry:
