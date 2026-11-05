@@ -13,17 +13,19 @@ from __future__ import annotations
 from pathlib import Path
 
 DEFAULT_SELECTORS = {
-    "title": "#subject, input[placeholder*='제목']",
-    # 말머리 드롭다운을 여는 요소 / 옵션을 텍스트로 찾는 선택자 템플릿 ({text} 가 말머리 이름으로 치환)
+    # 실제 글쓰기 화면(2026-11, fullgirlidol)에서 확인한 값
+    "title": "#subject",
+    "anon_nick": "#gall_nick_name",          # 이 칸이 보이면 로그인이 안 된 상태(유동 글쓰기)
+    # 말머리: 갤러리에 말머리가 없으면 이 요소가 없어서 건너뜀
     "headtext_open": ".write_subject .subject_list, .write_subject select, #headtext_dropdown",
     "headtext_option": "text={text}",
-    # 본문 편집기 (스마트에디터는 iframe)
-    "editor_iframe": "iframe#tx_canvas_wysiwyg",
-    "editor_body": "body",
-    # 이미지 첨부: 버튼을 누르면 파일 선택창이 뜨거나 input[type=file] 이 생긴다
-    "image_button": "#tx_image, .tx-image, button:has-text('이미지')",
-    "image_input": "input[type=file]",
-    "submit": "button.btn_svc.write, .btn_blue.small.write, button:has-text('등록')",
+    # 본문 편집기 (Summernote: iframe 아님)
+    "editor": ".note-editable",
+    "editor_img": ".note-editable img",
+    # 이미지 첨부: 숨겨진 파일 입력에 직접 넣는다. 안 되면 툴바의 '이미지' 버튼 -> 파일 선택창
+    "image_input": "#autozzal_image_file",
+    "image_button": "button.note-btn:text-is('이미지')",
+    "submit": "button.btn_blue.btn_svc.write",
 }
 
 
@@ -79,6 +81,10 @@ class DcUploader:
 
     def _sign_in(self, page) -> None:
         """로그인 화면(sign.dcinside.com)에 아이디/비밀번호를 입력한다. 캡차가 뜨면 우회하지 않고 실패 처리한다."""
+        if "sign.dcinside.com" not in page.url:
+            from urllib.parse import quote
+
+            page.goto("https://sign.dcinside.com/login?s_url=" + quote(self.write_url, safe=""), wait_until="domcontentloaded")
         page.fill("input[placeholder='식별 코드'], input[name=user_id]", self.login_id)
         page.fill("input[type=password]", self.login_pw)
         page.click("button[type=submit]")
@@ -102,14 +108,17 @@ class DcUploader:
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
             try:
                 page.goto(self.write_url, wait_until="domcontentloaded")
-                if "login" in page.url and self.login_id and self.login_pw:
+                anon = page.locator(self.sel["anon_nick"]).is_visible()
+                if ("login" in page.url or anon) and self.login_id and self.login_pw:
                     self._sign_in(page)
                     if self.storage_state:  # 다음 실행에서 다시 로그인하지 않도록 세션 저장
                         ctx.storage_state(path=self.storage_state)
                         Path(self.storage_state).chmod(0o600)
                     page.goto(self.write_url, wait_until="domcontentloaded")
+                    if page.locator(self.sel["anon_nick"]).is_visible():
+                        raise RuntimeError("로그인 후에도 비로그인(유동) 글쓰기 화면입니다. 계정 정보 또는 캡차를 확인하세요.")
                 if "login" in page.url:
-                    raise RuntimeError("로그인 세션이 없습니다. `python run.py login` 을 먼저 실행하세요 (Actions 라면 DC_STORAGE_STATE 시크릿이 만료된 것입니다: 다시 `export-session` 으로 만들어 교체).")
+                    raise RuntimeError("로그인 세션이 없습니다. DC_ID/DC_PW 를 넣거나 `python run.py login` 후 세션을 내보내세요.")
 
                 page.fill(self.sel["title"], title)
 
@@ -117,26 +126,30 @@ class DcUploader:
                     page.click(self.sel["headtext_open"])
                     page.click(self.sel["headtext_option"].format(text=self.headtext))
 
-                # 이미지 첨부
-                with page.expect_file_chooser(timeout=8000) as fc:
-                    page.click(self.sel["image_button"])
-                fc.value.set_files(str(image_path))
-                page.wait_for_timeout(2500)  # 업로드 반영 대기
+                # 이미지 첨부: 숨겨진 파일 입력에 바로 넣고, 편집기에 이미지가 들어갔는지 확인
+                page.set_input_files(self.sel["image_input"], str(image_path))
+                try:
+                    page.wait_for_selector(self.sel["editor_img"], timeout=20000)
+                except Exception:
+                    # 입력칸이 반응하지 않으면 툴바의 '이미지' 버튼으로 파일 선택창을 연다
+                    with page.expect_file_chooser(timeout=8000) as fc:
+                        page.click(self.sel["image_button"])
+                    fc.value.set_files(str(image_path))
+                    page.wait_for_selector(self.sel["editor_img"], timeout=20000)
 
                 # 본문 텍스트: 이미지 뒤에 이어 붙인다
-                frame = page.frame_locator(self.sel["editor_iframe"])
-                editor = frame.locator(self.sel["editor_body"])
-                editor.click()
+                page.click(self.sel["editor"])
                 page.keyboard.press("Control+End")
                 page.keyboard.type("\n" + body_text, delay=0)
 
                 page.click(self.sel["submit"])
                 page.wait_for_load_state("domcontentloaded")
-                page.wait_for_timeout(1500)
+                page.wait_for_timeout(2000)
                 if "/write" in page.url:
-                    raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (캡차/도배 제한/필수 항목 누락 가능)")
+                    raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (캡차/도배 제한/필수 항목 누락 가능). url=" + page.url)
             except Exception:
                 page.screenshot(path=str(err_dir / "dc_error.png"), full_page=True)
+                print("디시 업로드 실패 위치 url:", page.url)
                 raise
             finally:
                 ctx.close()
