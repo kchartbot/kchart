@@ -9,6 +9,10 @@ on:
         description: "미리보기만 (디시에 올리지 않고 이미지만 만듦)"
         type: boolean
         default: false
+      force:
+        description: "시각 상관없이 지금 바로 올리기 (시험용. 끄면 정시 창 안에서만 1시간 단위 차트를 올림)"
+        type: boolean
+        default: false
       charts:
         description: "올릴 차트 직접 지정 (쉼표로 구분, 비우면 설정 파일 기준). 예: melon_rank,flo_rank"
         type: string
@@ -54,6 +58,7 @@ jobs:
           DC_MINOR: ${{ vars.DC_MINOR }}
           DRY_RUN: ${{ inputs.dry && 'true' || vars.DRY_RUN }}
           CHARTS: ${{ inputs.charts }}
+          CHART_FORCE: ${{ inputs.force && 'true' || 'false' }}
           DC_HEADTEXT: ${{ vars.DC_HEADTEXT }}
           DC_ID: ${{ secrets.DC_ID }}
           DC_PW: ${{ secrets.DC_PW }}

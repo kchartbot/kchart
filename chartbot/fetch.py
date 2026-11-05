@@ -212,8 +212,9 @@ class Fetcher:
             if wait > 0:
                 time.sleep(wait)
             self._last = time.monotonic()
-            req = urllib.request.Request(url, headers={"User-Agent": self.ua, "Accept": "text/html",
-                                                       "Accept-Language": "ko-KR,ko;q=0.9"})
+            req = urllib.request.Request(url, headers={"User-Agent": self.ua, "Accept": "text/html,application/json;q=0.9,*/*;q=0.8",
+                                                       "Accept-Language": "ko-KR,ko;q=0.9",
+                                                       **({"Referer": "https://www.music-flo.com/"} if "music-flo.com" in url else {})})
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                     return resp.read().decode("utf-8", "replace")

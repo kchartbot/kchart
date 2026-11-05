@@ -15,6 +15,8 @@ charts = [
   # "melonhot_rank_five",
 ]
 hourly_after_minute = 5
+hourly_window_minutes = 15  # 1시간 단위 차트는 정시~정시+15분 안에서만 올림 (02:00, 03:00 …)
+max_posts = 1               # 한 번 실행에 올리는 글 수
 min_request_gap = 3.0
 image_budget = 30
 image_gap = 1.0

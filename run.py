@@ -48,6 +48,10 @@ def load_config(path: str) -> dict:
         cfg.setdefault("dc", {})["minor"] = os.environ["DC_MINOR"].lower() == "true"
     if os.environ.get("CHARTS", "").strip():
         cfg["bot"]["charts"] = [c.strip() for c in os.environ["CHARTS"].split(",") if c.strip()]
+    if os.environ.get("CHART_FORCE", "").lower() == "true":
+        cfg["bot"]["force"] = True
+    if os.environ.get("MAX_POSTS", "").strip().isdigit():
+        cfg["bot"]["max_posts"] = int(os.environ["MAX_POSTS"])
     if os.environ.get("DRY_RUN"):
         cfg["bot"]["dry_run"] = os.environ["DRY_RUN"].lower() != "false"
     return cfg
@@ -89,19 +93,24 @@ def process(key, cfg, fetcher, uploader, state, out):
     now = datetime.now(KST).replace(tzinfo=None)
 
     if spec.cadence == "hourly":
+        # 1시간 단위 차트는 정시(02:00, 03:00 …)부터 hourly_window_minutes 분 안에서만 올린다.
+        # 그 밖의 시각(예: 02:37)에 실행해도 올리지 않는다. (force 로 시험할 때만 예외)
+        if not b.get("force") and now.minute >= int(b.get("hourly_window_minutes", 15)):
+            log.info("%s 정시 창(%d분) 밖이라 건너뜀 (%s)", spec.key, int(b.get("hourly_window_minutes", 15)), f"{now:%H:%M}")
+            return False
         # 시간당 1회: 정시 직후엔 가이섬 갱신 전일 수 있어 hourly_after_minute 이후에만 시도하고,
         # 이미 올린 시간대면 요청 자체를 하지 않는다.
         # (직접 수집 차트는 사이트가 이미 최신이라 기다릴 필요가 없다. 수동 실행/밀린 스케줄에서도 바로 올라가게 한다)
         if spec.source != "direct" and now.minute < int(b.get("hourly_after_minute", 5)):
-            return
+            return False
         if state.get(spec.key) == f"{now:%Y%m%d%H}00":
-            return
+            return False
 
     chart = get_chart(spec.key, now, fetcher, cache_dir=out / "cache")
     stamp = f"{chart.stamp:%Y%m%d%H%M}"
     if state.get(spec.key) == stamp:
         log.info("%s %s 이미 처리함, 건너뜀", spec.key, stamp)
-        return
+        return False
 
     images = embed_images(chart, fetcher, out / "cache", budget=int(b.get("image_budget", 30)), gap=float(b.get("image_gap", 1.0)),
                          size=400 if spec.layout == "table_users" else (None if spec.source == "direct" else 80))
@@ -112,13 +121,14 @@ def process(key, cfg, fetcher, uploader, state, out):
     title, body = post_title(chart), body_text(chart)
     if b.get("dry_run", True):
         log.info("[dry-run] 업로드 생략: %s -> %s", title, png)
-        return
+        return False
     else:
         uploader.post(title, body, png, out)
         log.info("업로드 완료: %s", title)
     state[spec.key] = stamp
     for f in sorted(out.glob(f"{spec.key}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
         f.unlink(missing_ok=True)
+    return True
 
 
 def collect_direct(cfg, fetcher, out):
@@ -139,9 +149,15 @@ def run_cycle(cfg, fetcher, uploader, state, out):
     except RateLimited as e:
         log.error("%s — 이번 주기를 중단합니다.", e)
         return
+    limit = int(cfg["bot"].get("max_posts", 1))  # 한 번 실행에 올리는 글 수 (연속 게시로 사람 확인에 걸리는 것을 막음)
+    posted = 0
     for key in cfg["bot"]["charts"]:
+        if posted >= limit:
+            log.info("이번 실행의 게시 한도(%d개)에 도달, 나머지는 다음 실행에서 처리", limit)
+            break
         try:
-            process(key, cfg, fetcher, uploader, state, out)
+            if process(key, cfg, fetcher, uploader, state, out):
+                posted += 1
         except RateLimited as e:
             log.error("%s — 이번 주기의 나머지 요청을 중단합니다. 이 환경(IP)에서 가이섬 접근이 막혀 있을 수 있습니다.", e)
             break
