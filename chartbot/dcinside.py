@@ -76,8 +76,24 @@ class DcUploader:
 
     @property
     def write_url(self):
-        kind = "mgallery/board" if self.minor else "board"
+        kind = getattr(self, "_kind", None) or ("mgallery/board" if self.minor else "board")
         return f"https://gall.dcinside.com/{kind}/write/?id={self.gallery_id}"
+
+    def _open_write(self, page, alerts) -> None:
+        first = "mgallery/board" if self.minor else "board"
+        order = [first] + [k for k in ("mgallery/board", "board", "mini/board") if k != first]
+        tried = []
+        for kind in order:
+            self._kind = kind
+            page.goto(self.write_url, wait_until="domcontentloaded")
+            page.wait_for_timeout(800)
+            tried.append(f"{kind} -> {page.url[:90]}")
+            if "login" in page.url or "/write" in page.url:
+                if kind != first:
+                    print("갤러리 종류가 설정과 달라 자동으로 바꿨습니다:", kind)
+                return
+        print("글쓰기 화면을 열지 못함. 시도:", tried, "| 알림창:", alerts)
+        raise RuntimeError("글쓰기 화면이 열리지 않습니다 (갤러리 ID 오류 또는 글쓰기 권한 없음). 알림창: " + str(alerts))
 
     def _context(self, p, headless):
         return p.chromium.launch_persistent_context(
@@ -161,8 +177,10 @@ class DcUploader:
                 ctx = self._context(p, headless=not self.headed)
             ctx.add_init_script(HIDE_WEBDRIVER)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
+            alerts = []
+            page.on("dialog", lambda d: (alerts.append(d.message[:200]), d.dismiss()))
             try:
-                page.goto(self.write_url, wait_until="domcontentloaded")
+                self._open_write(page, alerts)
                 anon = page.locator(self.sel["anon_nick"]).is_visible()
                 if ("login" in page.url or anon) and self.login_id and self.login_pw:
                     try:
@@ -174,7 +192,7 @@ class DcUploader:
                         if not self.anon_pw:
                             raise
                         print("로그인 실패, 유동 글쓰기로 진행:", str(e)[:200])
-                    page.goto(self.write_url, wait_until="domcontentloaded")
+                    self._open_write(page, alerts)
                     anon = page.locator(self.sel["anon_nick"]).is_visible()
                     if anon and not self.anon_pw:
                         raise RuntimeError("로그인 후에도 비로그인(유동) 글쓰기 화면입니다. 계정 정보 또는 캡차를 확인하세요.")
