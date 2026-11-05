@@ -1,0 +1,29 @@
+{
+ "time": "20261106-0200",
+ "rows": [
+  {
+   "rank": 1,
+   "name": "With",
+   "artists": "RESCENE (리센느)",
+   "count": 233794,
+   "count1": null,
+   "count2": null
+  },
+  {
+   "rank": 2,
+   "name": "백화요란 (Inside Out)",
+   "artists": "RESCENE (리센느)",
+   "count": 146183,
+   "count1": null,
+   "count2": null
+  },
+  {
+   "rank": 3,
+   "name": "Finest Thing",
+   "artists": "RESCENE (리센느)",
+   "count": 97946,
+   "count1": null,
+   "count2": null
+  }
+ ]
+}
