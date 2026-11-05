@@ -1,3 +1,11 @@
+"""차트를 새 디자인의 HTML / PNG 로 렌더링하고, 게시글 본문 텍스트를 만든다.
+
+레이아웃
+  five / graph24  선 그래프 (상위 5곡, y축 점수 · x축 시각 · 하단 범례)
+  table           단순 표 (순위 · 변동 · 곡)           2단 구성
+  table_counts    이용자 수치 포함 표 (TOP100)         이용자 수치가 비어 있으면 table 로 대체
+  table_users     24시간 이용자 수: 곡별 24시간 표를 나란히 (시간 · 순위 · T100 · 이용자수 · 증감)
+"""
 from __future__ import annotations
 
 import base64
@@ -15,6 +23,7 @@ from .history import NIGHT
 SPARK_W, SPARK_H, PAD = 240, 44, 6
 
 
+# ───────────────────────── 공통 도우미 ─────────────────────────
 def _fmt(v):
     return "-" if not v else f"{v:.5f}".rstrip("0").rstrip(".")
 
@@ -30,6 +39,7 @@ def _signed(n):
 
 
 def _rank_change(rank, prev):
+    """순위 변동. previous 가 없거나 0 이면 신규 진입."""
     if not prev:
         return "NEW", "new"
     d = prev - rank
@@ -50,6 +60,11 @@ def _wd(dt):
 
 
 def embed_images(chart: Chart, fetcher: Fetcher, cache_dir: Path, budget: int = 30, gap: float = 1.0, size: int | None = 80) -> dict:
+    """앨범 이미지를 받아 로컬에 캐시하고 data URI 로 돌려준다.
+
+    CDN 부하를 줄이기 위해 (1) 한 번 받은 이미지는 다시 받지 않고, (2) 한 번 실행에서 새로 받는 장수를
+    budget 으로 제한하며, (3) 요청 사이에 gap 초를 둔다. 못 받은 곡은 첫 글자 타일로 표시되고 다음 주기에 채워진다.
+    """
     cache_dir.mkdir(parents=True, exist_ok=True)
     out, fetched = {}, 0
     for url in dict.fromkeys(r.image for r in chart.rows if r.image):
@@ -71,6 +86,7 @@ def embed_images(chart: Chart, fetcher: Fetcher, cache_dir: Path, budget: int = 
     return out
 
 
+# ───────────────────────── 스타일 ─────────────────────────
 CSS = """
 :root{--bg:#ffffff;--card:#ffffff;--card2:#f5f3ee;--text:#1c2230;--muted:#8a8f9c;--rule:#e6e2d8;--line:#3f5bd0;
 --up:#d6453d;--down:#2f6fd0;--accent:#a07c26;--ink:#141a2b}
@@ -150,11 +166,13 @@ border-top:1px solid var(--rule);align-items:stretch}
 """
 
 
+# ───────────────────────── 그래프형 (선 그래프) ─────────────────────────
 LINE_COLORS = ["#3f5bd0", "#c8472a", "#e8a23a", "#4a9a2a", "#8e1a9a"]
 TOP_LINES = 5
 
 
 def _x_labels(chart: Chart):
+    """칸마다 x축 라벨. 5분 차트는 시:분, 24시간 그래프는 시각(숫자)."""
     n, start = chart.spec.slots, chart.hour_start
     if chart.spec.layout in ("five", "rankfive"):
         return [f"{start + timedelta(minutes=5 * i):%H:%M}" for i in range(n)]
@@ -162,7 +180,7 @@ def _x_labels(chart: Chart):
 
 
 def _linechart(chart: Chart):
-    rank_mode = chart.spec.layout in ("rankgraph24", "rankfive")
+    rank_mode = chart.spec.layout in ("rankgraph24", "rankfive")  # 순위 그래프: 1위가 위쪽
     W, H = 1000, 440
     L, R, T, B = 46, 16, (30 if rank_mode else 14), 40
     n = chart.spec.slots
@@ -210,6 +228,7 @@ def _linechart(chart: Chart):
                 g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>')
             for x, y in sg:
                 g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2" fill="{col}"/>')
+        # 가장 최근 값 표시 (소수 첫째 자리, 겹치지 않게 위아래로 조금씩 밀어냄)
         idx = [i for i, v in enumerate(r.values or []) if v]
         if idx:
             i = idx[-1]
@@ -224,6 +243,7 @@ def _linechart(chart: Chart):
     return svg + f'<div class="legend">{"".join(legend)}</div>'
 
 
+# ───────────────────────── 표형 ─────────────────────────
 def _table(chart: Chart, images):
     rows = chart.rows
     per = math.ceil(len(rows) / 2) if len(rows) > 10 else len(rows)
@@ -261,6 +281,7 @@ def _table_counts(chart: Chart, images):
 
 
 def _heat(rank, top):
+    """순위 칸 배경: 1위가 가장 진하고 5위까지만 칠한다. (스타일 문자열, 글자색 클래스 없음)"""
     if not rank or rank > 5:
         return ""
     alpha = top - (rank - 1) * top / 5
@@ -301,7 +322,9 @@ def _users_history(chart: Chart, images):
     return f'<div class="ugrid">{"".join(blocks)}</div>'
 
 
+# ───────────────────────── 조립 ─────────────────────────
 def effective_layout(chart: Chart) -> str:
+    """TOP100 에 이용자 수치가 하나도 없으면 빈 열 대신 단순 표로 그린다."""
     if chart.spec.layout == "table_counts" and not any(
         r.count1 is not None or r.count2 is not None for r in chart.rows
     ):
@@ -350,6 +373,7 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
 
 
 def png_scale(chart: Chart) -> float:
+    """곡이 많은 표는 이미지가 너무 길어지지 않게 배율을 낮춘다 (100곡 수치 표는 세로 6400px 안팎)."""
     layout = effective_layout(chart)
     if len(chart.rows) > 30:
         if layout == "table_counts":
@@ -370,6 +394,7 @@ def render_png(html_text: str, path: Path, scale: float = 2.0) -> None:
         browser.close()
 
 
+# ───────────────────────── 게시글 텍스트 ─────────────────────────
 def body_text(chart: Chart) -> str:
     layout = effective_layout(chart)
     lines = []
@@ -378,7 +403,7 @@ def body_text(chart: Chart) -> str:
         for r in chart.rows:
             if layout == "five":
                 vals = "|".join(f"{v:g}" for v in r.values[: (slot or 0) + 1] if v is not None)
-            else:
+            else:  # 24시간 그래프: 값이 없는 시간도 자리를 지켜서 시간 위치가 어긋나지 않게 한다
                 vals = "|".join("-" if v is None else f"{v:g}" for v in r.values)
             lines.append(f"[{r.rank}위] {r.name} - {r.artists}\n{vals}")
         sep = "\n\n"
