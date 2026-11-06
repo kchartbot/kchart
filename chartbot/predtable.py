@@ -3,22 +3,22 @@ import html
 CSS = """
 *{box-sizing:border-box}
 body{margin:0;background:#fff;width:720px;padding:16px 18px 18px;font-family:'Pretendard','Noto Sans KR','Noto Sans CJK KR',sans-serif;color:#1c2230}
-.ttl{font-size:15px;color:#222;margin:0 0 8px}
+.ttl{font-size:19px;font-weight:600;color:#222;margin:0 0 8px}
 .hd,.r{display:grid;align-items:center;font-variant-numeric:tabular-nums}
-.hd{border-top:1px solid #222;border-bottom:1px solid #222;font-size:13px;font-weight:600;padding:6px 0;text-align:center}
-.r{border-bottom:1px solid #e4e6eb;min-height:44px}
-.c2 .hd,.c2 .r{grid-template-columns:44px 40px 46px 1fr}
-.c4 .hd,.c4 .r{grid-template-columns:44px 40px 46px 1fr 120px 120px}
-.rk{text-align:center;font-weight:700;font-size:16px}
-.ch{text-align:center;font-size:12px;font-weight:600}
+.hd{border-top:1px solid #222;border-bottom:1px solid #222;font-size:15px;font-weight:600;padding:8px 0;text-align:center}
+.r{border-bottom:1px solid #e4e6eb;min-height:74px}
+.c2 .hd,.c2 .r{grid-template-columns:62px 66px 78px 1fr}
+.c4 .hd,.c4 .r{grid-template-columns:62px 66px 78px 1fr 130px 130px}
+.rk{text-align:center;font-weight:700;font-size:26px}
+.ch{text-align:center;font-size:16px;font-weight:700}
 .up{color:#d6453d}.dn{color:#2f6fd0}.nw{color:#d6453d}.eq{color:#aab0bd}
-.ar{width:38px;height:38px;margin:3px 4px;background:#e9e6df;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:14px;color:#8a8f9c}
+.ar{width:68px;height:68px;margin:3px 4px;background:#e9e6df;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:22px;color:#8a8f9c}
 .ar img{width:100%;height:100%;object-fit:cover;display:block}
-.nm{padding-left:8px;min-width:0}
-.nm b{display:block;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nm i{display:block;font-style:normal;font-size:12px;color:#8a8f9c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cn{text-align:center;font-size:13px;color:#555}
-.un{grid-column:1/-1;text-align:center;font-size:14px;color:#555;background:#f4f5f7;padding:9px 0}
+.nm{padding-left:12px;min-width:0}
+.nm b{display:block;font-size:21px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nm i{display:block;font-style:normal;font-size:15px;margin-top:3px;color:#8a8f9c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cn{text-align:center;font-size:16px;color:#555}
+.un{grid-column:1/-1;text-align:center;font-size:17px;color:#555;background:#f4f5f7;padding:12px 0}
 """
 
 

@@ -89,8 +89,8 @@ class Own:
         rows = [{"rank": _int(x["CURRANK"]), "cur": _int(x.get("PASTRANK")), "name": x["SONGNAME"], "artists": _arts(x),
                  "image": str(x["ALBUMID"])} for x in items]
         title = f"{now:%Y.%m.%d} {now:%H}:00 멜론 TOP100 순위표"
-        html = predtable.page(title, rows, self.images(items), counts=True)
-        return self.job("own_top100", stamp, f"[{now:%H}:00] 멜론 TOP100 순위표", "", html, 2.0)
+        html = predtable.page(title, rows, self.images(items))
+        return self.job("own_top100", stamp, f"[{now:%H}:00] 멜론 TOP100 순위표", "", html, 1.5)
 
     def predict(self, now, state):
         if now.minute < 30 or now.minute % 10 >= 6:
@@ -135,7 +135,7 @@ class Own:
             rows.append({"rank": k, "cur": _int(r.get("rank")), "name": x["SONGNAME"], "artists": _arts(x), "image": str(x["ALBUMID"])})
         title = f"{now:%Y.%m.%d} {now:%H}:{slot:02d} 멜론 TOP100 순위 예측"
         html = predtable.page(title, rows, self.images(items))
-        return self.job("own_predict", stamp, f"[{now:%H}:{slot:02d}] 멜론 TOP100 순위 예측", "", html, 2.0)
+        return self.job("own_predict", stamp, f"[{now:%H}:{slot:02d}] 멜론 TOP100 순위 예측", "", html, 1.5)
 
     def five_hours(self):
         import derive
