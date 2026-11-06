@@ -51,9 +51,10 @@ jobs:
           cache: pip
 
       - name: 한글 폰트 + 의존성
+        timeout-minutes: 6
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-noto-cjk
+          A="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
+          fc-list | grep -qi "noto sans cjk" || { sudo timeout 120 apt-get $A update -qq || true; sudo timeout 180 apt-get $A install -y -qq fonts-noto-cjk; }
           pip install -r requirements.txt
           playwright install --with-deps chromium
 
