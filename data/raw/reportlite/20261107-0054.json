@@ -1,0 +1,1006 @@
+{
+ "stamp": "20261107-0054",
+ "n": 100,
+ "rows": [
+  {
+   "id": "603712834",
+   "name": "With",
+   "recent": "00:50",
+   "rank": "1",
+   "past": "1",
+   "listeners": 4071,
+   "predicted": 2,
+   "predict_text": "2위"
+  },
+  {
+   "id": "603712835",
+   "name": "백화요란 (Inside Out)",
+   "recent": "00:50",
+   "rank": "3",
+   "past": "5",
+   "listeners": 3703,
+   "predicted": 7,
+   "predict_text": "7위"
+  },
+  {
+   "id": "37928381",
+   "name": "LOVE ATTACK",
+   "recent": "00:50",
+   "rank": "5",
+   "past": "4",
+   "listeners": 970,
+   "predicted": 5,
+   "predict_text": "5위"
+  },
+  {
+   "id": "39231685",
+   "name": "Deja Vu",
+   "recent": "00:50",
+   "rank": "6",
+   "past": "6",
+   "listeners": 922,
+   "predicted": 8,
+   "predict_text": "8위"
+  },
+  {
+   "id": "603712833",
+   "name": "Finest Thing",
+   "recent": "00:50",
+   "rank": "9",
+   "past": "12",
+   "listeners": 4318,
+   "predicted": 21,
+   "predict_text": "21위"
+  },
+  {
+   "id": "603712836",
+   "name": "MEME",
+   "recent": "00:50",
+   "rank": "11",
+   "past": "15",
+   "listeners": 3141,
+   "predicted": 28,
+   "predict_text": "28위"
+  },
+  {
+   "id": "603382333",
+   "name": "NEON",
+   "recent": "00:50",
+   "rank": "2",
+   "past": "2",
+   "listeners": 991,
+   "predicted": 1,
+   "predict_text": "1위"
+  },
+  {
+   "id": "603712837",
+   "name": "Dragon",
+   "recent": "00:50",
+   "rank": "12",
+   "past": "11",
+   "listeners": 1226,
+   "predicted": 34,
+   "predict_text": "34위"
+  },
+  {
+   "id": "602290711",
+   "name": "꿈꾸던 어른이 되었나요?",
+   "recent": "00:50",
+   "rank": "4",
+   "past": "3",
+   "listeners": 1240,
+   "predicted": 3,
+   "predict_text": "3위"
+  },
+  {
+   "id": "602450078",
+   "name": "Pretty Girl",
+   "recent": "00:50",
+   "rank": "8",
+   "past": "9",
+   "listeners": 1993,
+   "predicted": 12,
+   "predict_text": "12위"
+  },
+  {
+   "id": "601719493",
+   "name": "Runaway",
+   "recent": "00:50",
+   "rank": "13",
+   "past": "10",
+   "listeners": 648,
+   "predicted": 24,
+   "predict_text": "24위"
+  },
+  {
+   "id": "603709840",
+   "name": "체포하겠어",
+   "recent": "00:50",
+   "rank": "7",
+   "past": "7",
+   "listeners": 860,
+   "predicted": 6,
+   "predict_text": "6위"
+  },
+  {
+   "id": "603339939",
+   "name": "Star Trace",
+   "recent": "00:50",
+   "rank": "22",
+   "past": "26",
+   "listeners": 2314,
+   "predicted": 87,
+   "predict_text": "87위"
+  },
+  {
+   "id": "600791038",
+   "name": "이 밤을 빌려 말해요",
+   "recent": "00:50",
+   "rank": "18",
+   "past": "22",
+   "listeners": 2799,
+   "predicted": 46,
+   "predict_text": "46위"
+  },
+  {
+   "id": "603648403",
+   "name": "내 이름을 불러줘",
+   "recent": "00:50",
+   "rank": "26",
+   "past": "57",
+   "listeners": 2406,
+   "predicted": null,
+   "predict_text": "26위"
+  },
+  {
+   "id": "603339938",
+   "name": "푸른 하늘에 단비",
+   "recent": "00:50",
+   "rank": "25",
+   "past": "34",
+   "listeners": 3688,
+   "predicted": 96,
+   "predict_text": "96위"
+  },
+  {
+   "id": "603339937",
+   "name": "꾼",
+   "recent": "00:50",
+   "rank": "29",
+   "past": "39",
+   "listeners": 3776,
+   "predicted": null,
+   "predict_text": "29위"
+  },
+  {
+   "id": "37928383",
+   "name": "Pinball",
+   "recent": "00:50",
+   "rank": "19",
+   "past": "17",
+   "listeners": 604,
+   "predicted": 40,
+   "predict_text": "40위"
+  },
+  {
+   "id": "602862199",
+   "name": "퇴사할게여 (Narr. 기안84)",
+   "recent": "00:50",
+   "rank": "10",
+   "past": "8",
+   "listeners": 579,
+   "predicted": 4,
+   "predict_text": "4위"
+  },
+  {
+   "id": "603339940",
+   "name": "The Answer Is Yes",
+   "recent": "00:50",
+   "rank": "34",
+   "past": "51",
+   "listeners": 1142,
+   "predicted": null,
+   "predict_text": "34위"
+  },
+  {
+   "id": "603339941",
+   "name": "Rewind",
+   "recent": "00:50",
+   "rank": "37",
+   "past": "48",
+   "listeners": 864,
+   "predicted": null,
+   "predict_text": "37위"
+  },
+  {
+   "id": "4277838",
+   "name": "연애의 조건 (Love Options)",
+   "recent": "00:50",
+   "rank": "15",
+   "past": "14",
+   "listeners": 525,
+   "predicted": 13,
+   "predict_text": "13위"
+  },
+  {
+   "id": "603692202",
+   "name": "Insomnia",
+   "recent": "00:50",
+   "rank": "39",
+   "past": "49",
+   "listeners": 3329,
+   "predicted": null,
+   "predict_text": "39위"
+  },
+  {
+   "id": "603448999",
+   "name": "Looks Can Kill",
+   "recent": "00:50",
+   "rank": "14",
+   "past": "13",
+   "listeners": 630,
+   "predicted": 10,
+   "predict_text": "10위"
+  },
+  {
+   "id": "34061322",
+   "name": "사랑은 늘 도망가",
+   "recent": "00:50",
+   "rank": "35",
+   "past": "41",
+   "listeners": 492,
+   "predicted": 78,
+   "predict_text": "78위"
+  },
+  {
+   "id": "37140709",
+   "name": "첫 만남은 계획대로 되지 않아",
+   "recent": "00:50",
+   "rank": "30",
+   "past": "32",
+   "listeners": 554,
+   "predicted": 61,
+   "predict_text": "61위"
+  },
+  {
+   "id": "602951446",
+   "name": "또또",
+   "recent": "00:50",
+   "rank": "54",
+   "past": "73",
+   "listeners": 749,
+   "predicted": null,
+   "predict_text": "54위"
+  },
+  {
+   "id": "36985781",
+   "name": "생각을 멈추다 보면",
+   "recent": "00:50",
+   "rank": "16",
+   "past": "16",
+   "listeners": 523,
+   "predicted": 9,
+   "predict_text": "9위"
+  },
+  {
+   "id": "34908740",
+   "name": "우리들의 블루스",
+   "recent": "00:50",
+   "rank": "50",
+   "past": "60",
+   "listeners": 374,
+   "predicted": 94,
+   "predict_text": "94위"
+  },
+  {
+   "id": "39765727",
+   "name": "순간을 영원처럼",
+   "recent": "00:50",
+   "rank": "64",
+   "past": "86",
+   "listeners": 1638,
+   "predicted": null,
+   "predict_text": "64위"
+  },
+  {
+   "id": "602322595",
+   "name": "BAD",
+   "recent": "00:50",
+   "rank": "20",
+   "past": "19",
+   "listeners": 441,
+   "predicted": 14,
+   "predict_text": "14위"
+  },
+  {
+   "id": "602951447",
+   "name": "부디 행복해질 것",
+   "recent": "00:50",
+   "rank": "77",
+   "past": "100",
+   "listeners": 345,
+   "predicted": null,
+   "predict_text": "77위"
+  },
+  {
+   "id": "602024048",
+   "name": "갑자기",
+   "recent": "00:50",
+   "rank": "17",
+   "past": "18",
+   "listeners": 446,
+   "predicted": 11,
+   "predict_text": "11위"
+  },
+  {
+   "id": "601807965",
+   "name": "REDRED",
+   "recent": "00:50",
+   "rank": "21",
+   "past": "20",
+   "listeners": 409,
+   "predicted": 15,
+   "predict_text": "15위"
+  },
+  {
+   "id": "36397952",
+   "name": "Drowning",
+   "recent": "00:50",
+   "rank": "23",
+   "past": "23",
+   "listeners": 404,
+   "predicted": 17,
+   "predict_text": "17위"
+  },
+  {
+   "id": "602951445",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602951444",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602951452",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602951449",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602377105",
+   "name": "만찬가",
+   "recent": "00:50",
+   "rank": "24",
+   "past": "21",
+   "listeners": 401,
+   "predicted": 16,
+   "predict_text": "16위"
+  },
+  {
+   "id": "602951448",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602951453",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602951450",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602951451",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "601555642",
+   "name": "SWIM",
+   "recent": "00:50",
+   "rank": "60",
+   "past": "64",
+   "listeners": 952,
+   "predicted": 92,
+   "predict_text": "92위"
+  },
+  {
+   "id": "600280518",
+   "name": "OVERDRIVE",
+   "recent": "00:50",
+   "rank": "91",
+   "past": "101",
+   "listeners": 1930,
+   "predicted": null,
+   "predict_text": "91위"
+  },
+  {
+   "id": "39765731",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "603648401",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "601899271",
+   "name": "It′s Me",
+   "recent": "00:50",
+   "rank": "31",
+   "past": "27",
+   "listeners": 354,
+   "predicted": 23,
+   "predict_text": "23위"
+  },
+  {
+   "id": "30244931",
+   "name": "봄날",
+   "recent": "00:50",
+   "rank": "66",
+   "past": "66",
+   "listeners": 469,
+   "predicted": 88,
+   "predict_text": "88위"
+  },
+  {
+   "id": "36730261",
+   "name": "사랑하게 될 거야",
+   "recent": "00:50",
+   "rank": "28",
+   "past": "25",
+   "listeners": 331,
+   "predicted": 19,
+   "predict_text": "19위"
+  },
+  {
+   "id": "603648404",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "32061975",
+   "name": "어떻게 이별까지 사랑하겠어, 널 사랑하는 거지",
+   "recent": "00:50",
+   "rank": "27",
+   "past": "24",
+   "listeners": 345,
+   "predicted": 18,
+   "predict_text": "18위"
+  },
+  {
+   "id": "602839323",
+   "name": "BiiiG",
+   "recent": "00:50",
+   "rank": "42",
+   "past": "37",
+   "listeners": 736,
+   "predicted": 39,
+   "predict_text": "39위"
+  },
+  {
+   "id": "602115220",
+   "name": "LEMONADE",
+   "recent": "00:50",
+   "rank": "36",
+   "past": "30",
+   "listeners": 342,
+   "predicted": 25,
+   "predict_text": "25위"
+  },
+  {
+   "id": "39765734",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "36617841",
+   "name": "Seven (feat. Latto) - Clean Ver.",
+   "recent": "00:50",
+   "rank": "67",
+   "past": "72",
+   "listeners": 493,
+   "predicted": 85,
+   "predict_text": "85위"
+  },
+  {
+   "id": "601879407",
+   "name": "Heavy Serenade",
+   "recent": "00:50",
+   "rank": "49",
+   "past": "44",
+   "listeners": 395,
+   "predicted": 45,
+   "predict_text": "45위"
+  },
+  {
+   "id": "32872978",
+   "name": "Dynamite",
+   "recent": "00:50",
+   "rank": "74",
+   "past": "80",
+   "listeners": 306,
+   "predicted": 90,
+   "predict_text": "90위"
+  },
+  {
+   "id": "600287375",
+   "name": "Good Goodbye",
+   "recent": "00:50",
+   "rank": "32",
+   "past": "29",
+   "listeners": 275,
+   "predicted": 22,
+   "predict_text": "22위"
+  },
+  {
+   "id": "38242510",
+   "name": "HOME SWEET HOME (feat. 태양, 대성)",
+   "recent": "00:50",
+   "rank": "55",
+   "past": "54",
+   "listeners": 438,
+   "predicted": 53,
+   "predict_text": "53위"
+  },
+  {
+   "id": "600243411",
+   "name": "Blue Valentine",
+   "recent": "00:50",
+   "rank": "46",
+   "past": "46",
+   "listeners": 428,
+   "predicted": 42,
+   "predict_text": "42위"
+  },
+  {
+   "id": "602939768",
+   "name": "노스탈지아",
+   "recent": "00:50",
+   "rank": "44",
+   "past": "38",
+   "listeners": 290,
+   "predicted": 35,
+   "predict_text": "35위"
+  },
+  {
+   "id": "601719416",
+   "name": "기쁨, 슬픔, 아름다운 마음",
+   "recent": "00:50",
+   "rank": "33",
+   "past": "28",
+   "listeners": 322,
+   "predicted": 20,
+   "predict_text": "20위"
+  },
+  {
+   "id": "603196851",
+   "name": "I SPY",
+   "recent": "00:50",
+   "rank": "82",
+   "past": "90",
+   "listeners": 789,
+   "predicted": 93,
+   "predict_text": "93위"
+  },
+  {
+   "id": "39504779",
+   "name": "0+0",
+   "recent": "00:50",
+   "rank": "41",
+   "past": "36",
+   "listeners": 288,
+   "predicted": 30,
+   "predict_text": "30위"
+  },
+  {
+   "id": "38104031",
+   "name": "내게 사랑이 뭐냐고 물어본다면",
+   "recent": "00:50",
+   "rank": "38",
+   "past": "31",
+   "listeners": 311,
+   "predicted": 26,
+   "predict_text": "26위"
+  },
+  {
+   "id": "4446485",
+   "name": "너의 모든 순간",
+   "recent": "00:50",
+   "rank": "40",
+   "past": "33",
+   "listeners": 299,
+   "predicted": 27,
+   "predict_text": "27위"
+  },
+  {
+   "id": "601332163",
+   "name": "RUDE!",
+   "recent": "00:50",
+   "rank": "47",
+   "past": "42",
+   "listeners": 289,
+   "predicted": 36,
+   "predict_text": "36위"
+  },
+  {
+   "id": "602248118",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "37473973",
+   "name": "Popcorn",
+   "recent": "00:50",
+   "rank": "43",
+   "past": "35",
+   "listeners": 294,
+   "predicted": 29,
+   "predict_text": "29위"
+  },
+  {
+   "id": "33411344",
+   "name": "봄 내음보다 너를",
+   "recent": "00:50",
+   "rank": "51",
+   "past": "47",
+   "listeners": 306,
+   "predicted": 38,
+   "predict_text": "38위"
+  },
+  {
+   "id": "601479669",
+   "name": "캐치 캐치",
+   "recent": "00:50",
+   "rank": "45",
+   "past": "40",
+   "listeners": 250,
+   "predicted": 32,
+   "predict_text": "32위"
+  },
+  {
+   "id": "38733032",
+   "name": "어제보다 슬픈 오늘",
+   "recent": "00:50",
+   "rank": "52",
+   "past": "50",
+   "listeners": 282,
+   "predicted": 37,
+   "predict_text": "37위"
+  },
+  {
+   "id": "600299706",
+   "name": "타임캡슐",
+   "recent": "00:50",
+   "rank": "48",
+   "past": "43",
+   "listeners": 214,
+   "predicted": 31,
+   "predict_text": "31위"
+  },
+  {
+   "id": "36699489",
+   "name": "그대만 있다면 (여름날 우리 X 너드커넥션 (Nerd Connection))",
+   "recent": "00:50",
+   "rank": "57",
+   "past": "53",
+   "listeners": 257,
+   "predicted": 43,
+   "predict_text": "43위"
+  },
+  {
+   "id": "37228861",
+   "name": "천상연",
+   "recent": "00:50",
+   "rank": "56",
+   "past": "52",
+   "listeners": 259,
+   "predicted": 41,
+   "predict_text": "41위"
+  },
+  {
+   "id": "603175883",
+   "name": "CRASH",
+   "recent": "00:50",
+   "rank": "59",
+   "past": "56",
+   "listeners": 243,
+   "predicted": 48,
+   "predict_text": "48위"
+  },
+  {
+   "id": "603538665",
+   "name": "삐그덕 (Feat. 아이유)",
+   "recent": "00:50",
+   "rank": "69",
+   "past": "63",
+   "listeners": 292,
+   "predicted": 65,
+   "predict_text": "65위"
+  },
+  {
+   "id": "38300904",
+   "name": "toxic till the end",
+   "recent": "00:50",
+   "rank": "63",
+   "past": "59",
+   "listeners": 237,
+   "predicted": 51,
+   "predict_text": "51위"
+  },
+  {
+   "id": "602248119",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "31666417",
+   "name": "주저하는 연인들을 위해",
+   "recent": "00:50",
+   "rank": "62",
+   "past": "62",
+   "listeners": 237,
+   "predicted": 50,
+   "predict_text": "50위"
+  },
+  {
+   "id": "30962526",
+   "name": "모든 날, 모든 순간 (Every day, Every Moment)",
+   "recent": "00:50",
+   "rank": "58",
+   "past": "55",
+   "listeners": 238,
+   "predicted": 44,
+   "predict_text": "44위"
+  },
+  {
+   "id": "601719413",
+   "name": "소문의 낙원",
+   "recent": "00:50",
+   "rank": "53",
+   "past": "45",
+   "listeners": 232,
+   "predicted": 33,
+   "predict_text": "33위"
+  },
+  {
+   "id": "39307948",
+   "name": "멸종위기사랑",
+   "recent": "00:50",
+   "rank": "61",
+   "past": "58",
+   "listeners": 208,
+   "predicted": 47,
+   "predict_text": "47위"
+  },
+  {
+   "id": "601237102",
+   "name": "BANG BANG",
+   "recent": "00:50",
+   "rank": "71",
+   "past": "71",
+   "listeners": 197,
+   "predicted": 63,
+   "predict_text": "63위"
+  },
+  {
+   "id": "33241003",
+   "name": "그대 작은 나의 세상이 되어",
+   "recent": "00:50",
+   "rank": "68",
+   "past": "74",
+   "listeners": 219,
+   "predicted": 54,
+   "predict_text": "54위"
+  },
+  {
+   "id": "601862625",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "38429074",
+   "name": "모르시나요(PROD.로코베리)",
+   "recent": "00:50",
+   "rank": "65",
+   "past": "61",
+   "listeners": 231,
+   "predicted": 49,
+   "predict_text": "49위"
+  },
+  {
+   "id": "601555636",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "37602330",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602248117",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "602248121",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "603052340",
+   "name": "Dear my crazy soulmate",
+   "recent": "00:50",
+   "rank": "70",
+   "past": "65",
+   "listeners": 281,
+   "predicted": 56,
+   "predict_text": "56위"
+  },
+  {
+   "id": "602248122",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  },
+  {
+   "id": "601013499",
+   "name": "404 (New Era)",
+   "recent": "00:50",
+   "rank": "75",
+   "past": "70",
+   "listeners": 222,
+   "predicted": 59,
+   "predict_text": "59위"
+  },
+  {
+   "id": "602732384",
+   "name": "Pop Off Pop Off",
+   "recent": "00:50",
+   "rank": "76",
+   "past": "69",
+   "listeners": 223,
+   "predicted": 58,
+   "predict_text": "58위"
+  },
+  {
+   "id": "38071559",
+   "name": "청춘만화",
+   "recent": "00:50",
+   "rank": "73",
+   "past": "68",
+   "listeners": 229,
+   "predicted": 55,
+   "predict_text": "55위"
+  },
+  {
+   "id": "602313594",
+   "name": "Lemon Tang",
+   "recent": "00:50",
+   "rank": "84",
+   "past": "81",
+   "listeners": 269,
+   "predicted": 73,
+   "predict_text": "73위"
+  },
+  {
+   "id": "601862630",
+   "name": null,
+   "recent": null,
+   "rank": null,
+   "past": null,
+   "listeners": null,
+   "predicted": null,
+   "predict_text": null
+  }
+ ]
+}
