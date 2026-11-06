@@ -171,27 +171,26 @@ border-bottom:1px solid var(--rule);padding:6px 8px}
 .ublk{background:transparent}
 .ucov{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#e9e6df,#d8d4ca);overflow:hidden;margin-bottom:16px}
 .ucov img{width:100%;height:100%;object-fit:cover;display:block}
-.uhead{padding:0 2px 14px;border-bottom:1px solid var(--ink)}
-.uhead b{display:block;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.uhead .ar{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
-.uhead .pk{font-size:13px;color:var(--text);margin-top:10px;font-variant-numeric:tabular-nums}
-.uhead .pk em{font-style:normal;font-weight:700}
-.uhead .rg{font-size:12px;color:var(--muted);margin-top:2px}
-.hr{display:grid;grid-template-columns:13% 11% 12% 36% 28%;font-size:13.5px;font-variant-numeric:tabular-nums;
-border-bottom:1px solid var(--rule);color:var(--text);align-items:stretch}
-.hr>div{padding:4px 4px;text-align:center;white-space:nowrap;min-height:27px;display:flex;align-items:center;justify-content:center}
-.hr.h{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.08em;border-bottom:1px solid var(--rule)}
-.hr>div:first-child{justify-content:flex-start;color:var(--muted)}
-.hr .c{justify-content:flex-end;padding-right:6px}
-.hr .rk{font-weight:600;color:var(--ink)}
-.hr .rk:empty:after{content:""}
-.hr>div:nth-child(3){color:var(--muted)}
-.hr .mx{font-weight:800;color:var(--ink)}
-.hr .c.up{color:var(--up)}
-.hr .c.down{color:var(--down)}
-.hr .c.flat{color:var(--muted)}
-.hr .c.est{color:#6b7385;font-style:italic}
-.hr .c.rough{color:#a3a8b3;font-style:italic}
+.uhead{padding:0 2px 16px;border-bottom:2px solid var(--ink)}
+.uhead b{display:block;font-size:28px;font-weight:800;color:#0d1220;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.uhead .ar{font-size:16px;color:#4a5163;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:4px;font-weight:500}
+.uhead .pk{font-size:18px;color:#0d1220;margin-top:12px;font-variant-numeric:tabular-nums;font-weight:500}
+.uhead .pk em{font-style:normal;font-weight:800}
+.uhead .rg{font-size:14px;color:#4a5163;margin-top:3px}
+.hr{display:grid;grid-template-columns:13% 12% 13% 34% 28%;font-size:17px;font-variant-numeric:tabular-nums;
+border-bottom:1px solid #d9dce3;color:#0d1220;align-items:stretch;font-weight:500}
+.hr>div{padding:5px 4px;text-align:center;white-space:nowrap;min-height:36px;display:flex;align-items:center;justify-content:center}
+.hr.h{color:#2b3245;font-size:14px;font-weight:700;letter-spacing:0;border-bottom:2px solid var(--ink);background:#eef0f4}
+.hr>div:first-child{justify-content:flex-start;color:#2b3245;font-weight:600;padding-left:8px}
+.hr .c{justify-content:flex-end;padding-right:8px}
+.hr .rk{font-weight:800;color:#0d1220;font-size:19px}
+.hr>div:nth-child(3){color:#2b3245;font-weight:600}
+.hr .mx{font-weight:800;color:#0d1220;background:#fff3c4}
+.hr .c.up{color:#c8281f;font-weight:700}
+.hr .c.down{color:#1d5fc4;font-weight:700}
+.hr .c.flat{color:#6b7385}
+.hr .c.est{color:#4a5163;font-style:italic}
+.hr .c.rough{color:#7b8294;font-style:italic}
 .unote{margin:14px 2px 0;font-size:12px;color:#6b7385}
 /* 순위표 새 디자인: 앨범 커버 위주 (rank_style = list1 / list2) */
 .rc-row{display:grid;grid-template-columns:78px 112px minmax(0,1fr) 124px;gap:22px;align-items:center;padding:14px 6px;border-bottom:1px solid var(--rule)}
