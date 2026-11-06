@@ -3,7 +3,7 @@ name: recorder
 # 결과는 livedata 브랜치의 data/ 폴더에 쌓임 (stats.json = 예측 정확도, scores/ = 계산 점수)
 on:
   schedule:
-    - cron: "3,13,25,40,50,58 * * * *"     # 정각 직후 2번(놓침 대비), 50분에 다음 순위 예측
+    - cron: "2,22,42 * * * *"
   workflow_dispatch:
     inputs:
       mode:
@@ -23,7 +23,7 @@ concurrency:
 jobs:
   rec:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 28
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -40,7 +40,7 @@ jobs:
             git worktree add -q --detach ../live && cd ../live && git checkout -q --orphan livedata && git rm -rq . || true
           fi
       - name: 기록
-        run: python tools/recorder.py "${{ inputs.mode || 'auto' }}" ../live/data
+        run: python tools/recorder.py "${{ inputs.mode || (github.event_name == 'schedule' && 'loop') || 'auto' }}" ../live/data 20
       - name: 저장
         run: |
           cd ../live

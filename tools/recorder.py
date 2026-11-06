@@ -152,7 +152,7 @@ def raw(now):
             print("raw 실패", name, type(e).__name__, str(e)[:100])
         time.sleep(3)
     try:
-        lst = sorted(((five or {}).get("response", {}).get("GRAPHDATALIST", [])), key=lambda x: x.get("GRAPHRANK", 99))[:3]
+        lst = sorted(((five or {}).get("response", {}).get("GRAPHDATALIST", [])), key=lambda x: x.get("GRAPHRANK", 99))[:5]
         for g in lst:
             try:
                 o = raw_get(REPORT[0], {**REPORT[1], "songId": str(g["SONGID"])})
@@ -173,9 +173,48 @@ def derive():
         print("derive 실패", type(e).__name__, str(e)[:100])
 
 
+def push():
+    import subprocess
+    live = str(DATA.parent)
+    subprocess.run(["git", "-C", live, "add", "-A", "data"], check=False)
+    if subprocess.run(["git", "-C", live, "diff", "--cached", "--quiet"]).returncode == 0:
+        return
+    subprocess.run(["git", "-C", live, "commit", "-qm", "기록 " + datetime.now(timezone.utc).strftime("%FT%TZ")], check=False)
+    for _ in range(3):
+        if subprocess.run(["git", "-C", live, "push", "-q", "origin", "livedata"]).returncode == 0:
+            return
+        subprocess.run(["git", "-C", live, "pull", "-q", "--rebase", "origin", "livedata"], check=False)
+
+
+def cycle(now):
+    (snap if now.minute < 30 else predict)(now)
+    raw(now)
+    derive()
+
+
+def loop(minutes):
+    import time
+    end = datetime.now(KST) + timedelta(minutes=minutes)
+    while True:
+        now = datetime.now(KST).replace(tzinfo=None)
+        try:
+            cycle(now)
+            push()
+        except Exception as e:
+            print("주기 실패", type(e).__name__, str(e)[:100])
+        cur = datetime.now(KST)
+        nxt = cur.replace(second=20, microsecond=0) + timedelta(minutes=(1 - cur.minute) % 5 or 5)
+        if nxt >= end:
+            break
+        time.sleep(max(0, (nxt - cur).total_seconds()))
+
+
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "auto"
     now = datetime.now(KST).replace(tzinfo=None)
+    if mode == "loop":
+        loop(int(sys.argv[3]) if len(sys.argv) > 3 else 20)
+        sys.exit(0)
     if mode == "auto": mode = "snap" if now.minute < 30 else "predict"
     print("모드", mode, now)
     if mode == "raw": raw(now)

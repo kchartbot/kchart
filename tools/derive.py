@@ -102,6 +102,51 @@ def hot100(data, hours):
         save(data / "derived" / "hot100" / f"{key}00.json", {"hour": key + "00", "source": Path(f).stem, "rows": rows})
 
 
+MINUS = "\u2212"
+
+
+def n5(v):
+    t = repr(round(float(v), 5))
+    return "0" if t in ("0.0", "-0.0") else t
+
+
+def sg(v):
+    return ("+" if v >= 0 else MINUS) + repr(round(abs(float(v)), 5))
+
+
+def post_body(series):
+    out = []
+    for k, (name, vs) in enumerate(series):
+        d = vs[-1] - (vs[-2] if len(vs) > 1 else 0.0)
+        out += [f"[{k + 1}위 예측] {name} ({sg(d)})", "|".join(n5(v) for v in vs)]
+        if k + 1 < len(series):
+            out += ["", f"[{n5(vs[-1] - series[k + 1][1][-1])}]", ""]
+    return "\n".join(out)
+
+
+def posts(data, hours):
+    for key, h in hours.items():
+        hh = key[9:11]
+        rt = R_HOUR.get(int(hh), R_BY_MIN)
+        labs = sorted({int(l[3:]) for s in h["songs"].values() for l in s["hot"]})
+        for m in labs:
+            hot, mel = [], []
+            for s in h["songs"].values():
+                vs = [s["hot"].get(f"{hh}:{x:02d}") or 0.0 for x in range(0, m + 1, 5)]
+                if s["hot"].get(f"{hh}:{m:02d}") is None: continue
+                hot.append((s["name"], vs))
+                if all(x in rt for x in range(0, m + 1, 5)):
+                    mel.append((s["name"], [round(v / rt[5 * i], 5) for i, v in enumerate(vs)]))
+            hot.sort(key=lambda x: -x[1][-1])
+            mel.sort(key=lambda x: -x[1][-1])
+            day = key[:8]
+            tick = f"{hh}:{m:02d}"
+            rec = {"tick": f"{day} {tick}",
+                   "hot100": {"title": f"[{tick}] 멜론 HOT100 5분 차트", "image_title": f"[{day} {tick}] 멜론 HOT100 5분 차트", "body": post_body(hot[:5])},
+                   "melon": {"title": f"[{tick}] 멜론 5분 차트", "image_title": f"[{day} {tick}] 멜론 5분 차트", "body": post_body(mel[:3]), "estimated": True}}
+            save(data / "derived" / "posts" / f"{day}-{hh}{m:02d}.json", rec)
+
+
 def med(v):
     v = sorted(v)
     return v[len(v) // 2] if v else None
@@ -169,6 +214,7 @@ def run(data):
     realtime(data)
     hot100(data, hours)
     stats(data, hours)
+    posts(data, hours)
 
 
 if __name__ == "__main__":
