@@ -277,11 +277,14 @@ class Own:
         render_png(html, png, scale)
         return {"key": key, "stamp": stamp, "title": title, "body": body, "png": png}
 
-    def jobs(self, now, state):
+    def jobs(self, now, state, enabled=None):
         self.now = now
-        for fn in (lambda: self.five(now, state, "hot"), lambda: self.five(now, state, "mel"),
-                   lambda: self.top100(now, state), lambda: self.users(now, state),
-                   lambda: self.predict(now, state)):
+        fns = (("own_hot5", lambda: self.five(now, state, "hot")), ("own_melon5", lambda: self.five(now, state, "mel")),
+               ("own_top100", lambda: self.top100(now, state)), ("own_users", lambda: self.users(now, state)),
+               ("own_predict", lambda: self.predict(now, state)))
+        for key, fn in fns:
+            if enabled is not None and key not in enabled:
+                continue
             try:
                 j = fn()
             except Exception:

@@ -303,7 +303,7 @@ def own_loop(cfg, uploader, out, state, minutes):
     log.info("own 시작: %d분, dry_run=%s", minutes, b.get("dry_run", True))
     while time.time() < end:
         now = _kst()
-        for job in own.jobs(now, state):
+        for job in own.jobs(now, state, b.get("own_charts")):
             if b.get("dry_run", True):
                 log.info("[dry-run] 업로드 생략: %s -> %s", job["title"], job["png"])
                 state[job["key"]] = job["stamp"]
