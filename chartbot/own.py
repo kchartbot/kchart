@@ -268,10 +268,25 @@ class Own:
         if state.get("own_users") == stamp:
             return None
         ht = self.get("hourtop")["response"]
-        if ht["RANKHOUR"][:2] != f"{now:%H}":
+        # 멜론은 새벽 1시~7시에 실시간 차트를 멈춘다: RANKHOUR 가 "01:00" 으로 고정되지만 이용자수는 매시 :05 쯤 새 값으로 바뀐다
+        frozen = ht["RANKHOUR"][:2] == "01" and 2 <= now.hour <= 7
+        if ht["RANKHOUR"][:2] != f"{now:%H}" and not frozen:
             return None
         got = {str(g["SONGID"]): (g.get("CHARTSTATIC") or {}).get("SUMMCNT") for g in ht.get("GRAPHDATALIST") or []}
-        if len([v for v in got.values() if v]) < 3 and now.minute < 8:
+        if frozen:
+            if now.minute < 6 or len([v for v in got.values() if v]) < 3:
+                return None
+            ph = (now - timedelta(hours=1)).strftime("%Y%m%d-%H")
+            pf = sorted(f for d in ([self.live] if self.live else []) + [self.dir]
+                        for f in glob.glob(str(d / "raw/hourtop" / f"{ph}*.json")) if int(Path(f).stem[11:13]) >= 6)
+            if pf:
+                try:
+                    old = {str(g["SONGID"]): (g.get("CHARTSTATIC") or {}).get("SUMMCNT") for g in json.load(open(pf[-1]))["response"]["GRAPHDATALIST"]}
+                    if old == got:
+                        return None  # 아직 이번 시간 값으로 안 바뀜
+                except Exception:
+                    pass
+        elif len([v for v in got.values() if v]) < 3 and now.minute < 8:
             return None
         hourly = self.get("hourly")
         end = now.replace(minute=0, second=0, microsecond=0)
@@ -283,8 +298,15 @@ class Own:
             try:
                 r = json.load(open(f))["response"]
                 key = r["RANKDAY"].replace(".", "") + "-" + r["RANKHOUR"][:2] + "00"
+                st = Path(f).stem  # 받은 시각 YYYYMMDD-HHMM
+                if r["RANKHOUR"][:2] == "01" and 2 <= int(st[9:11]) <= 7:  # 새벽 고정 시간대는 받은 시각의 시로 기록
+                    if int(st[11:13]) < 6:
+                        continue
+                    key = st[:11] + "00"
                 for g in r["GRAPHDATALIST"]:
-                    cnt[(key, str(g["SONGID"]))] = g["CHARTSTATIC"]["SUMMCNT"]
+                    v = g["CHARTSTATIC"]["SUMMCNT"]
+                    if v:
+                        cnt[(key, str(g["SONGID"]))] = v
             except Exception:
                 continue
         if self.gaisum:
