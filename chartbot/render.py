@@ -511,8 +511,8 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
             sub, stamp = f"{day} · 최근 24시간 순위 · 상위 {min(TOP_LINES, len(chart.rows))}곡", f"{start:%H}:00"
         body = _linechart(chart)
     elif layout == "five":
-        sub, stamp = f"{day} {start:%H}시 구간 · 5분 단위 · 상위 {min(TOP_LINES, len(chart.rows))}곡", f"{chart.stamp:%H:%M}"
-        body = _linechart(chart)
+        from . import scoregraph
+        return scoregraph.five_page(chart)
     elif layout == "graph24":
         sub, stamp = f"{day} · 최근 24시간 · 1시간 단위 · 상위 {min(TOP_LINES, len(chart.rows))}곡", f"{start:%H}:00"
         body = _linechart(chart)
@@ -577,13 +577,12 @@ def render_png(html_text: str, path: Path, scale: float = 2.0) -> None:
 def body_text(chart: Chart) -> str:
     layout = effective_layout(chart)
     lines = []
-    if layout in ("five", "graph24"):
-        slot = chart.latest_slot
+    if layout == "five":
+        from . import scoregraph
+        return scoregraph.five_text(chart) + f"\n\n{chart.spec.credit}"
+    if layout == "graph24":
         for r in chart.rows:
-            if layout == "five":
-                vals = "|".join(f"{v:g}" for v in r.values[: (slot or 0) + 1] if v is not None)
-            else:  # 24시간 그래프: 값이 없는 시간도 자리를 지켜서 시간 위치가 어긋나지 않게 한다
-                vals = "|".join("-" if v is None else f"{v:g}" for v in r.values)
+            vals = "|".join("-" if v is None else f"{v:g}" for v in r.values)
             lines.append(f"[{r.rank}위] {r.name} - {r.artists}\n{vals}")
         sep = "\n\n"
     elif layout in ("rankgraph24", "rankfive"):
@@ -592,20 +591,8 @@ def body_text(chart: Chart) -> str:
             lines.append(f"{r.rank}위 ({c}) {r.name} - {r.artists}")
         sep = "\n"
     elif layout == "table_users":
-        rows = {r.sid: r for r in chart.rows}
-        for h in chart.history or []:
-            r = rows.get(h.sid)
-            ra = (r.ratio if r else None) or {}
-            ages = " ".join(f"{k[3:]}대 {ra[k]:g}%" for k in ("age10", "age20", "age30", "age40", "age50", "age60") if k in ra)
-            gen = f"남 {ra['male']}% / 여 {ra['female']}%" if "male" in ra else ""
-            cur = h.rows[-1]
-            diff = f" ({cur.diff:+,})" if cur.diff else ""
-            tail = " | ".join(x for x in (gen, ages) if x)
-            lines.append(
-                f"[{r.rank if r else '-'}위] {h.name} - {h.artists}\n현재 {_num(cur.count)}명{diff} | 최고 이용자수 {_num(h.peak)}"
-                + (f"\n{tail}" if tail else "")
-            )
-        sep = "\n\n"
+        from . import scoregraph
+        return scoregraph.users_text(chart) + f"\n\n{chart.spec.credit}"
     else:
         for r in chart.rows:
             c, _ = _rank_change(r.rank, r.previous)

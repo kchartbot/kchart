@@ -1,73 +1,124 @@
-"""점수형 그래프(써클차트 스타일): 남색 판, 점마다 값 표시, 범례, 본문 텍스트(비율/변화/순위 차)."""
 from __future__ import annotations
 import html
-from pathlib import Path
-
-from .render import render_png
 
 COLORS = ["#a6e22e", "#ff9a3c", "#4aa8ff", "#ff6fae", "#b58cff"]
+MINUS = "−"
 
 
-def _f(v: float) -> str:
-    return f"{v:.6g}"
+def top_n(chart) -> int:
+    return 5 if (chart.spec.platform == "melonhot" or "hot100" in chart.spec.key) else 3
 
 
-def _s(v: float) -> str:
-    return f"{v:.3f}".rstrip("0").rstrip(".")
+def _series(chart):
+    last = chart.latest_slot
+    if last is None:
+        return []
+    out = []
+    for r in chart.rows[: top_n(chart)]:
+        out.append({"name": r.name, "values": [(v or 0.0) for v in (r.values or [])[: last + 1]]})
+    return out
 
 
-def build_svg(labels: list[str], series: list[dict], title: str) -> str:
-    W, H = 1000, 560
-    L, R, T, B = 52, 20, 26, 44
-    n = len(labels)
-    vals = [v for s in series for v in s["values"] if v is not None]
-    top = int(max(vals)) + 1
-    xs = lambda i: L + 34 + (W - L - R - 68) * i / max(1, n - 1)
-    ys = lambda v: T + (H - T - B) * (1 - v / top)
+def _n(v: float) -> str:
+    t = repr(round(float(v), 5))
+    return "0" if t in ("0.0", "-0.0") else t
+
+
+def _signed(v: float) -> str:
+    t = repr(round(abs(float(v)), 5))
+    return ("+" if v >= 0 else MINUS) + t
+
+
+def five_text(chart) -> str:
+    series = _series(chart)
+    lines = []
+    for k, s in enumerate(series):
+        vs = s["values"]
+        delta = vs[-1] - (vs[-2] if len(vs) > 1 else 0.0)
+        lines.append(f"[{k + 1}위 예측] {s['name']} ({_signed(delta)})")
+        lines.append("|".join(_n(v) for v in vs))
+        if k + 1 < len(series):
+            lines.append("")
+            lines.append(f"[{_n(vs[-1] - series[k + 1]['values'][-1])}]")
+            lines.append("")
+    return "\n".join(lines)
+
+
+def _label(v: float) -> str:
+    return str(round(v, 2))
+
+
+def five_svg(chart) -> str:
+    series = _series(chart)
+    W, H = 1000, 520
+    L, R, T, B = 40, 14, 12, 40
+    top = max([v for s in series for v in s["values"]] + [1.0]) * 1.06
+    step = 1 if top <= 6 else 2
+    ymax = int(top // step + 1) * step
+    xs = lambda m: L + (W - L - R) * m / 60
+    ys = lambda v: T + (H - T - B) * (1 - v / ymax)
     g = [f'<rect x="{L}" y="{T}" width="{W - L - R}" height="{H - T - B}" fill="#3d4a6b"/>']
-    for t in range(0, top + 1):
-        g.append(f'<line x1="{L}" x2="{W - R}" y1="{ys(t):.1f}" y2="{ys(t):.1f}" stroke="#7d89a8" stroke-width="1" opacity=".55"/>')
-        g.append(f'<text x="{L - 8}" y="{ys(t) + 5:.1f}" font-size="14" text-anchor="end" fill="#333">{t}</text>')
-    for i, lab in enumerate(labels):
-        g.append(f'<line x1="{xs(i):.1f}" x2="{xs(i):.1f}" y1="{T}" y2="{H - B}" stroke="#7d89a8" stroke-width="1" opacity=".3"/>')
-        g.append(f'<text x="{xs(i):.1f}" y="{H - B + 22}" font-size="14" text-anchor="middle" fill="#333">{lab}</text>')
+    for t in range(0, ymax + 1, step):
+        g.append(f'<line x1="{L}" x2="{W - R}" y1="{ys(t):.1f}" y2="{ys(t):.1f}" stroke="#c9d1e6" stroke-width="1" opacity=".6"/>')
+        g.append(f'<text x="{L - 6}" y="{ys(t) + 5:.1f}" font-size="13" text-anchor="end" fill="#222">{t}</text>')
+    for m in range(0, 61, 10):
+        g.append(f'<line x1="{xs(m):.1f}" x2="{xs(m):.1f}" y1="{T}" y2="{H - B}" stroke="#c9d1e6" stroke-width="1" opacity=".6"/>')
+        g.append(f'<text x="{xs(m):.1f}" y="{H - B + 20}" font-size="13" text-anchor="middle" fill="#222">{m}</text>')
     for k, s in enumerate(series):
         col = COLORS[k % len(COLORS)]
-        pts = [(xs(i), ys(v), v) for i, v in enumerate(s["values"]) if v is not None]
+        pts = [(xs(5 * i), ys(v), v) for i, v in enumerate(s["values"])]
         d = " ".join(f"{x:.1f},{y:.1f}" for x, y, _ in pts)
-        g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>')
+        g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="3" stroke-linejoin="round"/>')
         for x, y, v in pts:
-            g.append(f'<text x="{x:.1f}" y="{y - 9:.1f}" font-size="13" font-weight="600" text-anchor="middle" fill="{col}" stroke="#2b3550" stroke-width="3" paint-order="stroke">{_s(v)}</text>')
-    lx, ly = W - R - 250, T + 10
-    g.append(f'<rect x="{lx}" y="{ly}" width="236" height="{22 * len(series) + 14}" rx="4" fill="#f1f1f1" opacity=".95"/>')
+            g.append(f'<text x="{x:.1f}" y="{y - 7:.1f}" font-size="12" text-anchor="middle" fill="{col}">{_label(v)}</text>')
+    lx, ly = W - R - 224, T + 8
+    g.append(f'<rect x="{lx}" y="{ly}" width="214" height="{18 * len(series) + 10}" rx="3" fill="#f2f2f2" opacity=".92"/>')
     for k, s in enumerate(series):
         col = COLORS[k % len(COLORS)]
-        y = ly + 20 + 22 * k
-        g.append(f'<line x1="{lx + 10}" x2="{lx + 40}" y1="{y - 5}" y2="{y - 5}" stroke="{col}" stroke-width="3.4"/>')
-        g.append(f'<text x="{lx + 48}" y="{y}" font-size="14" fill="#222">{html.escape(s["name"])}</text>')
+        y = ly + 19 + 18 * k
+        g.append(f'<line x1="{lx + 8}" x2="{lx + 30}" y1="{y - 4}" y2="{y - 4}" stroke="{col}" stroke-width="3"/>')
+        g.append(f'<text x="{lx + 38}" y="{y}" font-size="11" fill="#222">{html.escape(s["name"][:22])}</text>')
     return f'<svg viewBox="0 0 {W} {H}" width="100%" xmlns="http://www.w3.org/2000/svg">{"".join(g)}</svg>'
 
 
-def build_text(series: list[dict]) -> str:
-    last = [next(v for v in reversed(s["values"]) if v is not None) for s in series]
-    total = sum(last)
-    out = []
-    for k, s in enumerate(series):
-        vs = [v for v in s["values"] if v is not None]
-        delta = vs[-1] - vs[-2] if len(vs) > 1 else 0
-        out.append(f"[{k + 1}위 {last[k] / total * 100:.2f}%] {s['name']} ({delta:+.6g})")
-        out.append("|".join(_f(v) if v is not None else "None" for v in s["values"]))
-        if k + 1 < len(series):
-            out.append(f"\n[{last[k] - last[k + 1]:.3f}]\n")
-    return "\n".join(out)
+def five_title(chart) -> str:
+    return f"[{chart.stamp:%Y%m%d %H:%M}] {chart.title}"
 
 
-def render(labels, series, title, out_png: Path) -> str:
-    page = (
+def five_page(chart) -> str:
+    return (
         '<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>'
-        "body{margin:0;background:#fff;width:1080px;padding:28px 28px 22px;font-family:'Pretendard','Noto Sans KR','Noto Sans CJK KR',sans-serif}"
-        "h1{font-size:22px;text-align:center;margin:0 0 10px;color:#222;font-weight:600}</style></head><body>"
-        f"<h1>{html.escape(title)}</h1>{build_svg(labels, series, title)}</body></html>"
+        "body{margin:0;background:#fff;width:1000px;padding:14px 18px 12px;font-family:'Pretendard','Noto Sans KR','Noto Sans CJK KR',sans-serif}"
+        "h1{font-size:17px;text-align:center;margin:0 0 6px;color:#111;font-weight:400}</style></head><body>"
+        f"<h1>{html.escape(five_title(chart))}</h1>{five_svg(chart)}</body></html>"
     )
-    render_png(page, out_png, 2.0)
-    return build_text(series)
+
+
+def _fw(s: str) -> str:
+    return "".join(chr(ord(c) + 0xFEE0) if "!" <= c <= "~" else c for c in s)
+
+
+def _gap(v: int) -> str:
+    return (MINUS if v < 0 else "") + str(abs(v))
+
+
+def users_text(chart) -> str:
+    hs = [h for h in (chart.history or []) if h.rows][:3]
+    if not hs:
+        return ""
+    cur = [h.rows[-1].count for h in hs]
+    lines = []
+    for a, b in ((1, 2), (2, 3), (1, 3)):
+        if a <= len(hs) and b <= len(hs) and cur[a - 1] is not None and cur[b - 1] is not None:
+            lines.append(_fw(f"[{a}") + "↔" + _fw(f"{b}] ") + _fw(_gap(cur[a - 1] - cur[b - 1])))
+    lines.append("")
+    lines.append("전일 동시간 대비 변화량")
+    for k, h in enumerate(hs):
+        first, last = h.rows[0].count, h.rows[-1].count
+        if first and last is not None:
+            d = last - first
+            pct = abs(d) / first * 100
+            lines.append(_fw(f"{k + 1}") + "위" + _fw(":") + _fw(("+" if d >= 0 else "-") + str(abs(d)) + "(") + ("▲" if d >= 0 else "▼") + _fw(f"{pct:.2f}%)"))
+        else:
+            lines.append(_fw(f"{k + 1}") + "위" + _fw(":") + " 전일 동시간 데이터 없음")
+    return "\n".join(lines)

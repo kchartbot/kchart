@@ -4,7 +4,11 @@ from pathlib import Path
 
 K_HOT = 4755.15
 K_BASIS = "20261103-1900"
-R_BY_MIN = {5: 1.567, 10: 1.536, 15: 1.572, 20: 1.590, 25: 1.618, 30: 1.649, 35: 1.679, 40: 1.702, 45: 1.739, 50: 1.757, 55: 1.778}
+R_HOUR = {
+    13: {0: 2.0192, 5: 1.7055, 10: 1.7124, 15: 1.7107, 20: 1.7525, 25: 1.7715, 30: 1.8162, 35: 1.8468, 40: 1.8829, 45: 1.9187, 50: 1.9640, 55: 2.0020},
+    14: {0: 2.0322, 5: 1.6660, 10: 1.7294, 15: 1.7733, 20: 1.8105, 25: 1.8454, 30: 1.8904, 35: 1.9188, 40: 1.9416, 45: 1.9686, 50: 2.0017, 55: 2.0323},
+}
+R_BY_MIN = {m: round((R_HOUR[13][m] + R_HOUR[14][m]) / 2, 4) for m in R_HOUR[13]}
 
 
 def load(p):
@@ -51,7 +55,8 @@ def five(data):
                 if v is not None: s["hot"][lab] = v
     for key, h in hours.items():
         for s in h["songs"].values():
-            s["melon_est"] = {lab: round(v / R_BY_MIN[int(lab[3:])], 5) for lab, v in s["hot"].items() if int(lab[3:]) in R_BY_MIN}
+            rt = R_HOUR.get(int(key[9:11]), R_BY_MIN)
+            s["melon_est"] = {lab: round(v / rt[int(lab[3:])], 5) for lab, v in s["hot"].items() if int(lab[3:]) in rt}
             inc = {}
             for lab, v in s["hot"].items():
                 m = int(lab[3:])
