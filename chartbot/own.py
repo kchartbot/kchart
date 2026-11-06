@@ -1,3 +1,4 @@
+from html import unescape as html_unescape
 import base64
 import dataclasses
 import glob
@@ -75,21 +76,67 @@ class Own:
                 out[str(x["ALBUMID"])] = "data:image/jpeg;base64," + base64.b64encode(f.read_bytes()).decode()
         return out
 
+    WEB_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36"
+
+    def web_top100(self):
+        import re
+        import urllib.request
+        req = urllib.request.Request("https://www.melon.com/chart/index.htm", headers={"User-Agent": self.WEB_UA, "Accept-Language": "ko-KR,ko;q=0.9"})
+        h = urllib.request.urlopen(req, timeout=20).read().decode("utf-8")
+        hour = re.search(r'<span class="hour">(\d\d:\d\d)</span>', h)
+        rows = []
+        for tr in re.findall(r'<tr[^>]*data-song-no="\d+".*?</tr>', h, re.S):
+            rk = re.search(r'<span class="rank ?">(\d+)</span>', tr)
+            nm = re.search(r'class="ellipsis rank01">.*?<a[^>]*>(.*?)</a>', tr, re.S)
+            ar = re.search(r'class="ellipsis rank02">\s*(.*?)<span class="checkEllipsis"', tr, re.S)
+            al = re.search(r'albumId=(\d+)', tr)
+            im = re.search(r'<img[^>]*src="([^"]+)"', tr)
+            ch = re.search(r'class="rank_wrap"', tr) and re.search(r'<span title="([^"]*)" class="rank_wrap"', tr)
+            if not (rk and nm):
+                continue
+            rank = int(rk.group(1))
+            t = ch.group(1) if ch else ""
+            n = re.search(r"(\d+)", t)
+            if "상승" in t and n:
+                prev = rank + int(n.group(1))
+            elif "하락" in t and n:
+                prev = rank - int(n.group(1))
+            elif "동일" in t:
+                prev = rank
+            else:
+                prev = None
+            artists = re.sub(r"<[^>]+>", "", ar.group(1)) if ar else ""
+            rows.append({"rank": rank, "cur": prev, "name": html_unescape(nm.group(1).strip()), "artists": html_unescape(artists.strip()),
+                         "image": al.group(1) if al else str(rank), "url": im.group(1) if im else ""})
+        return (hour.group(1) if hour else None), rows
+
+    def web_images(self, rows):
+        import urllib.request
+        from concurrent.futures import ThreadPoolExecutor
+
+        def one(r):
+            if not r["url"]:
+                return r["image"], None
+            try:
+                u = r["url"].replace("/resize/120/", "/resize/160/")
+                req = urllib.request.Request(u, headers={"User-Agent": self.WEB_UA, "Referer": "https://www.melon.com/"})
+                return r["image"], "data:image/jpeg;base64," + base64.b64encode(urllib.request.urlopen(req, timeout=15).read()).decode()
+            except Exception:
+                return r["image"], None
+        with ThreadPoolExecutor(16) as ex:
+            return {k: v for k, v in ex.map(one, rows) if v}
+
     def top100(self, now, state):
         if now.minute >= 20:
             return None
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_top100") == stamp:
             return None
-        hourly = self.get("hourly")
-        if hourly["response"].get("RANKHOUR") != f"{now:%H}:00":
+        hour, rows = self.web_top100()
+        if hour != f"{now:%H}:00" or len(rows) < 100:
             return None
-        items = hourly["response"]["CHARTLIST"][:100]
-        self.covers(hourly)
-        rows = [{"rank": _int(x["CURRANK"]), "cur": _int(x.get("PASTRANK")), "name": x["SONGNAME"], "artists": _arts(x),
-                 "image": str(x["ALBUMID"])} for x in items]
         title = f"{now:%Y.%m.%d} {now:%H}:00 멜론 TOP100 순위표"
-        html = predtable.page(title, rows, self.images(items))
+        html = predtable.page(title, rows, self.web_images(rows))
         return self.job("own_top100", stamp, f"[{now:%H}:00] 멜론 TOP100 순위표", "", html, 1.5)
 
     def predict(self, now, state):
