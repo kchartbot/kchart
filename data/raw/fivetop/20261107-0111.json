@@ -1,0 +1,17 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "notification": {
+  "actionType": "EA2000",
+  "message": "지금은 차트 제공 시간이 아닙니다.",
+  "subMessage": "",
+  "redirectScheme": "",
+  "buttons": [
+   {
+    "label": "확인",
+    "buttonType": "BTN_0000",
+    "linkUri": "melonapp://back"
+   }
+  ]
+ },
+ "httpDomain": "http://m2.melon.com"
+}
