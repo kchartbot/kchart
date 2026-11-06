@@ -154,6 +154,8 @@ class Own:
         key = "own_hot5" if kind == "hot" else "own_melon5"
         name = "five" if kind == "hot" else "fivetop"
         m = now.minute // 5 * 5
+        if m == 0:
+            return None
         stamp = f"{now:%Y%m%d%H}{m:02d}"
         if state.get(key) == stamp:
             return None
