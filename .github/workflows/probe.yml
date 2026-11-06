@@ -16,7 +16,7 @@ jobs:
           python-version: "3.12"
       - run: python tools/probe.py probe_out
       - run: |
-          git config user.name probe; git config user.email probe@users.noreply.github.com
+          git config --global user.name probe; git config --global user.email probe@users.noreply.github.com
           mkdir -p ../pb && cp -r probe_out ../pb/ && cd ../pb
           git init -q && git checkout -q -b probe
           git add -A && git commit -qm "probe $(date -u +%FT%TZ)"
