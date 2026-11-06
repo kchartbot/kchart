@@ -1,7 +1,7 @@
 from __future__ import annotations
 import html
 
-COLORS = ["#a6e22e", "#ff9a3c", "#4aa8ff", "#ff6fae", "#b58cff"]
+COLORS = ["#2f9e44", "#f08c00", "#1c7ed6", "#d6336c", "#7048e8"]
 MINUS = "−"
 
 

@@ -167,25 +167,32 @@ border-bottom:1px solid var(--rule);padding:6px 8px}
 .tc .cnt small{display:block;font-size:12px;font-weight:700}
 
 /* 24시간 이용자 수 (곡별 표) */
-.ugrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
-.ublk{background:#fff;border:1px solid var(--rule);border-radius:4px;overflow:hidden;box-shadow:0 2px 10px rgba(20,26,43,.06)}
-.hero{position:relative;height:116px;background:linear-gradient(135deg,#1b2238,#3a3320);overflow:hidden}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.72))}
-.hero b{position:absolute;left:14px;right:14px;bottom:10px;z-index:1;color:#fff;font-size:20px;font-weight:800;
-text-shadow:0 1px 4px rgba(0,0,0,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.umeta{padding:10px 12px 0;text-align:center}
-.umeta .pk{font-size:15px;font-weight:800;color:var(--accent);letter-spacing:.01em}
-.umeta .ar{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
-.urng{text-align:center;font-size:12.5px;color:var(--muted);padding:2px 0 9px}
-.hr{display:grid;grid-template-columns:14% 12% 12% 34% 28%;font-size:13px;font-variant-numeric:tabular-nums;
-border-top:1px solid var(--rule);align-items:stretch}
-.hr>div{padding:3px 4px;text-align:center;white-space:nowrap;min-height:24px;display:flex;align-items:center;justify-content:center}
-.hr.h{color:#fff;background:var(--ink);font-weight:600;border-top:0;letter-spacing:.06em}
-.hr.night{background:#f1efea}
-.hr .c{justify-content:flex-end;padding-right:10px}
-.hr .mx{background:#2ea043;color:#fff;font-weight:800}
-.hr .rk{font-weight:700}
+.ugrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;align-items:start}
+.ublk{background:transparent}
+.ucov{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#e9e6df,#d8d4ca);overflow:hidden;margin-bottom:16px}
+.ucov img{width:100%;height:100%;object-fit:cover;display:block}
+.uhead{padding:0 2px 14px;border-bottom:1px solid var(--ink)}
+.uhead b{display:block;font-size:22px;font-weight:700;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.uhead .ar{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+.uhead .pk{font-size:13px;color:var(--text);margin-top:10px;font-variant-numeric:tabular-nums}
+.uhead .pk em{font-style:normal;font-weight:700}
+.uhead .rg{font-size:12px;color:var(--muted);margin-top:2px}
+.hr{display:grid;grid-template-columns:13% 11% 12% 36% 28%;font-size:13.5px;font-variant-numeric:tabular-nums;
+border-bottom:1px solid var(--rule);color:var(--text);align-items:stretch}
+.hr>div{padding:4px 4px;text-align:center;white-space:nowrap;min-height:27px;display:flex;align-items:center;justify-content:center}
+.hr.h{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.08em;border-bottom:1px solid var(--rule)}
+.hr>div:first-child{justify-content:flex-start;color:var(--muted)}
+.hr .c{justify-content:flex-end;padding-right:6px}
+.hr .rk{font-weight:600;color:var(--ink)}
+.hr .rk:empty:after{content:""}
+.hr>div:nth-child(3){color:var(--muted)}
+.hr .mx{font-weight:800;color:var(--ink)}
+.hr .c.up{color:var(--up)}
+.hr .c.down{color:var(--down)}
+.hr .c.flat{color:var(--muted)}
+.hr .c.est{color:#6b7385;font-style:italic}
+.hr .c.rough{color:#a3a8b3;font-style:italic}
+.unote{margin:14px 2px 0;font-size:12px;color:#6b7385}
 /* 순위표 새 디자인: 앨범 커버 위주 (rank_style = list1 / list2) */
 .rc-row{display:grid;grid-template-columns:78px 112px minmax(0,1fr) 124px;gap:22px;align-items:center;padding:14px 6px;border-bottom:1px solid var(--rule)}
 .rc-row>div{min-width:0}
@@ -470,20 +477,23 @@ def _users_history(chart: Chart, images):
                 dcls, dtxt = "flat", ("0" if r.diff == 0 else "")
             is_max = mx is not None and r.count == mx
             rows.append(
-                f'<div class="hr{" night" if r.time.hour in NIGHT else ""}">'
+                f'<div class="hr">'
                 f'<div>{r.time.hour}시</div>'
-                f'<div class="rk"{_heat(r.rank, .75)}>{r.rank or ""}</div>'
-                f'<div class="rk"{_heat(r.t100, .45)}>{r.t100 or ""}</div>'
-                f'<div class="c{" mx" if is_max else ""}">{_num(r.count) if r.count else ""}</div>'
+                f'<div class="rk">{r.rank or ""}</div>'
+                f'<div>{r.t100 or ""}</div>'
+                f'<div class="c{" mx" if is_max else ""}{(" " + r.est) if getattr(r, "est", None) else ""}">{_num(r.count) if r.count else ""}</div>'
                 f'<div class="c {dcls}">{dtxt}</div></div>'
             )
         blocks.append(
-            f'<div class="ublk"><div class="hero">{hero}<b>{html.escape(h.name)}</b></div>'
-            f'<div class="umeta"><div class="pk">최고 이용자수 : {_num(h.peak)}</div>'
-            f'<div class="ar">{html.escape(h.artists)}</div></div>'
-            f'<div class="urng">{rng}</div>{"".join(rows)}</div>'
+            f'<div class="ublk"><div class="ucov">{hero}</div><div class="uhead"><b>{html.escape(h.name)}</b>'
+            f'<div class="ar">{html.escape(h.artists)}</div>'
+            f'<div class="pk">최고 이용자수 <em>{_num(h.peak)}</em></div>'
+            f'<div class="rg">{rng}</div></div>{"".join(rows)}</div>'
         )
-    return f'<div class="ugrid">{"".join(blocks)}</div>'
+    note = ""
+    if any(getattr(r, "est", None) for h in chart.history or [] for r in h.rows):
+        note = '<div class="unote">회색 기울임: 추정값 (이 곡이 상위 3위 안에 있던 때의 실측 비율 사용) · 연한 회색: 대략값 (실측 이력이 없어 평균 비율 사용)</div>'
+    return f'<div class="ugrid">{"".join(blocks)}</div>{note}'
 
 
 # ───────────────────────── 조립 ─────────────────────────
@@ -518,7 +528,7 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
         body = _linechart(chart)
     elif layout == "table_users":
         sub, stamp = f"{day} {start:%H}시 기준 · 최근 24시간 이용자 수 추이", f"{start:%H}:00"
-        body = _users_history(chart, images)
+        body = "<style>header:after{display:none}.stamp small{color:var(--muted)}</style>" + _users_history(chart, images)
     else:
         rng = f"1~{shown}위" if shown == chart.total or not chart.total else f"1~{shown}위 (전체 {chart.total}곡)"
         sub, stamp = f"{day} {start:%H}시 기준 · {rng}", f"{start:%H}:00"
@@ -542,7 +552,7 @@ def render_html(chart: Chart, images: dict | None = None) -> str:
         f'<header><div><h1>{html.escape(chart.title)}</h1><div class="sub">{sub}</div></div>'
         f'<div class="stamp">{stamp}<small>기준</small></div></header>'
         f"{body}"
-        f'<footer><span>{chart.spec.credit}{(" · " + note) if note else ""}</span><span>{foot_r}</span></footer></body></html>'
+        + (f'<footer><span>{chart.spec.credit}{(" · " + note) if note else ""}</span><span>{foot_r}</span></footer>' if layout != "table_users" else "") + "</body></html>"
     )
 
 
@@ -592,7 +602,7 @@ def body_text(chart: Chart) -> str:
         sep = "\n"
     elif layout == "table_users":
         from . import scoregraph
-        return scoregraph.users_text(chart) + f"\n\n{chart.spec.credit}"
+        return scoregraph.users_text(chart)
     else:
         for r in chart.rows:
             c, _ = _rank_change(r.rank, r.previous)

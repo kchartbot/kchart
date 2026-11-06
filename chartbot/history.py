@@ -31,6 +31,7 @@ class HRow:
     t100: int | None
     count: int | None
     diff: int | None
+    est: str | None = None
 
 
 @dataclass

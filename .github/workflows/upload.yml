@@ -1,0 +1,88 @@
+name: upload
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "미리보기만 (켜 두면 디시에 올리지 않고 이미지만 만듦)"
+        type: boolean
+        default: true
+      minutes:
+        description: "몇 분 동안 돌릴지"
+        type: string
+        default: "110"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: upload
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 125
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          ref: livedata
+          path: live
+
+      - uses: actions/checkout@v4
+        with:
+          ref: probe
+          path: probe
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 한글 폰트 + 의존성
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: 상태 복원
+        uses: actions/cache/restore@v4
+        with:
+          path: out
+          key: upload-state-${{ github.run_id }}
+          restore-keys: upload-state-
+
+      - name: 실행
+        env:
+          DC_GALLERY_ID: ${{ vars.DC_GALLERY_ID }}
+          DC_MINOR: ${{ vars.DC_MINOR }}
+          DRY_RUN: ${{ inputs.dry && 'true' || 'false' }}
+          DC_HEADTEXT: ${{ vars.DC_HEADTEXT }}
+          DC_ID: ${{ secrets.DC_ID }}
+          DC_PW: ${{ secrets.DC_PW }}
+          DC_ANON_NICK: ${{ vars.DC_ANON_NICK }}
+          DC_ANON_PW: ${{ secrets.DC_ANON_PW }}
+          DC_STORAGE_STATE: ${{ secrets.DC_STORAGE_STATE }}
+          LIVE_DATA: live/data
+          GAISUM_USERS: probe/probe_out/users
+        run: python run.py own --config config.actions.toml --minutes "${{ inputs.minutes }}"
+
+      - name: 상태 저장
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: out
+          key: upload-state-${{ github.run_id }}
+
+      - name: 만든 이미지 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: own-images
+          path: |
+            out/own_*.png
+          if-no-files-found: ignore
+          retention-days: 3

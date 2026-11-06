@@ -294,9 +294,38 @@ def run_cycle(cfg, fetcher, uploader, state, out):
     t.join(timeout=5)
     (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
 
+def own_loop(cfg, uploader, out, state, minutes):
+    from chartbot.own import Own
+    b = cfg["bot"]
+    own = Own(out, os.environ.get("LIVE_DATA"), os.environ.get("GAISUM_USERS"))
+    end = time.time() + minutes * 60
+    fails = 0
+    log.info("own 시작: %d분, dry_run=%s", minutes, b.get("dry_run", True))
+    while time.time() < end:
+        now = _kst()
+        for job in own.jobs(now, state):
+            if b.get("dry_run", True):
+                log.info("[dry-run] 업로드 생략: %s -> %s", job["title"], job["png"])
+                state[job["key"]] = job["stamp"]
+                continue
+            try:
+                publish(job, cfg, uploader, state, out)
+                fails = 0
+            except Exception:
+                fails += 1
+                log.exception("%s 업로드 실패 (%d회 연속)", job["key"], fails)
+                if fails >= 2:
+                    log.error("연속 실패로 중단합니다 (제한/차단 가능성)")
+                    (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
+                    return
+            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
+        time.sleep(20)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["render", "login", "export-session", "once", "loop"])
+    ap.add_argument("cmd", choices=["render", "login", "export-session", "once", "loop", "own"])
+    ap.add_argument("--minutes", type=int, default=110)
     ap.add_argument("--config", default=str(ROOT / "config.toml"))
     ap.add_argument("--headed", action="store_true", help="업로드 시 브라우저 창을 보이게")
     ap.add_argument("--only", help="render 에서 특정 차트 키만")
@@ -327,8 +356,9 @@ def main():
         return
 
     cfg = load_config(a.config)
-    for k in cfg["bot"]["charts"]:
-        resolve(k)  # 잘못된 키는 시작할 때 바로 알려준다
+    if a.cmd != "own":
+        for k in cfg["bot"]["charts"]:
+            resolve(k)  # 잘못된 키는 시작할 때 바로 알려준다
     out = Path(cfg["bot"].get("out_dir", ROOT / "out"))
     out.mkdir(parents=True, exist_ok=True)
     uploader = make_uploader(cfg, a.headed)
@@ -348,6 +378,10 @@ def main():
     fetcher = Fetcher(user_agent=b.get("user_agent", "chartbot/1.0"), min_gap=b.get("min_request_gap", 3.0))
     sf = out / "state.json"
     state = json.loads(sf.read_text()) if sf.exists() else {}
+
+    if a.cmd == "own":
+        own_loop(cfg, uploader, out, state, a.minutes)
+        return
 
     if a.cmd == "once":
         if b.get("precise_top", False):
