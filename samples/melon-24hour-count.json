@@ -1,0 +1,100 @@
+{
+ "chart": "MELON_24HOUR_COUNT",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {
+  "count": "이용자 수"
+ },
+ "size": 3,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": 1,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    },
+    "id": "603712834"
+   },
+   "count": 238911,
+   "countDiff": -1918,
+   "ratio": {
+    "male": 48.6,
+    "female": 51.4,
+    "age10": 5,
+    "age20": 23,
+    "age30": 31,
+    "age40": 28,
+    "age50": 11,
+    "age60": 2
+   }
+  },
+  {
+   "ranking": 2,
+   "previous": 3,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    },
+    "id": "603712835"
+   },
+   "count": 143636,
+   "countDiff": -74,
+   "ratio": {
+    "male": 51.4,
+    "female": 48.6,
+    "age10": 5,
+    "age20": 22,
+    "age30": 30,
+    "age40": 29,
+    "age50": 12,
+    "age60": 2
+   }
+  },
+  {
+   "ranking": 3,
+   "previous": 2,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    },
+    "id": "603382333"
+   },
+   "count": 245673,
+   "countDiff": -193,
+   "ratio": {
+    "male": 36.9,
+    "female": 63.1,
+    "age10": 4,
+    "age20": 23,
+    "age30": 34,
+    "age40": 27,
+    "age50": 10,
+    "age60": 2
+   }
+  }
+ ]
+}

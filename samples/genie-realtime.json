@@ -1,0 +1,230 @@
+{
+ "chart": "GENIE_REALTIME_CHART",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {
+  "count1": "청취자 수",
+  "count2": "재생 수"
+ },
+ "size": 250,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": 1,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요?",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 2,
+   "previous": 2,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 3,
+   "previous": 3,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 4,
+   "previous": 4,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84)",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 5,
+   "previous": 5,
+   "song": {
+    "name": "마음의 숲",
+    "artists": [
+     {
+      "name": "조선힙합"
+     }
+    ],
+    "album": {
+     "name": "마음의 숲",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 6,
+   "previous": 6,
+   "song": {
+    "name": "LOVE ATTACK",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 7,
+   "previous": 7,
+   "song": {
+    "name": "생각을 멈추다 보면",
+    "artists": [
+     {
+      "name": "최유리"
+     }
+    ],
+    "album": {
+     "name": "생각을 멈추다 보면",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 8,
+   "previous": 8,
+   "song": {
+    "name": "갑자기",
+    "artists": [
+     {
+      "name": "아이오아이 (I.O.I)"
+     }
+    ],
+    "album": {
+     "name": "I.O.I 3rd MINI ALBUM ［I.O.I : LOOP］",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 9,
+   "previous": 10,
+   "song": {
+    "name": "BAD",
+    "artists": [
+     {
+      "name": "ATEEZ (에이티즈)"
+     }
+    ],
+    "album": {
+     "name": "GOLDEN HOUR : Part.5",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 10,
+   "previous": 12,
+   "song": {
+    "name": "Drowning",
+    "artists": [
+     {
+      "name": "WOODZ"
+     }
+    ],
+    "album": {
+     "name": "OO-LI",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 11,
+   "previous": 9,
+   "song": {
+    "name": "Looks Can Kill",
+    "artists": [
+     {
+      "name": "IVE (아이브)"
+     }
+    ],
+    "album": {
+     "name": "Looks Can Kill",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  },
+  {
+   "ranking": 12,
+   "previous": 11,
+   "song": {
+    "name": "체포하겠어",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "count1": 1,
+   "count2": 1
+  }
+ ]
+}

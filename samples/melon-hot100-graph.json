@@ -1,0 +1,347 @@
+{
+ "chart": "MELON_HOT100_GRAPH",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {},
+ "size": 8,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": null,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    8.38765,
+    8.08446,
+    7.98889,
+    7.76693,
+    8.01454,
+    8.11706,
+    8.61347,
+    8.59566,
+    8.17157,
+    8.26804,
+    8.34172,
+    8.31796,
+    8.0802,
+    7,
+    null,
+    null,
+    null,
+    null,
+    null,
+    8.60265,
+    9.99281,
+    9.30065,
+    8.20958,
+    7.42293
+   ]
+  },
+  {
+   "ranking": 2,
+   "previous": null,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    5.01638,
+    5.30778,
+    5.20736,
+    5.20594,
+    5.15054,
+    5.19888,
+    5.37552,
+    4.909,
+    5.23522,
+    5.59918,
+    5.736,
+    5.91553,
+    5.839,
+    5.743,
+    null,
+    null,
+    null,
+    null,
+    null,
+    5.75005,
+    6.02641,
+    6.10781,
+    5.78941,
+    5.42825
+   ]
+  },
+  {
+   "ranking": 3,
+   "previous": null,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "values": [
+    5.004,
+    5.154,
+    5.294,
+    5.39306,
+    5.69677,
+    5.92263,
+    6.36151,
+    6.49553,
+    5.89646,
+    5.55341,
+    5.256,
+    4.523,
+    3.561,
+    2.649,
+    null,
+    null,
+    null,
+    null,
+    null,
+    4.45055,
+    6.70894,
+    7.55425,
+    6.157,
+    5.328
+   ]
+  },
+  {
+   "ranking": 4,
+   "previous": null,
+   "song": {
+    "name": "Finest Thing",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    4.30423,
+    4.425,
+    4.344,
+    4.35,
+    4.311,
+    4.229,
+    4.305,
+    3.782,
+    4.207,
+    4.29216,
+    4.47519,
+    4.66747,
+    4.70832,
+    4.722,
+    null,
+    null,
+    null,
+    null,
+    null,
+    4.58032,
+    4.34,
+    3.768,
+    4.192,
+    4.208
+   ]
+  },
+  {
+   "ranking": 5,
+   "previous": null,
+   "song": {
+    "name": "MEME",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    3.954,
+    4.067,
+    4.068,
+    4.076,
+    3.996,
+    3.95,
+    3.932,
+    3.874,
+    3.91,
+    4.086,
+    4.261,
+    4.378,
+    4.525,
+    4.483,
+    null,
+    null,
+    null,
+    null,
+    null,
+    4.25693,
+    3.856,
+    3.651,
+    4.002,
+    4.012
+   ]
+  },
+  {
+   "ranking": 6,
+   "previous": null,
+   "song": {
+    "name": "Dragon",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    4.14,
+    3.966,
+    3.86,
+    3.884,
+    3.825,
+    3.792,
+    3.722,
+    3.636,
+    3.721,
+    3.892,
+    3.512,
+    4.309,
+    4.378,
+    4.395,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 7,
+   "previous": null,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84)",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   },
+   "values": [
+    3.404,
+    3.358,
+    3.475,
+    3.668,
+    3.752,
+    3.908,
+    4.102,
+    4.162,
+    3.643,
+    3.302,
+    3.016,
+    2.4,
+    1.916,
+    1.488,
+    null,
+    null,
+    null,
+    null,
+    null,
+    3.162,
+    4.143,
+    4.51,
+    4.072,
+    null
+   ]
+  },
+  {
+   "ranking": 8,
+   "previous": null,
+   "song": {
+    "name": "체포하겠어",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   },
+   "values": [
+    3.214,
+    3.276,
+    3.402,
+    3.459,
+    3.65,
+    3.845,
+    3.988,
+    4.157,
+    3.861,
+    3.736,
+    3.588,
+    3.345,
+    2.769,
+    2.042,
+    null,
+    null,
+    null,
+    null,
+    null,
+    2.822,
+    4.28,
+    4.748,
+    null,
+    null
+   ]
+  }
+ ]
+}
