@@ -105,7 +105,7 @@ class DcUploader:
             if (!out.no) {
                 for (const e of cands) {
                     for (let x = e, d = 0; x && d < 3 && !out.no; x = x.parentElement, d++) {
-                        for (const a of attrs) { const v = x.getAttribute(a); if (v && /^\d+$/.test(v)) { out.no = v; break; } }
+                        for (const a of attrs) { const v = x.getAttribute(a); if (v && /^[0-9]+$/.test(v)) { out.no = v; break; } }
                     }
                     if (out.no) break;
                 }
