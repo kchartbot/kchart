@@ -1,0 +1,31 @@
+{
+ "melon": [
+  "https://cdnimg.melon.co.kr/resource/image/web/common/logo_melon142x99.png",
+  "https://www.melon.com/favicon.ico?2",
+  "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/img_melon_logo@3x.png",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/bg_box_personalarea.jpg",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/bg_sprite_gray.png",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/bg_id_box_top_151207.jpg",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/btn_set_my_sns.png",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/bl_head_menu.jpg",
+  "https://cdnimg.melon.co.kr/resource/image/web/common/daum_search_logo.png"
+ ],
+ "genie": [
+  "https://www.genie.co.kr/resources/favicon_32.ico?v=202602091400",
+  "https://image.genie.co.kr/imageg/web/common/logo_genie_5.0.png",
+  "https://image.genie.co.kr/imageg/web/common/logo_ktgeniemusic.png",
+  "https://image.genie.co.kr/imageg/web/popup/logo_popup.png",
+  "https://image.genie.co.kr/imageg/web/tv/logo_mnet.png"
+ ],
+ "bugs": [
+  "https://file.bugsm.co.kr/bdesign/sns/1200x630_bugs.png",
+  "https://file.bugsm.co.kr/wbugs/common/faviconBugs.ico"
+ ],
+ "flo": [
+  "https://www.music-flo.com/favicon.ico",
+  "https://www.music-flo.com/og_flo.jpg",
+  "data:image/png;base64,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",
+  "https://www.music-flo.com/ie11-warning/chrome_logo.svg"
+ ]
+}
