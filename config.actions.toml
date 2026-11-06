@@ -41,4 +41,4 @@ out_dir = "out"
 [dc]
 gallery_id = "CHANGE_ME"
 minor = true
-headtext = "차트봇"
+headtext = "차트"

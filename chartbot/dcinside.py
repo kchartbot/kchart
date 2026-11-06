@@ -90,6 +90,30 @@ class DcUploader:
         print("글쓰기 화면 입력칸:", fields[:12], "-> 비로그인" if anon else "-> 로그인됨")
         return anon
 
+    def _pick_headtext(self, page) -> None:
+        want = self.headtext
+        hit = page.evaluate("""(want) => {
+            const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+            const root = document.querySelector('.write_subject, .subject_list, #write') || document.body;
+            const cands = [...root.querySelectorAll('li, a, button, label, span, div, option')]
+                .filter(e => vis(e) && (e.innerText || '').trim() === want && !e.querySelector('input,textarea'));
+            if (!cands.length) return null;
+            cands.sort((a, b) => a.querySelectorAll('*').length - b.querySelectorAll('*').length);
+            const e = cands[0];
+            e.scrollIntoView({block: 'center'});
+            const r = e.getBoundingClientRect();
+            return {x: r.x + r.width / 2, y: r.y + r.height / 2, tag: e.tagName, cls: e.className};
+        }""", want)
+        if hit:
+            page.mouse.click(hit["x"], hit["y"])
+            print("말머리 선택:", want, hit["tag"], hit["cls"])
+            return
+        if page.locator(self.sel["headtext_open"]).count():
+            page.click(self.sel["headtext_open"])
+            page.click(self.sel["headtext_option"].format(text=want))
+            return
+        print("말머리를 찾지 못함:", want)
+
     def _click_submit(self, page) -> None:
         cands = [self.sel["submit"], "button.btn_svc.write", ".btn_blue.small.write", "button.write", "a.write",
                  "input[type=submit][value*='등록']", "button:text-is('등록')", "a:text-is('등록')", "button:has-text('등록')", "a:has-text('등록')"]
@@ -240,9 +264,8 @@ class DcUploader:
 
                 page.fill(self.sel["title"], title)
 
-                if self.headtext and page.locator(self.sel["headtext_open"]).count():
-                    page.click(self.sel["headtext_open"])
-                    page.click(self.sel["headtext_option"].format(text=self.headtext))
+                if self.headtext:
+                    self._pick_headtext(page)
 
                 # 이미지 첨부: 툴바 '이미지' 버튼이 /upload/image 팝업을 연다 -> 팝업의 파일 입력에 넣고 '적용'
                 with page.expect_popup(timeout=15000) as pop:
