@@ -126,6 +126,20 @@ class Own:
         with ThreadPoolExecutor(16) as ex:
             return {k: v for k, v in ex.map(one, rows) if v}
 
+    LOGOS = {"melon": "https://cdnimg.melon.co.kr/resource/mobile40/cds/common/image/mobile_apple_180x180.png"}
+
+    def logo(self, plat):
+        import urllib.request
+        cache = self.__dict__.setdefault("_logos", {})
+        if plat not in cache:
+            try:
+                b = urllib.request.urlopen(urllib.request.Request(self.LOGOS[plat], headers={"User-Agent": self.WEB_UA}), timeout=15).read()
+                cache[plat] = predtable.mark("data:image/png;base64," + base64.b64encode(b).decode(), None, 30)
+            except Exception:
+                log.warning("아이콘을 받지 못함: %s", plat)
+                return None
+        return cache[plat]
+
     def top100(self, now, state):
         if now.minute >= 20:
             return None
@@ -136,7 +150,7 @@ class Own:
         if hour != f"{now:%H}:00" or len(rows) < 100:
             return None
         title = f"{now:%Y.%m.%d} {now:%H}:00 멜론 TOP100 순위표"
-        html = predtable.page(title, rows, self.web_images(rows))
+        html = predtable.page(title, rows, self.web_images(rows), logo=self.logo("melon"))
         return self.job("own_top100", stamp, f"[{now:%H}:00] 멜론 TOP100 순위표", "", html, 1.5)
 
     def predict(self, now, state):
@@ -190,7 +204,7 @@ class Own:
             x, r = sorted(c, key=lambda z: _int(z[1].get("rank")) or 999)[0]
             rows.append({"rank": k, "cur": _int(r.get("rank")), "name": x["SONGNAME"], "artists": _arts(x), "image": str(x["ALBUMID"])})
         title = f"{now:%Y.%m.%d} {now:%H}:{slot:02d} 멜론 TOP100 순위 예측"
-        html = predtable.page(title, rows, self.images(items))
+        html = predtable.page(title, rows, self.images(items), logo=self.logo("melon"))
         return self.job("own_predict", stamp, f"[{now:%H}:{slot:02d}] 멜론 TOP100 순위 예측", "", html, 1.5)
 
     def five_hours(self):
