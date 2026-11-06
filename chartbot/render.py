@@ -579,6 +579,9 @@ def render_png(html_text: str, path: Path, scale: float = 2.0) -> None:
         browser = p.chromium.launch()
         page = browser.new_page(viewport={"width": 1080, "height": 400}, device_scale_factor=scale)
         page.set_content(html_text, wait_until="load")
+        w = page.evaluate("Math.ceil(document.body.getBoundingClientRect().right + (parseFloat(getComputedStyle(document.body).marginRight) || 0))")
+        if 300 < w < 1080:
+            page.set_viewport_size({"width": w, "height": 400})
         page.screenshot(path=str(path), full_page=True)
         browser.close()
 
