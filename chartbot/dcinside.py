@@ -133,10 +133,15 @@ class DcUploader:
         try:
             dom = page.evaluate("""(want) => {
                 const out = [];
-                const h = document.querySelector('#headtext, input[name=headtext]');
-                if (h) { let x = h.parentElement; for (let d = 0; d < 2 && x && x.parentElement; d++) x = x.parentElement; out.push('HEADTEXT-AREA ' + (x ? x.outerHTML : '').replace(/\\s+/g, ' ').slice(0, 1500)); }
-                const els = [...document.querySelectorAll('*')].filter(e => e.children.length < 4 && (e.textContent || '').includes(want));
-                els.slice(0, 6).forEach(e => out.push('TEXT ' + e.outerHTML.replace(/\\s+/g, ' ').slice(0, 400)));
+                const sq = t => t.replace(/\\s+/g, ' ');
+                const h = document.querySelector('#headtext');
+                if (h) { out.push('HEADTEXT-INPUT ' + h.outerHTML); out.push('HEADTEXT-PARENT ' + sq(h.parentElement.outerHTML).slice(0, 1200)); }
+                const seen = new Set();
+                [...document.querySelectorAll('li, a, button, span, option, label')].filter(e => ['일반', want].includes((e.textContent || '').trim()) && e.children.length < 3).slice(0, 8).forEach(e => {
+                    const p = e.parentElement && e.parentElement.parentElement || e.parentElement;
+                    if (p && !seen.has(p)) { seen.add(p); out.push('TAB-ELEM ' + sq(e.outerHTML).slice(0, 300) + ' || PARENT ' + sq(p.outerHTML).slice(0, 900)); }
+                });
+                out.push('SELECTS ' + [...document.querySelectorAll('select')].map(e => (e.name || e.id) + ':' + [...e.options].map(o => o.text).join('/')).join(' ; ').slice(0, 400));
                 return out;
             }""", want)
             for line in dom:
