@@ -164,6 +164,15 @@ def raw(now):
         print("raw 실패", type(e).__name__, str(e)[:100])
 
 
+def derive():
+    try:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import derive as d
+        d.run(DATA)
+    except Exception as e:
+        print("derive 실패", type(e).__name__, str(e)[:100])
+
+
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "auto"
     now = datetime.now(KST).replace(tzinfo=None)
@@ -173,3 +182,4 @@ if __name__ == "__main__":
     else:
         (snap if mode == "snap" else predict)(now)
         raw(now)
+    derive()
