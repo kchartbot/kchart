@@ -51,15 +51,17 @@ class Own:
         self.cache = {}
         self.now = datetime.now()
 
-    def get(self, name, force=False):
-        stamp = self.now.strftime("%Y%m%d-%H%M")
-        key = (name, stamp[:12])
-        if key in self.cache and not force:
-            return self.cache[key]
+    def get(self, name, max_age=3.0):
+        c = self.cache.get(name)
+        if c and time.monotonic() - c[0] < max_age:
+            return c[1]
         url, params = self.rec.RAW[name]
         o = self.rec.raw_get(url, params)
-        self.rec.save(self.dir / "raw" / name / f"{stamp}.json", o)
-        self.cache[key] = o
+        d = self.dir / "raw" / name
+        self.rec.save(d / f"{self.now:%Y%m%d-%H%M}.json", o)
+        for f in sorted(d.glob("*.json"))[:-40]:
+            f.unlink(missing_ok=True)
+        self.cache[name] = (time.monotonic(), o)
         return o
 
     def covers(self, hourly, ids=None):
@@ -74,12 +76,14 @@ class Own:
         return out
 
     def top100(self, now, state):
-        if now.minute < 1 or now.minute >= 20:
+        if now.minute >= 20:
             return None
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_top100") == stamp:
             return None
         hourly = self.get("hourly")
+        if hourly["response"].get("RANKHOUR") != f"{now:%H}:00":
+            return None
         items = hourly["response"]["CHARTLIST"][:100]
         self.covers(hourly)
         rows = [{"rank": _int(x["CURRANK"]), "cur": _int(x.get("PASTRANK")), "name": x["SONGNAME"], "artists": _arts(x),
@@ -95,21 +99,29 @@ class Own:
         stamp = f"{now:%Y%m%d%H}{slot:02d}"
         if state.get("own_predict") == stamp:
             return None
-        hourly = self.get("hourly", force=True)
+        hourly = self.get("hourly")
         items = hourly["response"]["CHARTLIST"][:100]
+        url, base = self.rec.REPORT
+        first = self.rec.report_lite(self.rec.raw_get(url, {**base, "songId": str(items[0]["SONGID"])}), str(items[0]["SONGID"]))
+        if first.get("recent") != f"{now:%H}:{slot:02d}":
+            return None
         self.covers(hourly)
-        by = {}
-        for x in items:
+        from concurrent.futures import ThreadPoolExecutor
+
+        def one(x):
             try:
-                o = self.rec.raw_get(*[self.rec.REPORT[0], {**self.rec.REPORT[1], "songId": str(x["SONGID"])}])
+                o = self.rec.raw_get(url, {**base, "songId": str(x["SONGID"])})
+                return x, self.rec.report_lite(o, str(x["SONGID"]))
             except Exception as e:
                 log.warning("예측 수집 실패 %s %s", x.get("SONGID"), type(e).__name__)
-                continue
-            r = self.rec.report_lite(o, str(x["SONGID"]))
-            p = _int(r.get("predicted"))
-            if p:
-                by.setdefault(p, []).append((x, r))
-            time.sleep(0.4)
+                return x, None
+
+        by = {}
+        with ThreadPoolExecutor(8) as ex:
+            for x, r in ex.map(one, items):
+                p = _int((r or {}).get("predicted"))
+                if p:
+                    by.setdefault(p, []).append((x, r))
         if len(by) < 50:
             log.warning("예측 값이 너무 적어 건너뜀 (%d)", len(by))
             return None
@@ -141,19 +153,18 @@ class Own:
     def five(self, now, state, kind):
         key = "own_hot5" if kind == "hot" else "own_melon5"
         name = "five" if kind == "hot" else "fivetop"
+        m = now.minute // 5 * 5
+        stamp = f"{now:%Y%m%d%H}{m:02d}"
+        if state.get(key) == stamp:
+            return None
         self.get(name)
         hours, m5 = self.five_hours()
         hk = f"{now:%Y%m%d}-{now:%H}00"
         if kind == "hot":
-            labs = sorted({int(l[3:]) for s in (hours.get(hk) or {"songs": {}})["songs"].values() for l in s["hot"]})
+            labs = {int(l[3:]) for s in (hours.get(hk) or {"songs": {}})["songs"].values() for l in s["hot"]}
         else:
-            labs = sorted({m for e in (m5.get(hk) or {}).values() for m in e["vals"]})
-        labs = [m for m in labs if m <= now.minute]
-        if not labs:
-            return None
-        m = labs[-1]
-        stamp = f"{now:%Y%m%d%H}{m:02d}"
-        if state.get(key) == stamp:
+            labs = {mm for e in (m5.get(hk) or {}).values() for mm in e["vals"]}
+        if m not in labs:
             return None
         ms = list(range(0, m + 1, 5))
         items = []
@@ -177,12 +188,12 @@ class Own:
         return self.job(key, stamp, post_title(chart), self.body(chart), render_html(chart), 2.0, chart)
 
     def users(self, now, state):
-        if now.minute < 2 or now.minute >= 20:
+        if now.minute >= 20:
             return None
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_users") == stamp:
             return None
-        ht = self.get("hourtop", force=True)["response"]
+        ht = self.get("hourtop")["response"]
         if ht["RANKHOUR"][:2] != f"{now:%H}":
             return None
         hourly = self.get("hourly")
@@ -265,8 +276,8 @@ class Own:
 
     def jobs(self, now, state):
         self.now = now
-        for fn in (lambda: self.top100(now, state), lambda: self.users(now, state),
-                   lambda: self.five(now, state, "hot"), lambda: self.five(now, state, "mel"),
+        for fn in (lambda: self.five(now, state, "hot"), lambda: self.five(now, state, "mel"),
+                   lambda: self.top100(now, state), lambda: self.users(now, state),
                    lambda: self.predict(now, state)):
             try:
                 j = fn()

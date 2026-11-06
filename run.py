@@ -319,7 +319,7 @@ def own_loop(cfg, uploader, out, state, minutes):
                     (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
                     return
             (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
-        time.sleep(20)
+        time.sleep(3)
 
 
 def main():
