@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: recorder
@@ -26,6 +27,11 @@ jobs:
     timeout-minutes: 28
     steps:
       - uses: actions/checkout@v4
+      - name: 다음 실행 예약
+        if: ${{ inputs.mode == 'loop' || github.event_name == 'schedule' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run recorder.yml -f mode=loop
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
