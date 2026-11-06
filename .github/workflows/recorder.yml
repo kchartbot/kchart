@@ -1,0 +1,50 @@
+name: recorder
+# 디시에 아무것도 올리지 않는 기록 전용. 매시 멜론 순위를 저장하고, 계산한 점수·다음 순위 예측을 실제와 비교해 통계를 쌓는다.
+# 결과는 livedata 브랜치의 data/ 폴더에 쌓임 (stats.json = 예측 정확도, scores/ = 계산 점수)
+on:
+  schedule:
+    - cron: "2,22,42 * * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "auto(시각 따라) / snap(지금 순위 저장) / predict(다음 순위 예측)"
+        type: string
+        default: "auto"
+  push:
+    paths: [".github/workflows/recorder.yml", "tools/recorder.py"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: recorder
+  cancel-in-progress: false
+
+jobs:
+  rec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: 저장 브랜치 준비
+        run: |
+          git config user.name recorder; git config user.email recorder@users.noreply.github.com
+          if git ls-remote --exit-code --heads origin livedata >/dev/null 2>&1; then
+            git fetch -q origin livedata && git worktree add -q ../live origin/livedata && cd ../live && git checkout -q -B livedata origin/livedata
+          else
+            git worktree add -q --detach ../live && cd ../live && git checkout -q --orphan livedata && git rm -rq . || true
+          fi
+      - name: 기록
+        run: python tools/recorder.py "${{ inputs.mode || (github.event_name == 'schedule' && 'loop') || 'auto' }}" ../live/data 20
+      - name: 저장
+        run: |
+          cd ../live
+          git add -A data
+          git diff --cached --quiet && echo "바뀐 것 없음" && exit 0
+          git commit -qm "기록 $(date -u +%FT%TZ)"
+          git push -q origin livedata
