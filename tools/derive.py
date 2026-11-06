@@ -51,6 +51,14 @@ def five(data):
     for key, h in hours.items():
         for s in h["songs"].values():
             s["melon_est"] = {lab: round(v / R_BY_MIN[int(lab[3:])], 5) for lab, v in s["hot"].items() if int(lab[3:]) in R_BY_MIN}
+            inc = {}
+            for lab, v in s["hot"].items():
+                m = int(lab[3:])
+                if m < 5 or v <= 0: continue
+                p = s["hot"].get(f"{lab[:3]}{m - 5:02d}") if m > 5 else 0.0
+                if p is None or (m > 5 and p <= 0): continue
+                inc[lab] = round((v * m - (p * (m - 5) if m > 5 else 0.0)) / 60 * K_HOT)
+            s["inc_users_5min_est"] = inc
             s["users_1h_est"] = None
             z = s["hot"].get(key[9:11] + ":00")
             if z is not None: s["users_1h_est"] = round(z * K_HOT)
