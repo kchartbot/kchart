@@ -1,0 +1,11 @@
+19:58:53 five 19:55|19:55|12|7.65939
+19:58:55 fivetop 20|None|3.79128
+19:58:56 hourly 19:00|With|1
+19:58:57 hourtop 19:00|231141
+19:58:58 report 19:50|1
+20:00:03 report 19:50|None
+20:00:07 fivetop ERR KeyError
+20:00:09 hourtop ERR KeyError
+20:00:17 report 20:00|None
+20:00:20 five 20:00|20:00|13|7.61736
+20:00:21 fivetop 21|None|3.71691
