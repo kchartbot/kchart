@@ -106,8 +106,9 @@ class Own:
             else:
                 prev = None
             artists = re.sub(r"<[^>]+>", "", ar.group(1)) if ar else ""
+            sid = re.search(r'data-song-no="(\d+)"', tr)
             rows.append({"rank": rank, "cur": prev, "name": html_unescape(nm.group(1).strip()), "artists": html_unescape(artists.strip()),
-                         "image": al.group(1) if al else str(rank), "url": im.group(1) if im else ""})
+                         "image": al.group(1) if al else str(rank), "url": im.group(1) if im else "", "sid": sid.group(1) if sid else ""})
         return (hour.group(1) if hour else None), rows
 
     def web_images(self, rows):
@@ -160,13 +161,14 @@ class Own:
         stamp = f"{now:%Y%m%d%H}{slot:02d}"
         if state.get("own_predict") == stamp:
             return None
-        hourly = self.get("hourly")
-        items = hourly["response"]["CHARTLIST"][:100]
+        hour, web = self.web_top100()
+        if hour != f"{now:%H}:00" or len(web) < 100 or not all(w["sid"] for w in web):
+            return None
+        items = [{"SONGID": w["sid"], "SONGNAME": w["name"], "ARTISTS": w["artists"], "ALBUMID": w["image"], "WEB": w} for w in web]
         url, base = self.rec.REPORT
-        first = self.rec.report_lite(self.rec.raw_get(url, {**base, "songId": str(items[0]["SONGID"])}), str(items[0]["SONGID"]))
+        first = self.rec.report_lite(self.rec.raw_get(url, {**base, "songId": items[0]["SONGID"]}), items[0]["SONGID"])
         if first.get("recent") != f"{now:%H}:{slot:02d}":
             return None
-        self.covers(hourly)
         from concurrent.futures import ThreadPoolExecutor
 
         def one(x):
@@ -202,9 +204,9 @@ class Own:
                 rows.append({"rank": k, "unknown": True})
                 continue
             x, r = sorted(c, key=lambda z: _int(z[1].get("rank")) or 999)[0]
-            rows.append({"rank": k, "cur": _int(r.get("rank")), "name": x["SONGNAME"], "artists": _arts(x), "image": str(x["ALBUMID"])})
+            rows.append({"rank": k, "cur": _int(r.get("rank")) or x["WEB"]["rank"], "name": x["SONGNAME"], "artists": x["ARTISTS"], "image": x["ALBUMID"]})
         title = f"{now:%Y.%m.%d} {now:%H}:{slot:02d} 멜론 TOP100 순위 예측"
-        html = predtable.page(title, rows, self.images(items), logo=self.logo("melon"))
+        html = predtable.page(title, rows, self.web_images(web), logo=self.logo("melon"))
         return self.job("own_predict", stamp, f"[{now:%H}:{slot:02d}] 멜론 TOP100 순위 예측", "", html, 1.5)
 
     def five_hours(self):
