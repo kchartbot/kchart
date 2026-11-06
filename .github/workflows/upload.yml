@@ -65,7 +65,7 @@ jobs:
           DC_GALLERY_ID: ${{ vars.DC_GALLERY_ID }}
           DC_MINOR: ${{ vars.DC_MINOR }}
           DRY_RUN: ${{ inputs.dry && 'true' || 'false' }}
-          DC_HEADTEXT: ${{ vars.DC_HEADTEXT || '차트' }}
+          DC_HEADTEXT: 차트
           DC_HEAD_NO: ${{ vars.DC_HEAD_NO }}
           DC_ID: ${{ secrets.DC_ID }}
           DC_PW: ${{ secrets.DC_PW }}
