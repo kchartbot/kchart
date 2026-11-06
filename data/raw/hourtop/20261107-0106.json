@@ -1,0 +1,597 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "response": {
+  "XCATE": "07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,00,01",
+  "ALLRANK": "N",
+  "COMPRANK": "N",
+  "RANKDAY": "2026.11.07",
+  "RANKHOUR": "01:00",
+  "GRAPHDATALIST": [
+   {
+    "GRAPHRANK": 1,
+    "SONGID": "603712834",
+    "GRAPHDATA": [
+     {
+      "TIME": "07",
+      "VAL": "4.843",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "08",
+      "VAL": "5.385",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "09",
+      "VAL": "5.229",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "10",
+      "VAL": "4.405",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "11",
+      "VAL": "3.817",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "12",
+      "VAL": "3.493",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "13",
+      "VAL": "3.578",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "14",
+      "VAL": "3.516",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "15",
+      "VAL": "3.516",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "16",
+      "VAL": "3.741",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "17",
+      "VAL": "3.716",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "18",
+      "VAL": "3.816",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "19",
+      "VAL": "3.792",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "20",
+      "VAL": "3.717",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "21",
+      "VAL": "3.859",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "22",
+      "VAL": "4.069",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "23",
+      "VAL": "4.313",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "00",
+      "VAL": "4.443",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "01",
+      "VAL": "3.986",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     }
+    ],
+    "GRAPHTOP7": 0,
+    "GRAPHDAYCHART": "2",
+    "GRAPHTOPRANK": 1,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712834",
+     "SONGNAME": "With",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "",
+     "GENRELIST": null,
+     "CURRANK": "1",
+     "PASTRANK": "1",
+     "RANKGAP": "0",
+     "RANKTYPE": "NONE",
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+     "ISSUEDATE": "-",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "41",
+    "CHARTSTATIC": {
+     "IDX": 0,
+     "SONGID": 603712834,
+     "FEMALERT": "51.6",
+     "MALERT": "48.4",
+     "SUMMCNT": 226600,
+     "AGE10RT": "5",
+     "AGE20RT": "23",
+     "AGE30RT": "31",
+     "AGE40RT": "28",
+     "AGE50RT": "11",
+     "AGE60RT": "2"
+    }
+   },
+   {
+    "GRAPHRANK": 2,
+    "SONGID": "603712835",
+    "GRAPHDATA": [
+     {
+      "TIME": "07",
+      "VAL": "3.373",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "08",
+      "VAL": "3.492",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "09",
+      "VAL": "3.249",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "10",
+      "VAL": "3.160",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "11",
+      "VAL": "2.807",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "12",
+      "VAL": "2.537",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "13",
+      "VAL": "2.538",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "14",
+      "VAL": "2.509",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "15",
+      "VAL": "2.509",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "16",
+      "VAL": "2.289",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "17",
+      "VAL": "2.573",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "18",
+      "VAL": "2.573",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "19",
+      "VAL": "2.528",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "20",
+      "VAL": "2.536",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "21",
+      "VAL": "2.732",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "22",
+      "VAL": "2.906",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "23",
+      "VAL": "2.721",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "00",
+      "VAL": "3.207",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "01",
+      "VAL": "3.206",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     }
+    ],
+    "GRAPHTOP7": 0,
+    "GRAPHDAYCHART": "7",
+    "GRAPHTOPRANK": 2,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712835",
+     "SONGNAME": "백화요란 (Inside Out)",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "",
+     "GENRELIST": null,
+     "CURRANK": "2",
+     "PASTRANK": "2",
+     "RANKGAP": "0",
+     "RANKTYPE": "NONE",
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+     "ISSUEDATE": "-",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "32",
+    "CHARTSTATIC": {
+     "IDX": 1,
+     "SONGID": 603712835,
+     "FEMALERT": "49.6",
+     "MALERT": "50.4",
+     "SUMMCNT": 145684,
+     "AGE10RT": "5",
+     "AGE20RT": "22",
+     "AGE30RT": "30",
+     "AGE40RT": "29",
+     "AGE50RT": "12",
+     "AGE60RT": "2"
+    }
+   },
+   {
+    "GRAPHRANK": 3,
+    "SONGID": "37928381",
+    "GRAPHDATA": [
+     {
+      "TIME": "07",
+      "VAL": "2.894",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "08",
+      "VAL": "2.669",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "09",
+      "VAL": "2.734",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "10",
+      "VAL": "2.750",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "11",
+      "VAL": "2.633",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "12",
+      "VAL": "2.499",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "13",
+      "VAL": "2.450",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "14",
+      "VAL": "2.452",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "15",
+      "VAL": "2.499",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "16",
+      "VAL": "2.628",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "17",
+      "VAL": "2.546",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "18",
+      "VAL": "2.573",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "19",
+      "VAL": "2.517",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "20",
+      "VAL": "2.516",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "21",
+      "VAL": "2.618",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "22",
+      "VAL": "2.681",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "23",
+      "VAL": "2.760",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "00",
+      "VAL": "2.709",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     },
+     {
+      "TIME": "01",
+      "VAL": "2.738",
+      "TOPCNTTIC": 0,
+      "IMMTOPTIC": 0,
+      "FSTTOPTIC": 0
+     }
+    ],
+    "GRAPHTOP7": 0,
+    "GRAPHDAYCHART": "5",
+    "GRAPHTOPRANK": 3,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "37928381",
+     "SONGNAME": "LOVE ATTACK",
+     "ALBUMID": "11575849",
+     "ALBUMNAME": "SCENEDROME",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "",
+     "GENRELIST": null,
+     "CURRANK": "3",
+     "PASTRANK": "3",
+     "RANKGAP": "0",
+     "RANKTYPE": "NONE",
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/50/optimize/90",
+     "ISSUEDATE": "-",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "27",
+    "CHARTSTATIC": {
+     "IDX": 2,
+     "SONGID": 37928381,
+     "FEMALERT": "49.7",
+     "MALERT": "50.3",
+     "SUMMCNT": 177076,
+     "AGE10RT": "3",
+     "AGE20RT": "17",
+     "AGE30RT": "33",
+     "AGE40RT": "33",
+     "AGE50RT": "12",
+     "AGE60RT": "2"
+    }
+   }
+  ],
+  "FIVECHARTFLAG": "Y",
+  "CHARTINFO": {
+   "LINKURL": "https://m2.melon.com/chart/chartGraphInfo.htm",
+   "LINKTYPE": "SA"
+  },
+  "STATUS": "0",
+  "MENUID": "1000000938",
+  "SECTION": "멜론차트",
+  "PAGE": "멜론차트_실시간",
+  "TLOG": {
+   "MENUID": "1000000938",
+   "SECTION": "멜론차트",
+   "PAGE": "멜론차트_실시간"
+  }
+ },
+ "httpDomain": "http://m2.melon.com"
+}
