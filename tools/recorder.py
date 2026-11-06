@@ -156,6 +156,30 @@ def report_lite(o, sid):
             "predicted": pred, "predict_text": (rc.get("TITLE") or {}).get("VALUE")}
 
 
+def covers(objs, limit=12):
+    import urllib.request
+    seen = {}
+    def walk(x):
+        if isinstance(x, dict):
+            if x.get("ALBUMID") and (x.get("ALBUMIMGLARGE") or x.get("ALBUMIMG")):
+                seen.setdefault(str(x["ALBUMID"]), x.get("ALBUMIMGLARGE") or x.get("ALBUMIMG"))
+            for v in x.values(): walk(v)
+        elif isinstance(x, list):
+            for v in x: walk(v)
+    for o in objs: walk(o)
+    n = 0
+    for aid, url in seen.items():
+        f = DATA / "raw" / "covers" / f"{aid}.jpg"
+        if f.exists() or n >= limit: continue
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=15) as r: b = r.read()
+            if len(b) > 3000:
+                f.parent.mkdir(parents=True, exist_ok=True); f.write_bytes(b); n += 1
+        except Exception as e:
+            print("cover 실패", aid, type(e).__name__, str(e)[:80])
+
+
 def raw(now):
     import time
     stamp = now.strftime("%Y%m%d-%H%M")
@@ -167,12 +191,14 @@ def raw(now):
             o = raw_get(url, params)
             save(DATA / "raw" / name / f"{stamp}.json", o)
             if name == "hourly": hourly = o
+            if name in ("hourtop", "fivetop", "five"): covers([o])
         except Exception as e:
             print("raw 실패", name, type(e).__name__, str(e)[:100])
         time.sleep(2)
     if hourly is None:
         fs = sorted((DATA / "raw" / "hourly").glob("*.json"))
         hourly = load(fs[-1]) if fs else None
+    covers([{"x": ((hourly or {}).get("response") or {}).get("CHARTLIST", [])[:10]}])
     ids = [str(x["SONGID"]) for x in ((hourly or {}).get("response") or {}).get("CHARTLIST", [])]
     n = 100 if now.minute % 10 < 5 else 0
     rows = []
