@@ -91,28 +91,45 @@ class DcUploader:
         return anon
 
     def _pick_headtext(self, page) -> None:
+        import os
         want = self.headtext
-        hit = page.evaluate("""(want) => {
+        forced = os.environ.get("DC_HEAD_NO", "").strip()
+        res = page.evaluate("""([want, forced]) => {
             const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
             const root = document.querySelector('.write_subject, .subject_list, #write') || document.body;
+            const attrs = ['data-no', 'data-headno', 'data-head-no', 'data-value', 'data-idx', 'data-val', 'value'];
             const cands = [...root.querySelectorAll('li, a, button, label, span, div, option')]
-                .filter(e => vis(e) && (e.innerText || '').trim() === want && !e.querySelector('input,textarea'));
-            if (!cands.length) return null;
+                .filter(e => (e.innerText || e.textContent || '').trim() === want && !e.querySelector('input,textarea'));
             cands.sort((a, b) => a.querySelectorAll('*').length - b.querySelectorAll('*').length);
-            const e = cands[0];
-            e.scrollIntoView({block: 'center'});
-            const r = e.getBoundingClientRect();
-            return {x: r.x + r.width / 2, y: r.y + r.height / 2, tag: e.tagName, cls: e.className};
-        }""", want)
-        if hit:
-            page.mouse.click(hit["x"], hit["y"])
-            print("말머리 선택:", want, hit["tag"], hit["cls"])
-            return
-        if page.locator(self.sel["headtext_open"]).count():
+            const out = {n: cands.length, html: cands[0] ? cands[0].outerHTML.slice(0, 300) : null, no: forced || null, clicked: false};
+            if (!out.no) {
+                for (const e of cands) {
+                    for (let x = e, d = 0; x && d < 3 && !out.no; x = x.parentElement, d++) {
+                        for (const a of attrs) { const v = x.getAttribute(a); if (v && /^\d+$/.test(v)) { out.no = v; break; } }
+                    }
+                    if (out.no) break;
+                }
+            }
+            const vc = cands.find(vis);
+            if (vc) { vc.scrollIntoView({block: 'center'}); const r = vc.getBoundingClientRect(); out.x = r.x + r.width / 2; out.y = r.y + r.height / 2; }
+            out.inputs = [...document.querySelectorAll('input[name*=head], input[id*=head]')].map(i => i.name + '#' + i.id + '=' + i.value);
+            return out;
+        }""", [want, forced])
+        if res.get("x") is not None:
+            page.mouse.click(res["x"], res["y"])
+            res["clicked"] = True
+        elif page.locator(self.sel["headtext_open"]).count():
             page.click(self.sel["headtext_open"])
             page.click(self.sel["headtext_option"].format(text=want))
-            return
-        print("말머리를 찾지 못함:", want)
+            res["clicked"] = True
+        if res.get("no"):
+            page.evaluate("""(no) => {
+                let i = document.querySelector('input[name=head_no]');
+                if (!i) { i = document.createElement('input'); i.type = 'hidden'; i.name = 'head_no'; (document.querySelector('form#write, form[name=write], form') || document.body).appendChild(i); }
+                i.value = no;
+            }""", res["no"])
+        after = page.evaluate("() => [...document.querySelectorAll('input[name=head_no], input[name*=headtext]')].map(i => i.name + '=' + i.value)")
+        print("말머리:", want, "| 후보", res.get("n"), "| 번호", res.get("no"), "| 클릭", res.get("clicked"), "| 입력칸", res.get("inputs"), "->", after, "|", (res.get("html") or "")[:200])
 
     def _click_submit(self, page) -> None:
         cands = [self.sel["submit"], "button.btn_svc.write", ".btn_blue.small.write", "button.write", "a.write",
