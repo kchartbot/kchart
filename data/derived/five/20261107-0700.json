@@ -1,0 +1,61 @@
+{
+ "hour": "20261107-0700",
+ "songs": {
+  "603712834": {
+   "name": "With",
+   "hot": {
+    "07:00": 7.08986
+   },
+   "melon_est": {
+    "07:00": 3.49996
+   },
+   "inc_users_5min_rel": {},
+   "users_1h_rel": 33713
+  },
+  "603712835": {
+   "name": "백화요란 (Inside Out)",
+   "hot": {
+    "07:00": 5.23889
+   },
+   "melon_est": {
+    "07:00": 2.58621
+   },
+   "inc_users_5min_rel": {},
+   "users_1h_rel": 24912
+  },
+  "603712833": {
+   "name": "Finest Thing",
+   "hot": {
+    "07:00": 4.10457
+   },
+   "melon_est": {
+    "07:00": 2.02625
+   },
+   "inc_users_5min_rel": {},
+   "users_1h_rel": 19518
+  },
+  "603712836": {
+   "name": "MEME",
+   "hot": {
+    "07:00": 3.95784
+   },
+   "melon_est": {
+    "07:00": 1.95381
+   },
+   "inc_users_5min_rel": {},
+   "users_1h_rel": 18820
+  },
+  "603382333": {
+   "name": "NEON",
+   "hot": {
+    "07:00": 3.86213
+   },
+   "melon_est": {
+    "07:00": 1.90657
+   },
+   "inc_users_5min_rel": {},
+   "users_1h_rel": 18365
+  }
+ },
+ "updated": "20261107-0701"
+}
