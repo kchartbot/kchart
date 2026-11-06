@@ -398,7 +398,7 @@ class DcUploader:
                     up.wait_for_event("close", timeout=20000)
                 except Exception:
                     pass
-                page.wait_for_selector(self.sel["editor_img"], timeout=20000)
+                page.wait_for_selector(self.sel["editor_img"], timeout=70000)
 
                 # 본문 텍스트: 이미지 뒤에 이어 붙인다
                 page.click(self.sel["editor"])
