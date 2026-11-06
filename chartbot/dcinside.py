@@ -99,8 +99,8 @@ class DcUploader:
             const root = document.querySelector('.write_subject, .subject_list, #write') || document.body;
             const attrs = ['data-no', 'data-headno', 'data-head-no', 'data-value', 'data-idx', 'data-val', 'value'];
             const cands = [...root.querySelectorAll('li, a, button, label, span, div, option')]
-                .filter(e => (e.innerText || e.textContent || '').trim() === want && !e.querySelector('input,textarea'));
-            cands.sort((a, b) => a.querySelectorAll('*').length - b.querySelectorAll('*').length);
+                .filter(e => { const t = (e.innerText || e.textContent || '').trim(); return (t === want || t.startsWith(want) || (e.getAttribute('data-val') || '').startsWith(want)) && !e.querySelector('input,textarea') && e.children.length < 3; });
+            cands.sort((a, b) => ((a.innerText || a.textContent || '').trim() === want ? 0 : 1) - ((b.innerText || b.textContent || '').trim() === want ? 0 : 1) || a.querySelectorAll('*').length - b.querySelectorAll('*').length);
             const out = {n: cands.length, html: cands[0] ? cands[0].outerHTML.slice(0, 300) : null, no: forced || null, clicked: false};
             if (!out.no) {
                 for (const e of cands) {
@@ -110,7 +110,9 @@ class DcUploader:
                     if (out.no) break;
                 }
             }
+            if (!out.no && cands[0]) { for (const e of cands) { const v = e.getAttribute('data-no'); if (v && /^[0-9]+$/.test(v)) { out.no = v; break; } } }
             const vc = cands.find(vis);
+            if (!vc && cands[0]) { cands[0].click(); out.clicked = true; }
             if (vc) { vc.scrollIntoView({block: 'center'}); const r = vc.getBoundingClientRect(); out.x = r.x + r.width / 2; out.y = r.y + r.height / 2; }
             out.inputs = [...document.querySelectorAll('input[name*=head], input[id*=head]')].map(i => i.name + '#' + i.id + '=' + i.value);
             return out;
