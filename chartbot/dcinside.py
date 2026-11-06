@@ -99,8 +99,8 @@ class DcUploader:
             const root = document.querySelector('.write_subject, .subject_list, #write') || document.body;
             const attrs = ['data-no', 'data-headno', 'data-head-no', 'data-value', 'data-idx', 'data-val', 'value'];
             const cands = [...root.querySelectorAll('li, a, button, label, span, div, option')]
-                .filter(e => { const t = (e.innerText || e.textContent || '').trim(); return (t === want || t.startsWith(want) || (e.getAttribute('data-val') || '').startsWith(want)) && !e.querySelector('input,textarea') && e.children.length < 3; });
-            cands.sort((a, b) => ((a.innerText || a.textContent || '').trim() === want ? 0 : 1) - ((b.innerText || b.textContent || '').trim() === want ? 0 : 1) || a.querySelectorAll('*').length - b.querySelectorAll('*').length);
+                .filter(e => { const t = (e.innerText || e.textContent || '').trim(); return (t === want || t.includes(want) || (e.getAttribute('data-val') || '').includes(want)) && !e.querySelector('input,textarea') && e.children.length < 3; });
+            cands.sort((a, b) => ((a.innerText || a.textContent || '').trim().length - (b.innerText || b.textContent || '').trim().length) || a.querySelectorAll('*').length - b.querySelectorAll('*').length);
             const out = {n: cands.length, html: cands[0] ? cands[0].outerHTML.slice(0, 300) : null, no: forced || null, clicked: false};
             if (!out.no) {
                 for (const e of cands) {
