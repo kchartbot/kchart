@@ -116,12 +116,21 @@ class Own:
                 log.warning("예측 수집 실패 %s %s", x.get("SONGID"), type(e).__name__)
                 return x, None
 
-        by = {}
+        got = {}
+        todo = list(items)
         with ThreadPoolExecutor(16) as ex:
-            for x, r in ex.map(one, items):
-                p = _int((r or {}).get("predicted"))
-                if p:
-                    by.setdefault(p, []).append((x, r))
+            for attempt in range(4):
+                if not todo:
+                    break
+                if attempt:
+                    time.sleep(2)
+                for x, r in ex.map(one, todo):
+                    if _int((r or {}).get("predicted")):
+                        got[x["SONGID"]] = (x, r)
+                todo = [x for x in todo if x["SONGID"] not in got]
+        by = {}
+        for x, r in got.values():
+            by.setdefault(_int(r.get("predicted")), []).append((x, r))
         if len(by) < 50:
             log.warning("예측 값이 너무 적어 건너뜀 (%d)", len(by))
             return None
