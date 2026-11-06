@@ -166,6 +166,66 @@ def users24(data):
     save(data / "derived" / "stats" / "users24.json", tl)
 
 
+def listener_series(data):
+    L = {}
+    for f in sorted((data / "raw" / "reportlite").glob("*.json")):
+        st = stamp_dt(f)
+        for r in (load(f) or {}).get("rows", []):
+            rc, v = r.get("recent"), r.get("listeners")
+            if not rc or v is None: continue
+            t = st.replace(hour=int(rc[:2]), minute=int(rc[3:5]))
+            if t > st: t -= timedelta(days=1)
+            L.setdefault(r["id"], {})[t] = v
+    return L
+
+
+def window_sum(series, t, hours=24):
+    w = [v for k, v in series.items() if t - timedelta(hours=hours) < k <= t]
+    need = hours * 6 * 0.7
+    return (sum(w) / len(w) * hours * 6, len(w)) if len(w) >= need else (None, len(w))
+
+
+def users24_est(data):
+    L = listener_series(data)
+    actual = {}
+    for f in (data / "derived" / "users24").glob("*.json"):
+        x = load(f) or {}
+        for r in x.get("rows", []):
+            if r.get("users24"): actual[(x["hour"], r["id"])] = r["users24"]
+    rho = {}
+    for (key, sid), u in actual.items():
+        s, n = window_sum(L.get(sid, {}), datetime.strptime(key, "%Y%m%d-%H%M"))
+        if s: rho.setdefault(sid, []).append((key, u / s))
+    allr = sorted(v for xs in rho.values() for _, v in xs)
+    default = allr[len(allr) // 2] if allr else None
+    timeline = {}
+    for f in sorted((data / "derived" / "realtime").glob("*.json")):
+        x = load(f) or {}
+        key = x.get("hour")
+        if not key: continue
+        t = datetime.strptime(key, "%Y%m%d-%H%M")
+        rows = []
+        for r in x.get("rows", [])[:30]:
+            sid = str(r["id"])
+            out = {"rank": r["rank"], "id": sid, "name": r["name"], "users24": None, "source": None, "rho": None}
+            if (key, sid) in actual:
+                out.update(users24=actual[(key, sid)], source="melon")
+            else:
+                s, n = window_sum(L.get(sid, {}), t)
+                if s:
+                    cand = rho.get(sid)
+                    if cand:
+                        k0, r0 = min(cand, key=lambda kv: abs((datetime.strptime(kv[0], "%Y%m%d-%H%M") - t).total_seconds()))
+                        out.update(users24=round(r0 * s), source="est", rho=round(r0, 4), rho_at=k0)
+                    elif default:
+                        out.update(users24=round(default * s), source="rough", rho=round(default, 4))
+            rows.append(out)
+            if out["users24"]:
+                timeline.setdefault(sid, {"name": r["name"], "hours": {}})["hours"][key] = {"users24": out["users24"], "source": out["source"], "rank": r["rank"]}
+        save(data / "derived" / "users24_table" / f"{key}.json", {"hour": key, "rows": rows})
+    save(data / "derived" / "stats" / "users24_est.json", {"rho": {k: v for k, v in rho.items()}, "default_rho": default, "songs": timeline})
+
+
 def r_measured(data, hours, m5):
     out = {}
     for key, h in hours.items():
@@ -302,6 +362,7 @@ def run(data):
     stats(data, hours)
     m5 = melon5(data)
     users24(data)
+    users24_est(data)
     r_measured(data, hours, m5)
     melon_predict(data)
     posts(data, hours, m5)

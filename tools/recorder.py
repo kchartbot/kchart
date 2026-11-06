@@ -174,7 +174,7 @@ def raw(now):
         fs = sorted((DATA / "raw" / "hourly").glob("*.json"))
         hourly = load(fs[-1]) if fs else None
     ids = [str(x["SONGID"]) for x in ((hourly or {}).get("response") or {}).get("CHARTLIST", [])]
-    n = 100 if now.minute in range(30, 33) or now.minute in range(40, 43) or now.minute in range(50, 53) else 20
+    n = 100 if now.minute % 10 < 5 else 0
     rows = []
     for k, sid in enumerate(ids[:n]):
         try:
