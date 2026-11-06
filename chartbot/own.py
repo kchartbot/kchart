@@ -117,7 +117,7 @@ class Own:
                 return x, None
 
         by = {}
-        with ThreadPoolExecutor(8) as ex:
+        with ThreadPoolExecutor(16) as ex:
             for x, r in ex.map(one, items):
                 p = _int((r or {}).get("predicted"))
                 if p:
@@ -260,8 +260,19 @@ class Own:
                 c = cnt.get((key, sid)) or gai.get((key, sid))
                 hr.append(HRow(time=t, rank=rt.get((key, sid)), t100=t100.get((key, x["SONGNAME"])), count=c, diff=(c - prev) if (c and prev) else None))
                 prev = c
-            cs = [h.count for h in hr if h.count]
-            hist.append(SongHistory(sid=sid, name=x["SONGNAME"], artists=_arts(x), album="", image=cov.get(sid, ""), peak=max(cs) if cs else None, rows=hr))
+            cs = [h.count for h in hr if h.count] + [v for (k, i), v in cnt.items() if i == sid and v] + [v for (k, i), v in gai.items() if i == sid and v]
+            seed = 0
+            try:
+                import os
+                pj = os.environ.get("PEAKS_JSON")
+                if pj and Path(pj).exists():
+                    for r in (json.load(open(pj)).get(sid) or {}).get("records", []):
+                        if r.get("type") == "PEAK_COUNT":
+                            seed = max(seed, int(r.get("score") or 0))
+            except Exception:
+                log.warning("역대 최고값 읽기 실패")
+            peak = max(cs + [seed]) if (cs or seed) else None
+            hist.append(SongHistory(sid=sid, name=x["SONGNAME"], artists=_arts(x), album="", image=cov.get(sid, ""), peak=peak, rows=hr))
             rows.append(Row(rank=_int(x["CURRANK"]), previous=_int(x.get("PASTRANK")), name=x["SONGNAME"], artists=_arts(x), album="", image="", sid=sid))
         chart = Chart(SPECS["melon_24h_count"], end, rows, history=hist)
         return self.job("own_users", stamp, post_title(chart), self.body(chart), render_html(chart, {v: v for v in cov.values()}), 1.6, chart)
@@ -279,9 +290,9 @@ class Own:
 
     def jobs(self, now, state, enabled=None):
         self.now = now
-        fns = (("own_hot5", lambda: self.five(now, state, "hot")), ("own_melon5", lambda: self.five(now, state, "mel")),
-               ("own_top100", lambda: self.top100(now, state)), ("own_users", lambda: self.users(now, state)),
-               ("own_predict", lambda: self.predict(now, state)))
+        fns = (("own_predict", lambda: self.predict(now, state)),
+               ("own_hot5", lambda: self.five(now, state, "hot")), ("own_melon5", lambda: self.five(now, state, "mel")),
+               ("own_top100", lambda: self.top100(now, state)), ("own_users", lambda: self.users(now, state)))
         for key, fn in fns:
             if enabled is not None and key not in enabled:
                 continue

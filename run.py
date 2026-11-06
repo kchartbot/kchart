@@ -88,6 +88,8 @@ def make_uploader(cfg, headed):
     )
 
 
+import threading
+_POST_LOCK = threading.Lock()
 _LAST_POST = [0.0]
 
 
@@ -147,11 +149,12 @@ def publish(job, cfg, uploader, state, out):
     b = cfg["bot"]
     _g = [float(x) for x in str(b.get("post_gap_seconds", "20-30")).split("-")]
     gap = random.uniform(_g[0], _g[-1])
-    wait = _LAST_POST[0] + gap - time.monotonic()
-    if _LAST_POST[0] and wait > 0:
-        log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
-        time.sleep(wait)
-    _LAST_POST[0] = time.monotonic()
+    with _POST_LOCK:
+        wait = _LAST_POST[0] + gap - time.monotonic()
+        if _LAST_POST[0] and wait > 0:
+            log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
+            time.sleep(wait)
+        _LAST_POST[0] = time.monotonic()
     uploader.post(job["title"], job["body"], job["png"], out)
     log.info("업로드 완료: %s (%s)", job["title"], f"{datetime.now(KST):%H:%M:%S}")
     state[job["key"]] = job["stamp"]
@@ -295,31 +298,62 @@ def run_cycle(cfg, fetcher, uploader, state, out):
     (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
 
 def own_loop(cfg, uploader, out, state, minutes):
+    import queue
+    import threading
     from chartbot.own import Own
     b = cfg["bot"]
     own = Own(out, os.environ.get("LIVE_DATA"), os.environ.get("GAISUM_USERS"))
-    end = time.time() + minutes * 60
-    fails = 0
-    log.info("own 시작: %d분, dry_run=%s", minutes, b.get("dry_run", True))
-    while time.time() < end:
-        now = _kst()
-        for job in own.jobs(now, state, b.get("own_charts")):
-            if b.get("dry_run", True):
-                log.info("[dry-run] 업로드 생략: %s -> %s", job["title"], job["png"])
-                state[job["key"]] = job["stamp"]
+    prio = {"own_predict": 0, "own_hot5": 1, "own_melon5": 2, "own_top100": 3, "own_users": 4}
+    pq = queue.PriorityQueue()
+    stop = threading.Event()
+    fails = [0]
+    seq = [0]
+    lk = threading.Lock()
+
+    def save():
+        with lk:
+            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
+
+    def worker():
+        while not stop.is_set():
+            try:
+                _, _, job = pq.get(timeout=1)
+            except queue.Empty:
                 continue
             try:
                 publish(job, cfg, uploader, state, out)
-                fails = 0
+                fails[0] = 0
             except Exception:
-                fails += 1
-                log.exception("%s 업로드 실패 (%d회 연속)", job["key"], fails)
-                if fails >= 2:
+                fails[0] += 1
+                log.exception("%s 업로드 실패 (%d회 연속)", job["key"], fails[0])
+                if fails[0] >= 3:
                     log.error("연속 실패로 중단합니다 (제한/차단 가능성)")
-                    (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
-                    return
-            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
+                    stop.set()
+            save()
+
+    threads = [threading.Thread(target=worker, daemon=True) for _ in range(int(b.get("upload_workers", 2)))]
+    end = time.time() + minutes * 60
+    log.info("own 시작: %d분, dry_run=%s, 업로드 스레드 %d", minutes, b.get("dry_run", True), len(threads))
+    if not b.get("dry_run", True):
+        for t in threads:
+            t.start()
+    while time.time() < end and not stop.is_set():
+        now = _kst()
+        for job in own.jobs(now, state, b.get("own_charts")):
+            state[job["key"]] = job["stamp"]
+            if b.get("dry_run", True):
+                log.info("[dry-run] 업로드 생략: %s -> %s", job["title"], job["png"])
+                continue
+            seq[0] += 1
+            pq.put((prio.get(job["key"], 9), seq[0], job))
+            log.info("업로드 대기열: %s (%s)", job["title"], f"{_kst():%H:%M:%S}")
+        save()
         time.sleep(3)
+    stop.set()
+    for t in threads:
+        if t.is_alive():
+            t.join(timeout=60)
+    save()
 
 
 def main():

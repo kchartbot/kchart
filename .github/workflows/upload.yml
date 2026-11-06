@@ -36,6 +36,11 @@ jobs:
           ref: probe
           path: probe
 
+      - uses: actions/checkout@v4
+        with:
+          ref: peak
+          path: peak
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -68,6 +73,7 @@ jobs:
           DC_STORAGE_STATE: ${{ secrets.DC_STORAGE_STATE }}
           LIVE_DATA: live/data
           GAISUM_USERS: probe/probe_out/users
+          PEAKS_JSON: peak/peaks.json
         run: python run.py own --config config.actions.toml --minutes "${{ inputs.minutes }}"
 
       - name: 상태 저장
