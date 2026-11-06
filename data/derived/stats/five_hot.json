@@ -162,10 +162,10 @@
      "first_at": "22:00",
      "peak": 14.6935,
      "peak_at": "22:05",
-     "last": 8.78233,
-     "last_at": "22:20",
-     "mean": 10.04271,
-     "n": 5,
+     "last": 8.28913,
+     "last_at": "22:25",
+     "mean": 9.75045,
+     "n": 6,
      "users_1h_rel": 36628
     }
    }
@@ -332,10 +332,10 @@
      "first_at": "22:00",
      "peak": 5.65379,
      "peak_at": "22:00",
-     "last": 4.21568,
-     "last_at": "22:20",
-     "mean": 4.45721,
-     "n": 4,
+     "last": 4.37994,
+     "last_at": "22:25",
+     "mean": 4.44176,
+     "n": 5,
      "users_1h_rel": 26885
     }
    }
@@ -502,10 +502,10 @@
      "first_at": "22:00",
      "peak": 5.50193,
      "peak_at": "22:00",
-     "last": 5.14127,
-     "last_at": "22:20",
-     "mean": 4.92586,
-     "n": 4,
+     "last": 5.01852,
+     "last_at": "22:25",
+     "mean": 4.94439,
+     "n": 5,
      "users_1h_rel": 26163
     }
    }
@@ -803,10 +803,10 @@
      "first_at": "22:10",
      "peak": 4.09193,
      "peak_at": "22:10",
-     "last": 4.09193,
-     "last_at": "22:10",
-     "mean": 4.09193,
-     "n": 1,
+     "last": 3.62359,
+     "last_at": "22:25",
+     "mean": 3.85776,
+     "n": 2,
      "users_1h_rel": null
     }
    }
@@ -1026,18 +1026,18 @@
      "first_at": "22:10",
      "peak": 6.31437,
      "peak_at": "22:10",
-     "last": 4.89415,
-     "last_at": "22:20",
-     "mean": 5.4834,
-     "n": 3,
+     "last": 4.53842,
+     "last_at": "22:25",
+     "mean": 5.24716,
+     "n": 4,
      "users_1h_rel": null
     }
    }
   }
  },
- "decay_5min_median": 0.9955367663998349,
- "decay_5min_mean": 1.0040717727407003,
- "decay_n": 370,
+ "decay_5min_median": 0.9955076882657152,
+ "decay_5min_mean": 1.0037240684350894,
+ "decay_n": 374,
  "spike_05_over_00_median": 1.2313936198220847,
  "spike_n": 34,
  "entries": [
@@ -1220,6 +1220,12 @@
    "song": "Dragon",
    "enter_at": "22:05",
    "first_score": 6.31437
+  },
+  {
+   "hour": "20261106-2200",
+   "song": "Finest Thing",
+   "enter_at": "22:05",
+   "first_score": 4.09193
   }
  ],
  "coverage": {
@@ -1294,9 +1300,9 @@
    "last": "22:00"
   },
   "20261106-2200": {
-   "points": 5,
+   "points": 6,
    "expected": 12,
-   "last": "22:20"
+   "last": "22:25"
   }
  }
 }
