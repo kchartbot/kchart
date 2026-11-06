@@ -1,0 +1,24 @@
+name: probe
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/probe.yml", "tools/probe.py", "tools/backfill_users.py"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python tools/backfill_users.py probe_out/users 2026110415 2026110617
+      - run: |
+          git config --global user.name probe; git config --global user.email probe@users.noreply.github.com
+          mkdir -p ../pb && cp -r probe_out ../pb/ && cd ../pb
+          git init -q && git checkout -q -b probe
+          git add -A && git commit -qm "probe $(date -u +%FT%TZ)"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" probe
