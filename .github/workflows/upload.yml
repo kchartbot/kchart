@@ -11,6 +11,10 @@ on:
         description: "몇 분 동안 돌릴지"
         type: string
         default: "110"
+      only:
+        description: "이 차트만 (쉼표로 구분, 비우면 전부)"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -65,6 +69,7 @@ jobs:
           DC_GALLERY_ID: ${{ vars.DC_GALLERY_ID }}
           DC_MINOR: ${{ vars.DC_MINOR }}
           DRY_RUN: ${{ inputs.dry && 'true' || 'false' }}
+          OWN_ONLY: ${{ inputs.only }}
           DC_HEADTEXT: 차트
           DC_HEAD_NO: ${{ vars.DC_HEAD_NO }}
           DC_ID: ${{ secrets.DC_ID }}
