@@ -57,12 +57,12 @@ def five_svg(chart) -> str:
     ymax = int(top // step + 1) * step
     xs = lambda m: L + (W - L - R) * m / 60
     ys = lambda v: T + (H - T - B) * (1 - v / ymax)
-    g = [f'<rect x="{L}" y="{T}" width="{W - L - R}" height="{H - T - B}" fill="#3d4a6b"/>']
+    g = [f'<rect x="{L}" y="{T}" width="{W - L - R}" height="{H - T - B}" fill="#ffffff" stroke="#9aa1b0" stroke-width="1"/>']
     for t in range(0, ymax + 1, step):
-        g.append(f'<line x1="{L}" x2="{W - R}" y1="{ys(t):.1f}" y2="{ys(t):.1f}" stroke="#c9d1e6" stroke-width="1" opacity=".6"/>')
+        g.append(f'<line x1="{L}" x2="{W - R}" y1="{ys(t):.1f}" y2="{ys(t):.1f}" stroke="#e3e6ec" stroke-width="1"/>')
         g.append(f'<text x="{L - 6}" y="{ys(t) + 5:.1f}" font-size="13" text-anchor="end" fill="#222">{t}</text>')
     for m in range(0, 61, 10):
-        g.append(f'<line x1="{xs(m):.1f}" x2="{xs(m):.1f}" y1="{T}" y2="{H - B}" stroke="#c9d1e6" stroke-width="1" opacity=".6"/>')
+        g.append(f'<line x1="{xs(m):.1f}" x2="{xs(m):.1f}" y1="{T}" y2="{H - B}" stroke="#e3e6ec" stroke-width="1"/>')
         g.append(f'<text x="{xs(m):.1f}" y="{H - B + 20}" font-size="13" text-anchor="middle" fill="#222">{m}</text>')
     for k, s in enumerate(series):
         col = COLORS[k % len(COLORS)]
@@ -72,7 +72,7 @@ def five_svg(chart) -> str:
         for x, y, v in pts:
             g.append(f'<text x="{x:.1f}" y="{y - 7:.1f}" font-size="12" text-anchor="middle" fill="{col}">{_label(v)}</text>')
     lx, ly = W - R - 224, T + 8
-    g.append(f'<rect x="{lx}" y="{ly}" width="214" height="{18 * len(series) + 10}" rx="3" fill="#f2f2f2" opacity=".92"/>')
+    g.append(f'<rect x="{lx}" y="{ly}" width="214" height="{18 * len(series) + 10}" rx="3" fill="#ffffff" stroke="#d5d9e1" stroke-width="1"/>')
     for k, s in enumerate(series):
         col = COLORS[k % len(COLORS)]
         y = ly + 19 + 18 * k

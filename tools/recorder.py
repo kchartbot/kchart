@@ -180,6 +180,24 @@ def covers(objs, limit=12):
             print("cover 실패", aid, type(e).__name__, str(e)[:80])
 
 
+def covers_small(hourly, limit=100):
+    import urllib.request, time
+    n = 0
+    for x in ((hourly or {}).get("response") or {}).get("CHARTLIST", []):
+        aid, url = x.get("ALBUMID"), x.get("ALBUMIMGPATH") or x.get("ALBUMIMG")
+        if not aid or not url: continue
+        f = DATA / "raw" / "covers_s" / f"{aid}.jpg"
+        if f.exists() or n >= limit: continue
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=15) as r: b = r.read()
+            if len(b) > 1000:
+                f.parent.mkdir(parents=True, exist_ok=True); f.write_bytes(b); n += 1
+        except Exception as e:
+            print("cover_s 실패", aid, type(e).__name__, str(e)[:80])
+        time.sleep(0.15)
+
+
 def raw(now):
     import time
     stamp = now.strftime("%Y%m%d-%H%M")
@@ -199,6 +217,7 @@ def raw(now):
         fs = sorted((DATA / "raw" / "hourly").glob("*.json"))
         hourly = load(fs[-1]) if fs else None
     covers([{"x": ((hourly or {}).get("response") or {}).get("CHARTLIST", [])[:10]}])
+    covers_small(hourly)
     ids = [str(x["SONGID"]) for x in ((hourly or {}).get("response") or {}).get("CHARTLIST", [])]
     n = 100 if now.minute % 10 < 5 else 0
     rows = []
