@@ -94,10 +94,10 @@ def snap(now):
 def gaisum_try(now):
     """가이섬 24시간 이용자수 차트를 하루 몇 번만 조심스럽게 시도한다. 막히면(429 등) 기록만 남기고 6시간 쉰다."""
     log = load(DATA / "gaisum_log.json", {"tries": []})
-    last = log["tries"][-1] if log["tries"] else None
-    if last and last["ok"] is False and (now - datetime.fromisoformat(last["time"])) < timedelta(hours=6):
+    if now.minute < 5 or (DATA / "users" / f"{hour_key(now.replace(minute=0))}.json").exists():
         return
-    if last and last["ok"] and (now - datetime.fromisoformat(last["time"])) < timedelta(minutes=50):
+    last = log["tries"][-1] if log["tries"] else None
+    if last and last["ok"] is False and (now - datetime.fromisoformat(last["time"])) < timedelta(minutes=10):
         return
     rec = {"time": now.isoformat(timespec="seconds"), "ok": False, "msg": ""}
     try:
