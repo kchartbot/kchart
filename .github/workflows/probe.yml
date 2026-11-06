@@ -2,7 +2,7 @@ name: probe
 on:
   workflow_dispatch:
   push:
-    paths: [".github/workflows/probe.yml", "tools/probe.py"]
+    paths: [".github/workflows/probe.yml", "tools/probe.py", "tools/backfill_users.py"]
 permissions:
   contents: write
 jobs:
@@ -14,7 +14,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python tools/probe.py probe_out
+      - run: pip install -r requirements.txt
+      - run: python tools/backfill_users.py probe_out/users 2026110415 2026110617
       - run: |
           git config --global user.name probe; git config --global user.email probe@users.noreply.github.com
           mkdir -p ../pb && cp -r probe_out ../pb/ && cd ../pb
