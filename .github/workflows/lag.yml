@@ -1,0 +1,21 @@
+name: lag
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        type: string
+        default: "25"
+permissions:
+  contents: write
+jobs:
+  lag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/lag_probe.py "${{ inputs.minutes }}" x
+        env:
+          LAG_REMOTE: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
