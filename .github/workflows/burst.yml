@@ -1,6 +1,8 @@
 name: burst
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   burst:
     runs-on: ubuntu-latest
@@ -12,3 +14,6 @@ jobs:
           python-version: "3.12"
       - run: pip install -q -r requirements.txt
       - run: python tools/find_top100.py
+      - run: |
+          cd logos && git init -q && git checkout -q -b logos && git add -A
+          git -c user.name=p -c user.email=p@x commit -qm logos && git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" logos
