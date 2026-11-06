@@ -14,6 +14,11 @@
      "users24": 233700,
      "source": "melon",
      "rank": 1
+    },
+    "20261106-1900": {
+     "users24": 231141,
+     "source": "melon",
+     "rank": 1
     }
    }
   },
@@ -29,6 +34,11 @@
      "users24": 254210,
      "source": "melon",
      "rank": 2
+    },
+    "20261106-1900": {
+     "users24": 254501,
+     "source": "melon",
+     "rank": 2
     }
    }
   },
@@ -42,6 +52,11 @@
     },
     "20261106-1800": {
      "users24": 220601,
+     "source": "melon",
+     "rank": 3
+    },
+    "20261106-1900": {
+     "users24": 221524,
      "source": "melon",
      "rank": 3
     }
