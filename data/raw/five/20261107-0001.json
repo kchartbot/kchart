@@ -1,0 +1,567 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "response": {
+  "GRAPHDATALIST": [
+   {
+    "SONGID": 603712834,
+    "LSTGRPCURSCORE": 7.60766,
+    "GRAPHDATA": [
+     {
+      "VAL": "7.84978",
+      "X": "0"
+     },
+     {
+      "VAL": "9.23117",
+      "X": "1"
+     },
+     {
+      "VAL": "6.93524",
+      "X": "2"
+     },
+     {
+      "VAL": "6.5179",
+      "X": "3"
+     },
+     {
+      "VAL": "7.8582",
+      "X": "4"
+     },
+     {
+      "VAL": "7.59417",
+      "X": "5"
+     },
+     {
+      "VAL": "7.58919",
+      "X": "6"
+     },
+     {
+      "VAL": "7.74657",
+      "X": "7"
+     },
+     {
+      "VAL": "7.65456",
+      "X": "8"
+     },
+     {
+      "VAL": "7.61584",
+      "X": "9"
+     },
+     {
+      "VAL": "7.60187",
+      "X": "10"
+     },
+     {
+      "VAL": "7.63287",
+      "X": "11"
+     },
+     {
+      "VAL": "7.60766",
+      "X": "12"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712834",
+     "SONGNAME": "With",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "191",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "1"
+    },
+    "GRAPHRANK": 0,
+    "SHAREVALUE": "32"
+   },
+   {
+    "SONGID": 603712835,
+    "LSTGRPCURSCORE": 5.49187,
+    "GRAPHDATA": [
+     {
+      "VAL": "4.95211",
+      "X": "0"
+     },
+     {
+      "VAL": "7.94349",
+      "X": "1"
+     },
+     {
+      "VAL": "5.7549",
+      "X": "2"
+     },
+     {
+      "VAL": "6.55212",
+      "X": "3"
+     },
+     {
+      "VAL": "6.11455",
+      "X": "4"
+     },
+     {
+      "VAL": "6.00676",
+      "X": "5"
+     },
+     {
+      "VAL": "5.95096",
+      "X": "6"
+     },
+     {
+      "VAL": "5.82129",
+      "X": "7"
+     },
+     {
+      "VAL": "5.70741",
+      "X": "8"
+     },
+     {
+      "VAL": "5.59555",
+      "X": "9"
+     },
+     {
+      "VAL": "5.55649",
+      "X": "10"
+     },
+     {
+      "VAL": "5.51032",
+      "X": "11"
+     },
+     {
+      "VAL": "5.49187",
+      "X": "12"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712835",
+     "SONGNAME": "백화요란 (Inside Out)",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "211",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "2"
+    },
+    "GRAPHRANK": 1,
+    "SHAREVALUE": "21"
+   },
+   {
+    "SONGID": 603712833,
+    "LSTGRPCURSCORE": 4.2274,
+    "GRAPHDATA": [
+     {
+      "VAL": "0.0",
+      "X": "0"
+     },
+     {
+      "VAL": "6.97741",
+      "X": "1"
+     },
+     {
+      "VAL": "6.48887",
+      "X": "2"
+     },
+     {
+      "VAL": "5.50116",
+      "X": "3"
+     },
+     {
+      "VAL": "5.23379",
+      "X": "4"
+     },
+     {
+      "VAL": "4.94291",
+      "X": "5"
+     },
+     {
+      "VAL": "4.75772",
+      "X": "6"
+     },
+     {
+      "VAL": "4.61122",
+      "X": "7"
+     },
+     {
+      "VAL": "4.48495",
+      "X": "8"
+     },
+     {
+      "VAL": "4.44038",
+      "X": "9"
+     },
+     {
+      "VAL": "4.35196",
+      "X": "10"
+     },
+     {
+      "VAL": "4.28647",
+      "X": "11"
+     },
+     {
+      "VAL": "4.2274",
+      "X": "12"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712833",
+     "SONGNAME": "Finest Thing",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "140",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "3"
+    },
+    "GRAPHRANK": 2,
+    "SHAREVALUE": "16"
+   },
+   {
+    "SONGID": 603712836,
+    "LSTGRPCURSCORE": 4.07611,
+    "GRAPHDATA": [
+     {
+      "VAL": "",
+      "X": "0"
+     },
+     {
+      "VAL": "0.0",
+      "X": "1"
+     },
+     {
+      "VAL": "4.68881",
+      "X": "2"
+     },
+     {
+      "VAL": "4.22095",
+      "X": "3"
+     },
+     {
+      "VAL": "5.0332",
+      "X": "4"
+     },
+     {
+      "VAL": "4.86893",
+      "X": "5"
+     },
+     {
+      "VAL": "4.7042",
+      "X": "6"
+     },
+     {
+      "VAL": "4.52302",
+      "X": "7"
+     },
+     {
+      "VAL": "4.4427",
+      "X": "8"
+     },
+     {
+      "VAL": "4.31168",
+      "X": "9"
+     },
+     {
+      "VAL": "4.22061",
+      "X": "10"
+     },
+     {
+      "VAL": "4.13881",
+      "X": "11"
+     },
+     {
+      "VAL": "4.07611",
+      "X": "12"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712836",
+     "SONGNAME": "MEME",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "181",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "4"
+    },
+    "GRAPHRANK": 3,
+    "SHAREVALUE": "16"
+   },
+   {
+    "SONGID": 603382333,
+    "LSTGRPCURSCORE": 4.05621,
+    "GRAPHDATA": [
+     {
+      "VAL": "",
+      "X": "0"
+     },
+     {
+      "VAL": "",
+      "X": "1"
+     },
+     {
+      "VAL": "",
+      "X": "2"
+     },
+     {
+      "VAL": "",
+      "X": "3"
+     },
+     {
+      "VAL": "",
+      "X": "4"
+     },
+     {
+      "VAL": "",
+      "X": "5"
+     },
+     {
+      "VAL": "",
+      "X": "6"
+     },
+     {
+      "VAL": "",
+      "X": "7"
+     },
+     {
+      "VAL": "",
+      "X": "8"
+     },
+     {
+      "VAL": "",
+      "X": "9"
+     },
+     {
+      "VAL": "",
+      "X": "10"
+     },
+     {
+      "VAL": "0.0",
+      "X": "11"
+     },
+     {
+      "VAL": "4.05621",
+      "X": "12"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603382333",
+     "SONGNAME": "NEON",
+     "ALBUMID": "14644795",
+     "ALBUMNAME": "NEON",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "4531271",
+       "ARTISTNAME": "A2O"
+      },
+      {
+       "ARTISTID": "5217450",
+       "ARTISTNAME": "A2O LITE"
+      }
+     ],
+     "PLAYTIME": "208",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.10.13",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "5"
+    },
+    "GRAPHRANK": 4,
+    "SHAREVALUE": "15"
+   }
+  ],
+  "XCATE": [
+   "23:00",
+   "23:05",
+   "23:10",
+   "23:15",
+   "23:20",
+   "23:25",
+   "23:30",
+   "23:35",
+   "23:40",
+   "23:45",
+   "23:50",
+   "23:55",
+   "00:00"
+  ],
+  "FIVETIME": "01",
+  "RANKDAY": "2026.11.07",
+  "RANKHOUR": "00:00",
+  "FIVEERRORFLAG": false,
+  "STATUS": "0",
+  "MENUID": "1000003038",
+  "SECTION": "멜론차트",
+  "PAGE": "멜론차트_HOT100그래프5분",
+  "TLOG": {
+   "MENUID": "1000003038",
+   "SECTION": "멜론차트",
+   "PAGE": "멜론차트_HOT100그래프5분"
+  }
+ },
+ "httpDomain": "http://m2.melon.com"
+}
