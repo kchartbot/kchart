@@ -4,7 +4,7 @@ on:
   push:
     paths: [".github/workflows/probe.yml", "tools/probe.py"]
 permissions:
-  contents: read
+  contents: write
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -15,8 +15,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: python tools/probe.py probe_out
-      - uses: actions/upload-artifact@v4
-        with:
-          name: probe
-          path: probe_out
-          retention-days: 5
+      - run: |
+          git config user.name probe; git config user.email probe@users.noreply.github.com
+          mkdir -p ../pb && cp -r probe_out ../pb/ && cd ../pb
+          git init -q && git checkout -q -b probe
+          git add -A && git commit -qm "probe $(date -u +%FT%TZ)"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" probe
