@@ -124,7 +124,89 @@ def post_body(series):
     return "\n".join(out)
 
 
-def posts(data, hours):
+def melon5(data):
+    out = {}
+    for f in sorted((data / "raw" / "fivetop").glob("*.json")):
+        r = (load(f) or {}).get("response")
+        if not r or not r.get("GRAPHDATALIST") or not str(r.get("FIVETIME", "")).isdigit(): continue
+        st = stamp_dt(f)
+        h = (int(r["FIVETIME"]) - 1) % 24
+        d = st.replace(hour=h, minute=0)
+        if h > st.hour: d -= timedelta(days=1)
+        key = d.strftime("%Y%m%d-%H00")
+        hk = out.setdefault(key, {})
+        for g in r["GRAPHDATALIST"]:
+            sid = str(g["SONGID"])
+            vals = [num(p.get("VAL")) for p in g.get("GRAPHDATA", [])]
+            e = hk.setdefault(sid, {"name": (g.get("GRAPHCHARTINFO") or {}).get("SONGNAME"), "prev": None, "vals": {}})
+            if vals: e["prev"] = vals[0]
+            for i, v in enumerate(vals[1:]):
+                if v is not None: e["vals"][5 * i] = v
+    for key, hk in out.items():
+        save(data / "derived" / "melon5" / f"{key}.json", {"hour": key, "songs": {sid: {"name": e["name"], "prev": e["prev"], "vals": {f"{key[9:11]}:{m:02d}": v for m, v in sorted(e["vals"].items())}} for sid, e in hk.items()}})
+    return out
+
+
+def users24(data):
+    tl = {}
+    for f in sorted((data / "raw" / "hourtop").glob("*.json")):
+        r = (load(f) or {}).get("response")
+        if not r or not r.get("RANKDAY"): continue
+        key = r["RANKDAY"].replace(".", "") + "-" + r["RANKHOUR"][:2] + "00"
+        rows = []
+        for g in r.get("GRAPHDATALIST", []):
+            c = g.get("CHARTSTATIC") or {}
+            rows.append({"rank": g.get("GRAPHRANK"), "id": str(g.get("SONGID")), "name": (g.get("GRAPHCHARTINFO") or {}).get("SONGNAME"),
+                         "users24": c.get("SUMMCNT"), "female": c.get("FEMALERT"), "male": c.get("MALERT"),
+                         "age": [c.get(f"AGE{a}RT") for a in (10, 20, 30, 40, 50, 60)], "share": g.get("SHAREVALUE"),
+                         "hourly": dict(zip(r.get("XCATE", "").split(","), [num(p.get("VAL")) for p in g.get("GRAPHDATA", [])]))})
+        save(data / "derived" / "users24" / f"{key}.json", {"hour": key, "rows": rows})
+        for x in rows:
+            tl.setdefault(x["id"], {"name": x["name"], "users24": {}})["users24"][key] = x["users24"]
+    save(data / "derived" / "stats" / "users24.json", tl)
+
+
+def r_measured(data, hours, m5):
+    out = {}
+    for key, h in hours.items():
+        hk = m5.get(key)
+        if not hk: continue
+        hh = key[9:11]
+        for m in range(0, 60, 5):
+            rs = []
+            for sid, s in h["songs"].items():
+                v = s["hot"].get(f"{hh}:{m:02d}")
+                w = (hk.get(sid) or {}).get("vals", {}).get(m)
+                if v and w: rs.append(v / w)
+            if rs: out.setdefault(key, {})[f"{m:02d}"] = round(sorted(rs)[len(rs) // 2], 5)
+    save(data / "derived" / "stats" / "r_measured.json", out)
+
+
+def melon_predict(data):
+    rt = {}
+    for f in (data / "derived" / "realtime").glob("*.json"):
+        x = load(f) or {}
+        rt[x.get("hour")] = {str(r["id"]): r["rank"] for r in x.get("rows", [])}
+    rounds = []
+    for f in sorted((data / "raw" / "reportlite").glob("*.json")):
+        x = load(f) or {}
+        if x.get("n") != 100: continue
+        st = stamp_dt(f)
+        nxt = (st.replace(minute=0) + timedelta(hours=1)).strftime("%Y%m%d-%H00")
+        rows = [r for r in x.get("rows", []) if r.get("predicted")]
+        rec = {"stamp": x["stamp"], "target": nxt, "rows": rows}
+        save(data / "derived" / "predict_melon" / f"{x['stamp']}.json", rec)
+        act = rt.get(nxt)
+        if act:
+            pairs = [(int(r["predicted"]), act[r["id"]]) for r in rows if r["id"] in act]
+            top10 = [p for p in pairs if p[1] <= 10]
+            rounds.append({"stamp": x["stamp"], "target": nxt, "n": len(pairs), "exact": sum(1 for a, b in pairs if a == b),
+                           "top10_exact": sum(1 for a, b in top10 if a == b), "mae": round(mean([abs(a - b) for a, b in pairs]), 3) if pairs else None})
+    save(data / "derived" / "stats" / "predict_melon.json", {"rounds": rounds})
+
+
+def posts(data, hours, m5=None):
+    m5 = m5 or {}
     for key, h in hours.items():
         hh = key[9:11]
         rt = R_HOUR.get(int(hh), R_BY_MIN)
@@ -137,13 +219,17 @@ def posts(data, hours):
                 hot.append((s["name"], vs))
                 if all(x in rt for x in range(0, m + 1, 5)):
                     mel.append((s["name"], [round(v / rt[5 * i], 5) for i, v in enumerate(vs)]))
+            est = True
+            act = [(e["name"], [e["vals"].get(x) or 0.0 for x in range(0, m + 1, 5)]) for e in (m5.get(key) or {}).values() if m in e["vals"]]
+            if act:
+                mel, est = act, False
             hot.sort(key=lambda x: -x[1][-1])
             mel.sort(key=lambda x: -x[1][-1])
             day = key[:8]
             tick = f"{hh}:{m:02d}"
             rec = {"tick": f"{day} {tick}",
                    "hot100": {"title": f"[{tick}] 멜론 HOT100 5분 차트", "image_title": f"[{day} {tick}] 멜론 HOT100 5분 차트", "body": post_body(hot[:5])},
-                   "melon": {"title": f"[{tick}] 멜론 5분 차트", "image_title": f"[{day} {tick}] 멜론 5분 차트", "body": post_body(mel[:3]), "estimated": True}}
+                   "melon": {"title": f"[{tick}] 멜론 5분 차트", "image_title": f"[{day} {tick}] 멜론 5분 차트", "body": post_body(mel[:3]), "estimated": est}}
             save(data / "derived" / "posts" / f"{day}-{hh}{m:02d}.json", rec)
 
 
@@ -214,7 +300,11 @@ def run(data):
     realtime(data)
     hot100(data, hours)
     stats(data, hours)
-    posts(data, hours)
+    m5 = melon5(data)
+    users24(data)
+    r_measured(data, hours, m5)
+    melon_predict(data)
+    posts(data, hours, m5)
 
 
 if __name__ == "__main__":

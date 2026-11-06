@@ -78,7 +78,6 @@ def snap(now):
         mine = {song_key(x): x["rank"] for x in pred["predicted"]}
         stats["records"].append({"time": hk, "내 예측": score_ranks(mine, actual), "지금 순위 그대로": score_ranks(base, actual)})
         save(DATA / "stats.json", stats)
-    gaisum_try(now)                              # 이용자수: 열려 있을 때만 저장됨
     # 계산 점수(HOT100 5곡 + 실시간 3곡) 저장
     h = load(DATA / "hot100" / f"{hk}.json")
     if h:
@@ -125,10 +124,13 @@ def predict(now):
 
 RAW = {
     "five": ("https://m2.melon.com/m6/chart/hour/five/graph.json", {"v": "4.0", "cpId": "IS40", "cpKey": "17LNM9"}),
+    "fivetop": ("https://m.app.melon.com/chart/hourly/fiveChartGraph.json", {"cpId": "AS40", "cpKey": "14LNC3", "v": "4.0"}),
+    "hourtop": ("https://m2.melon.com/chart/hourly/hourlyChartGraph.json", {"appVer": "5.0.4", "cpId": "IS40", "cpKey": "17LNM9", "resolution": "2", "v": "4.0"}),
     "hourgraph": ("https://m2.melon.com/m6/chart/hour/graph.json", {"v": "4.0", "cpId": "IS40", "cpKey": "17LNM9"}),
     "hot100": ("https://m2.melon.com/m6/chart/hot100/list.json", {"chartType": "D100", "cpId": "IS40", "cpKey": "17LNM9", "appVer": "6.22.1"}),
     "hourly": ("https://m.app.melon.com/chart/hourly/hourlyChartList.json", {"cpId": "AS40", "cpKey": "14LNM3", "v": "4.0", "resolution": "2", "appVer": "4.1.0.1", "osVersion": "11", "isRecom": "N", "pageSize": "100"}),
 }
+EVERY = {"five", "fivetop"}
 REPORT = ("https://m2.melon.com/m6/chart/song/chartReport.json", {"cpId": "AS40", "cpKey": "14LNC3", "appVer": "6.2.0"})
 
 
@@ -139,29 +141,52 @@ def raw_get(url, params):
         return json.loads(r.read().decode("utf-8"))
 
 
+def report_lite(o, sid):
+    r = (o or {}).get("response") or {}
+    si = r.get("SONGINFO") or {}
+    rc = r.get("RANKCHART") or {}
+    labels = [x.get("XLABEL") for x in rc.get("XLABELS") or []]
+    pred = None
+    if "예측" in labels:
+        i = labels.index("예측")
+        pred = next((p.get("VALUE") for p in rc.get("PREDICTEDDATA") or [] if p.get("XINDEX") == i), None)
+    v = ((r.get("LISTENERCHART") or {}).get("TITLE") or {}).get("VALUE")
+    return {"id": sid, "name": si.get("SONGNAME"), "recent": r.get("RECENTTIME"), "rank": si.get("CURRANK"), "past": si.get("PASTRANK"),
+            "listeners": int(v.replace(",", "")) if isinstance(v, str) and v.replace(",", "").isdigit() else None,
+            "predicted": pred, "predict_text": (rc.get("TITLE") or {}).get("VALUE")}
+
+
 def raw(now):
     import time
     stamp = now.strftime("%Y%m%d-%H%M")
-    five = None
+    hourly = None
     for name, (url, params) in RAW.items():
+        if name not in EVERY and now.minute >= 12 and any((DATA / "raw" / name).glob(f"{stamp[:11]}*.json")):
+            continue
         try:
             o = raw_get(url, params)
             save(DATA / "raw" / name / f"{stamp}.json", o)
-            if name == "five": five = o
+            if name == "hourly": hourly = o
         except Exception as e:
             print("raw 실패", name, type(e).__name__, str(e)[:100])
-        time.sleep(3)
-    try:
-        lst = sorted(((five or {}).get("response", {}).get("GRAPHDATALIST", [])), key=lambda x: x.get("GRAPHRANK", 99))[:5]
-        for g in lst:
-            try:
-                o = raw_get(REPORT[0], {**REPORT[1], "songId": str(g["SONGID"])})
-                save(DATA / "raw" / "report" / f"{stamp}-{g['SONGID']}.json", o)
-            except Exception as e:
-                print("raw 실패 report", g.get("SONGID"), type(e).__name__, str(e)[:100])
-            time.sleep(3)
-    except Exception as e:
-        print("raw 실패", type(e).__name__, str(e)[:100])
+        time.sleep(2)
+    if hourly is None:
+        fs = sorted((DATA / "raw" / "hourly").glob("*.json"))
+        hourly = load(fs[-1]) if fs else None
+    ids = [str(x["SONGID"]) for x in ((hourly or {}).get("response") or {}).get("CHARTLIST", [])]
+    n = 100 if now.minute in range(30, 33) or now.minute in range(40, 43) or now.minute in range(50, 53) else 20
+    rows = []
+    for k, sid in enumerate(ids[:n]):
+        try:
+            o = raw_get(REPORT[0], {**REPORT[1], "songId": sid})
+            rows.append(report_lite(o, sid))
+            if k < 5:
+                save(DATA / "raw" / "report" / f"{stamp}-{sid}.json", o)
+        except Exception as e:
+            print("raw 실패 report", sid, type(e).__name__, str(e)[:100])
+        time.sleep(1)
+    if rows:
+        save(DATA / "raw" / "reportlite" / f"{stamp}.json", {"stamp": stamp, "n": n, "rows": rows})
 
 
 def derive():
