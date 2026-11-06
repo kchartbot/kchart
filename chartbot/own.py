@@ -196,6 +196,9 @@ class Own:
         ht = self.get("hourtop")["response"]
         if ht["RANKHOUR"][:2] != f"{now:%H}":
             return None
+        got = {str(g["SONGID"]): (g.get("CHARTSTATIC") or {}).get("SUMMCNT") for g in ht.get("GRAPHDATALIST") or []}
+        if len([v for v in got.values() if v]) < 3 and now.minute < 8:
+            return None
         hourly = self.get("hourly")
         end = now.replace(minute=0, second=0, microsecond=0)
         cnt, gai, rt, t100 = {}, {}, {}, {}

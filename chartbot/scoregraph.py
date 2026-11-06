@@ -70,6 +70,7 @@ def five_svg(chart) -> str:
         d = " ".join(f"{x:.1f},{y:.1f}" for x, y, _ in pts)
         g.append(f'<polyline points="{d}" fill="none" stroke="{col}" stroke-width="3" stroke-linejoin="round"/>')
         for x, y, v in pts:
+            g.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="{col}"/>')
             g.append(f'<text x="{x:.1f}" y="{y - 7:.1f}" font-size="12" text-anchor="middle" fill="{col}">{_label(v)}</text>')
     lx, ly = W - R - 224, T + 8
     g.append(f'<rect x="{lx}" y="{ly}" width="214" height="{18 * len(series) + 10}" rx="3" fill="#ffffff" stroke="#d5d9e1" stroke-width="1"/>')
