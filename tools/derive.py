@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 K_HOT = 4755.15
+K_BASIS = "20261103-1900"
 R_BY_MIN = {5: 1.567, 10: 1.536, 15: 1.572, 20: 1.590, 25: 1.618, 30: 1.649, 35: 1.679, 40: 1.702, 45: 1.739, 50: 1.757, 55: 1.778}
 
 
@@ -58,10 +59,10 @@ def five(data):
                 p = s["hot"].get(f"{lab[:3]}{m - 5:02d}") if m > 5 else 0.0
                 if p is None or (m > 5 and p <= 0): continue
                 inc[lab] = round((v * m - (p * (m - 5) if m > 5 else 0.0)) / 60 * K_HOT)
-            s["inc_users_5min_est"] = inc
-            s["users_1h_est"] = None
+            s["inc_users_5min_rel"] = inc
+            s["users_1h_rel"] = None
             z = s["hot"].get(key[9:11] + ":00")
-            if z is not None: s["users_1h_est"] = round(z * K_HOT)
+            if z is not None: s["users_1h_rel"] = round(z * K_HOT)
         save(data / "derived" / "five" / f"{key}.json", h)
     return hours
 
@@ -92,7 +93,7 @@ def hot100(data, hours):
             z = s["hot"].get(key[9:11] + ":00") if s else None
             rows.append({"rank": int(x["CURRANK"]), "past": int(x["PASTRANK"]), "id": x["SONGID"], "name": x["SONGNAME"],
                          "artists": [a["ARTISTNAME"] for a in x.get("ARTISTLIST", [])],
-                         "hot_score": z, "users_1h_est": round(z * K_HOT) if z is not None else None})
+                         "hot_score": z, "users_1h_rel": round(z * K_HOT) if z is not None else None})
         save(data / "derived" / "hot100" / f"{key}00.json", {"hour": key + "00", "source": Path(f).stem, "rows": rows})
 
 
@@ -124,7 +125,7 @@ def stats(data, hours):
             peak = max(nz, key=lambda x: x[1])
             rec["hours"][key] = {"first": nz[0][1], "first_at": nz[0][0], "peak": peak[1], "peak_at": peak[0], "last": nz[-1][1],
                                  "last_at": nz[-1][0], "mean": round(mean([v for _, v in nz]), 5), "n": len(nz),
-                                 "users_1h_est": s["users_1h_est"]}
+                                 "users_1h_rel": s["users_1h_rel"]}
             for a, b in zip(nz, nz[1:]):
                 if int(a[0][3:]) >= 15 and int(b[0][3:]) - int(a[0][3:]) == 5: decay.append(b[1] / a[1])
             if "00:00".replace("00:00", hh + ":00") in d and hh + ":05" in d and d[hh + ":00"] > 0:
@@ -147,13 +148,13 @@ def stats(data, hours):
     save(out / "realtime.json", {"songs": r})
     u = {}
     for sid, s in songs.items():
-        ser = {k: v["users_1h_est"] for k, v in s["hours"].items() if v["users_1h_est"] is not None}
+        ser = {k: v["users_1h_rel"] for k, v in s["hours"].items() if v["users_1h_rel"] is not None}
         if not ser: continue
         ks = sorted(ser)
         ch = {b: round((ser[b] - ser[a]) / ser[a] * 100, 2) for a, b in zip(ks, ks[1:])}
         u[sid] = {"name": s["name"], "hourly": ser, "change_pct": ch, "mean": round(mean(list(ser.values()))), "max": max(ser.values()), "min": min(ser.values())}
-    save(out / "users.json", {"K": K_HOT, "songs": u})
-    save(out / "summary.json", {"updated": max(hours) if hours else None, "hours": len(hours), "K": K_HOT, "R_BY_MIN": R_BY_MIN,
+    save(out / "users.json", {"K": K_HOT, "K_basis": K_BASIS, "relative": True, "songs": u})
+    save(out / "summary.json", {"updated": max(hours) if hours else None, "hours": len(hours), "K": K_HOT, "K_basis": K_BASIS, "R_BY_MIN": R_BY_MIN,
                                 "decay_5min_median": med(decay), "spike_05_over_00_median": med(spike), "entries": len(entry)})
 
 
