@@ -93,7 +93,7 @@ class Own:
         return self.job("own_top100", stamp, f"[{now:%H}:00] 멜론 TOP100 순위표", "", html, 1.5)
 
     def predict(self, now, state):
-        if now.minute < 30 or now.minute % 10 >= 6:
+        if now.minute < 50 or now.minute % 10 >= 6:
             return None
         slot = now.minute // 10 * 10
         stamp = f"{now:%Y%m%d%H}{slot:02d}"

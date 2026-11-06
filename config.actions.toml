@@ -22,7 +22,7 @@ charts = [
   # "bugs_rank_five",
   # "flo_rank_five",
 ]
-own_charts = ["own_hot5", "own_melon5", "own_top100", "own_users", "own_predict"]   # 올리는 멜론 글
+own_charts = ["own_top100", "own_users", "own_predict"]   # 올리는 멜론 글
 hourly_after_minute = 5
 hourly_window_minutes = 15  # 1시간 단위 차트는 정시~정시+15분 안에서만 올림 (02:00, 03:00 …)
 max_posts = 20              # 한 번 실행에 올리는 글 수 (차례대로 하나씩)
