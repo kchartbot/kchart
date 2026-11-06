@@ -130,6 +130,19 @@ class DcUploader:
             }""", res["no"])
         after = page.evaluate("() => [...document.querySelectorAll('input[name=head_no], input[name*=headtext]')].map(i => i.name + '=' + i.value)")
         print("말머리:", want, "| 후보", res.get("n"), "| 번호", res.get("no"), "| 클릭", res.get("clicked"), "| 입력칸", res.get("inputs"), "->", after, "|", (res.get("html") or "")[:200])
+        try:
+            dom = page.evaluate("""(want) => {
+                const out = [];
+                const h = document.querySelector('#headtext, input[name=headtext]');
+                if (h) { let x = h.parentElement; for (let d = 0; d < 2 && x && x.parentElement; d++) x = x.parentElement; out.push('HEADTEXT-AREA ' + (x ? x.outerHTML : '').replace(/\\s+/g, ' ').slice(0, 1500)); }
+                const els = [...document.querySelectorAll('*')].filter(e => e.children.length < 4 && (e.textContent || '').includes(want));
+                els.slice(0, 6).forEach(e => out.push('TEXT ' + e.outerHTML.replace(/\\s+/g, ' ').slice(0, 400)));
+                return out;
+            }""", want)
+            for line in dom:
+                print("말머리 진단:", line)
+        except Exception as e:
+            print("말머리 진단 실패:", str(e)[:200])
 
     def _click_submit(self, page) -> None:
         cands = [self.sel["submit"], "button.btn_svc.write", ".btn_blue.small.write", "button.write", "a.write",
