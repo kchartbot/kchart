@@ -1,0 +1,1699 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "response": {
+  "XCATE": [
+   "16시",
+   "17시",
+   "18시",
+   "19시",
+   "20시",
+   "21시",
+   "22시",
+   "23시",
+   "00시",
+   "01시",
+   "07시",
+   "08시",
+   "09시",
+   "10시",
+   "11시",
+   "12시",
+   "13시",
+   "14시",
+   "15시"
+  ],
+  "ENTCHARTXCATE": [
+   "16시",
+   "17시",
+   "18시",
+   "19시",
+   "20시",
+   "21시",
+   "22시",
+   "23시",
+   "00시",
+   "01시",
+   "02시",
+   "03시",
+   "04시",
+   "05시",
+   "06시",
+   "07시",
+   "08시",
+   "09시",
+   "10시",
+   "11시",
+   "12시",
+   "13시",
+   "14시",
+   "15시"
+  ],
+  "STANDARD": "6.0",
+  "GRAPHDATALIST": [
+   {
+    "GRAPHRANK": 1,
+    "SONGID": "603712834",
+    "PEEKTIME": "06일 16시",
+    "FIRSTRANKSERIALCOUNT": "19",
+    "GRAPHDATA": [
+     {
+      "X": "0",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "1",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "2",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "3",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "4",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "5",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "6",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "7",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "8",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "9",
+      "VAL": "6.750",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "10",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "11",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "12",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "13",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "14",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "15",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "16",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "17",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "18",
+      "VAL": "7.000",
+      "TOPCNTTIC": 19,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     }
+    ],
+    "FIRSTRANKCOUNT": "17",
+    "ENTGRAPHDATA": [
+     {
+      "X": "0",
+      "RANK": "1"
+     },
+     {
+      "X": "1",
+      "RANK": "1"
+     },
+     {
+      "X": "2",
+      "RANK": "1"
+     },
+     {
+      "X": "3",
+      "RANK": "1"
+     },
+     {
+      "X": "4",
+      "RANK": "1"
+     },
+     {
+      "X": "5",
+      "RANK": "1"
+     },
+     {
+      "X": "6",
+      "RANK": "1"
+     },
+     {
+      "X": "7",
+      "RANK": "1"
+     },
+     {
+      "X": "8",
+      "RANK": "1"
+     },
+     {
+      "X": "9",
+      "RANK": "2"
+     },
+     {
+      "X": "10",
+      "RANK": "2"
+     },
+     {
+      "X": "11",
+      "RANK": "2"
+     },
+     {
+      "X": "12",
+      "RANK": "2"
+     },
+     {
+      "X": "13",
+      "RANK": "2"
+     },
+     {
+      "X": "14",
+      "RANK": "2"
+     },
+     {
+      "X": "15",
+      "RANK": "2"
+     },
+     {
+      "X": "16",
+      "RANK": "1"
+     },
+     {
+      "X": "17",
+      "RANK": "1"
+     },
+     {
+      "X": "18",
+      "RANK": "1"
+     },
+     {
+      "X": "19",
+      "RANK": "1"
+     },
+     {
+      "X": "20",
+      "RANK": "1"
+     },
+     {
+      "X": "21",
+      "RANK": "1"
+     },
+     {
+      "X": "22",
+      "RANK": "1"
+     },
+     {
+      "X": "23",
+      "RANK": "1"
+     }
+    ],
+    "GRAPHENTCHART": "1",
+    "GRAPHTOP7": 19,
+    "GRAPHTOPRANK": 1,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712834",
+     "SONGNAME": "With",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "191",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GN0200",
+       "GENRENAME": "댄스"
+      },
+      {
+       "GENRECODE": "GN2500",
+       "GENRENAME": "아이돌"
+      }
+     ],
+     "CURRANK": "1",
+     "PASTRANK": "1",
+     "RANKGAP": "0",
+     "RANKTYPE": "NONE",
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "26"
+   },
+   {
+    "GRAPHRANK": 2,
+    "SONGID": "603382333",
+    "PEEKTIME": "07일 10시",
+    "FIRSTRANKSERIALCOUNT": "0",
+    "GRAPHDATA": [
+     {
+      "X": "0",
+      "VAL": "6.272",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "1",
+      "VAL": "6.406",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "2",
+      "VAL": "6.716",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "3",
+      "VAL": "6.963",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "4",
+      "VAL": "6.308",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "5",
+      "VAL": "5.916",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "6",
+      "VAL": "5.654",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": true,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "7",
+      "VAL": "5.218",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "8",
+      "VAL": "4.056",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "9",
+      "VAL": "3.124",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "10",
+      "VAL": "3.862",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "11",
+      "VAL": "5.455",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "12",
+      "VAL": "6.631",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "13",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "14",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "15",
+      "VAL": "6.929",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "16",
+      "VAL": "7.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "17",
+      "VAL": "6.983",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "18",
+      "VAL": "6.802",
+      "TOPCNTTIC": 12,
+      "TOPCNTYN": "Y",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     }
+    ],
+    "FIRSTRANKCOUNT": "7",
+    "ENTGRAPHDATA": [
+     {
+      "X": "0",
+      "RANK": "2"
+     },
+     {
+      "X": "1",
+      "RANK": "2"
+     },
+     {
+      "X": "2",
+      "RANK": "2"
+     },
+     {
+      "X": "3",
+      "RANK": "2"
+     },
+     {
+      "X": "4",
+      "RANK": "2"
+     },
+     {
+      "X": "5",
+      "RANK": "2"
+     },
+     {
+      "X": "6",
+      "RANK": "2"
+     },
+     {
+      "X": "7",
+      "RANK": "2"
+     },
+     {
+      "X": "8",
+      "RANK": "2"
+     },
+     {
+      "X": "9",
+      "RANK": "1"
+     },
+     {
+      "X": "10",
+      "RANK": "1"
+     },
+     {
+      "X": "11",
+      "RANK": "1"
+     },
+     {
+      "X": "12",
+      "RANK": "1"
+     },
+     {
+      "X": "13",
+      "RANK": "1"
+     },
+     {
+      "X": "14",
+      "RANK": "1"
+     },
+     {
+      "X": "15",
+      "RANK": "1"
+     },
+     {
+      "X": "16",
+      "RANK": "2"
+     },
+     {
+      "X": "17",
+      "RANK": "2"
+     },
+     {
+      "X": "18",
+      "RANK": "2"
+     },
+     {
+      "X": "19",
+      "RANK": "2"
+     },
+     {
+      "X": "20",
+      "RANK": "2"
+     },
+     {
+      "X": "21",
+      "RANK": "2"
+     },
+     {
+      "X": "22",
+      "RANK": "2"
+     },
+     {
+      "X": "23",
+      "RANK": "2"
+     }
+    ],
+    "GRAPHENTCHART": "2",
+    "GRAPHTOP7": 12,
+    "GRAPHTOPRANK": 2,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "603382333",
+     "SONGNAME": "NEON",
+     "ALBUMID": "14644795",
+     "ALBUMNAME": "NEON",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "4531271",
+       "ARTISTNAME": "A2O"
+      },
+      {
+       "ARTISTID": "5217450",
+       "ARTISTNAME": "A2O LITE"
+      }
+     ],
+     "PLAYTIME": "208",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GN0200",
+       "GENRENAME": "댄스"
+      }
+     ],
+     "CURRANK": "2",
+     "PASTRANK": "2",
+     "RANKGAP": "0",
+     "RANKTYPE": "NONE",
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.10.13",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "23"
+   },
+   {
+    "GRAPHRANK": 3,
+    "SONGID": "603712835",
+    "PEEKTIME": "07일 09시",
+    "FIRSTRANKSERIALCOUNT": "0",
+    "GRAPHDATA": [
+     {
+      "X": "0",
+      "VAL": "4.771",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "1",
+      "VAL": "5.302",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "2",
+      "VAL": "5.370",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "3",
+      "VAL": "5.273",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "4",
+      "VAL": "5.197",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "5",
+      "VAL": "5.374",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "6",
+      "VAL": "5.502",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "7",
+      "VAL": "4.952",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "8",
+      "VAL": "5.492",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "9",
+      "VAL": "5.429",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "10",
+      "VAL": "5.239",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "11",
+      "VAL": "5.527",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "12",
+      "VAL": "5.980",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "13",
+      "VAL": "5.803",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": true,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "14",
+      "VAL": "5.499",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "15",
+      "VAL": "5.246",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "16",
+      "VAL": "4.712",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "17",
+      "VAL": "5.116",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "18",
+      "VAL": "5.230",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     }
+    ],
+    "FIRSTRANKCOUNT": "0",
+    "ENTGRAPHDATA": [
+     {
+      "X": "0",
+      "RANK": "6"
+     },
+     {
+      "X": "1",
+      "RANK": "5"
+     },
+     {
+      "X": "2",
+      "RANK": "6"
+     },
+     {
+      "X": "3",
+      "RANK": "6"
+     },
+     {
+      "X": "4",
+      "RANK": "5"
+     },
+     {
+      "X": "5",
+      "RANK": "5"
+     },
+     {
+      "X": "6",
+      "RANK": "5"
+     },
+     {
+      "X": "7",
+      "RANK": "5"
+     },
+     {
+      "X": "8",
+      "RANK": "3"
+     },
+     {
+      "X": "9",
+      "RANK": "7"
+     },
+     {
+      "X": "10",
+      "RANK": "7"
+     },
+     {
+      "X": "11",
+      "RANK": "7"
+     },
+     {
+      "X": "12",
+      "RANK": "7"
+     },
+     {
+      "X": "13",
+      "RANK": "7"
+     },
+     {
+      "X": "14",
+      "RANK": "7"
+     },
+     {
+      "X": "15",
+      "RANK": "7"
+     },
+     {
+      "X": "16",
+      "RANK": "4"
+     },
+     {
+      "X": "17",
+      "RANK": "4"
+     },
+     {
+      "X": "18",
+      "RANK": "5"
+     },
+     {
+      "X": "19",
+      "RANK": "6"
+     },
+     {
+      "X": "20",
+      "RANK": "7"
+     },
+     {
+      "X": "21",
+      "RANK": "8"
+     },
+     {
+      "X": "22",
+      "RANK": "7"
+     },
+     {
+      "X": "23",
+      "RANK": "7"
+     }
+    ],
+    "GRAPHENTCHART": "7",
+    "GRAPHTOP7": 0,
+    "GRAPHTOPRANK": 2,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712835",
+     "SONGNAME": "백화요란 (Inside Out)",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "211",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GN0200",
+       "GENRENAME": "댄스"
+      },
+      {
+       "GENRECODE": "GN2500",
+       "GENRENAME": "아이돌"
+      }
+     ],
+     "CURRANK": "3",
+     "PASTRANK": "4",
+     "RANKGAP": "1",
+     "RANKTYPE": "UP",
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "18"
+   },
+   {
+    "GRAPHRANK": 4,
+    "SONGID": "602862199",
+    "PEEKTIME": "07일 12시",
+    "FIRSTRANKSERIALCOUNT": "0",
+    "GRAPHDATA": [
+     {
+      "X": "0",
+      "VAL": "4.245",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "1",
+      "VAL": "4.468",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "2",
+      "VAL": "4.647",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "3",
+      "VAL": "4.658",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "4",
+      "VAL": "4.134",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "5",
+      "VAL": "3.838",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "6",
+      "VAL": "3.528",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "7",
+      "VAL": "3.024",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "8",
+      "VAL": "2.315",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "9",
+      "VAL": "1.902",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "10",
+      "VAL": "2.949",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "11",
+      "VAL": "3.738",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "12",
+      "VAL": "4.385",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "13",
+      "VAL": "4.963",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "14",
+      "VAL": "5.184",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "15",
+      "VAL": "5.233",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "16",
+      "VAL": "5.106",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "17",
+      "VAL": "5.126",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "18",
+      "VAL": "5.000",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     }
+    ],
+    "FIRSTRANKCOUNT": "0",
+    "ENTGRAPHDATA": [
+     {
+      "X": "0",
+      "RANK": "5"
+     },
+     {
+      "X": "1",
+      "RANK": "6"
+     },
+     {
+      "X": "2",
+      "RANK": "5"
+     },
+     {
+      "X": "3",
+      "RANK": "5"
+     },
+     {
+      "X": "4",
+      "RANK": "6"
+     },
+     {
+      "X": "5",
+      "RANK": "6"
+     },
+     {
+      "X": "6",
+      "RANK": "8"
+     },
+     {
+      "X": "7",
+      "RANK": "8"
+     },
+     {
+      "X": "8",
+      "RANK": "10"
+     },
+     {
+      "X": "9",
+      "RANK": "4"
+     },
+     {
+      "X": "10",
+      "RANK": "4"
+     },
+     {
+      "X": "11",
+      "RANK": "4"
+     },
+     {
+      "X": "12",
+      "RANK": "4"
+     },
+     {
+      "X": "13",
+      "RANK": "4"
+     },
+     {
+      "X": "14",
+      "RANK": "4"
+     },
+     {
+      "X": "15",
+      "RANK": "4"
+     },
+     {
+      "X": "16",
+      "RANK": "6"
+     },
+     {
+      "X": "17",
+      "RANK": "6"
+     },
+     {
+      "X": "18",
+      "RANK": "6"
+     },
+     {
+      "X": "19",
+      "RANK": "5"
+     },
+     {
+      "X": "20",
+      "RANK": "5"
+     },
+     {
+      "X": "21",
+      "RANK": "5"
+     },
+     {
+      "X": "22",
+      "RANK": "5"
+     },
+     {
+      "X": "23",
+      "RANK": "5"
+     }
+    ],
+    "GRAPHENTCHART": "5",
+    "GRAPHTOP7": 0,
+    "GRAPHTOPRANK": 3,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "602862199",
+     "SONGNAME": "퇴사할게여 (Narr. 기안84)",
+     "ALBUMID": "14470302",
+     "ALBUMNAME": "끝내주는 인생",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "1050107",
+       "ARTISTNAME": "소연 (SOYEON)"
+      }
+     ],
+     "PLAYTIME": "212",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GN0600",
+       "GENRENAME": "록/메탈"
+      },
+      {
+       "GENRECODE": "GN2500",
+       "GENRENAME": "아이돌"
+      }
+     ],
+     "CURRANK": "4",
+     "PASTRANK": "3",
+     "RANKGAP": "1",
+     "RANKTYPE": "DOWN",
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.09.07",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "17"
+   },
+   {
+    "GRAPHRANK": 5,
+    "SONGID": "603709840",
+    "PEEKTIME": "07일 13시",
+    "FIRSTRANKSERIALCOUNT": "0",
+    "GRAPHDATA": [
+     {
+      "X": "0",
+      "VAL": "4.370",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "1",
+      "VAL": "4.375",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "2",
+      "VAL": "4.544",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "3",
+      "VAL": "4.688",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "4",
+      "VAL": "4.305",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "5",
+      "VAL": "4.199",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "6",
+      "VAL": "4.123",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "7",
+      "VAL": "4.020",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "8",
+      "VAL": "3.286",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "9",
+      "VAL": "2.561",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "10",
+      "VAL": "2.523",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "11",
+      "VAL": "3.522",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "12",
+      "VAL": "4.258",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "13",
+      "VAL": "4.785",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "14",
+      "VAL": "4.780",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "15",
+      "VAL": "4.745",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "16",
+      "VAL": "4.915",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "17",
+      "VAL": "4.886",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     },
+     {
+      "X": "18",
+      "VAL": "4.813",
+      "TOPCNTTIC": 0,
+      "TOPCNTYN": "N",
+      "IMMTOPTIC": false,
+      "FSTTOPTIC": false,
+      "NEWRANKTIC": false
+     }
+    ],
+    "FIRSTRANKCOUNT": "0",
+    "ENTGRAPHDATA": [
+     {
+      "X": "0",
+      "RANK": "7"
+     },
+     {
+      "X": "1",
+      "RANK": "7"
+     },
+     {
+      "X": "2",
+      "RANK": "7"
+     },
+     {
+      "X": "3",
+      "RANK": "7"
+     },
+     {
+      "X": "4",
+      "RANK": "7"
+     },
+     {
+      "X": "5",
+      "RANK": "7"
+     },
+     {
+      "X": "6",
+      "RANK": "6"
+     },
+     {
+      "X": "7",
+      "RANK": "7"
+     },
+     {
+      "X": "8",
+      "RANK": "7"
+     },
+     {
+      "X": "9",
+      "RANK": "6"
+     },
+     {
+      "X": "10",
+      "RANK": "6"
+     },
+     {
+      "X": "11",
+      "RANK": "6"
+     },
+     {
+      "X": "12",
+      "RANK": "6"
+     },
+     {
+      "X": "13",
+      "RANK": "6"
+     },
+     {
+      "X": "14",
+      "RANK": "6"
+     },
+     {
+      "X": "15",
+      "RANK": "6"
+     },
+     {
+      "X": "16",
+      "RANK": "8"
+     },
+     {
+      "X": "17",
+      "RANK": "7"
+     },
+     {
+      "X": "18",
+      "RANK": "7"
+     },
+     {
+      "X": "19",
+      "RANK": "7"
+     },
+     {
+      "X": "20",
+      "RANK": "6"
+     },
+     {
+      "X": "21",
+      "RANK": "6"
+     },
+     {
+      "X": "22",
+      "RANK": "6"
+     },
+     {
+      "X": "23",
+      "RANK": "6"
+     }
+    ],
+    "GRAPHENTCHART": "6",
+    "GRAPHTOP7": 0,
+    "GRAPHTOPRANK": 4,
+    "GRAPHNEWRANK": "N",
+    "GRAPHCHARTINFO": {
+     "SONGID": "603709840",
+     "SONGNAME": "체포하겠어",
+     "ALBUMID": "15081373",
+     "ALBUMNAME": "BREAK EVEN",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3743525",
+       "ARTISTNAME": "아일릿(ILLIT)"
+      }
+     ],
+     "PLAYTIME": "182",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GN0200",
+       "GENRENAME": "댄스"
+      },
+      {
+       "GENRECODE": "GN2500",
+       "GENRENAME": "아이돌"
+      }
+     ],
+     "CURRANK": "5",
+     "PASTRANK": "5",
+     "RANKGAP": "0",
+     "RANKTYPE": "NONE",
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.10.26",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "SHAREVALUE": "16"
+   }
+  ],
+  "FIVECHARTFLAG": "Y",
+  "RANKDAY": "2026.11.07",
+  "RANKHOUR": "15:00",
+  "ALLRANK": "N",
+  "COMPRANK": "N",
+  "CHARTINFO": {
+   "LINKURL": "https://m2.melon.com/m6/chart/chartGraphInfo.htm",
+   "LINKTYPE": "ZA"
+  },
+  "STATUS": "0",
+  "MENUID": "1000003037",
+  "SECTION": "멜론차트",
+  "PAGE": "멜론차트_HOT100그래프시간",
+  "TLOG": {
+   "MENUID": "1000003037",
+   "SECTION": "멜론차트",
+   "PAGE": "멜론차트_HOT100그래프시간"
+  }
+ },
+ "httpDomain": "http://m2.melon.com"
+}
