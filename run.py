@@ -23,7 +23,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from chartbot.dcinside import DcUploader, UploadFailed
+from chartbot.dcinside import DcUploader, HumanCheckRequired, SubmitUncertain, UploadFailed
 from chartbot.fetch import SPECS, Fetcher, RateLimited, get_chart, resolve
 from chartbot.direct import ensure_snapshot
 from chartbot.samples import SampleFetcher, seed_sample_history
@@ -310,9 +310,13 @@ def own_loop(cfg, uploader, out, state, minutes):
     seq = [0]
     lk = threading.Lock()
 
+    failed = set()  # 재시도까지 모두 실패한 (키, 시각). 이번 실행에서는 다시 만들지 않지만 저장 상태에는 남기지 않아 다음 실행이 다시 시도한다
+    retries = int(b.get("upload_retries", 3))
+
     def save():
         with lk:
-            (out / "state.json").write_text(json.dumps(state), encoding="utf-8")
+            keep = {k: v for k, v in state.items() if (k, v) not in failed}
+            (out / "state.json").write_text(json.dumps(keep), encoding="utf-8")
 
     def worker():
         while not stop.is_set():
@@ -320,12 +324,28 @@ def own_loop(cfg, uploader, out, state, minutes):
                 _, _, job = pq.get(timeout=1)
             except queue.Empty:
                 continue
-            try:
-                publish(job, cfg, uploader, state, out)
-                fails[0] = 0
-            except Exception:
+            ok = False
+            for attempt in range(retries + 1):
+                try:
+                    publish(job, cfg, uploader, state, out)
+                    fails[0] = 0
+                    ok = True
+                    break
+                except (HumanCheckRequired, SubmitUncertain) as e:
+                    # 사람 확인 요구나 등록 후 결과 불명은 다시 시도하지 않는다 (차단 악화·중복 게시 방지)
+                    log.exception("%s 업로드 실패, 재시도 안 함: %s", job["key"], type(e).__name__)
+                    break
+                except Exception:
+                    log.exception("%s 업로드 실패 (시도 %d/%d)", job["key"], attempt + 1, retries + 1)
+                    if attempt >= retries or stop.is_set():
+                        break
+                    wait = min(10 * (attempt + 1), 30)
+                    log.info("%s %d초 뒤 다시 시도합니다", job["key"], wait)
+                    time.sleep(wait)
+            if not ok:
+                failed.add((job["key"], job["stamp"]))
                 fails[0] += 1
-                log.exception("%s 업로드 실패 (%d회 연속)", job["key"], fails[0])
+                log.error("%s 최종 업로드 실패 (%d회 연속)", job["key"], fails[0])
                 if fails[0] >= 3:
                     log.error("연속 실패로 중단합니다 (제한/차단 가능성)")
                     stop.set()

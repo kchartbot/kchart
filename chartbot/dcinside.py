@@ -34,6 +34,11 @@ class HumanCheckRequired(UploadFailed):
     """디시가 '사람인지 확인' 을 요구함. 자동으로 넘기지 않고 중단한다 (호출한 쪽이 한동안 게시를 쉰다)."""
 
 
+class SubmitUncertain(UploadFailed):
+    """등록 버튼을 누른 뒤 결과를 알 수 없는 실패. 글이 올라갔을 수도 있어서 자동으로 다시 시도하지 않는다 (중복 게시 방지)."""
+
+
+
 class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
                  minor: bool = True, headed: bool = False, storage_state: str | None = None,
@@ -409,7 +414,7 @@ class DcUploader:
                 if "/write" in page.url:
                     cap =page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
                     print("등록 후 알림창:", dlg, "| POST응답:", net[-6:], "| 확인 필요:", cap, "| 제목칸:", page.input_value(self.sel["title"])[:40])
-                    raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다 (수정필요). url=" + page.url)
+                    raise SubmitUncertain("등록 후에도 글쓰기 화면에 머물러 있습니다 (수정필요). url=" + page.url)
             except Exception:
                 page.screenshot(path=str(err_dir / "dc_error.png"), full_page=True)
                 print("디시 업로드 실패 위치 url:", page.url)
