@@ -28,6 +28,7 @@ hourly_window_minutes = 15  # 1시간 단위 차트는 정시~정시+15분 안�
 max_posts = 20              # 한 번 실행에 올리는 글 수 (차례대로 하나씩)
 post_gap_seconds = "6"       # 글과 글 사이 간격(초)
 upload_workers = 2           # 동시에 올리는 글 수 (시작 시각은 간격을 둠)
+upload_retries = 2           # 업로드 실패 시 다시 시도하는 횟수 (처음 1번 + 재시도 2번 = 총 3번). 사람 확인 요구와 등록 후 결과 불명은 재시도 안 함
 rank_style = "classic"        # 순위표 디자인: classic(원래 2단 표) / list1(1열 앨범 큰 목록) / list2(2열 큰 카드)
 precise_top = true           # 정각 전에 미리 준비해 두고 정각에 첫 글(TOP100)을 바로 올림
 precise_lead_minutes = 16     # 정각 16분 전부터 시작한 실행은 준비 후 정각까지 기다림
