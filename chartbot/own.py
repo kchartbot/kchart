@@ -349,13 +349,17 @@ class Own:
         hist, rows = [], []
         for x in top:
             sid = str(x["SONGID"])
-            hr, prev = [], None
+            hr = []
+            first = (end - timedelta(hours=24)).strftime("%Y%m%d-%H00")
+            older = [(k, v) for src in (cnt, gai) for (k, i), v in src.items() if i == sid and v and k < first]
+            prev = max(older)[1] if older else None  # 창 이전에 마지막으로 알던 값
             for i in range(24, -1, -1):
                 t = end - timedelta(hours=i)
                 key = t.strftime("%Y%m%d-%H00")
                 c = cnt.get((key, sid)) or gai.get((key, sid))
                 hr.append(HRow(time=t, rank=rt.get((key, sid)), t100=t100.get((key, x["SONGNAME"])), count=c, diff=(c - prev) if (c and prev) else None))
-                prev = c
+                if c:
+                    prev = c  # 값이 비던 시간은 건너뛰고 마지막으로 알던 값과 비교한다
             cs = [h.count for h in hr if h.count] + [v for (k, i), v in cnt.items() if i == sid and v] + [v for (k, i), v in gai.items() if i == sid and v]
             seed = 0
             try:
