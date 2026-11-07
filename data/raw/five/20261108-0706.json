@@ -1,0 +1,328 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "response": {
+  "GRAPHDATALIST": [
+   {
+    "SONGID": 603712834,
+    "LSTGRPCURSCORE": 14.94444,
+    "GRAPHDATA": [
+     {
+      "VAL": "6.75798",
+      "X": "0"
+     },
+     {
+      "VAL": "14.94444",
+      "X": "1"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712834",
+     "SONGNAME": "With",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "191",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "1"
+    },
+    "GRAPHRANK": 0,
+    "SHAREVALUE": "39"
+   },
+   {
+    "SONGID": 603339939,
+    "LSTGRPCURSCORE": 7.09323,
+    "GRAPHDATA": [
+     {
+      "VAL": "0.0",
+      "X": "0"
+     },
+     {
+      "VAL": "7.09323",
+      "X": "1"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603339939",
+     "SONGNAME": "Star Trace",
+     "ALBUMID": "14629242",
+     "ALBUMNAME": "HYPERDRIVE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3207401",
+       "ARTISTNAME": "PLAVE"
+      }
+     ],
+     "PLAYTIME": "179",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0090",
+       "GENRENAME": "아이돌 남자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.10.12",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "2"
+    },
+    "GRAPHRANK": 1,
+    "SHAREVALUE": "18"
+   },
+   {
+    "SONGID": 603712836,
+    "LSTGRPCURSCORE": 6.2557,
+    "GRAPHDATA": [
+     {
+      "VAL": "4.3771",
+      "X": "0"
+     },
+     {
+      "VAL": "6.2557",
+      "X": "1"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712836",
+     "SONGNAME": "MEME",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "181",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "3"
+    },
+    "GRAPHRANK": 2,
+    "SHAREVALUE": "16"
+   },
+   {
+    "SONGID": 602951446,
+    "LSTGRPCURSCORE": 5.46965,
+    "GRAPHDATA": [
+     {
+      "VAL": "0.0",
+      "X": "0"
+     },
+     {
+      "VAL": "5.46965",
+      "X": "1"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "602951446",
+     "SONGNAME": "또또",
+     "ALBUMID": "14498154",
+     "ALBUMNAME": "IM HERO 10",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "994944",
+       "ARTISTNAME": "임영웅"
+      }
+     ],
+     "PLAYTIME": "188",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.09.08",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "4"
+    },
+    "GRAPHRANK": 3,
+    "SHAREVALUE": "14"
+   },
+   {
+    "SONGID": 603339941,
+    "LSTGRPCURSCORE": 5.21698,
+    "GRAPHDATA": [
+     {
+      "VAL": "0.0",
+      "X": "0"
+     },
+     {
+      "VAL": "5.21698",
+      "X": "1"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603339941",
+     "SONGNAME": "Rewind",
+     "ALBUMID": "14629242",
+     "ALBUMNAME": "HYPERDRIVE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3207401",
+       "ARTISTNAME": "PLAVE"
+      }
+     ],
+     "PLAYTIME": "160",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0033",
+       "GENRENAME": "R&B / Soul"
+      },
+      {
+       "GENRECODE": "GC0090",
+       "GENRENAME": "아이돌 남자"
+      },
+      {
+       "GENRECODE": "GC0187",
+       "GENRENAME": "R&B / Soul 20'"
+      }
+     ],
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": false,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.10.12",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001",
+     "CURRANK": "5"
+    },
+    "GRAPHRANK": 4,
+    "SHAREVALUE": "13"
+   }
+  ],
+  "XCATE": [
+   "07:00",
+   "07:05"
+  ],
+  "FIVETIME": "08",
+  "RANKDAY": "2026.11.08",
+  "RANKHOUR": "07:05",
+  "FIVEERRORFLAG": false,
+  "STATUS": "0",
+  "MENUID": "1000003038",
+  "SECTION": "멜론차트",
+  "PAGE": "멜론차트_HOT100그래프5분",
+  "TLOG": {
+   "MENUID": "1000003038",
+   "SECTION": "멜론차트",
+   "PAGE": "멜론차트_HOT100그래프5분"
+  }
+ },
+ "httpDomain": "http://m2.melon.com"
+}
