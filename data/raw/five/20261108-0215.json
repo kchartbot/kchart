@@ -1,0 +1,11 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "notification": {
+  "actionType": "NA4000",
+  "message": "5분 단위 그래프 정보는\n매일 오전 07시부터 제공합니다.",
+  "subMessage": "",
+  "redirectScheme": "",
+  "buttons": []
+ },
+ "httpDomain": "http://m2.melon.com"
+}
