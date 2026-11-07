@@ -1,13 +1,3 @@
-"""디시인사이드 갤러리 글쓰기 (브라우저 자동화).
-
-공식 API가 없어서, 사람이 쓰는 글쓰기 화면을 Playwright 로 그대로 조작한다.
-- 로그인은 사용자가 직접 한다 (`python run.py login`). 아이디/비밀번호/캡차를 코드가 다루지 않고,
-  로그인 상태는 profile_dir 에 저장된 브라우저 프로필로 유지된다.
-- 글쓰기 화면의 선택자는 디시 쪽 개편으로 바뀔 수 있어 config.toml [dc.selectors] 에서 바꿀 수 있다.
-
-!! 이 파일은 실제 로그인 상태에서 검증되지 않았다 (개발 환경에서 디시 계정에 접근할 수 없음).
-   처음에는 반드시 `python run.py once --headed` 로 눈으로 보면서 돌려 선택자를 맞출 것.
-"""
 from __future__ import annotations
 
 from pathlib import Path
