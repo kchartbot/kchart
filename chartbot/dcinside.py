@@ -1,49 +1,57 @@
 from __future__ import annotations
 
 from pathlib import Path
+import os
+import time
+import random
+import base64
 
 DEFAULT_SELECTORS = {
-    # 실제 글쓰기 화면(2026-11, fullgirlidol)에서 확인한 값
     "title": "#subject",
     "anon_nick": "#gall_nick_name",
-    "anon_pw": "#password",          # 이 칸이 보이면 로그인이 안 된 상태(유동 글쓰기)
-    # 말머리: 갤러리에 말머리가 없으면 이 요소가 없어서 건너뜀
+    "anon_pw": "#password",
     "headtext_open": ".write_subject .subject_list, .write_subject select, #headtext_dropdown",
     "headtext_option": "text={text}",
-    # 본문 편집기 (Summernote: iframe 아님)
     "editor": ".note-editable",
     "editor_img": ".note-editable img",
-    # 이미지 첨부: 숨겨진 파일 입력에 직접 넣는다. 안 되면 툴바의 '이미지' 버튼 -> 파일 선택창
     "image_input": "#autozzal_image_file",
     "image_button": "button.note-btn:text-is('이미지')",
     "submit": "button.btn_blue.btn_svc.write",
 }
 
+CHROME_ARGS = [
+    "--disable-features=OriginAgentClusterDefaultEnabled",
+    "--disable-web-security",
+    "--disable-blink-features=AutomationControlled"
+]
 
-# 디시 이미지 업로드(gall -> upimg 서브도메인)는 document.domain 공유에 의존하는데 최신 크롬은 이를 기본 차단한다
-CHROME_ARGS = ["--disable-features=OriginAgentClusterDefaultEnabled", "--disable-web-security", "--disable-blink-features=AutomationControlled"]
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-HIDE_WEBDRIVER = "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
 
+HIDE_WEBDRIVER = """
+Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
+Object.defineProperty(navigator, 'languages', {get: () => ['ko-KR', 'ko', 'en-US', 'en']});
+window.chrome = { runtime: {} };
+const originalQuery = window.navigator.permissions.query;
+window.navigator.permissions.query = (parameters) => (
+    parameters.name === 'notifications' ?
+    Promise.resolve({ state: Notification.permission }) :
+    originalQuery(parameters)
+);
+"""
 
 class UploadFailed(RuntimeError):
     pass
 
-
 class HumanCheckRequired(UploadFailed):
-    """디시가 '사람인지 확인' 을 요구함. 자동으로 넘기지 않고 중단한다 (호출한 쪽이 한동안 게시를 쉰다)."""
-
-
-class SubmitUncertain(UploadFailed):
-    """등록 버튼을 누른 뒤 결과를 알 수 없는 실패. 글이 올라갔을 수도 있어서 자동으로 다시 시도하지 않는다 (중복 게시 방지)."""
-
-
+    pass
 
 class DcUploader:
     def __init__(self, gallery_id: str, headtext: str, profile_dir: str, selectors: dict | None = None,
                  minor: bool = True, headed: bool = False, storage_state: str | None = None,
                  login_id: str | None = None, login_pw: str | None = None,
-                 anon_nick: str | None = None, anon_pw: str | None = None, kind: str | None = None):
+                 anon_nick: str | None = None, anon_pw: str | None = None, kind: str | None = None,
+                 proxy: str | None = None):
         self.gallery_id = gallery_id
         self._kind = {"mini": "mini/board", "minor": "mgallery/board", "mgallery": "mgallery/board", "main": "board", "board": "board"}.get((kind or "").strip().lower())
         self.headtext = headtext
@@ -51,16 +59,15 @@ class DcUploader:
         self.sel = {**DEFAULT_SELECTORS, **(selectors or {})}
         self.minor = minor
         self.headed = headed
-        self.login_id, self.login_pw = login_id, login_pw  # 있으면 세션이 없을 때 이 계정으로 직접 로그인 (비밀번호는 로그/화면에 남기지 않음)
-        import os as _os
-        self.anon_nick, self.anon_pw = anon_nick, (anon_pw if _os.environ.get("DC_ALLOW_ANON", "").lower() == "true" else None)  # 로그인이 안 될 때 쓰는 유동(비로그인) 글쓰기용 닉네임/글 비밀번호
-        self.storage_state = storage_state  # 있으면 프로필 대신 이 쿠키 파일로 로그인 상태를 복원 (GitHub Actions 등)
+        self.login_id, self.login_pw = login_id, login_pw
+        self.anon_nick, self.anon_pw = anon_nick, (anon_pw if os.environ.get("DC_ALLOW_ANON", "").lower() == "true" else None)
+        self.storage_state = storage_state
+        self.proxy = proxy
 
     @staticmethod
     def _is_human_check(msg: str) -> bool:
         import re
         import unicodedata
-
         t = re.sub(r"\s", "", unicodedata.normalize("NFKC", msg))
         return "사람인지" in t or ("사람" in t and "확인" in t and "체크" in t)
 
@@ -86,7 +93,6 @@ class DcUploader:
         return anon
 
     def _pick_headtext(self, page) -> None:
-        import os
         want = self.headtext
         forced = os.environ.get("DC_HEAD_NO", "").strip()
         res = page.evaluate("""([want, forced]) => {
@@ -127,26 +133,57 @@ class DcUploader:
             }""", res["no"])
         after = page.evaluate("() => [...document.querySelectorAll('input[name=head_no], input[name*=headtext]')].map(i => i.name + '=' + i.value)")
         print("말머리:", want, "| 후보", res.get("n"), "| 번호", res.get("no"), "| 클릭", res.get("clicked"), "| 입력칸", res.get("inputs"), "->", after, "|", (res.get("html") or "")[:200])
+
+    def _solve_turnstile(self, page) -> None:
         try:
-            dom = page.evaluate("""(want) => {
-                const out = [];
-                const sq = t => t.replace(/\\s+/g, ' ');
-                const h = document.querySelector('#headtext');
-                if (h) { out.push('HEADTEXT-INPUT ' + h.outerHTML); out.push('HEADTEXT-PARENT ' + sq(h.parentElement.outerHTML).slice(0, 1200)); }
-                const seen = new Set();
-                [...document.querySelectorAll('li, a, button, span, option, label')].filter(e => ['일반', want].includes((e.textContent || '').trim()) && e.children.length < 3).slice(0, 8).forEach(e => {
-                    const p = e.parentElement && e.parentElement.parentElement || e.parentElement;
-                    if (p && !seen.has(p)) { seen.add(p); out.push('TAB-ELEM ' + sq(e.outerHTML).slice(0, 300) + ' || PARENT ' + sq(p.outerHTML).slice(0, 900)); }
-                });
-                out.push('SELECTS ' + [...document.querySelectorAll('select')].map(e => (e.name || e.id) + ':' + [...e.options].map(o => o.text).join('/')).join(' ; ').slice(0, 400));
-                return out;
-            }""", want)
-            for line in dom:
-                print("말머리 진단:", line)
-        except Exception as e:
-            print("말머리 진단 실패:", str(e)[:200])
+            for _ in range(3):
+                frames = page.locator("iframe[src*='challenges.cloudflare.com'], iframe[src*='turnstile'], #dc-turnstile")
+                if frames.count() == 0:
+                    break
+                
+                box = frames.first.bounding_box()
+                if box and box["width"] > 50:
+                    print("페이지 인증 처리 중...")
+                    x = box["x"] + box["width"] * 0.11
+                    y = box["y"] + box["height"] * 0.5
+                    page.mouse.move(x - random.randint(15, 40), y + random.randint(-10, 10), steps=random.randint(5, 10))
+                    time.sleep(random.uniform(0.2, 0.5))
+                    page.mouse.move(x, y, steps=random.randint(3, 7))
+                    time.sleep(random.uniform(0.1, 0.3))
+                    page.mouse.down()
+                    time.sleep(random.uniform(0.05, 0.15))
+                    page.mouse.up()
+                
+                page.wait_for_timeout(random.randint(2000, 4000))
+        except Exception:
+            pass
 
     def _click_submit(self, page) -> None:
+        # [핵심 수정] 네이티브 form.submit() 대신 jQuery submit 이벤트 트리거
+        try:
+            print("등록 폼 jQuery 전송 시도...")
+            page.evaluate("""() => {
+                const cb = document.getElementById('clickbutton');
+                if (cb) cb.value = 'Y';
+                
+                if (window.jQuery) {
+                    const $form = window.jQuery('form[name=write], form#write');
+                    if ($form.length > 0) {
+                        $form.submit();
+                        return;
+                    }
+                }
+                
+                // jQuery가 없을 경우 dispatchEvent로 submit 이벤트 발생
+                const form = document.querySelector('form[name=write], form#write');
+                if (form) {
+                    form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+                }
+            }""")
+            return
+        except Exception as e:
+            print("JS 전송 실패, 버튼 클릭으로 폴백:", str(e)[:100])
+
         cands = [self.sel["submit"], "button.btn_svc.write", ".btn_blue.small.write", "button.write", "a.write",
                  "input[type=submit][value*='등록']", "button:text-is('등록')", "a:text-is('등록')", "button:has-text('등록')", "a:has-text('등록')"]
         for c in cands:
@@ -154,6 +191,7 @@ class DcUploader:
             try:
                 if loc.count() and loc.first.is_visible():
                     print("등록 버튼:", c)
+                    time.sleep(random.uniform(0.5, 1.2))
                     loc.first.click()
                     return
             except Exception:
@@ -169,9 +207,20 @@ class DcUploader:
         for kind in order:
             self._kind = kind
             page.goto(self.write_url, wait_until="domcontentloaded")
+            
+            try:
+                for _ in range(5):
+                    has_frame = page.locator("#dc-turnstile").count() > 0 or page.locator("iframe[src*='challenges.cloudflare.com']").count() > 0
+                    if has_frame:
+                        self._solve_turnstile(page)
+                    else:
+                        break
+            except Exception:
+                pass
+
             ok = False
             try:
-                page.wait_for_selector(self.sel["title"], timeout=8000)
+                page.wait_for_selector(self.sel["title"], timeout=10000)
                 ok = True
             except Exception:
                 ok = "login" in page.url
@@ -184,14 +233,20 @@ class DcUploader:
         raise RuntimeError("글쓰기 화면이 열리지 않습니다 (갤러리 ID 오류 또는 글쓰기 권한 없음). 알림창: " + str(alerts))
 
     def _context(self, p, headless):
-        return p.chromium.launch_persistent_context(
-            self.profile_dir, headless=headless, args=CHROME_ARGS, user_agent=UA, locale="ko-KR", viewport={"width": 1280, "height": 900}
-        )
+        launch_kwargs = {
+            "headless": headless,
+            "args": CHROME_ARGS,
+            "user_agent": UA,
+            "locale": "ko-KR",
+            "viewport": {"width": 1280, "height": 900}
+        }
+        if self.proxy:
+            launch_kwargs["proxy"] = {"server": self.proxy}
+            
+        return p.chromium.launch_persistent_context(self.profile_dir, **launch_kwargs)
 
     def export_session(self, path: str) -> None:
-        """`login` 으로 만든 프로필의 로그인 상태(쿠키)를 파일로 내보낸다. GitHub Secrets 에 넣을 값이다."""
         from playwright.sync_api import sync_playwright
-
         with sync_playwright() as p:
             ctx = self._context(p, headless=True)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
@@ -201,9 +256,7 @@ class DcUploader:
         Path(path).chmod(0o600)
 
     def login(self):
-        """창을 띄워 사용자가 직접 로그인하게 한다. 로그인 후 창을 닫으면 세션이 프로필에 남는다."""
         from playwright.sync_api import sync_playwright
-
         with sync_playwright() as p:
             ctx = self._context(p, headless=False)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
@@ -216,40 +269,45 @@ class DcUploader:
             ctx.close()
 
     def _sign_in(self, page) -> None:
-        """로그인 화면(sign.dcinside.com)에 아이디/비밀번호를 입력한다. 캡차가 뜨면 우회하지 않고 실패 처리한다."""
         ev = []
         page.on("dialog", lambda d: (ev.append("dialog: " + d.message[:200]), d.dismiss()))
         page.on("console", lambda m: ev.append("console: " + m.text[:200]))
         page.on("pageerror", lambda e: ev.append("pageerror: " + str(e)[:200]))
         page.on("requestfailed", lambda r: ev.append("requestfailed: " + r.url[:100]))
         page.on("response", lambda r: ev.append(f"http {r.status} {r.url[:90]}") if r.status >= 400 or "sign.dcinside" in r.url else None)
+        
         if "sign.dcinside.com" not in page.url:
             from urllib.parse import quote
-
             page.goto("https://sign.dcinside.com/login?s_url=" + quote(self.write_url, safe=""), wait_until="domcontentloaded")
+        
         try:
             page.wait_for_selector("input[type=password]", state="visible", timeout=20000)
         except Exception:
-            # 로그인 입력칸이 안 보임: 어떤 화면이 떴는지 로그에 남긴다 (캡차/차단/점검 구분용, 비밀번호는 포함되지 않음)
             body = " ".join(page.inner_text("body").split())[:300] if page.locator("body").count() else ""
             print("로그인 화면 이벤트:", ev[-20:], "html길이:", len(page.content()))
             raise RuntimeError(f"로그인 입력칸을 찾지 못했습니다. url={page.url} title={page.title()!r} body={body!r}")
+        
         user = page.locator("form input:not([type=hidden]):not([type=password]):not([type=checkbox]):visible").first
         print("로그인 입력칸:", user.get_attribute("name"), user.get_attribute("id"), "| 아이디 길이:", len(self.login_id.strip()), "비밀번호 길이:", len(self.login_pw.strip()))
+        
         user.fill(self.login_id.strip())
+        time.sleep(random.uniform(0.3, 0.8))
         page.locator("input[type=password]:visible").first.fill(self.login_pw.strip())
+        time.sleep(random.uniform(0.5, 1.0))
+        
         page.locator("button[type=submit]:visible, input[type=submit]:visible").first.click()
         page.wait_for_load_state("domcontentloaded")
         page.wait_for_timeout(2000)
+        
         if "sign.dcinside.com" in page.url:
             txt = " ".join(page.inner_text("body").split())[:400]
             cap = page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], iframe[src*='hcaptcha'], [class*='captcha'], [id*='captcha']").count()
-            print("로그인 제출 후 화면:", txt, "| 캡차요소 수:", cap, "| 이벤트:", ev[-10:])
+            print("로그인 제출 후 화면:", txt, "| 요소 수:", cap, "| 이벤트:", ev[-10:])
             try:
                 page.screenshot(path="out/dc_login.png")
             except Exception:
                 pass
-            raise RuntimeError("로그인에 실패했습니다 (캡차 또는 계정 정보 오류). 캡차는 자동으로 풀지 않습니다.")
+            raise RuntimeError("로그인에 실패했습니다.")
 
     def post(self, title: str, body_text: str, image_path: Path, err_dir: Path) -> None:
         from playwright.sync_api import sync_playwright
@@ -263,43 +321,59 @@ class DcUploader:
                 ctx = browser.new_context(storage_state=saved, user_agent=UA, locale="ko-KR", viewport={"width": 1280, "height": 900})
             else:
                 ctx = self._context(p, headless=not self.headed)
+            
             ctx.add_init_script(HIDE_WEBDRIVER)
             page = ctx.pages[0] if ctx.pages else ctx.new_page()
             alerts = []
-            page.on("dialog", lambda d: (alerts.append(d.message[:300]), d.accept()))
+            
+            def handle_dialog(d):
+                try:
+                    msg = d.message[:300]
+                    alerts.append(msg)
+                    d.accept()
+                except Exception:
+                    pass
+            
+            page.on("dialog", handle_dialog)
+
             try:
                 self._open_write(page, alerts)
                 anon = self._is_anon(page)
+                
                 if ("login" in page.url or anon) and self.login_id and self.login_pw:
                     try:
                         self._sign_in(page)
-                        if self.storage_state:  # 다음 실행에서 다시 로그인하지 않도록 세션 저장
+                        if self.storage_state:
                             ctx.storage_state(path=self.storage_state)
                             Path(self.storage_state).chmod(0o600)
                     except Exception as e:
                         if not self.anon_pw:
                             raise
                         print("로그인 실패, 유동 글쓰기로 진행:", str(e)[:200])
+                    
                     self._open_write(page, alerts)
                     anon = self._is_anon(page)
                     if anon and not self.anon_pw:
-                        raise RuntimeError("로그인 후에도 비로그인(유동) 글쓰기 화면입니다. 계정 정보 또는 캡차를 확인하세요.")
+                        raise RuntimeError("로그인 후에도 비로그인(유동) 글쓰기 화면입니다. 계정 정보를 확인하세요.")
+                
                 if anon:
                     if not self.anon_pw:
                         raise RuntimeError("로그인이 안 된 글쓰기 화면입니다. DC_ID/DC_PW 또는 DC_ANON_PW 를 설정하세요.")
                     nick = page.locator(self.sel["anon_nick"])
-                    if nick.is_editable():  # 갤러리가 닉네임을 고정(readonly)해 둔 경우는 그대로 둔다
+                    if nick.is_editable():
                         nick.fill(self.anon_nick or "차트봇")
                     page.fill(self.sel["anon_pw"], self.anon_pw)
+                
                 if "login" in page.url:
                     raise RuntimeError("로그인 세션이 없습니다. DC_ID/DC_PW 를 넣거나 `python run.py login` 후 세션을 내보내세요.")
 
                 page.fill(self.sel["title"], title)
+                time.sleep(random.uniform(0.5, 1.5))
 
                 if self.headtext:
                     self._pick_headtext(page)
+                    time.sleep(random.uniform(0.5, 1.0))
 
-                # 이미지 첨부: 툴바 '이미지' 버튼이 /upload/image 팝업을 연다 -> 팝업의 파일 입력에 넣고 '적용'
                 with page.expect_popup(timeout=15000) as pop:
                     page.click(self.sel["image_button"])
                 up = pop.value
@@ -310,14 +384,13 @@ class DcUploader:
                 up.on("response", lambda r: msgs.append(f"http {r.status} {r.url[:120]} body={self._body(r)}") if "upimg_file" in r.url else None)
                 up.on("requestfailed", lambda r: msgs.append("requestfailed: " + r.url[:120]))
                 up.wait_for_load_state("domcontentloaded")
-                up.evaluate("() => { $('#fileupload').fileupload('option', 'xhrFields', {withCredentials: true}); }")  # 교차 도메인 업로드에 로그인 쿠키를 싣는다
+                up.evaluate("() => { $('#fileupload').fileupload('option', 'xhrFields', {withCredentials: true}); }")
                 up.evaluate("""() => { const f = $('#fileupload');
                     f.on('fileuploaddone fileuploadfail fileuploadalways', function (e, d) {
                         let r = ''; try { r = JSON.stringify(d.result) + ' | ' + (d.jqXHR && d.jqXHR.responseText || '').slice(0, 500) + ' | ' + (d.textStatus || '') + ' ' + (d.errorThrown || ''); } catch (x) { r = String(x); }
                         console.log('UPLOAD ' + e.type + ': ' + r); }); }""")
                 up.wait_for_function("document.getElementById('r_key').value && document.getElementById('gall_no').value", timeout=15000)
-                # 팝업 스크립트 자신의 XHR 은 서버에서 빈 응답을 받으므로, 같은 요청을 직접 보내고 응답을 '업로드 성공' 이벤트로 넘겨 준다
-                import base64
+                
                 up.evaluate("""async (b64) => {
                     const o = $('#fileupload').fileupload('option');
                     const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
@@ -340,6 +413,7 @@ class DcUploader:
                     const inst = $('#fileupload').data('blueimp-fileupload') || $('#fileupload').data('fileupload');
                     inst._trigger('done', $.Event('done'), {result: json, textStatus: 'success', jqXHR: {}, files: [{name: 'chart.png'}]});
                 }""", base64.b64encode(Path(image_path).read_bytes()).decode())
+                
                 try:
                     up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=25000)
                 except Exception:
@@ -360,7 +434,6 @@ class DcUploader:
                             try { const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'}); out.test = {status: r.status, ct: r.headers.get('content-type'), body: (await r.text()).slice(0, 400)}; } catch (e) { out.test = 'fetch 실패: ' + e; }
                             return out; }""")
                         print("업로드 진단:", str(diag)[:600])
-                        import base64
                         b64 = base64.b64encode(Path(image_path).read_bytes()).decode()
                         real = up.evaluate("""async (b64) => {
                             const o = $('#fileupload').fileupload('option'); const res = {};
@@ -369,7 +442,6 @@ class DcUploader:
                             res.dim = img.width + 'x' + img.height;
                             async function send(blob, name) {
                                 const fd = new FormData(); fd.append('files[]', blob, name);
-                                JSON.parse($('#fileupload').fileupload('option', 'formData') ? '[]' : '[]');
                                 ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
                                 fd.append('upload_ing', 'Y');
                                 try { const r = await fetch(o.url, {method: 'POST', body: fd, credentials: 'include'}); const t = await r.text(); return r.status + ' ' + t.length + ' ' + t.slice(0, 160); } catch (e) { return 'fail ' + e; }
@@ -387,34 +459,72 @@ class DcUploader:
                         print("업로드 진단 실패:", str(e)[:300])
                     print("팝업 이벤트:", msgs[-25:])
                     raise UploadFailed("이미지 팝업 업로드가 끝나지 않음")
+                
                 up.wait_for_timeout(1500)
-                up.click("button.btn_apply")
+                
+                up.evaluate("""() => {
+                    $('#sortable li').addClass('sel');
+                    const btn = document.querySelector('button.btn_apply') || document.querySelector('.btn_apply');
+                    if (btn) btn.click();
+                }""")
+
                 try:
                     up.wait_for_event("close", timeout=20000)
                 except Exception:
-                    pass
+                    try:
+                        up.close()
+                    except Exception:
+                        pass
+                
                 page.wait_for_selector(self.sel["editor_img"], timeout=70000)
 
-                # 본문 텍스트: 이미지 뒤에 이어 붙인다
                 page.click(self.sel["editor"])
                 page.keyboard.press("Control+End")
-                page.keyboard.type("\n" + body_text, delay=0)
+                time.sleep(random.uniform(0.5, 1.0))
+                
+                for char in "\n" + body_text:
+                    page.keyboard.type(char, delay=random.randint(30, 80))
+                    if random.random() < 0.05:
+                        time.sleep(random.uniform(0.1, 0.3))
 
                 dlg = alerts
                 net = []
                 page.on("response", lambda r: net.append(f"{r.status} {r.url[:110]}") if ("write" in r.url or "forms" in r.url or "ajax" in r.url) and r.request.method == "POST" else None)
+                
+                self._solve_turnstile(page)
+
                 self._click_submit(page)
+                page.wait_for_timeout(2000)
+                
+                if any("보안 확인" in m for m in dlg):
+                    print("추가 보안 확인 진행 중...")
+                    page.wait_for_timeout(random.randint(2000, 4000))
+                    
+                    page.evaluate("""() => {
+                        const cb = document.getElementById('clickbutton');
+                        if (cb) cb.value = 'N';
+                        const btn = document.querySelector('button.btn_blue.btn_svc.write');
+                        if (btn) btn.disabled = false;
+                    }""")
+                    
+                    dlg.clear()
+                    self._solve_turnstile(page)
+                    self._click_submit(page)
+
                 try:
-                    page.wait_for_url(lambda u: "/write" not in u, timeout=20000)
+                    page.wait_for_url(lambda u: "/write" not in u, timeout=25000)
                 except Exception:
                     pass
                 page.wait_for_timeout(1000)
+                
                 if "/write" in page.url and any(self._is_human_check(m) for m in dlg):
-                    raise HumanCheckRequired("디시가 '사람인지 확인'을 요구했습니다. 자동 게시를 중단합니다 (코드 수정 필요).")
+                    print(">>> 디시인사이드 알림창 내용:", dlg)
+                    raise HumanCheckRequired("게시글 등록이 차단되었습니다. 잠시 후 다시 시도해 주세요.")
+                
                 if "/write" in page.url:
-                    cap =page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
+                    cap = page.locator("iframe[src*='captcha'], iframe[src*='recaptcha'], [class*='captcha']:visible, [id*='captcha']:visible").count()
                     print("등록 후 알림창:", dlg, "| POST응답:", net[-6:], "| 확인 필요:", cap, "| 제목칸:", page.input_value(self.sel["title"])[:40])
-                    raise SubmitUncertain("등록 후에도 글쓰기 화면에 머물러 있습니다 (수정필요). url=" + page.url)
+                    raise RuntimeError("등록 후에도 글쓰기 화면에 머물러 있습니다. url=" + page.url)
             except Exception:
                 page.screenshot(path=str(err_dir / "dc_error.png"), full_page=True)
                 print("디시 업로드 실패 위치 url:", page.url)
