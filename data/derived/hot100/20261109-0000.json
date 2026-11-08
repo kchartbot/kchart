@@ -1,6 +1,6 @@
 {
  "hour": "20261109-0000",
- "source": "20261109-0001",
+ "source": "20261109-0006",
  "rows": [
   {
    "rank": 1,
@@ -10,8 +10,8 @@
    "artists": [
     "RESCENE (리센느)"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 7.56936,
+   "users_1h_rel": 35993
   },
   {
    "rank": 2,
@@ -21,8 +21,8 @@
    "artists": [
     "RESCENE (리센느)"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 5.74217,
+   "users_1h_rel": 27305
   },
   {
    "rank": 3,
@@ -88,8 +88,8 @@
    "artists": [
     "PLAVE"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 0.0,
+   "users_1h_rel": 0
   },
   {
    "rank": 9,
@@ -154,8 +154,8 @@
    "artists": [
     "임영웅"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 0.0,
+   "users_1h_rel": 0
   },
   {
    "rank": 15,
@@ -319,8 +319,8 @@
    "artists": [
     "TWS (투어스)"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 0.0,
+   "users_1h_rel": 0
   },
   {
    "rank": 30,
