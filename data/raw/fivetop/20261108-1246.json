@@ -1,0 +1,264 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "response": {
+  "GRAPHDATALIST": [
+   {
+    "SONGID": 603712834,
+    "LSTGRPCURSCORE": 4.13139,
+    "GRAPHDATA": [
+     {
+      "VAL": "4.343"
+     },
+     {
+      "VAL": "4.03336"
+     },
+     {
+      "VAL": "4.33171"
+     },
+     {
+      "VAL": "4.72709"
+     },
+     {
+      "VAL": "5.20995"
+     },
+     {
+      "VAL": "4.82724"
+     },
+     {
+      "VAL": "4.56103"
+     },
+     {
+      "VAL": "4.43723"
+     },
+     {
+      "VAL": "4.33377"
+     },
+     {
+      "VAL": "4.23812"
+     },
+     {
+      "VAL": "4.13139"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603712834",
+     "SONGNAME": "With",
+     "ALBUMID": "15082293",
+     "ALBUMNAME": "PULSE",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "3709231",
+       "ARTISTNAME": "RESCENE (리센느)"
+      }
+     ],
+     "PLAYTIME": "191",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0091",
+       "GENRENAME": "아이돌 여자"
+      },
+      {
+       "GENRECODE": "GC0093",
+       "GENRENAME": "아이돌 댄스"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.11.03",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "GRAPHRANK": 0,
+    "SHAREVALUE": "42"
+   },
+   {
+    "SONGID": 603382333,
+    "LSTGRPCURSCORE": 3.13485,
+    "GRAPHDATA": [
+     {
+      "VAL": "3.382"
+     },
+     {
+      "VAL": "3.24772"
+     },
+     {
+      "VAL": "2.8808"
+     },
+     {
+      "VAL": "2.78382"
+     },
+     {
+      "VAL": "2.81336"
+     },
+     {
+      "VAL": "2.86944"
+     },
+     {
+      "VAL": "2.95428"
+     },
+     {
+      "VAL": "3.01801"
+     },
+     {
+      "VAL": "3.07001"
+     },
+     {
+      "VAL": "3.10851"
+     },
+     {
+      "VAL": "3.13485"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "603382333",
+     "SONGNAME": "NEON",
+     "ALBUMID": "14644795",
+     "ALBUMNAME": "NEON",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "4531271",
+       "ARTISTNAME": "A2O"
+      },
+      {
+       "ARTISTID": "5217450",
+       "ARTISTNAME": "A2O LITE"
+      }
+     ],
+     "PLAYTIME": "208",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0011",
+       "GENRENAME": "Dance"
+      },
+      {
+       "GENRECODE": "GC0167",
+       "GENRENAME": "댄스 20'"
+      }
+     ],
+     "ISMV": true,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.10.13",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "GRAPHRANK": 1,
+    "SHAREVALUE": "31"
+   },
+   {
+    "SONGID": 602290711,
+    "LSTGRPCURSCORE": 2.80981,
+    "GRAPHDATA": [
+     {
+      "VAL": "3.073"
+     },
+     {
+      "VAL": "2.89614"
+     },
+     {
+      "VAL": "2.94889"
+     },
+     {
+      "VAL": "2.64995"
+     },
+     {
+      "VAL": "2.60573"
+     },
+     {
+      "VAL": "2.64241"
+     },
+     {
+      "VAL": "2.69347"
+     },
+     {
+      "VAL": "2.72765"
+     },
+     {
+      "VAL": "2.76864"
+     },
+     {
+      "VAL": "2.79022"
+     },
+     {
+      "VAL": "2.80981"
+     }
+    ],
+    "GRAPHCHARTINFO": {
+     "SONGID": "602290711",
+     "SONGNAME": "꿈꾸던 어른이 되었나요?",
+     "ALBUMID": "13744621",
+     "ALBUMNAME": "꿈꾸던 어른이 되었나요?",
+     "ARTISTLIST": [
+      {
+       "ARTISTID": "4828712",
+       "ARTISTNAME": "머무르"
+      }
+     ],
+     "PLAYTIME": "208",
+     "GENRELIST": [
+      {
+       "GENRECODE": "GC0035",
+       "GENRENAME": "Rock"
+      }
+     ],
+     "ISMV": false,
+     "ISADULT": false,
+     "ISFREE": false,
+     "ISHITSONG": false,
+     "ISHOLDBACK": false,
+     "ISTITLESONG": true,
+     "ISSERVICE": true,
+     "ISTRACKZERO": false,
+     "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg/melon/resize/144/optimize/90",
+     "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg/melon/optimize/90",
+     "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg/melon/resize/50/optimize/90",
+     "ISSUEDATE": "2026.06.23",
+     "CTYPE": "1",
+     "CONTSTYPECODE": "N10001"
+    },
+    "GRAPHRANK": 2,
+    "SHAREVALUE": "27"
+   }
+  ],
+  "FIVETIME": "13",
+  "FIVEERRORFLAG": false,
+  "STATUS": "0",
+  "MENUID": "1000001589",
+  "SECTION": "멜론차트",
+  "PAGE": "멜론차트_실시간그래프",
+  "TLOG": {
+   "MENUID": "1000001589",
+   "SECTION": "멜론차트",
+   "PAGE": "멜론차트_실시간그래프"
+  }
+ },
+ "httpDomain": "http://m2.melon.com"
+}
