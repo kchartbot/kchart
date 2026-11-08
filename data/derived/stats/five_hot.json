@@ -558,10 +558,10 @@
      "first_at": "22:00",
      "peak": 13.64965,
      "peak_at": "22:05",
-     "last": 8.02954,
-     "last_at": "22:50",
-     "mean": 9.11417,
-     "n": 11,
+     "last": 7.77964,
+     "last_at": "22:55",
+     "mean": 8.89991,
+     "n": 13,
      "users_1h_rel": 36666
     }
    }
@@ -1076,14 +1076,14 @@
      "users_1h_rel": null
     },
     "20261108-2200": {
-     "first": 3.62114,
-     "first_at": "22:25",
-     "peak": 4.18746,
-     "peak_at": "22:50",
-     "last": 4.18746,
-     "last_at": "22:50",
-     "mean": 3.95344,
-     "n": 6,
+     "first": 4.20838,
+     "first_at": "23:00",
+     "peak": 4.20838,
+     "peak_at": "23:00",
+     "last": 4.176,
+     "last_at": "22:55",
+     "mean": 4.01313,
+     "n": 8,
      "users_1h_rel": null
     }
    }
@@ -1642,14 +1642,14 @@
      "users_1h_rel": 26731
     },
     "20261108-2200": {
-     "first": 6.09645,
-     "first_at": "22:10",
+     "first": 5.73763,
+     "first_at": "23:00",
      "peak": 6.09645,
      "peak_at": "22:10",
-     "last": 4.83947,
-     "last_at": "22:50",
-     "mean": 5.19817,
-     "n": 9,
+     "last": 5.84315,
+     "last_at": "22:55",
+     "mean": 5.30585,
+     "n": 11,
      "users_1h_rel": null
     }
    }
@@ -2812,14 +2812,14 @@
      "users_1h_rel": null
     },
     "20261108-2200": {
-     "first": 3.8086,
-     "first_at": "22:20",
+     "first": 4.2746,
+     "first_at": "23:00",
      "peak": 4.59006,
      "peak_at": "22:50",
-     "last": 4.59006,
-     "last_at": "22:50",
-     "mean": 3.76242,
-     "n": 7,
+     "last": 4.39442,
+     "last_at": "22:55",
+     "mean": 3.88955,
+     "n": 9,
      "users_1h_rel": null
     }
    }
@@ -3246,14 +3246,14 @@
      "users_1h_rel": null
     },
     "20261108-2200": {
-     "first": 3.77718,
-     "first_at": "22:20",
-     "peak": 3.77718,
-     "peak_at": "22:20",
-     "last": 3.42179,
-     "last_at": "22:40",
-     "mean": 3.54291,
-     "n": 5,
+     "first": 4.13846,
+     "first_at": "23:00",
+     "peak": 4.2257,
+     "peak_at": "22:55",
+     "last": 4.2257,
+     "last_at": "22:55",
+     "mean": 3.72553,
+     "n": 7,
      "users_1h_rel": null
     }
    }
@@ -4575,8 +4575,8 @@
   }
  },
  "decay_5min_median": 0.9943986775414292,
- "decay_5min_mean": 1.002467724210203,
- "decay_n": 1730,
+ "decay_5min_mean": 1.0025375292018952,
+ "decay_n": 1734,
  "spike_05_over_00_median": 0.9206678507806906,
  "spike_n": 127,
  "entries": [
@@ -5026,30 +5026,6 @@
   },
   {
    "hour": "20261108-2200",
-   "song": "백화요란 (Inside Out)",
-   "enter_at": "22:05",
-   "first_score": 6.09645
-  },
-  {
-   "hour": "20261108-2200",
-   "song": "Finest Thing",
-   "enter_at": "22:15",
-   "first_score": 3.8086
-  },
-  {
-   "hour": "20261108-2200",
-   "song": "MEME",
-   "enter_at": "22:15",
-   "first_score": 3.77718
-  },
-  {
-   "hour": "20261108-2200",
-   "song": "NEON",
-   "enter_at": "22:20",
-   "first_score": 3.62114
-  },
-  {
-   "hour": "20261108-2200",
    "song": "체포하겠어",
    "enter_at": "22:40",
    "first_score": 3.3758
@@ -5307,9 +5283,9 @@
    "last": "22:00"
   },
   "20261108-2200": {
-   "points": 11,
+   "points": 13,
    "expected": 12,
-   "last": "22:50"
+   "last": "23:00"
   }
  }
 }
