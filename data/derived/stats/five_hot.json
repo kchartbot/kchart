@@ -569,10 +569,10 @@
      "first_at": "23:00",
      "peak": 12.65486,
      "peak_at": "23:05",
-     "last": 7.62079,
-     "last_at": "23:50",
-     "mean": 8.38923,
-     "n": 11,
+     "last": 7.61674,
+     "last_at": "23:55",
+     "mean": 8.26674,
+     "n": 13,
      "users_1h_rel": 36440
     }
    }
@@ -1664,14 +1664,14 @@
      "users_1h_rel": null
     },
     "20261108-2300": {
-     "first": 8.75629,
-     "first_at": "23:10",
+     "first": 5.74217,
+     "first_at": "00:00",
      "peak": 8.75629,
      "peak_at": "23:10",
-     "last": 5.80359,
-     "last_at": "23:50",
-     "mean": 6.55696,
-     "n": 9,
+     "last": 5.78014,
+     "last_at": "23:55",
+     "mean": 6.41227,
+     "n": 11,
      "users_1h_rel": null
     }
    }
@@ -2849,10 +2849,10 @@
      "first_at": "23:00",
      "peak": 8.36883,
      "peak_at": "23:05",
-     "last": 4.52523,
-     "last_at": "23:50",
-     "mean": 5.18146,
-     "n": 11,
+     "last": 4.46234,
+     "last_at": "23:55",
+     "mean": 5.06529,
+     "n": 13,
      "users_1h_rel": 20326
     }
    }
@@ -3290,14 +3290,14 @@
      "users_1h_rel": null
     },
     "20261108-2300": {
-     "first": 4.5819,
-     "first_at": "23:15",
+     "first": 4.24744,
+     "first_at": "00:00",
      "peak": 5.44756,
      "peak_at": "23:20",
-     "last": 4.37921,
-     "last_at": "23:50",
-     "mean": 4.79005,
-     "n": 8,
+     "last": 4.32317,
+     "last_at": "23:55",
+     "mean": 4.6891,
+     "n": 10,
      "users_1h_rel": null
     }
    }
@@ -4311,14 +4311,14 @@
      "users_1h_rel": null
     },
     "20261108-2300": {
-     "first": 5.25625,
-     "first_at": "23:20",
+     "first": 4.16433,
+     "first_at": "00:00",
      "peak": 5.25625,
      "peak_at": "23:20",
-     "last": 4.31453,
-     "last_at": "23:50",
-     "mean": 4.6766,
-     "n": 7,
+     "last": 4.24026,
+     "last_at": "23:55",
+     "mean": 4.5712,
+     "n": 9,
      "users_1h_rel": null
     }
    }
@@ -4673,9 +4673,9 @@
    }
   }
  },
- "decay_5min_median": 0.9936453569197912,
- "decay_5min_mean": 1.002141295034958,
- "decay_n": 1768,
+ "decay_5min_median": 0.9936200529053201,
+ "decay_5min_mean": 1.0021079126833754,
+ "decay_n": 1773,
  "spike_05_over_00_median": 0.9391638037480843,
  "spike_n": 129,
  "entries": [
@@ -5128,24 +5128,6 @@
    "song": "체포하겠어",
    "enter_at": "22:40",
    "first_score": 3.3758
-  },
-  {
-   "hour": "20261108-2300",
-   "song": "백화요란 (Inside Out)",
-   "enter_at": "23:05",
-   "first_score": 8.75629
-  },
-  {
-   "hour": "20261108-2300",
-   "song": "MEME",
-   "enter_at": "23:10",
-   "first_score": 4.5819
-  },
-  {
-   "hour": "20261108-2300",
-   "song": "Dragon",
-   "enter_at": "23:15",
-   "first_score": 5.25625
   }
  ],
  "coverage": {
@@ -5405,9 +5387,9 @@
    "last": "23:00"
   },
   "20261108-2300": {
-   "points": 11,
+   "points": 13,
    "expected": 12,
-   "last": "23:50"
+   "last": "23:55"
   }
  }
 }
