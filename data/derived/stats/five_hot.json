@@ -481,10 +481,10 @@
      "first_at": "15:00",
      "peak": 11.62455,
      "peak_at": "15:05",
-     "last": 10.92492,
-     "last_at": "15:10",
-     "mean": 10.06041,
-     "n": 3,
+     "last": 9.02766,
+     "last_at": "15:20",
+     "mean": 9.74068,
+     "n": 5,
      "users_1h_rel": 36290
     }
    }
@@ -926,10 +926,10 @@
      "first_at": "15:00",
      "peak": 6.3198,
      "peak_at": "15:00",
-     "last": 4.82145,
-     "last_at": "15:10",
-     "mean": 5.29121,
-     "n": 3,
+     "last": 5.08452,
+     "last_at": "15:20",
+     "mean": 5.1472,
+     "n": 5,
      "users_1h_rel": 30052
     }
    }
@@ -1415,10 +1415,10 @@
      "first_at": "15:00",
      "peak": 5.43831,
      "peak_at": "15:00",
-     "last": 4.34069,
-     "last_at": "15:10",
-     "mean": 4.64209,
-     "n": 3,
+     "last": 4.48484,
+     "last_at": "15:20",
+     "mean": 4.55356,
+     "n": 5,
      "users_1h_rel": 25860
     }
    }
@@ -2392,6 +2392,17 @@
      "mean": 4.21911,
      "n": 6,
      "users_1h_rel": null
+    },
+    "20261108-1500": {
+     "first": 3.94076,
+     "first_at": "15:15",
+     "peak": 3.94076,
+     "peak_at": "15:15",
+     "last": 3.83731,
+     "last_at": "15:20",
+     "mean": 3.88903,
+     "n": 2,
+     "users_1h_rel": null
     }
    }
   },
@@ -2747,6 +2758,17 @@
      "last": 4.22709,
      "last_at": "14:30",
      "mean": 4.09728,
+     "n": 2,
+     "users_1h_rel": null
+    },
+    "20261108-1500": {
+     "first": 3.84683,
+     "first_at": "15:15",
+     "peak": 3.84683,
+     "peak_at": "15:15",
+     "last": 3.71088,
+     "last_at": "15:20",
+     "mean": 3.77886,
      "n": 2,
      "users_1h_rel": null
     }
@@ -3800,8 +3822,8 @@
   }
  },
  "decay_5min_median": 0.9951788618093074,
- "decay_5min_mean": 1.0035064028047955,
- "decay_n": 1443,
+ "decay_5min_mean": 1.0034824451335356,
+ "decay_n": 1448,
  "spike_05_over_00_median": 0.8971671808371025,
  "spike_n": 111,
  "entries": [
@@ -4188,6 +4210,18 @@
    "song": "Finest Thing",
    "enter_at": "14:10",
    "first_score": 3.81901
+  },
+  {
+   "hour": "20261108-1500",
+   "song": "Finest Thing",
+   "enter_at": "15:10",
+   "first_score": 3.94076
+  },
+  {
+   "hour": "20261108-1500",
+   "song": "MEME",
+   "enter_at": "15:10",
+   "first_score": 3.84683
   }
  ],
  "coverage": {
@@ -4407,9 +4441,9 @@
    "last": "15:00"
   },
   "20261108-1500": {
-   "points": 3,
+   "points": 5,
    "expected": 12,
-   "last": "15:10"
+   "last": "15:20"
   }
  }
 }
