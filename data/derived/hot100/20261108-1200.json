@@ -1,6 +1,6 @@
 {
  "hour": "20261108-1200",
- "source": "20261108-1201",
+ "source": "20261108-1206",
  "rows": [
   {
    "rank": 1,
@@ -10,8 +10,8 @@
    "artists": [
     "RESCENE (리센느)"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 8.07585,
+   "users_1h_rel": 38402
   },
   {
    "rank": 2,
@@ -22,8 +22,8 @@
     "A2O",
     "A2O LITE"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 6.50279,
+   "users_1h_rel": 30922
   },
   {
    "rank": 3,
@@ -33,8 +33,8 @@
    "artists": [
     "RESCENE (리센느)"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 5.57482,
+   "users_1h_rel": 26509
   },
   {
    "rank": 4,
@@ -88,8 +88,8 @@
    "artists": [
     "RESCENE (리센느)"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 0.0,
+   "users_1h_rel": 0
   },
   {
    "rank": 9,
@@ -165,8 +165,8 @@
    "artists": [
     "PLAVE"
    ],
-   "hot_score": null,
-   "users_1h_rel": null
+   "hot_score": 0.0,
+   "users_1h_rel": 0
   },
   {
    "rank": 16,
