@@ -558,10 +558,10 @@
      "first_at": "22:00",
      "peak": 13.64965,
      "peak_at": "22:05",
-     "last": 9.23685,
-     "last_at": "22:20",
-     "mean": 10.0333,
-     "n": 5,
+     "last": 8.65871,
+     "last_at": "22:25",
+     "mean": 9.8042,
+     "n": 6,
      "users_1h_rel": 36666
     }
    }
@@ -1073,6 +1073,17 @@
      "last_at": "21:55",
      "mean": 4.36669,
      "n": 9,
+     "users_1h_rel": null
+    },
+    "20261108-2200": {
+     "first": 3.62114,
+     "first_at": "22:25",
+     "peak": 3.62114,
+     "peak_at": "22:25",
+     "last": 3.62114,
+     "last_at": "22:25",
+     "mean": 3.62114,
+     "n": 1,
      "users_1h_rel": null
     }
    }
@@ -1635,10 +1646,10 @@
      "first_at": "22:10",
      "peak": 6.09645,
      "peak_at": "22:10",
-     "last": 5.25034,
-     "last_at": "22:20",
-     "mean": 5.62782,
-     "n": 3,
+     "last": 5.06888,
+     "last_at": "22:25",
+     "mean": 5.48808,
+     "n": 4,
      "users_1h_rel": null
     }
    }
@@ -2794,10 +2805,10 @@
      "first_at": "22:20",
      "peak": 3.8086,
      "peak_at": "22:20",
-     "last": 3.8086,
-     "last_at": "22:20",
-     "mean": 3.8086,
-     "n": 1,
+     "last": 3.68297,
+     "last_at": "22:25",
+     "mean": 3.74579,
+     "n": 2,
      "users_1h_rel": null
     }
    }
@@ -3228,10 +3239,10 @@
      "first_at": "22:20",
      "peak": 3.77718,
      "peak_at": "22:20",
-     "last": 3.77718,
-     "last_at": "22:20",
-     "mean": 3.77718,
-     "n": 1,
+     "last": 3.57926,
+     "last_at": "22:25",
+     "mean": 3.67822,
+     "n": 2,
      "users_1h_rel": null
     }
    }
@@ -4552,9 +4563,9 @@
    }
   }
  },
- "decay_5min_median": 0.9946538517226402,
- "decay_5min_mean": 1.0024621760637773,
- "decay_n": 1702,
+ "decay_5min_median": 0.9945655092821001,
+ "decay_5min_mean": 1.0023494060573634,
+ "decay_n": 1706,
  "spike_05_over_00_median": 0.9206678507806906,
  "spike_n": 127,
  "entries": [
@@ -5007,6 +5018,18 @@
    "song": "백화요란 (Inside Out)",
    "enter_at": "22:05",
    "first_score": 6.09645
+  },
+  {
+   "hour": "20261108-2200",
+   "song": "Finest Thing",
+   "enter_at": "22:15",
+   "first_score": 3.8086
+  },
+  {
+   "hour": "20261108-2200",
+   "song": "MEME",
+   "enter_at": "22:15",
+   "first_score": 3.77718
   }
  ],
  "coverage": {
@@ -5261,9 +5284,9 @@
    "last": "22:00"
   },
   "20261108-2200": {
-   "points": 5,
+   "points": 6,
    "expected": 12,
-   "last": "22:20"
+   "last": "22:25"
   }
  }
 }
