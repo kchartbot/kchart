@@ -547,10 +547,10 @@
      "first_at": "21:00",
      "peak": 10.5487,
      "peak_at": "21:05",
-     "last": 7.75672,
-     "last_at": "21:50",
-     "mean": 8.62509,
-     "n": 11,
+     "last": 7.71826,
+     "last_at": "21:55",
+     "mean": 8.485,
+     "n": 13,
      "users_1h_rel": 37316
     }
    }
@@ -1054,14 +1054,14 @@
      "users_1h_rel": 26869
     },
     "20261108-2100": {
-     "first": 3.73873,
-     "first_at": "21:15",
-     "peak": 4.69381,
-     "peak_at": "21:50",
-     "last": 4.69381,
-     "last_at": "21:50",
-     "mean": 4.22639,
-     "n": 7,
+     "first": 4.90788,
+     "first_at": "22:00",
+     "peak": 4.90788,
+     "peak_at": "22:00",
+     "last": 4.80758,
+     "last_at": "21:55",
+     "mean": 4.36669,
+     "n": 9,
      "users_1h_rel": null
     }
    }
@@ -1613,10 +1613,10 @@
      "first_at": "21:00",
      "peak": 7.79411,
      "peak_at": "21:05",
-     "last": 5.93329,
-     "last_at": "21:50",
-     "mean": 6.0018,
-     "n": 11,
+     "last": 5.86691,
+     "last_at": "21:55",
+     "mean": 5.97726,
+     "n": 13,
      "users_1h_rel": 26731
     }
    }
@@ -2757,14 +2757,14 @@
      "users_1h_rel": null
     },
     "20261108-2100": {
-     "first": 3.79432,
-     "first_at": "21:20",
+     "first": 4.29187,
+     "first_at": "22:00",
      "peak": 5.30705,
      "peak_at": "21:25",
-     "last": 4.45099,
-     "last_at": "21:50",
-     "mean": 4.63115,
-     "n": 7,
+     "last": 4.36365,
+     "last_at": "21:55",
+     "mean": 4.56373,
+     "n": 9,
      "users_1h_rel": null
     }
    }
@@ -3180,14 +3180,14 @@
      "users_1h_rel": null
     },
     "20261108-2100": {
-     "first": 3.72261,
-     "first_at": "21:20",
+     "first": 4.09621,
+     "first_at": "22:00",
      "peak": 4.53108,
      "peak_at": "21:35",
-     "last": 4.24486,
-     "last_at": "21:50",
-     "mean": 4.11946,
-     "n": 7,
+     "last": 4.17886,
+     "last_at": "21:55",
+     "mean": 4.12347,
+     "n": 9,
      "users_1h_rel": null
     }
    }
@@ -4437,9 +4437,9 @@
    }
   }
  },
- "decay_5min_median": 0.994740250228283,
- "decay_5min_mean": 1.0026398083626793,
- "decay_n": 1694,
+ "decay_5min_median": 0.9946956050189176,
+ "decay_5min_mean": 1.002616101737171,
+ "decay_n": 1699,
  "spike_05_over_00_median": 0.9206678507806906,
  "spike_n": 126,
  "entries": [
@@ -4886,24 +4886,6 @@
    "song": "Dragon",
    "enter_at": "21:05",
    "first_score": 4.33356
-  },
-  {
-   "hour": "20261108-2100",
-   "song": "NEON",
-   "enter_at": "21:10",
-   "first_score": 3.73873
-  },
-  {
-   "hour": "20261108-2100",
-   "song": "Finest Thing",
-   "enter_at": "21:15",
-   "first_score": 3.79432
-  },
-  {
-   "hour": "20261108-2100",
-   "song": "MEME",
-   "enter_at": "21:15",
-   "first_score": 3.72261
   }
  ],
  "coverage": {
@@ -5153,9 +5135,9 @@
    "last": "21:00"
   },
   "20261108-2100": {
-   "points": 11,
+   "points": 13,
    "expected": 12,
-   "last": "21:50"
+   "last": "22:00"
   }
  }
 }
