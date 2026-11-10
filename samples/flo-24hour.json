@@ -1,0 +1,203 @@
+{
+ "chart": "FLO_24HOUR_CHART",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {},
+ "size": 100,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": 1,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 2,
+   "previous": 2,
+   "song": {
+    "name": "이 밤을 빌려 말해요",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "이 밤을 빌려 말해요 (오늘 밤, 세계에서 이 사랑이 사라진다 해도 X PLAVE)",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 3,
+   "previous": 3,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O LITE"
+     },
+     {
+      "name": "A2O"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 4,
+   "previous": 4,
+   "song": {
+    "name": "Star Trace",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 5,
+   "previous": 5,
+   "song": {
+    "name": "푸른 하늘에 단비",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 6,
+   "previous": 6,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요?",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 7,
+   "previous": 7,
+   "song": {
+    "name": "The Answer Is Yes",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 8,
+   "previous": 8,
+   "song": {
+    "name": "Rewind",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 9,
+   "previous": 9,
+   "song": {
+    "name": "꾼",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 10,
+   "previous": 11,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84)",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 11,
+   "previous": 10,
+   "song": {
+    "name": "체포하겠어",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 12,
+   "previous": 12,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   }
+  }
+ ]
+}

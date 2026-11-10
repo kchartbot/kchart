@@ -1,0 +1,143 @@
+name: upload
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # 안전장치: 이어 걸기가 끊겨도 15분 안에 다시 대기열에 올린다
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "미리보기만 (켜 두면 디시에 올리지 않고 이미지만 만듦)"
+        type: boolean
+        default: true
+      minutes:
+        description: "몇 분 동안 돌릴지"
+        type: string
+        default: "110"
+      only:
+        description: "이 차트만 (쉼표로 구분, 비우면 전부)"
+        type: string
+        default: ""
+      reset:
+        description: "게시 기록을 지울 키 (예: own_users)"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  actions: write
+
+concurrency:
+  group: upload
+  cancel-in-progress: false
+
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 125
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 다음 실행 이어 걸기
+        # 실제 게시이고 60분 이상 도는 실행만 시작하자마자 다음 실행을 대기열에 올려 둔다 (같은 그룹은 한 번에 하나만 돌아서 끝나면 바로 이어진다)
+        if: ${{ !inputs.dry && inputs.only == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MIN: ${{ inputs.minutes || '110' }}
+        run: |
+          if [ "$MIN" -ge 60 ]; then gh workflow run upload.yml -f dry=false -f minutes=110; fi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: livedata
+          path: live
+
+      - uses: actions/checkout@v4
+        with:
+          ref: probe
+          path: probe
+
+      - uses: actions/checkout@v4
+        with:
+          ref: peak
+          path: peak
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 한글 폰트 + 의존성
+        timeout-minutes: 6
+        run: |
+          A="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20"
+          fc-list | grep -qi "noto sans cjk" || { sudo timeout 120 apt-get $A update -qq || true; sudo timeout 180 apt-get $A install -y -qq fonts-noto-cjk; }
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: 상태 복원
+        uses: actions/cache/restore@v4
+        with:
+          path: out
+          key: upload-state-${{ github.run_id }}
+          restore-keys: upload-state-
+
+      - name: 로그인 상태 풀기
+        env:
+          SK: ${{ secrets.DC_PW }}
+        run: |
+          # 캐시에는 로그인 상태(쿠키)를 암호화해서만 둔다. 시크릿이 없는 실행(외부 PR 등)은 풀 수 없다
+          if [ -f out/.dc_session.enc ] && [ -n "$SK" ]; then
+            openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:SK -in out/.dc_session.enc -out out/.dc_session.json 2>/dev/null && python3 -c "import json;json.load(open('out/.dc_session.json'))" 2>/dev/null && chmod 600 out/.dc_session.json || rm -f out/.dc_session.json
+          fi
+          rm -f out/.dc_session.enc
+
+      - name: 실행
+        env:
+          DC_GALLERY_ID: ${{ secrets.DC_GALLERY_ID }}
+          DC_MINOR: ${{ vars.DC_MINOR }}
+          DRY_RUN: ${{ inputs.dry && 'true' || 'false' }}
+          OWN_ONLY: ${{ inputs.only }}
+          RESET_KEYS: ${{ inputs.reset }}
+          DC_HEADTEXT: 차트
+          DC_HEAD_NO: ${{ vars.DC_HEAD_NO }}
+          DC_ID: ${{ secrets.DC_ID }}
+          DC_PW: ${{ secrets.DC_PW }}
+          DC_ANON_NICK: ${{ vars.DC_ANON_NICK }}
+          DC_ANON_PW: ${{ secrets.DC_ANON_PW }}
+          DC_STORAGE_STATE: ${{ secrets.DC_STORAGE_STATE }}
+          LIVE_DATA: live/data
+          GAISUM_USERS: probe/probe_out/users
+          PEAKS_JSON: peak/peaks.json
+          RUN_MIN: ${{ inputs.minutes || '110' }}
+        run: python run.py own --config config.actions.toml --minutes "$RUN_MIN"
+
+      - name: 로그인 상태 잠그기
+        if: always()
+        env:
+          SK: ${{ secrets.DC_PW }}
+        run: |
+          if [ -f out/.dc_session.json ] && [ -n "$SK" ]; then
+            openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass env:SK -in out/.dc_session.json -out out/.dc_session.enc
+          fi
+          rm -f out/.dc_session.json
+
+      - name: 상태 저장
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: out
+          key: upload-state-${{ github.run_id }}
+
+      - name: 만든 이미지 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: own-images
+          path: |
+            out/own_*.png
+          if-no-files-found: ignore
+          retention-days: 3

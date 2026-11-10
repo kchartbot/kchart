@@ -1,0 +1,20 @@
+name: reportprobe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q -r requirements.txt
+      - run: python tools/report_probe.py

@@ -1,0 +1,61 @@
+name: verify-live
+on:
+  workflow_dispatch:
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: |
+          python - <<'PY'
+          import sys, tempfile, json, urllib.request
+          from datetime import datetime, timedelta, timezone
+          sys.path.insert(0, ".")
+          from chartbot.fetch import Fetcher
+          from chartbot.direct import get_direct_chart
+          now = datetime.now(timezone(timedelta(hours=9))).replace(tzinfo=None)
+          print("KST 지금", now)
+          f = Fetcher(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36", min_gap=3.0)
+          charts = {}
+          for key in ("melon_rank", "melonhot_rank", "genie_rank", "bugs_rank", "flo_rank"):
+              try:
+                  c = get_direct_chart(key, now, f, tempfile.mkdtemp())
+                  rows = c.rows
+                  ranks = [r.rank for r in rows]
+                  print(f"\n== {key} 제목={c.title} 기준={c.stamp} 곡수={len(rows)} 순위연속={ranks == list(range(1, len(rows)+1))}")
+                  print("  이름없음:", sum(1 for r in rows if not r.name), "가수없음:", sum(1 for r in rows if not r.artists),
+                        "이미지없음:", sum(1 for r in rows if not r.image), "전순위있음:", sum(1 for r in rows if r.previous is not None))
+                  for r in rows[:8]:
+                      print(f"  {r.rank:>3} 전={r.previous} {r.name} / {r.artists} / {r.image[:60]}")
+                  ok = 0
+                  for r in rows[:3]:
+                      try:
+                          req = urllib.request.Request(r.image, headers={"User-Agent": "Mozilla/5.0"}, method="GET")
+                          d = urllib.request.urlopen(req, timeout=15).read()
+                          ok += 1 if len(d) > 1000 else 0
+                      except Exception as e:
+                          print("  이미지 실패", str(e)[:60])
+                  print("  이미지 내려받기 성공(상위3):", ok)
+                  charts[key] = [(r.rank, r.name) for r in rows]
+              except Exception as e:
+                  print(f"\n== {key} 실패: {type(e).__name__} {str(e)[:200]}")
+          # 멜론 모바일 TOP100 데이터와 교차 확인
+          try:
+              req = urllib.request.Request("https://m2.melon.com/m6/chart/ent/songChartList.json", headers={"User-Agent": "Mozilla/5.0", "Referer": "https://m2.melon.com/"})
+              d = json.loads(urllib.request.urlopen(req, timeout=20).read().decode())["response"]
+              m2 = [(int(x["CURRANK"]), x["SONGNAME"]) for x in d["SONGLIST"]]
+              mine = charts.get("melon_rank", [])
+              diff = [(a, b) for a, b in zip(mine, m2) if a != b]
+              print("\n멜론 TOP100 교차확인(모바일 데이터와 순위·곡명 다른 곳):", len(diff), "기준", d["RANKDAY"], d["RANKHOUR"], diff[:5])
+          except Exception as e:
+              print("교차확인 실패", str(e)[:100])
+          PY
+# 재실행 1

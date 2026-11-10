@@ -1,0 +1,26 @@
+name: lag
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        type: string
+        default: "25"
+permissions:
+  contents: write
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  lag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - env:
+          ARG: ${{ inputs.minutes }}
+          LAG_REMOTE: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+        run: python tools/lag_probe.py "$ARG" x

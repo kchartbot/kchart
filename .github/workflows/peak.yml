@@ -1,0 +1,30 @@
+name: peak
+on:
+  workflow_dispatch:
+    inputs:
+      n:
+        type: string
+        default: "30"
+permissions:
+  contents: write
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  peak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - env:
+          ARG: ${{ inputs.n }}
+        run: python tools/peak_probe.py "$ARG" x
+      - run: |
+          cd peak_out && git init -q && git checkout -q -b peak
+          git add -A && git -c user.name=peak -c user.email=peak@users.noreply.github.com commit -qm "peak $(date -u +%FT%TZ)"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" peak

@@ -1,0 +1,121 @@
+name: chartbot
+
+on:
+  # 자동 실행 중지 (요청에 따라 주석 처리, 수동 실행만. 다시 켜려면 아래 3줄 주석 해제)
+  # schedule:
+  #   # 정각 15분·8분 전에 시작해 설치와 준비를 끝내 두고 정각에 바로 올림 (GitHub 스케줄은 늦게 시작될 수 있어 두 번 걸어 둠). 12분은 놓쳤을 때 보충
+  #   - cron: "45,52,12 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "미리보기만 (디시에 올리지 않고 이미지만 만듦)"
+        type: boolean
+        default: false
+      force:
+        description: "시각 상관없이 지금 바로 올리기 (시험용. 끄면 정시 창 안에서만 1시간 단위 차트를 올림)"
+        type: boolean
+        default: false
+      charts:
+        description: "올릴 차트 직접 지정 (쉼표로 구분, 비우면 설정 파일 기준). 예: melon_rank,flo_rank"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chartbot               # 겹쳐 실행되면 중복 게시되므로 한 번에 하나만
+  cancel-in-progress: false
+
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: 한글 폰트 + 의존성
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-cjk
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      # 어느 시간대/5분 칸을 이미 올렸는지(state.json)와 앨범 이미지·지난 시간대 캐시를 실행 사이에 보관
+      - name: 상태 복원
+        uses: actions/cache/restore@v4
+        with:
+          path: out
+          key: chartbot-state-${{ github.run_id }}
+          restore-keys: chartbot-state-
+
+      - name: 로그인 상태 풀기
+        env:
+          SK: ${{ secrets.DC_PW }}
+        run: |
+          # 캐시에는 로그인 상태(쿠키)를 암호화해서만 둔다. 시크릿이 없는 실행(외부 PR 등)은 풀 수 없다
+          if [ -f out/.dc_session.enc ] && [ -n "$SK" ]; then
+            openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:SK -in out/.dc_session.enc -out out/.dc_session.json 2>/dev/null && python3 -c "import json;json.load(open('out/.dc_session.json'))" 2>/dev/null && chmod 600 out/.dc_session.json || rm -f out/.dc_session.json
+          fi
+          rm -f out/.dc_session.enc
+
+      - name: 실행
+        env:
+          DC_GALLERY_ID: ${{ secrets.DC_GALLERY_ID }}
+          DC_MINOR: ${{ vars.DC_MINOR }}
+          DRY_RUN: ${{ inputs.dry && 'true' || vars.DRY_RUN }}
+          CHARTS: ${{ inputs.charts }}
+          CHART_FORCE: ${{ inputs.force && 'true' || 'false' }}
+          DC_HEADTEXT: ${{ vars.DC_HEADTEXT }}
+          DC_ID: ${{ secrets.DC_ID }}
+          DC_PW: ${{ secrets.DC_PW }}
+          DC_ANON_NICK: ${{ vars.DC_ANON_NICK }}
+          DC_ANON_PW: ${{ secrets.DC_ANON_PW }}
+          DC_STORAGE_STATE: ${{ secrets.DC_STORAGE_STATE }}
+        run: python run.py once --config config.actions.toml
+
+      - name: 로그인 상태 잠그기
+        if: always()
+        env:
+          SK: ${{ secrets.DC_PW }}
+        run: |
+          if [ -f out/.dc_session.json ] && [ -n "$SK" ]; then
+            openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass env:SK -in out/.dc_session.json -out out/.dc_session.enc
+          fi
+          rm -f out/.dc_session.json
+
+      - name: 상태 저장
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: out
+          key: chartbot-state-${{ github.run_id }}
+
+      # 확인용: 만들어진 차트 이미지(출처 표기 포함, 민감 정보 없음)를 Actions 실행 화면 하단 Artifacts 에서 내려받을 수 있다
+      - name: 차트 이미지 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: charts
+          path: out/*.png
+          retention-days: 1
+          if-no-files-found: ignore
+
+      # 비공개 저장소에서만 실패 화면을 보관 (공개 저장소에서는 계정 화면이 노출될 수 있어 올리지 않음)
+      - name: 실패 화면 보관
+        if: failure() && github.event.repository.private
+        uses: actions/upload-artifact@v4
+        with:
+          name: dc-error
+          path: out/dc_error.png
+          retention-days: 2
+          if-no-files-found: ignore

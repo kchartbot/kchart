@@ -1,0 +1,24 @@
+name: platlag
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        type: string
+        default: "50"
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  lag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q -r requirements.txt
+      - env:
+          ARG: ${{ inputs.minutes }}
+        run: python tools/plat_lag.py "$ARG"

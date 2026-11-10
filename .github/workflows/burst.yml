@@ -1,0 +1,23 @@
+name: burst
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+env:
+  CP_KEY: ${{ secrets.CP_KEY }}
+  CP_KEY_2: ${{ secrets.CP_KEY_2 }}
+  CP_BASE: ${{ secrets.CP_BASE }}
+jobs:
+  burst:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q -r requirements.txt
+      - run: python tools/find_top100.py
+      - run: |
+          cd logos && git init -q && git checkout -q -b logos && git add -A
+          git -c user.name=p -c user.email=p@x commit -qm logos && git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" logos

@@ -1,0 +1,259 @@
+{
+ "chart": "MELON_FIVE_CHART",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {},
+ "size": 8,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": null,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    3.94428,
+    3.96111,
+    5.69405,
+    5.01835,
+    4.65726,
+    4.35682,
+    4.16671,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 2,
+   "previous": null,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   },
+   "values": [
+    2.88437,
+    2.61964,
+    2.54766,
+    2.53186,
+    2.48909,
+    2.44856,
+    2.79262,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 3,
+   "previous": null,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   },
+   "values": [
+    2.83117,
+    2.41767,
+    2.24332,
+    2.28795,
+    2.33631,
+    2.36597,
+    2.41203,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 4,
+   "previous": null,
+   "song": {
+    "name": "LOVE ATTACK",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "SCENEDROME",
+     "image": ""
+    }
+   },
+   "values": [
+    2.59971,
+    3.68076,
+    2.68602,
+    2.42966,
+    2.44746,
+    2.40568,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 5,
+   "previous": null,
+   "song": {
+    "name": "Pretty Girl",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "Pretty Girl - Special Single",
+     "image": ""
+    }
+   },
+   "values": [
+    1.7258,
+    1.13121,
+    1.15699,
+    2.62973,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 6,
+   "previous": null,
+   "song": {
+    "name": "Star Trace",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   },
+   "values": [
+    1.25321,
+    4.69817,
+    3.15817,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 7,
+   "previous": null,
+   "song": {
+    "name": "꾼",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   },
+   "values": [
+    1.01839,
+    1.87505,
+    3.02274,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "ranking": 8,
+   "previous": null,
+   "song": {
+    "name": "푸른 하늘에 단비",
+    "artists": [
+     {
+      "name": "PLAVE"
+     }
+    ],
+    "album": {
+     "name": "HYPERDRIVE",
+     "image": ""
+    }
+   },
+   "values": [
+    1.06713,
+    3.69433,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  }
+ ]
+}

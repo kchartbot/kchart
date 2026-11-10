@@ -1,0 +1,206 @@
+{
+ "chart": "BUGS_REALTIME_CHART",
+ "time": "2026-11-05T11:00:00",
+ "columnName": {},
+ "size": 100,
+ "data": [
+  {
+   "ranking": 1,
+   "previous": 1,
+   "song": {
+    "name": "NEON",
+    "artists": [
+     {
+      "name": "A2O"
+     },
+     {
+      "name": "A2O LITE"
+     }
+    ],
+    "album": {
+     "name": "NEON",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 2,
+   "previous": 3,
+   "song": {
+    "name": "꿈꾸던 어른이 되었나요?",
+    "artists": [
+     {
+      "name": "머무르"
+     }
+    ],
+    "album": {
+     "name": "꿈꾸던 어른이 되었나요?",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 3,
+   "previous": 2,
+   "song": {
+    "name": "With",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 4,
+   "previous": 4,
+   "song": {
+    "name": "체포하겠어",
+    "artists": [
+     {
+      "name": "아일릿(ILLIT)"
+     }
+    ],
+    "album": {
+     "name": "BREAK EVEN",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 5,
+   "previous": 5,
+   "song": {
+    "name": "백화요란 (Inside Out)",
+    "artists": [
+     {
+      "name": "RESCENE (리센느)"
+     }
+    ],
+    "album": {
+     "name": "PULSE",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 6,
+   "previous": 7,
+   "song": {
+    "name": "미장센",
+    "artists": [
+     {
+      "name": "에픽하이 (EPIK HIGH)"
+     },
+     {
+      "name": "다비치"
+     }
+    ],
+    "album": {
+     "name": "미장센",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 7,
+   "previous": 6,
+   "song": {
+    "name": "Looks Can Kill",
+    "artists": [
+     {
+      "name": "IVE (아이브)"
+     }
+    ],
+    "album": {
+     "name": "Looks Can Kill",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 8,
+   "previous": 8,
+   "song": {
+    "name": "퇴사할게여 (Narr. 기안84)",
+    "artists": [
+     {
+      "name": "소연 (SOYEON)"
+     }
+    ],
+    "album": {
+     "name": "끝내주는 인생",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 9,
+   "previous": 10,
+   "song": {
+    "name": "생각을 멈추다 보면",
+    "artists": [
+     {
+      "name": "최유리"
+     }
+    ],
+    "album": {
+     "name": "생각을 멈추다 보면",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 10,
+   "previous": 13,
+   "song": {
+    "name": "삐그덕 (Feat. 아이유)",
+    "artists": [
+     {
+      "name": "Crush"
+     }
+    ],
+    "album": {
+     "name": "삐그덕 (Feat. 아이유)",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 11,
+   "previous": 9,
+   "song": {
+    "name": "연애의 조건 (Love Options)",
+    "artists": [
+     {
+      "name": "베스티(BESTie)"
+     }
+    ],
+    "album": {
+     "name": "연애의 조건 (Love Options)",
+     "image": ""
+    }
+   }
+  },
+  {
+   "ranking": 12,
+   "previous": 12,
+   "song": {
+    "name": "BAD",
+    "artists": [
+     {
+      "name": "ATEEZ(에이티즈)"
+     }
+    ],
+    "album": {
+     "name": "GOLDEN HOUR : Part.5",
+     "image": ""
+    }
+   }
+  }
+ ]
+}
