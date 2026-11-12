@@ -1,0 +1,4650 @@
+{
+ "httpsDomain": "https://m2.melon.com",
+ "response": {
+  "STATUS": "0",
+  "RECOMMENDLIST": [],
+  "CHARTLIST": [
+   {
+    "SONGID": "603712834",
+    "SONGNAME": "With",
+    "ALBUMID": "15082293",
+    "ALBUMNAME": "PULSE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "191",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "1",
+    "PASTRANK": "1",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.03",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602290711",
+    "SONGNAME": "꿈꾸던 어른이 되었나요?",
+    "ALBUMID": "13744621",
+    "ALBUMNAME": "꿈꾸던 어른이 되었나요?",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4828712",
+      "ARTISTNAME": "머무르"
+     }
+    ],
+    "PLAYTIME": "208",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     }
+    ],
+    "CURRANK": "2",
+    "PASTRANK": "2",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg?6dec38eaeca361976f404fa5080c650a/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg?6dec38eaeca361976f404fa5080c650a/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg?6dec38eaeca361976f404fa5080c650a/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/137/44/621/13744621_20260617115134_500.jpg?6dec38eaeca361976f404fa5080c650a/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.06.23",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603382333",
+    "SONGNAME": "NEON",
+    "ALBUMID": "14644795",
+    "ALBUMNAME": "NEON",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4531271",
+      "ARTISTNAME": "A2O"
+     },
+     {
+      "ARTISTID": "5217450",
+      "ARTISTNAME": "A2O LITE"
+     }
+    ],
+    "PLAYTIME": "208",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "3",
+    "PASTRANK": "3",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/44/795/14644795_20261012141441_500.jpg?b2378de7d6a8cf13812161ba8229172d/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.10.13",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37928381",
+    "SONGNAME": "LOVE ATTACK",
+    "ALBUMID": "11575849",
+    "ALBUMNAME": "SCENEDROME",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "182",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "4",
+    "PASTRANK": "5",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.08.27",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603712835",
+    "SONGNAME": "백화요란 (Inside Out)",
+    "ALBUMID": "15082293",
+    "ALBUMNAME": "PULSE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "211",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "5",
+    "PASTRANK": "4",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.03",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "39231685",
+    "SONGNAME": "Deja Vu",
+    "ALBUMID": "11875116",
+    "ALBUMNAME": "Dearest",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "184",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "6",
+    "PASTRANK": "6",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/118/75/116/11875116_20250701165641_500.jpg?86da3088c776a346e926b1b4052f227c/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/118/75/116/11875116_20250701165641_500.jpg?86da3088c776a346e926b1b4052f227c/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/118/75/116/11875116_20250701165641_500.jpg?86da3088c776a346e926b1b4052f227c/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/118/75/116/11875116_20250701165641_500.jpg?86da3088c776a346e926b1b4052f227c/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.07.02",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603709840",
+    "SONGNAME": "체포하겠어",
+    "ALBUMID": "15081373",
+    "ALBUMNAME": "BREAK EVEN",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3743525",
+      "ARTISTNAME": "아일릿(ILLIT)"
+     }
+    ],
+    "PLAYTIME": "182",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "7",
+    "PASTRANK": "7",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/81/373/15081373_20261026102240_500.jpg?c2037cc63d2cc1198702f35bef7d5285/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.10.26",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602450078",
+    "SONGNAME": "Pretty Girl",
+    "ALBUMID": "13788545",
+    "ALBUMNAME": "Pretty Girl - Special Single",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "210",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "8",
+    "PASTRANK": "13",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/137/88/545/13788545_20260707111659_500.jpg?3ef0f9e6af1ea09e3f919c7cb69065ed/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/137/88/545/13788545_20260707111659_500.jpg?3ef0f9e6af1ea09e3f919c7cb69065ed/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/137/88/545/13788545_20260707111659_500.jpg?3ef0f9e6af1ea09e3f919c7cb69065ed/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/137/88/545/13788545_20260707111659_500.jpg?3ef0f9e6af1ea09e3f919c7cb69065ed/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.07.08",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602862199",
+    "SONGNAME": "퇴사할게여 (Narr. 기안84)",
+    "ALBUMID": "14470302",
+    "ALBUMNAME": "끝내주는 인생",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "1050107",
+      "ARTISTNAME": "소연 (SOYEON)"
+     }
+    ],
+    "PLAYTIME": "212",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "9",
+    "PASTRANK": "8",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/70/302/14470302_20260907113632_500.jpg?71d1c6ac9477a8dc9627acfc4759966d/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.09.07",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "4277838",
+    "SONGNAME": "연애의 조건 (Love Options)",
+    "ALBUMID": "2210766",
+    "ALBUMNAME": "연애의 조건",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "727818",
+      "ARTISTNAME": "베스티"
+     }
+    ],
+    "PLAYTIME": "194",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0089",
+      "GENRENAME": "댄스 10‘~"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     }
+    ],
+    "CURRANK": "10",
+    "PASTRANK": "11",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/022/10/766/2210766_500.jpg/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/022/10/766/2210766_500.jpg/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/022/10/766/2210766_500.jpg/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/022/10/766/2210766_500.jpg/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2013.10.17",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601719493",
+    "SONGNAME": "Runaway",
+    "ALBUMID": "13312413",
+    "ALBUMNAME": "Runaway",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "182",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "11",
+    "PASTRANK": "9",
+    "RANKGAP": "2",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/413/13312413_20260406143448_500.jpg?0d1b1aec895dbf60aa601748ddf64dd9/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/413/13312413_20260406143448_500.jpg?0d1b1aec895dbf60aa601748ddf64dd9/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/413/13312413_20260406143448_500.jpg?0d1b1aec895dbf60aa601748ddf64dd9/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/413/13312413_20260406143448_500.jpg?0d1b1aec895dbf60aa601748ddf64dd9/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.04.08",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603712833",
+    "SONGNAME": "Finest Thing",
+    "ALBUMID": "15082293",
+    "ALBUMNAME": "PULSE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "140",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "12",
+    "PASTRANK": "10",
+    "RANKGAP": "2",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.03",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "36985781",
+    "SONGNAME": "생각을 멈추다 보면",
+    "ALBUMID": "11369106",
+    "ALBUMNAME": "생각을 멈추다 보면",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2645970",
+      "ARTISTNAME": "최유리"
+     }
+    ],
+    "PLAYTIME": "197",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0016",
+      "GENRENAME": "Folk"
+     },
+     {
+      "GENRECODE": "GC0168",
+      "GENRENAME": "인디음악 20'"
+     },
+     {
+      "GENRECODE": "GC0172",
+      "GENRENAME": "포크/블루스 20'"
+     }
+    ],
+    "CURRANK": "13",
+    "PASTRANK": "15",
+    "RANKGAP": "2",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/113/69/106/11369106_20231120180538_500.jpg?d99779a400d19b413c8bdc068b9fb743/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/113/69/106/11369106_20231120180538_500.jpg?d99779a400d19b413c8bdc068b9fb743/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/113/69/106/11369106_20231120180538_500.jpg?d99779a400d19b413c8bdc068b9fb743/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/113/69/106/11369106_20231120180538_500.jpg?d99779a400d19b413c8bdc068b9fb743/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2023.11.21",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603448999",
+    "SONGNAME": "Looks Can Kill",
+    "ALBUMID": "14809931",
+    "ALBUMNAME": "Looks Can Kill",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3055146",
+      "ARTISTNAME": "IVE (아이브)"
+     }
+    ],
+    "PLAYTIME": "196",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "14",
+    "PASTRANK": "17",
+    "RANKGAP": "3",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/148/09/931/14809931_20261026105712_500.jpg?eb803dafbc4348dcc96be0453434342b/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/148/09/931/14809931_20261026105712_500.jpg?eb803dafbc4348dcc96be0453434342b/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/148/09/931/14809931_20261026105712_500.jpg?eb803dafbc4348dcc96be0453434342b/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/148/09/931/14809931_20261026105712_500.jpg?eb803dafbc4348dcc96be0453434342b/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.10.19",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37928383",
+    "SONGNAME": "Pinball",
+    "ALBUMID": "11575849",
+    "ALBUMNAME": "SCENEDROME",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "193",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "15",
+    "PASTRANK": "16",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/115/75/849/11575849_20240826152240_500.jpg?da43be78cb2cc67e9ee423c739bc09b6/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.08.27",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602024048",
+    "SONGNAME": "갑자기",
+    "ALBUMID": "13399673",
+    "ALBUMNAME": "I.O.I 3rd MINI ALBUM [I.O.I : LOOP]",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "960251",
+      "ARTISTNAME": "아이오아이 (I.O.I)"
+     }
+    ],
+    "PLAYTIME": "195",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "16",
+    "PASTRANK": "18",
+    "RANKGAP": "2",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/99/673/13399673_20260518151131_500.jpg?87de97fb7105b703fcaf0b07a9190ed0/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/99/673/13399673_20260518151131_500.jpg?87de97fb7105b703fcaf0b07a9190ed0/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/99/673/13399673_20260518151131_500.jpg?87de97fb7105b703fcaf0b07a9190ed0/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/99/673/13399673_20260518151131_500.jpg?87de97fb7105b703fcaf0b07a9190ed0/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.05.19",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603712836",
+    "SONGNAME": "MEME",
+    "ALBUMID": "15082293",
+    "ALBUMNAME": "PULSE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "181",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "17",
+    "PASTRANK": "12",
+    "RANKGAP": "5",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.03",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603712837",
+    "SONGNAME": "Dragon",
+    "ALBUMID": "15082293",
+    "ALBUMNAME": "PULSE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3709231",
+      "ARTISTNAME": "RESCENE (리센느)"
+     }
+    ],
+    "PLAYTIME": "220",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "18",
+    "PASTRANK": "14",
+    "RANKGAP": "4",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/82/293/15082293_20261026170443_500.jpg?4d6b5106b27f2c41c45ed4957be82cee/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.03",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602322595",
+    "SONGNAME": "BAD",
+    "ALBUMID": "13752815",
+    "ALBUMNAME": "GOLDEN HOUR : Part.5",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2398260",
+      "ARTISTNAME": "ATEEZ(에이티즈)"
+     }
+    ],
+    "PLAYTIME": "157",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "19",
+    "PASTRANK": "19",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/137/52/815/13752815_20260622141535_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/137/52/815/13752815_20260622141535_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/137/52/815/13752815_20260622141535_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/137/52/815/13752815_20260622141535_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.06.26",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "36397952",
+    "SONGNAME": "Drowning",
+    "ALBUMID": "11183506",
+    "ALBUMNAME": "OO-LI",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2086047",
+      "ARTISTNAME": "WOODZ"
+     }
+    ],
+    "PLAYTIME": "245",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "20",
+    "PASTRANK": "22",
+    "RANKGAP": "2",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/111/83/506/11183506_20230426141236_500.jpg?ed1baf91f606271d73e02b62b18d8333/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/111/83/506/11183506_20230426141236_500.jpg?ed1baf91f606271d73e02b62b18d8333/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/111/83/506/11183506_20230426141236_500.jpg?ed1baf91f606271d73e02b62b18d8333/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/111/83/506/11183506_20230426141236_500.jpg?ed1baf91f606271d73e02b62b18d8333/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2023.04.26",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "32061975",
+    "SONGNAME": "어떻게 이별까지 사랑하겠어, 널 사랑하는 거지",
+    "ALBUMID": "10331947",
+    "ALBUMNAME": "항해",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "712452",
+      "ARTISTNAME": "AKMU (악뮤)"
+     }
+    ],
+    "PLAYTIME": "291",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0085",
+      "GENRENAME": "발라드 10‘~"
+     }
+    ],
+    "CURRANK": "21",
+    "PASTRANK": "21",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/103/31/947/10331947_500.jpg?c6e307f67cf7124ec13127cd60ab569f/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/103/31/947/10331947_500.jpg?c6e307f67cf7124ec13127cd60ab569f/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/103/31/947/10331947_500.jpg?c6e307f67cf7124ec13127cd60ab569f/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/103/31/947/10331947_500.jpg?c6e307f67cf7124ec13127cd60ab569f/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2019.09.25",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601807965",
+    "SONGNAME": "REDRED",
+    "ALBUMID": "13338387",
+    "ALBUMNAME": "GREENGREEN",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4491260",
+      "ARTISTNAME": "CORTIS (코르티스)"
+     }
+    ],
+    "PLAYTIME": "164",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "22",
+    "PASTRANK": "23",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/38/387/13338387_20260504133459_500.jpg?6c945aff0ea5b1384bd88ff103dd8d82/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/38/387/13338387_20260504133459_500.jpg?6c945aff0ea5b1384bd88ff103dd8d82/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/38/387/13338387_20260504133459_500.jpg?6c945aff0ea5b1384bd88ff103dd8d82/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/38/387/13338387_20260504133459_500.jpg?6c945aff0ea5b1384bd88ff103dd8d82/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.04.20",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602377105",
+    "SONGNAME": "만찬가",
+    "ALBUMID": "13765551",
+    "ALBUMNAME": "J-POP REMAKE Vol.1",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "236797",
+      "ARTISTNAME": "태연 (TAEYEON)"
+     }
+    ],
+    "PLAYTIME": "219",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0092",
+      "GENRENAME": "아이돌 발라드"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "23",
+    "PASTRANK": "24",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/137/65/551/13765551_20260626112146_500.jpg?e5fd209ff686e3e356061d7b0f671916/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/137/65/551/13765551_20260626112146_500.jpg?e5fd209ff686e3e356061d7b0f671916/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/137/65/551/13765551_20260626112146_500.jpg?e5fd209ff686e3e356061d7b0f671916/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/137/65/551/13765551_20260626112146_500.jpg?e5fd209ff686e3e356061d7b0f671916/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.06.29",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "600791038",
+    "SONGNAME": "이 밤을 빌려 말해요",
+    "ALBUMID": "12458320",
+    "ALBUMNAME": "이 밤을 빌려 말해요 (오늘 밤, 세계에서 이 사랑이 사라진다 해도 X PLAVE)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3207401",
+      "ARTISTNAME": "PLAVE"
+     }
+    ],
+    "PLAYTIME": "180",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0092",
+      "GENRENAME": "아이돌 발라드"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "24",
+    "PASTRANK": "20",
+    "RANKGAP": "4",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/124/58/320/12458320_20251226151630_500.jpg?f65d0d69f34272cc30d9c8920425a607/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/124/58/320/12458320_20251226151630_500.jpg?f65d0d69f34272cc30d9c8920425a607/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/124/58/320/12458320_20251226151630_500.jpg?f65d0d69f34272cc30d9c8920425a607/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/124/58/320/12458320_20251226151630_500.jpg?f65d0d69f34272cc30d9c8920425a607/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.12.29",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601719416",
+    "SONGNAME": "기쁨, 슬픔, 아름다운 마음",
+    "ALBUMID": "13312398",
+    "ALBUMNAME": "개화",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "712452",
+      "ARTISTNAME": "AKMU (악뮤)"
+     }
+    ],
+    "PLAYTIME": "277",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "25",
+    "PASTRANK": "26",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.04.07",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "34061322",
+    "SONGNAME": "사랑은 늘 도망가",
+    "ALBUMID": "10735654",
+    "ALBUMNAME": "신사와 아가씨 OST Part.2",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "994944",
+      "ARTISTNAME": "임영웅"
+     }
+    ],
+    "PLAYTIME": "243",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0069",
+      "GENRENAME": "한국 드라마"
+     },
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "26",
+    "PASTRANK": "25",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/107/35/654/10735654_20211008114339_500.jpg?7eeae0e5c1f24c5ae9fa04f626e74c34/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/107/35/654/10735654_20211008114339_500.jpg?7eeae0e5c1f24c5ae9fa04f626e74c34/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/107/35/654/10735654_20211008114339_500.jpg?7eeae0e5c1f24c5ae9fa04f626e74c34/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/107/35/654/10735654_20211008114339_500.jpg?7eeae0e5c1f24c5ae9fa04f626e74c34/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2021.10.11",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38104031",
+    "SONGNAME": "내게 사랑이 뭐냐고 물어본다면",
+    "ALBUMID": "11616312",
+    "ALBUMNAME": "내게 사랑이 뭐냐고 물어본다면",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "699632",
+      "ARTISTNAME": "로이킴"
+     }
+    ],
+    "PLAYTIME": "224",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "27",
+    "PASTRANK": "28",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/16/312/11616312_20241015135802_500.jpg?7fe2a8e6ea840ef150980dbb829a0bbd/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/16/312/11616312_20241015135802_500.jpg?7fe2a8e6ea840ef150980dbb829a0bbd/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/16/312/11616312_20241015135802_500.jpg?7fe2a8e6ea840ef150980dbb829a0bbd/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/16/312/11616312_20241015135802_500.jpg?7fe2a8e6ea840ef150980dbb829a0bbd/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.10.16",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "600287375",
+    "SONGNAME": "Good Goodbye",
+    "ALBUMID": "12160000",
+    "ALBUMNAME": "Good Goodbye",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "756531",
+      "ARTISTNAME": "화사 (HWASA)"
+     }
+    ],
+    "PLAYTIME": "223",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0092",
+      "GENRENAME": "아이돌 발라드"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "28",
+    "PASTRANK": "27",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/121/60/000/12160000_20251014164646_500.jpg?131bde718bd1578a1b34b12adabfa153/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/121/60/000/12160000_20251014164646_500.jpg?131bde718bd1578a1b34b12adabfa153/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/121/60/000/12160000_20251014164646_500.jpg?131bde718bd1578a1b34b12adabfa153/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/121/60/000/12160000_20251014164646_500.jpg?131bde718bd1578a1b34b12adabfa153/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.10.15",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603574639",
+    "SONGNAME": "Boogie Woogie",
+    "ALBUMID": "15004542",
+    "ALBUMNAME": "DREAM AFTER DREAM",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "1066419",
+      "ARTISTNAME": "NCT DREAM"
+     }
+    ],
+    "PLAYTIME": "193",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "29",
+    "PASTRANK": "29",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "36730261",
+    "SONGNAME": "사랑하게 될 거야",
+    "ALBUMID": "11312872",
+    "ALBUMNAME": "이상비행",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3080810",
+      "ARTISTNAME": "한로로"
+     }
+    ],
+    "PLAYTIME": "165",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0168",
+      "GENRENAME": "인디음악 20'"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "30",
+    "PASTRANK": "31",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/113/12/872/11312872_20230823162414_500.jpg?c6eca6aca9a6de40b17f1f03028892bc/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/113/12/872/11312872_20230823162414_500.jpg?c6eca6aca9a6de40b17f1f03028892bc/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/113/12/872/11312872_20230823162414_500.jpg?c6eca6aca9a6de40b17f1f03028892bc/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/113/12/872/11312872_20230823162414_500.jpg?c6eca6aca9a6de40b17f1f03028892bc/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2023.08.29",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37473973",
+    "SONGNAME": "Popcorn",
+    "ALBUMID": "11477689",
+    "ALBUMNAME": "성장 - THE 3RD MINI ALBUM",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "672853",
+      "ARTISTNAME": "도경수(D.O.)"
+     }
+    ],
+    "PLAYTIME": "182",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0092",
+      "GENRENAME": "아이돌 발라드"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "31",
+    "PASTRANK": "30",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/114/77/689/11477689_20240507151429_500.jpg?da59e0849d54eb7e6ccff961e44f8d70/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/114/77/689/11477689_20240507151429_500.jpg?da59e0849d54eb7e6ccff961e44f8d70/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/114/77/689/11477689_20240507151429_500.jpg?da59e0849d54eb7e6ccff961e44f8d70/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/114/77/689/11477689_20240507151429_500.jpg?da59e0849d54eb7e6ccff961e44f8d70/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.05.07",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603538665",
+    "SONGNAME": "삐그덕 (Feat. 아이유)",
+    "ALBUMID": "14955418",
+    "ALBUMNAME": "삐그덕 (Feat. 아이유)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "674710",
+      "ARTISTNAME": "Crush"
+     }
+    ],
+    "PLAYTIME": "181",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0033",
+      "GENRENAME": "R&B / Soul"
+     },
+     {
+      "GENRECODE": "GC0187",
+      "GENRENAME": "R&B / Soul 20'"
+     }
+    ],
+    "CURRANK": "32",
+    "PASTRANK": "35",
+    "RANKGAP": "3",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/149/55/418/14955418_20261019111743_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/149/55/418/14955418_20261019111743_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/149/55/418/14955418_20261019111743_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/149/55/418/14955418_20261019111743_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.10.21",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37140709",
+    "SONGNAME": "첫 만남은 계획대로 되지 않아",
+    "ALBUMID": "11391902",
+    "ALBUMNAME": "Sparkling Blue",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3679688",
+      "ARTISTNAME": "TWS (투어스)"
+     }
+    ],
+    "PLAYTIME": "153",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "33",
+    "PASTRANK": "32",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/113/91/902/11391902_20250922111638_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/113/91/902/11391902_20250922111638_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/113/91/902/11391902_20250922111638_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/113/91/902/11391902_20250922111638_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2024.01.22",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "4446485",
+    "SONGNAME": "너의 모든 순간",
+    "ALBUMID": "2232505",
+    "ALBUMNAME": "별에서 온 그대 OST Part.7",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3305",
+      "ARTISTNAME": "성시경"
+     }
+    ],
+    "PLAYTIME": "243",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0012",
+      "GENRENAME": "Drama"
+     },
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0069",
+      "GENRENAME": "한국 드라마"
+     },
+     {
+      "GENRECODE": "GC0085",
+      "GENRENAME": "발라드 10‘~"
+     }
+    ],
+    "CURRANK": "34",
+    "PASTRANK": "33",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/022/32/505/2232505_500.jpg/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/022/32/505/2232505_500.jpg/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/022/32/505/2232505_500.jpg/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/022/32/505/2232505_500.jpg/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2014.02.12",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603339939",
+    "SONGNAME": "Star Trace",
+    "ALBUMID": "14629242",
+    "ALBUMNAME": "HYPERDRIVE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3207401",
+      "ARTISTNAME": "PLAVE"
+     }
+    ],
+    "PLAYTIME": "179",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "35",
+    "PASTRANK": "41",
+    "RANKGAP": "6",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.10.12",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "600299706",
+    "SONGNAME": "타임캡슐",
+    "ALBUMID": "12163032",
+    "ALBUMNAME": "타임캡슐",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "236815",
+      "ARTISTNAME": "다비치"
+     }
+    ],
+    "PLAYTIME": "252",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "36",
+    "PASTRANK": "38",
+    "RANKGAP": "2",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/121/63/032/12163032_20251015164500_500.jpg?e7ae633046a20aa52afd5ff1fb86e847/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/121/63/032/12163032_20251015164500_500.jpg?e7ae633046a20aa52afd5ff1fb86e847/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/121/63/032/12163032_20251015164500_500.jpg?e7ae633046a20aa52afd5ff1fb86e847/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/121/63/032/12163032_20251015164500_500.jpg?e7ae633046a20aa52afd5ff1fb86e847/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.10.16",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601899271",
+    "SONGNAME": "It′s Me",
+    "ALBUMID": "13362401",
+    "ALBUMNAME": "MAMIHLAPINATAPAI",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3743525",
+      "ARTISTNAME": "아일릿(ILLIT)"
+     }
+    ],
+    "PLAYTIME": "139",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "37",
+    "PASTRANK": "34",
+    "RANKGAP": "3",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/62/401/13362401_20260430094059_500.jpg?55f79d81921bc12a94b513909300f415/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/62/401/13362401_20260430094059_500.jpg?55f79d81921bc12a94b513909300f415/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/62/401/13362401_20260430094059_500.jpg?55f79d81921bc12a94b513909300f415/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/62/401/13362401_20260430094059_500.jpg?55f79d81921bc12a94b513909300f415/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.04.30",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602115220",
+    "SONGNAME": "LEMONADE",
+    "ALBUMID": "13384085",
+    "ALBUMNAME": "LEMONADE - The 2nd Album",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2899555",
+      "ARTISTNAME": "aespa"
+     }
+    ],
+    "PLAYTIME": "187",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0014",
+      "GENRENAME": "Electronica"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0191",
+      "GENRENAME": "일렉트로니카 20'"
+     }
+    ],
+    "CURRANK": "38",
+    "PASTRANK": "37",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/84/085/13384085_20260528181046_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/84/085/13384085_20260528181046_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/84/085/13384085_20260528181046_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/84/085/13384085_20260528181046_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.05.29",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602839323",
+    "SONGNAME": "BiiiG",
+    "ALBUMID": "14463127",
+    "ALBUMNAME": "BiiiG",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "198094",
+      "ARTISTNAME": "BIGBANG (빅뱅)"
+     }
+    ],
+    "PLAYTIME": "165",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0034",
+      "GENRENAME": "Rap / Hip-hop"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0094",
+      "GENRENAME": "아이돌 랩힙합"
+     },
+     {
+      "GENRECODE": "GC0183",
+      "GENRENAME": "랩/힙합 20'"
+     }
+    ],
+    "CURRANK": "39",
+    "PASTRANK": "36",
+    "RANKGAP": "3",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/63/127/14463127_20260819092848_500.jpg?c4f29d951c41970cde93c9ca539ea488/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/63/127/14463127_20260819092848_500.jpg?c4f29d951c41970cde93c9ca539ea488/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/63/127/14463127_20260819092848_500.jpg?c4f29d951c41970cde93c9ca539ea488/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/63/127/14463127_20260819092848_500.jpg?c4f29d951c41970cde93c9ca539ea488/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.08.19",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "39504779",
+    "SONGNAME": "0+0",
+    "ALBUMID": "11982233",
+    "ALBUMNAME": "자몽살구클럽",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3080810",
+      "ARTISTNAME": "한로로"
+     }
+    ],
+    "PLAYTIME": "192",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0168",
+      "GENRENAME": "인디음악 20'"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "40",
+    "PASTRANK": "39",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/119/82/233/11982233_20250801150859_500.jpg?d6a94600cb22c36878cae0223dc86292/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/119/82/233/11982233_20250801150859_500.jpg?d6a94600cb22c36878cae0223dc86292/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/119/82/233/11982233_20250801150859_500.jpg?d6a94600cb22c36878cae0223dc86292/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/119/82/233/11982233_20250801150859_500.jpg?d6a94600cb22c36878cae0223dc86292/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.08.04",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38733032",
+    "SONGNAME": "어제보다 슬픈 오늘",
+    "ALBUMID": "11756010",
+    "ALBUMNAME": "어제보다 슬픈 오늘",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "673033",
+      "ARTISTNAME": "우디 (Woody)"
+     }
+    ],
+    "PLAYTIME": "237",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "41",
+    "PASTRANK": "40",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/117/56/010/11756010_20250331135525_500.jpg?1253aed12fbd252ff6263490542c2739/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/117/56/010/11756010_20250331135525_500.jpg?1253aed12fbd252ff6263490542c2739/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/117/56/010/11756010_20250331135525_500.jpg?1253aed12fbd252ff6263490542c2739/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/117/56/010/11756010_20250331135525_500.jpg?1253aed12fbd252ff6263490542c2739/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.03.31",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38242510",
+    "SONGNAME": "HOME SWEET HOME (feat. 태양, 대성)",
+    "ALBUMID": "11647670",
+    "ALBUMNAME": "HOME SWEET HOME (feat. 태양, 대성)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "6984",
+      "ARTISTNAME": "G-DRAGON"
+     }
+    ],
+    "PLAYTIME": "212",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0034",
+      "GENRENAME": "Rap / Hip-hop"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0094",
+      "GENRENAME": "아이돌 랩힙합"
+     },
+     {
+      "GENRECODE": "GC0183",
+      "GENRENAME": "랩/힙합 20'"
+     }
+    ],
+    "CURRANK": "42",
+    "PASTRANK": "46",
+    "RANKGAP": "4",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/47/670/11647670_20241121150855_500.jpg?ca3667d3396803e3f6b227e77440b735/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/47/670/11647670_20241121150855_500.jpg?ca3667d3396803e3f6b227e77440b735/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/47/670/11647670_20241121150855_500.jpg?ca3667d3396803e3f6b227e77440b735/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/47/670/11647670_20241121150855_500.jpg?ca3667d3396803e3f6b227e77440b735/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.11.22",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "33411344",
+    "SONGNAME": "봄 내음보다 너를",
+    "ALBUMID": "10592109",
+    "ALBUMNAME": "봄 내음보다 너를",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "735094",
+      "ARTISTNAME": "김나영"
+     }
+    ],
+    "PLAYTIME": "218",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "43",
+    "PASTRANK": "47",
+    "RANKGAP": "4",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/105/92/109/10592109_20210413181735_500.jpg?fa092ba912e527a05fc53fcb31ffe6c4/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/105/92/109/10592109_20210413181735_500.jpg?fa092ba912e527a05fc53fcb31ffe6c4/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/105/92/109/10592109_20210413181735_500.jpg?fa092ba912e527a05fc53fcb31ffe6c4/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/105/92/109/10592109_20210413181735_500.jpg?fa092ba912e527a05fc53fcb31ffe6c4/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2021.04.14",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "30962526",
+    "SONGNAME": "모든 날, 모든 순간 (Every day, Every Moment)",
+    "ALBUMID": "10149492",
+    "ALBUMNAME": "'키스 먼저 할까요?' OST Part.3",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "752425",
+      "ARTISTNAME": "폴킴"
+     }
+    ],
+    "PLAYTIME": "210",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0012",
+      "GENRENAME": "Drama"
+     },
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0069",
+      "GENRENAME": "한국 드라마"
+     },
+     {
+      "GENRECODE": "GC0085",
+      "GENRENAME": "발라드 10‘~"
+     }
+    ],
+    "CURRANK": "44",
+    "PASTRANK": "49",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/101/49/492/10149492_500.jpg?fa24fa8eabdd1e9e13759225831e2eec/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/101/49/492/10149492_500.jpg?fa24fa8eabdd1e9e13759225831e2eec/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/101/49/492/10149492_500.jpg?fa24fa8eabdd1e9e13759225831e2eec/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/101/49/492/10149492_500.jpg?fa24fa8eabdd1e9e13759225831e2eec/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2018.03.20",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "600243411",
+    "SONGNAME": "Blue Valentine",
+    "ALBUMID": "12149391",
+    "ALBUMNAME": "Blue Valentine",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3070786",
+      "ARTISTNAME": "NMIXX"
+     }
+    ],
+    "PLAYTIME": "186",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "45",
+    "PASTRANK": "42",
+    "RANKGAP": "3",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/121/49/391/12149391_20251013150421_500.jpg?ca06d790a1f14c4a81957e158c8ef39a/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/121/49/391/12149391_20251013150421_500.jpg?ca06d790a1f14c4a81957e158c8ef39a/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/121/49/391/12149391_20251013150421_500.jpg?ca06d790a1f14c4a81957e158c8ef39a/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/121/49/391/12149391_20251013150421_500.jpg?ca06d790a1f14c4a81957e158c8ef39a/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.10.13",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601879407",
+    "SONGNAME": "Heavy Serenade",
+    "ALBUMID": "13357541",
+    "ALBUMNAME": "Heavy Serenade",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3070786",
+      "ARTISTNAME": "NMIXX"
+     }
+    ],
+    "PLAYTIME": "180",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "46",
+    "PASTRANK": "51",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/57/541/13357541_20260511133217_500.jpg?acef6fef7d975effef4694c7da744d64/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/57/541/13357541_20260511133217_500.jpg?acef6fef7d975effef4694c7da744d64/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/57/541/13357541_20260511133217_500.jpg?acef6fef7d975effef4694c7da744d64/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/57/541/13357541_20260511133217_500.jpg?acef6fef7d975effef4694c7da744d64/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.05.11",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37228861",
+    "SONGNAME": "천상연",
+    "ALBUMID": "11421941",
+    "ALBUMNAME": "천상연 (웹툰 '선녀외전' X 이창섭 (LEE CHANGSUB))",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "672288",
+      "ARTISTNAME": "이창섭"
+     }
+    ],
+    "PLAYTIME": "272",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "47",
+    "PASTRANK": "48",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/114/21/941/11421941_20240220105008_500.jpg?cdfb359c895c503a708e40d10bdbada7/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/114/21/941/11421941_20240220105008_500.jpg?cdfb359c895c503a708e40d10bdbada7/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/114/21/941/11421941_20240220105008_500.jpg?cdfb359c895c503a708e40d10bdbada7/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/114/21/941/11421941_20240220105008_500.jpg?cdfb359c895c503a708e40d10bdbada7/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.02.21",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602951446",
+    "SONGNAME": "또또",
+    "ALBUMID": "14498154",
+    "ALBUMNAME": "IM HERO 10",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "994944",
+      "ARTISTNAME": "임영웅"
+     }
+    ],
+    "PLAYTIME": "188",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "48",
+    "PASTRANK": "50",
+    "RANKGAP": "2",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.09.08",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601332163",
+    "SONGNAME": "RUDE!",
+    "ALBUMID": "12869629",
+    "ALBUMNAME": "RUDE!",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4096106",
+      "ARTISTNAME": "Hearts2Hearts (하츠투하츠)"
+     }
+    ],
+    "PLAYTIME": "200",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "49",
+    "PASTRANK": "45",
+    "RANKGAP": "4",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/128/69/629/12869629_20260219143819_500.jpg?87c9804de11c3f88a1aa6194e1291395/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/128/69/629/12869629_20260219143819_500.jpg?87c9804de11c3f88a1aa6194e1291395/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/128/69/629/12869629_20260219143819_500.jpg?87c9804de11c3f88a1aa6194e1291395/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/128/69/629/12869629_20260219143819_500.jpg?87c9804de11c3f88a1aa6194e1291395/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.02.20",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601479669",
+    "SONGNAME": "캐치 캐치",
+    "ALBUMID": "12908035",
+    "ALBUMNAME": "LOVE CATCHER",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2399724",
+      "ARTISTNAME": "YENA (최예나)"
+     }
+    ],
+    "PLAYTIME": "180",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "50",
+    "PASTRANK": "43",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/129/08/035/12908035_20260309142026_500.jpg?d1d343a42d4b599a46fbf3283d6301e2/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/129/08/035/12908035_20260309142026_500.jpg?d1d343a42d4b599a46fbf3283d6301e2/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/129/08/035/12908035_20260309142026_500.jpg?d1d343a42d4b599a46fbf3283d6301e2/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/129/08/035/12908035_20260309142026_500.jpg?d1d343a42d4b599a46fbf3283d6301e2/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.03.11",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38429074",
+    "SONGNAME": "모르시나요(PROD.로코베리)",
+    "ALBUMID": "11685729",
+    "ALBUMNAME": "모르시나요",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3186091",
+      "ARTISTNAME": "조째즈"
+     }
+    ],
+    "PLAYTIME": "302",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "51",
+    "PASTRANK": "56",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/85/729/11685729_20250106160640_500.jpg?df52a12b8a47356c9d11a91629cd9d7b/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/85/729/11685729_20250106160640_500.jpg?df52a12b8a47356c9d11a91629cd9d7b/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/85/729/11685729_20250106160640_500.jpg?df52a12b8a47356c9d11a91629cd9d7b/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/85/729/11685729_20250106160640_500.jpg?df52a12b8a47356c9d11a91629cd9d7b/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.01.07",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601719413",
+    "SONGNAME": "소문의 낙원",
+    "ALBUMID": "13312398",
+    "ALBUMNAME": "개화",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "712452",
+      "ARTISTNAME": "AKMU (악뮤)"
+     }
+    ],
+    "PLAYTIME": "219",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "52",
+    "PASTRANK": "44",
+    "RANKGAP": "8",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/133/12/398/13312398_20260406142544_500.jpg?f30cb025baa0cc9d840d16c30d53259f/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.04.07",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "34908740",
+    "SONGNAME": "우리들의 블루스",
+    "ALBUMID": "10923444",
+    "ALBUMNAME": "IM HERO",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "994944",
+      "ARTISTNAME": "임영웅"
+     }
+    ],
+    "PLAYTIME": "208",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "53",
+    "PASTRANK": "52",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/109/23/444/10923444_20220502140600_500.jpg?5bd42dcc031a23cd1cae99ae37a606aa/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2022.05.02",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "36699489",
+    "SONGNAME": "그대만 있다면 (여름날 우리 X 너드커넥션 (Nerd Connection))",
+    "ALBUMID": "11305759",
+    "ALBUMNAME": "그대만 있다면 (여름날 우리 X 너드커넥션 (Nerd Connection))",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2243398",
+      "ARTISTNAME": "너드커넥션 (Nerd Connection)"
+     }
+    ],
+    "PLAYTIME": "251",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "54",
+    "PASTRANK": "55",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/113/05/759/11305759_20230814111006_500.jpg?d0b78d0df98510f195ccde3e38769717/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/113/05/759/11305759_20230814111006_500.jpg?d0b78d0df98510f195ccde3e38769717/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/113/05/759/11305759_20230814111006_500.jpg?d0b78d0df98510f195ccde3e38769717/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/113/05/759/11305759_20230814111006_500.jpg?d0b78d0df98510f195ccde3e38769717/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2023.08.15",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37390939",
+    "SONGNAME": "소나기",
+    "ALBUMID": "11459325",
+    "ALBUMNAME": "선재 업고 튀어 OST Part 1",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3752136",
+      "ARTISTNAME": "이클립스 (ECLIPSE)"
+     }
+    ],
+    "PLAYTIME": "234",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0069",
+      "GENRENAME": "한국 드라마"
+     },
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "55",
+    "PASTRANK": "66",
+    "RANKGAP": "11",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/114/59/325/11459325_20240405171054_500.jpg?d0a5cf78d5ff0fd792ede55996016f66/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/114/59/325/11459325_20240405171054_500.jpg?d0a5cf78d5ff0fd792ede55996016f66/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/114/59/325/11459325_20240405171054_500.jpg?d0a5cf78d5ff0fd792ede55996016f66/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/114/59/325/11459325_20240405171054_500.jpg?d0a5cf78d5ff0fd792ede55996016f66/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.04.08",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "39307948",
+    "SONGNAME": "멸종위기사랑",
+    "ALBUMID": "11891198",
+    "ALBUMNAME": "EROS",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "712453",
+      "ARTISTNAME": "이찬혁"
+     }
+    ],
+    "PLAYTIME": "221",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "56",
+    "PASTRANK": "62",
+    "RANKGAP": "6",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/118/91/198/11891198_20250714145747_500.jpg?ad52c64e28297826012030d7ddef1382/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/118/91/198/11891198_20250714145747_500.jpg?ad52c64e28297826012030d7ddef1382/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/118/91/198/11891198_20250714145747_500.jpg?ad52c64e28297826012030d7ddef1382/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/118/91/198/11891198_20250714145747_500.jpg?ad52c64e28297826012030d7ddef1382/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.07.14",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603813508",
+    "SONGNAME": "REBELS",
+    "ALBUMID": "15120216",
+    "ALBUMNAME": "Across Dimensions",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3059851",
+      "ARTISTNAME": "이세계아이돌 (ISEGYE IDOL)"
+     }
+    ],
+    "PLAYTIME": "172",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "57",
+    "PASTRANK": "54",
+    "RANKGAP": "3",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "31666417",
+    "SONGNAME": "주저하는 연인들을 위해",
+    "ALBUMID": "10260858",
+    "ALBUMNAME": "전설",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "772253",
+      "ARTISTNAME": "잔나비"
+     }
+    ],
+    "PLAYTIME": "266",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0097",
+      "GENRENAME": "인디음악 10'"
+     },
+     {
+      "GENRECODE": "GC0102",
+      "GENRENAME": "록/메탈 10'~"
+     }
+    ],
+    "CURRANK": "58",
+    "PASTRANK": "57",
+    "RANKGAP": "1",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/102/60/858/10260858_500.jpg?02df39ed806cd5e224ae1be4ab9417dd/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/102/60/858/10260858_500.jpg?02df39ed806cd5e224ae1be4ab9417dd/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/102/60/858/10260858_500.jpg?02df39ed806cd5e224ae1be4ab9417dd/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/102/60/858/10260858_500.jpg?02df39ed806cd5e224ae1be4ab9417dd/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2019.03.13",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38071559",
+    "SONGNAME": "청춘만화",
+    "ALBUMID": "11608521",
+    "ALBUMNAME": "만화 (滿花)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2138620",
+      "ARTISTNAME": "이무진"
+     }
+    ],
+    "PLAYTIME": "276",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "59",
+    "PASTRANK": "64",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/08/521/11608521_20241004161722_500.jpg?b5d322a7503e7764ea9c459500077642/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/08/521/11608521_20241004161722_500.jpg?b5d322a7503e7764ea9c459500077642/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/08/521/11608521_20241004161722_500.jpg?b5d322a7503e7764ea9c459500077642/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/08/521/11608521_20241004161722_500.jpg?b5d322a7503e7764ea9c459500077642/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.10.07",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602939768",
+    "SONGNAME": "노스탈지아",
+    "ALBUMID": "14494275",
+    "ALBUMNAME": "노스탈지아",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2744750",
+      "ARTISTNAME": "BIG Naughty (서동현)"
+     }
+    ],
+    "PLAYTIME": "195",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0034",
+      "GENRENAME": "Rap / Hip-hop"
+     },
+     {
+      "GENRECODE": "GC0183",
+      "GENRENAME": "랩/힙합 20'"
+     }
+    ],
+    "CURRANK": "60",
+    "PASTRANK": "53",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/275/14494275_20260828144050_500.jpg?448015bc30ebae9b8e7d66a175999177/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/275/14494275_20260828144050_500.jpg?448015bc30ebae9b8e7d66a175999177/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/275/14494275_20260828144050_500.jpg?448015bc30ebae9b8e7d66a175999177/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/275/14494275_20260828144050_500.jpg?448015bc30ebae9b8e7d66a175999177/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.08.31",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601555642",
+    "SONGNAME": "SWIM",
+    "ALBUMID": "12927820",
+    "ALBUMNAME": "ARIRANG",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "672375",
+      "ARTISTNAME": "방탄소년단"
+     }
+    ],
+    "PLAYTIME": "160",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0033",
+      "GENRENAME": "R&B / Soul"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0187",
+      "GENRENAME": "R&B / Soul 20'"
+     }
+    ],
+    "CURRANK": "61",
+    "PASTRANK": "59",
+    "RANKGAP": "2",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/129/27/820/12927820_20260320091310_500.jpg?8c6afc236e001953b193762fdf912f90/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/129/27/820/12927820_20260320091310_500.jpg?8c6afc236e001953b193762fdf912f90/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/129/27/820/12927820_20260320091310_500.jpg?8c6afc236e001953b193762fdf912f90/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/129/27/820/12927820_20260320091310_500.jpg?8c6afc236e001953b193762fdf912f90/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.03.20",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38300904",
+    "SONGNAME": "toxic till the end",
+    "ALBUMID": "11659696",
+    "ALBUMNAME": "rosie",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "995171",
+      "ARTISTNAME": "로제 (ROSÉ)"
+     }
+    ],
+    "PLAYTIME": "157",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "62",
+    "PASTRANK": "63",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/59/696/11659696_20241205141243_500.jpg?b3d60f3009c2f1cb8ec15eddfe68c134/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/59/696/11659696_20241205141243_500.jpg?b3d60f3009c2f1cb8ec15eddfe68c134/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/59/696/11659696_20241205141243_500.jpg?b3d60f3009c2f1cb8ec15eddfe68c134/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/59/696/11659696_20241205141243_500.jpg?b3d60f3009c2f1cb8ec15eddfe68c134/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.12.06",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601237102",
+    "SONGNAME": "BANG BANG",
+    "ALBUMID": "12845274",
+    "ALBUMNAME": "REVIVE+",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3055146",
+      "ARTISTNAME": "IVE (아이브)"
+     }
+    ],
+    "PLAYTIME": "179",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "63",
+    "PASTRANK": "70",
+    "RANKGAP": "7",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/128/45/274/12845274_20260223113048_500.jpg?72cb1aa9aeb78dfbb6b09bdf93941b14/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/128/45/274/12845274_20260223113048_500.jpg?72cb1aa9aeb78dfbb6b09bdf93941b14/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/128/45/274/12845274_20260223113048_500.jpg?72cb1aa9aeb78dfbb6b09bdf93941b14/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/128/45/274/12845274_20260223113048_500.jpg?72cb1aa9aeb78dfbb6b09bdf93941b14/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.02.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "33241003",
+    "SONGNAME": "그대 작은 나의 세상이 되어",
+    "ALBUMID": "10554647",
+    "ALBUMNAME": "부재",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "735506",
+      "ARTISTNAME": "카더가든"
+     }
+    ],
+    "PLAYTIME": "206",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "64",
+    "PASTRANK": "69",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/647/10554647_20210127173809_500.jpg?014802135dfbd088236bbcc2a2bc6017/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/647/10554647_20210127173809_500.jpg?014802135dfbd088236bbcc2a2bc6017/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/647/10554647_20210127173809_500.jpg?014802135dfbd088236bbcc2a2bc6017/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/105/54/647/10554647_20210127173809_500.jpg?014802135dfbd088236bbcc2a2bc6017/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2021.01.28",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603175883",
+    "SONGNAME": "CRASH",
+    "ALBUMID": "14575403",
+    "ALBUMNAME": "CRASH",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4346804",
+      "ARTISTNAME": "ALLDAY PROJECT"
+     }
+    ],
+    "PLAYTIME": "173",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "65",
+    "PASTRANK": "58",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/145/75/403/14575403_20260922162806_500.jpg?ad8d69cd32425d7a170a062409f335c0/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/145/75/403/14575403_20260922162806_500.jpg?ad8d69cd32425d7a170a062409f335c0/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/145/75/403/14575403_20260922162806_500.jpg?ad8d69cd32425d7a170a062409f335c0/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/145/75/403/14575403_20260922162806_500.jpg?ad8d69cd32425d7a170a062409f335c0/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.09.28",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38626852",
+    "SONGNAME": "너에게 닿기를",
+    "ALBUMID": "11730411",
+    "ALBUMNAME": "너에게 닿기를",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "468244",
+      "ARTISTNAME": "10CM"
+     }
+    ],
+    "PLAYTIME": "159",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "66",
+    "PASTRANK": "79",
+    "RANKGAP": "13",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/117/30/411/11730411_20250306095101_500.jpg?9a9df029f2c7e80c12b37dd6811868e9/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/117/30/411/11730411_20250306095101_500.jpg?9a9df029f2c7e80c12b37dd6811868e9/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/117/30/411/11730411_20250306095101_500.jpg?9a9df029f2c7e80c12b37dd6811868e9/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/117/30/411/11730411_20250306095101_500.jpg?9a9df029f2c7e80c12b37dd6811868e9/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.03.06",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "36617841",
+    "SONGNAME": "Seven (feat. Latto) - Clean Ver.",
+    "ALBUMID": "11286070",
+    "ALBUMNAME": "Seven (feat. Latto) - Clean Ver.",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "725987",
+      "ARTISTNAME": "정국"
+     }
+    ],
+    "PLAYTIME": "185",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "67",
+    "PASTRANK": "67",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/112/86/070/11286070_20230713181059_500.jpg?0b3a98d363e31435d805d60e3041a54b/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/112/86/070/11286070_20230713181059_500.jpg?0b3a98d363e31435d805d60e3041a54b/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/112/86/070/11286070_20230713181059_500.jpg?0b3a98d363e31435d805d60e3041a54b/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/112/86/070/11286070_20230713181059_500.jpg?0b3a98d363e31435d805d60e3041a54b/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2023.07.14",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "31927275",
+    "SONGNAME": "한 페이지가 될 수 있게",
+    "ALBUMID": "10307346",
+    "ALBUMNAME": "The Book of Us : Gravity",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "894864",
+      "ARTISTNAME": "DAY6 (데이식스)"
+     }
+    ],
+    "PLAYTIME": "206",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0102",
+      "GENRENAME": "록/메탈 10'~"
+     }
+    ],
+    "CURRANK": "68",
+    "PASTRANK": "83",
+    "RANKGAP": "15",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/103/07/346/10307346_500.jpg?84c9c2f6f52301ab6327b78cf41efe82/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/103/07/346/10307346_500.jpg?84c9c2f6f52301ab6327b78cf41efe82/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/103/07/346/10307346_500.jpg?84c9c2f6f52301ab6327b78cf41efe82/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/103/07/346/10307346_500.jpg?84c9c2f6f52301ab6327b78cf41efe82/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2019.07.15",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37375706",
+    "SONGNAME": "청혼하지 않을 이유를 못 찾았어",
+    "ALBUMID": "11455285",
+    "ALBUMNAME": "청혼하지 않을 이유를 못 찾았어",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2138620",
+      "ARTISTNAME": "이무진"
+     }
+    ],
+    "PLAYTIME": "263",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "69",
+    "PASTRANK": "76",
+    "RANKGAP": "7",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/114/55/285/11455285_20240401151801_500.jpg?03a5b5797abf73e8a0b803d6096f33da/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/114/55/285/11455285_20240401151801_500.jpg?03a5b5797abf73e8a0b803d6096f33da/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/114/55/285/11455285_20240401151801_500.jpg?03a5b5797abf73e8a0b803d6096f33da/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/114/55/285/11455285_20240401151801_500.jpg?03a5b5797abf73e8a0b803d6096f33da/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.04.02",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603339938",
+    "SONGNAME": "푸른 하늘에 단비",
+    "ALBUMID": "14629242",
+    "ALBUMNAME": "HYPERDRIVE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3207401",
+      "ARTISTNAME": "PLAVE"
+     }
+    ],
+    "PLAYTIME": "218",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "70",
+    "PASTRANK": "61",
+    "RANKGAP": "9",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.10.12",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "39765727",
+    "SONGNAME": "순간을 영원처럼",
+    "ALBUMID": "12083192",
+    "ALBUMNAME": "IM HERO 2",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "994944",
+      "ARTISTNAME": "임영웅"
+     }
+    ],
+    "PLAYTIME": "209",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "71",
+    "PASTRANK": "60",
+    "RANKGAP": "11",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/120/83/192/12083192_20250828155052_500.jpg?cb0b44883a8b13fccb78b2ff216a0323/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/120/83/192/12083192_20250828155052_500.jpg?cb0b44883a8b13fccb78b2ff216a0323/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/120/83/192/12083192_20250828155052_500.jpg?cb0b44883a8b13fccb78b2ff216a0323/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/120/83/192/12083192_20250828155052_500.jpg?cb0b44883a8b13fccb78b2ff216a0323/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.08.29",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603052340",
+    "SONGNAME": "Dear my crazy soulmate",
+    "ALBUMID": "14535765",
+    "ALBUMNAME": "이 별로부터",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "261143",
+      "ARTISTNAME": "아이유"
+     }
+    ],
+    "PLAYTIME": "156",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0033",
+      "GENRENAME": "R&B / Soul"
+     },
+     {
+      "GENRECODE": "GC0187",
+      "GENRENAME": "R&B / Soul 20'"
+     }
+    ],
+    "CURRANK": "72",
+    "PASTRANK": "65",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.09.10",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "601013499",
+    "SONGNAME": "404 (New Era)",
+    "ALBUMID": "12806237",
+    "ALBUMNAME": "Delulu Pack",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4099078",
+      "ARTISTNAME": "KiiiKiii (키키)"
+     }
+    ],
+    "PLAYTIME": "180",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "73",
+    "PASTRANK": "75",
+    "RANKGAP": "2",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/128/06/237/12806237_20260126145002_500.jpg?9981476cbda7245a4ef7c7cc466350b7/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/128/06/237/12806237_20260126145002_500.jpg?9981476cbda7245a4ef7c7cc466350b7/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/128/06/237/12806237_20260126145002_500.jpg?9981476cbda7245a4ef7c7cc466350b7/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/128/06/237/12806237_20260126145002_500.jpg?9981476cbda7245a4ef7c7cc466350b7/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.01.26",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602732384",
+    "SONGNAME": "Pop Off Pop Off",
+    "ALBUMID": "14429080",
+    "ALBUMNAME": "WhyKiiiKiii",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4099078",
+      "ARTISTNAME": "KiiiKiii (키키)"
+     }
+    ],
+    "PLAYTIME": "142",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "74",
+    "PASTRANK": "74",
+    "RANKGAP": "0",
+    "RANKTYPE": "NONE",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/29/080/14429080_20260806154450_500.jpg?0f9c3f6d4c08f8b63d12bb9d1eca5f7d/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/29/080/14429080_20260806154450_500.jpg?0f9c3f6d4c08f8b63d12bb9d1eca5f7d/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/29/080/14429080_20260806154450_500.jpg?0f9c3f6d4c08f8b63d12bb9d1eca5f7d/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/29/080/14429080_20260806154450_500.jpg?0f9c3f6d4c08f8b63d12bb9d1eca5f7d/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.08.10",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "30244931",
+    "SONGNAME": "봄날",
+    "ALBUMID": "10037969",
+    "ALBUMNAME": "YOU NEVER WALK ALONE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "672375",
+      "ARTISTNAME": "방탄소년단"
+     }
+    ],
+    "PLAYTIME": "274",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0034",
+      "GENRENAME": "Rap / Hip-hop"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0094",
+      "GENRENAME": "아이돌 랩힙합"
+     },
+     {
+      "GENRECODE": "GC0182",
+      "GENRENAME": "랩/힙합 10'"
+     }
+    ],
+    "CURRANK": "75",
+    "PASTRANK": "68",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/100/37/969/10037969_500.jpg?df3750c6152ad5e19ea6773a5faf71ba/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/100/37/969/10037969_500.jpg?df3750c6152ad5e19ea6773a5faf71ba/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/100/37/969/10037969_500.jpg?df3750c6152ad5e19ea6773a5faf71ba/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/100/37/969/10037969_500.jpg?df3750c6152ad5e19ea6773a5faf71ba/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2017.02.13",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "36382580",
+    "SONGNAME": "헤어지자 말해요",
+    "ALBUMID": "11227533",
+    "ALBUMNAME": "1집 Alone",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "738480",
+      "ARTISTNAME": "박재정"
+     }
+    ],
+    "PLAYTIME": "244",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "76",
+    "PASTRANK": "80",
+    "RANKGAP": "4",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/112/27/533/11227533_20230419162238_500.jpg?f2aaefe2470b9694d40b0ad16df118a6/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/112/27/533/11227533_20230419162238_500.jpg?f2aaefe2470b9694d40b0ad16df118a6/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/112/27/533/11227533_20230419162238_500.jpg?f2aaefe2470b9694d40b0ad16df118a6/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/112/27/533/11227533_20230419162238_500.jpg?f2aaefe2470b9694d40b0ad16df118a6/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2023.04.20",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602940179",
+    "SONGNAME": "Skibidi",
+    "ALBUMID": "14494370",
+    "ALBUMNAME": "Skibidi",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "5182427",
+      "ARTISTNAME": "소녀시대-효리수 (Girls' Generation-HRS)"
+     }
+    ],
+    "PLAYTIME": "166",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "77",
+    "PASTRANK": "71",
+    "RANKGAP": "6",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/370/14494370_20260828152343_500.jpg?c3bd4b0e36671b78eafa425d5e494bff/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/370/14494370_20260828152343_500.jpg?c3bd4b0e36671b78eafa425d5e494bff/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/370/14494370_20260828152343_500.jpg?c3bd4b0e36671b78eafa425d5e494bff/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/94/370/14494370_20260828152343_500.jpg?c3bd4b0e36671b78eafa425d5e494bff/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.08.31",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37323944",
+    "SONGNAME": "HAPPY",
+    "ALBUMID": "11444397",
+    "ALBUMNAME": "Fourever",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "894864",
+      "ARTISTNAME": "DAY6 (데이식스)"
+     }
+    ],
+    "PLAYTIME": "190",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "78",
+    "PASTRANK": "92",
+    "RANKGAP": "14",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/114/44/397/11444397_20240318115810_500.jpg?8cb5c0486469bbe05f7dd895ec073d72/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/114/44/397/11444397_20240318115810_500.jpg?8cb5c0486469bbe05f7dd895ec073d72/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/114/44/397/11444397_20240318115810_500.jpg?8cb5c0486469bbe05f7dd895ec073d72/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/114/44/397/11444397_20240318115810_500.jpg?8cb5c0486469bbe05f7dd895ec073d72/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.03.18",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603692202",
+    "SONGNAME": "Insomnia",
+    "ALBUMID": "15074721",
+    "ALBUMNAME": "Insomnia",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3478478",
+      "ARTISTNAME": "RIIZE"
+     }
+    ],
+    "PLAYTIME": "195",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0033",
+      "GENRENAME": "R&B / Soul"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0187",
+      "GENRENAME": "R&B / Soul 20'"
+     }
+    ],
+    "CURRANK": "79",
+    "PASTRANK": "72",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/74/721/15074721_20261023150339_500.jpg?79e715503506a7e24d420ba8b5fc0589/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/74/721/15074721_20261023150339_500.jpg?79e715503506a7e24d420ba8b5fc0589/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/74/721/15074721_20261023150339_500.jpg?79e715503506a7e24d420ba8b5fc0589/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/74/721/15074721_20261023150339_500.jpg?79e715503506a7e24d420ba8b5fc0589/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.10.26",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "32872978",
+    "SONGNAME": "Dynamite",
+    "ALBUMID": "10479150",
+    "ALBUMNAME": "Dynamite (DayTime Version)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "672375",
+      "ARTISTNAME": "방탄소년단"
+     }
+    ],
+    "PLAYTIME": "200",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "80",
+    "PASTRANK": "81",
+    "RANKGAP": "1",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/104/79/150/10479150_20200918102847_500.jpg?45d847d7dc536eecebd648786c2ea37c/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/104/79/150/10479150_20200918102847_500.jpg?45d847d7dc536eecebd648786c2ea37c/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/104/79/150/10479150_20200918102847_500.jpg?45d847d7dc536eecebd648786c2ea37c/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/104/79/150/10479150_20200918102847_500.jpg?45d847d7dc536eecebd648786c2ea37c/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2020.08.24",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38123332",
+    "SONGNAME": "Whiplash",
+    "ALBUMID": "11620540",
+    "ALBUMNAME": "Whiplash - The 5th Mini Album",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2899555",
+      "ARTISTNAME": "aespa"
+     }
+    ],
+    "PLAYTIME": "184",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "81",
+    "PASTRANK": "86",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/540/11620540_20241018183208_500.jpg?e88933ef18e678ee69ac497989368c77/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/540/11620540_20241018183208_500.jpg?e88933ef18e678ee69ac497989368c77/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/540/11620540_20241018183208_500.jpg?e88933ef18e678ee69ac497989368c77/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/540/11620540_20241018183208_500.jpg?e88933ef18e678ee69ac497989368c77/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.10.21",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "38123338",
+    "SONGNAME": "나는 반딧불",
+    "ALBUMID": "11620541",
+    "ALBUMNAME": "나는 반딧불",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "716631",
+      "ARTISTNAME": "황가람"
+     }
+    ],
+    "PLAYTIME": "216",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "82",
+    "PASTRANK": "93",
+    "RANKGAP": "11",
+    "RANKTYPE": "UP",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/541/11620541_20241018183253_500.jpg?e1d6c3791b15220a80c7dbddc53dfc5c/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/541/11620541_20241018183253_500.jpg?e1d6c3791b15220a80c7dbddc53dfc5c/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/541/11620541_20241018183253_500.jpg?e1d6c3791b15220a80c7dbddc53dfc5c/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/116/20/541/11620541_20241018183253_500.jpg?e1d6c3791b15220a80c7dbddc53dfc5c/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.10.21",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "39298775",
+    "SONGNAME": "뛰어(JUMP)",
+    "ALBUMID": "11890480",
+    "ALBUMNAME": "뛰어(JUMP)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "995169",
+      "ARTISTNAME": "BLACKPINK"
+     }
+    ],
+    "PLAYTIME": "165",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "83",
+    "PASTRANK": "98",
+    "RANKGAP": "15",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/118/90/480/11890480_20250711095238_500.jpg?e691ff82bc6e1a6da8f4c5ec7c4b07cf/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/118/90/480/11890480_20250711095238_500.jpg?e691ff82bc6e1a6da8f4c5ec7c4b07cf/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/118/90/480/11890480_20250711095238_500.jpg?e691ff82bc6e1a6da8f4c5ec7c4b07cf/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/118/90/480/11890480_20250711095238_500.jpg?e691ff82bc6e1a6da8f4c5ec7c4b07cf/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2025.07.11",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "34657844",
+    "SONGNAME": "사랑인가 봐",
+    "ALBUMID": "10871162",
+    "ALBUMNAME": "사랑인가 봐 (사내맞선 OST 스페셜 트랙)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "839732",
+      "ARTISTNAME": "멜로망스"
+     }
+    ],
+    "PLAYTIME": "185",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0069",
+      "GENRENAME": "한국 드라마"
+     },
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "84",
+    "PASTRANK": "94",
+    "RANKGAP": "10",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/108/71/162/10871162_20220217162422_500.jpg?d77ecb572464fd179c5e963a6fe0a351/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2022.02.18",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "30232719",
+    "SONGNAME": "예뻤어",
+    "ALBUMID": "10036099",
+    "ALBUMNAME": "Every DAY6 February",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "894864",
+      "ARTISTNAME": "DAY6 (데이식스)"
+     }
+    ],
+    "PLAYTIME": "283",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0102",
+      "GENRENAME": "록/메탈 10'~"
+     }
+    ],
+    "CURRANK": "85",
+    "PASTRANK": "91",
+    "RANKGAP": "6",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm/album/images/100/36/099/10036099_500.jpg?7374810860bfc17f2a70dc7a39124ead/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm/album/images/100/36/099/10036099_500.jpg?7374810860bfc17f2a70dc7a39124ead/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm/album/images/100/36/099/10036099_500.jpg?7374810860bfc17f2a70dc7a39124ead/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm/album/images/100/36/099/10036099_500.jpg?7374810860bfc17f2a70dc7a39124ead/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2017.02.06",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602951447",
+    "SONGNAME": "부디 행복해질 것",
+    "ALBUMID": "14498154",
+    "ALBUMNAME": "IM HERO 10",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "994944",
+      "ARTISTNAME": "임영웅"
+     }
+    ],
+    "PLAYTIME": "270",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "86",
+    "PASTRANK": "77",
+    "RANKGAP": "9",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/144/98/154/14498154_20260910102107_500.jpg?0276413be119ceca5ac0a4814b926a09/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.09.08",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603813507",
+    "SONGNAME": "연애세포 (恋愛細胞)",
+    "ALBUMID": "15120216",
+    "ALBUMNAME": "Across Dimensions",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3059851",
+      "ARTISTNAME": "이세계아이돌 (ISEGYE IDOL)"
+     }
+    ],
+    "PLAYTIME": "173",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "87",
+    "PASTRANK": "73",
+    "RANKGAP": "14",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603339937",
+    "SONGNAME": "꾼",
+    "ALBUMID": "14629242",
+    "ALBUMNAME": "HYPERDRIVE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3207401",
+      "ARTISTNAME": "PLAVE"
+     }
+    ],
+    "PLAYTIME": "173",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0033",
+      "GENRENAME": "R&B / Soul"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0187",
+      "GENRENAME": "R&B / Soul 20'"
+     }
+    ],
+    "CURRANK": "88",
+    "PASTRANK": "78",
+    "RANKGAP": "10",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.10.12",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "37145732",
+    "SONGNAME": "Love wins all",
+    "ALBUMID": "11404142",
+    "ALBUMNAME": "The Winning",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "261143",
+      "ARTISTNAME": "아이유"
+     }
+    ],
+    "PLAYTIME": "272",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "89",
+    "PASTRANK": "97",
+    "RANKGAP": "8",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/114/04/142/11404142_20240220141548_500.jpg?70df4fcc0f7fdcbc8ccbaf7e8965a913/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/114/04/142/11404142_20240220141548_500.jpg?70df4fcc0f7fdcbc8ccbaf7e8965a913/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/114/04/142/11404142_20240220141548_500.jpg?70df4fcc0f7fdcbc8ccbaf7e8965a913/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/114/04/142/11404142_20240220141548_500.jpg?70df4fcc0f7fdcbc8ccbaf7e8965a913/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2024.02.20",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603813509",
+    "SONGNAME": "BACK 2 THE FUTURE",
+    "ALBUMID": "15120216",
+    "ALBUMNAME": "Across Dimensions",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3059851",
+      "ARTISTNAME": "이세계아이돌 (ISEGYE IDOL)"
+     }
+    ],
+    "PLAYTIME": "192",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "90",
+    "PASTRANK": "82",
+    "RANKGAP": "8",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603813510",
+    "SONGNAME": "ANTI-HERO",
+    "ALBUMID": "15120216",
+    "ALBUMNAME": "Across Dimensions",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3059851",
+      "ARTISTNAME": "이세계아이돌 (ISEGYE IDOL)"
+     }
+    ],
+    "PLAYTIME": "175",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "91",
+    "PASTRANK": "84",
+    "RANKGAP": "7",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603648403",
+    "SONGNAME": "내 이름을 불러줘",
+    "ALBUMID": "15054654",
+    "ALBUMNAME": "TO US",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3679688",
+      "ARTISTNAME": "TWS (투어스)"
+     }
+    ],
+    "PLAYTIME": "158",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "92",
+    "PASTRANK": "88",
+    "RANKGAP": "4",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/54/654/15054654_20261021173012_500.jpg?85d6b325112aba6a873d937b50b0bb1f/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/54/654/15054654_20261021173012_500.jpg?85d6b325112aba6a873d937b50b0bb1f/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/54/654/15054654_20261021173012_500.jpg?85d6b325112aba6a873d937b50b0bb1f/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/54/654/15054654_20261021173012_500.jpg?85d6b325112aba6a873d937b50b0bb1f/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.02",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603052339",
+    "SONGNAME": "이 별로부터",
+    "ALBUMID": "14535765",
+    "ALBUMNAME": "이 별로부터",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "261143",
+      "ARTISTNAME": "아이유"
+     }
+    ],
+    "PLAYTIME": "225",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "93",
+    "PASTRANK": "103",
+    "RANKTYPE": "NEW",
+    "RANKGAP": "",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/145/35/765/14535765_20260909154035_500.jpg?0b64762c3d99481dd8244f57cf5baa06/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.09.10",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "602313594",
+    "SONGNAME": "Lemon Tang",
+    "ALBUMID": "13750428",
+    "ALBUMNAME": "Lemon Tang - The 2nd Mini Album",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "4096106",
+      "ARTISTNAME": "Hearts2Hearts (하츠투하츠)"
+     }
+    ],
+    "PLAYTIME": "163",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0091",
+      "GENRENAME": "아이돌 여자"
+     },
+     {
+      "GENRECODE": "GC0093",
+      "GENRENAME": "아이돌 댄스"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "94",
+    "PASTRANK": "99",
+    "RANKGAP": "5",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/137/50/428/13750428_20260619162731_500.jpg?96a08bb11a530e8d933f621cc380e56c/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/137/50/428/13750428_20260619162731_500.jpg?96a08bb11a530e8d933f621cc380e56c/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/137/50/428/13750428_20260619162731_500.jpg?96a08bb11a530e8d933f621cc380e56c/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/137/50/428/13750428_20260619162731_500.jpg?96a08bb11a530e8d933f621cc380e56c/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.06.22",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603339940",
+    "SONGNAME": "The Answer Is Yes",
+    "ALBUMID": "14629242",
+    "ALBUMNAME": "HYPERDRIVE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3207401",
+      "ARTISTNAME": "PLAVE"
+     }
+    ],
+    "PLAYTIME": "156",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "95",
+    "PASTRANK": "89",
+    "RANKGAP": "6",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.10.12",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "33496587",
+    "SONGNAME": "다정히 내 이름을 부르면",
+    "ALBUMID": "10610525",
+    "ALBUMNAME": "다정히 내 이름을 부르면 (경서예지 x 전건호)",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "2863470",
+      "ARTISTNAME": "경서예지"
+     },
+     {
+      "ARTISTID": "2739011",
+      "ARTISTNAME": "전건호"
+     }
+    ],
+    "PLAYTIME": "232",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "96",
+    "PASTRANK": "100",
+    "RANKGAP": "4",
+    "RANKTYPE": "UP",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/106/10/525/10610525_20210518143433_500.jpg?e8c5aa44ff6608c13fa48eb6a20e81af/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/106/10/525/10610525_20210518143433_500.jpg?e8c5aa44ff6608c13fa48eb6a20e81af/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/106/10/525/10610525_20210518143433_500.jpg?e8c5aa44ff6608c13fa48eb6a20e81af/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/106/10/525/10610525_20210518143433_500.jpg?e8c5aa44ff6608c13fa48eb6a20e81af/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2021.05.19",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603574638",
+    "SONGNAME": "The Sun",
+    "ALBUMID": "15004542",
+    "ALBUMNAME": "DREAM AFTER DREAM",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "1066419",
+      "ARTISTNAME": "NCT DREAM"
+     }
+    ],
+    "PLAYTIME": "258",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0003",
+      "GENRENAME": "Ballad"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0092",
+      "GENRENAME": "아이돌 발라드"
+     },
+     {
+      "GENRECODE": "GC0166",
+      "GENRENAME": "발라드 20'"
+     }
+    ],
+    "CURRANK": "97",
+    "PASTRANK": "87",
+    "RANKGAP": "10",
+    "RANKTYPE": "DOWN",
+    "ISMV": true,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/150/04/542/15004542_20261106160240_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603813511",
+    "SONGNAME": "Dream Residue",
+    "ALBUMID": "15120216",
+    "ALBUMNAME": "Across Dimensions",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3059851",
+      "ARTISTNAME": "이세계아이돌 (ISEGYE IDOL)"
+     }
+    ],
+    "PLAYTIME": "182",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0011",
+      "GENRENAME": "Dance"
+     },
+     {
+      "GENRECODE": "GC0167",
+      "GENRENAME": "댄스 20'"
+     }
+    ],
+    "CURRANK": "98",
+    "PASTRANK": "85",
+    "RANKGAP": "13",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/151/20/216/15120216_20261103144910_500.jpg?14b04cdb075a78019edf161d422c108e/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2026.11.09",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "34753369",
+    "SONGNAME": "입춘",
+    "ALBUMID": "10890163",
+    "ALBUMNAME": "입춘",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3080810",
+      "ARTISTNAME": "한로로"
+     }
+    ],
+    "PLAYTIME": "249",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0035",
+      "GENRENAME": "Rock"
+     },
+     {
+      "GENRECODE": "GC0168",
+      "GENRENAME": "인디음악 20'"
+     },
+     {
+      "GENRECODE": "GC0169",
+      "GENRENAME": "록/메탈 20'"
+     }
+    ],
+    "CURRANK": "99",
+    "PASTRANK": "101",
+    "RANKTYPE": "NEW",
+    "RANKGAP": "",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": true,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/108/90/163/10890163_20220311160155_500.jpg?330d8a2dcfe633ae36d500fb42d3ee1b/melon/resize/144/optimize/90",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/108/90/163/10890163_20220311160155_500.jpg?330d8a2dcfe633ae36d500fb42d3ee1b/melon/resize/144/optimize/90",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/108/90/163/10890163_20220311160155_500.jpg?330d8a2dcfe633ae36d500fb42d3ee1b/melon/optimize/90",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/108/90/163/10890163_20220311160155_500.jpg?330d8a2dcfe633ae36d500fb42d3ee1b/melon/resize/50/optimize/90",
+    "ISSUEDATE": "2022.03.14",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   },
+   {
+    "SONGID": "603339941",
+    "SONGNAME": "Rewind",
+    "ALBUMID": "14629242",
+    "ALBUMNAME": "HYPERDRIVE",
+    "ARTISTLIST": [
+     {
+      "ARTISTID": "3207401",
+      "ARTISTNAME": "PLAVE"
+     }
+    ],
+    "PLAYTIME": "160",
+    "GENRELIST": [
+     {
+      "GENRECODE": "GC0033",
+      "GENRENAME": "R&B / Soul"
+     },
+     {
+      "GENRECODE": "GC0090",
+      "GENRENAME": "아이돌 남자"
+     },
+     {
+      "GENRECODE": "GC0187",
+      "GENRENAME": "R&B / Soul 20'"
+     }
+    ],
+    "CURRANK": "100",
+    "PASTRANK": "96",
+    "RANKGAP": "4",
+    "RANKTYPE": "DOWN",
+    "ISMV": false,
+    "ISADULT": false,
+    "ISFREE": false,
+    "ISHITSONG": false,
+    "ISHOLDBACK": false,
+    "ISTITLESONG": false,
+    "ISSERVICE": true,
+    "ISTRACKZERO": false,
+    "ALBUMIMG": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGPATH": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/144",
+    "ALBUMIMGLARGE": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444",
+    "ALBUMIMGSMALL": "https://cdnimg.melon.co.kr/cm2/album/images/146/29/242/14629242_20261007150642_500.jpg?YUV444/melon/resize/50",
+    "ISSUEDATE": "2026.10.12",
+    "CTYPE": "1",
+    "CONTSTYPECODE": "N10001"
+   }
+  ],
+  "RANKDAY": "2026.11.12",
+  "RANKHOUR": "14:00",
+  "HASMORE": false,
+  "SIZE": 100,
+  "MENUID": "1000000026",
+  "SECTION": "멜론차트",
+  "PAGE": "멜론차트_실시간",
+  "TLOG": {
+   "MENUID": "1000000026",
+   "SECTION": "멜론차트",
+   "PAGE": "멜론차트_실시간"
+  }
+ },
+ "httpDomain": "http://m2.melon.com"
+}
