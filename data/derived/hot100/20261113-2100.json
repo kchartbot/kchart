@@ -1,0 +1,1128 @@
+{
+ "hour": "20261113-2100",
+ "source": "20261113-2101",
+ "rows": [
+  {
+   "rank": 1,
+   "past": 1,
+   "id": "603712834",
+   "name": "With",
+   "artists": [
+    "RESCENE (리센느)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 2,
+   "past": 2,
+   "id": "603382333",
+   "name": "NEON",
+   "artists": [
+    "A2O",
+    "A2O LITE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 3,
+   "past": 3,
+   "id": "603712835",
+   "name": "백화요란 (Inside Out)",
+   "artists": [
+    "RESCENE (리센느)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 4,
+   "past": 4,
+   "id": "603709840",
+   "name": "체포하겠어",
+   "artists": [
+    "아일릿(ILLIT)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 5,
+   "past": 5,
+   "id": "602862199",
+   "name": "퇴사할게여 (Narr. 기안84)",
+   "artists": [
+    "소연 (SOYEON)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 6,
+   "past": 7,
+   "id": "603712833",
+   "name": "Finest Thing",
+   "artists": [
+    "RESCENE (리센느)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 7,
+   "past": 8,
+   "id": "603712836",
+   "name": "MEME",
+   "artists": [
+    "RESCENE (리센느)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 8,
+   "past": 9,
+   "id": "603712837",
+   "name": "Dragon",
+   "artists": [
+    "RESCENE (리센느)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 9,
+   "past": 6,
+   "id": "603448999",
+   "name": "Looks Can Kill",
+   "artists": [
+    "IVE (아이브)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 10,
+   "past": 10,
+   "id": "603538665",
+   "name": "삐그덕 (Feat. 아이유)",
+   "artists": [
+    "Crush"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 11,
+   "past": 12,
+   "id": "603574639",
+   "name": "Boogie Woogie",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 12,
+   "past": 14,
+   "id": "603813508",
+   "name": "REBELS",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 13,
+   "past": 11,
+   "id": "602839323",
+   "name": "BiiiG",
+   "artists": [
+    "BIGBANG (빅뱅)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 14,
+   "past": 17,
+   "id": "602951446",
+   "name": "또또",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 15,
+   "past": 13,
+   "id": "602939768",
+   "name": "노스탈지아",
+   "artists": [
+    "BIG Naughty (서동현)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 16,
+   "past": 16,
+   "id": "603339939",
+   "name": "Star Trace",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 17,
+   "past": 21,
+   "id": "603813507",
+   "name": "연애세포 (恋愛細胞)",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 18,
+   "past": 22,
+   "id": "603813509",
+   "name": "BACK 2 THE FUTURE",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 19,
+   "past": 24,
+   "id": "603813510",
+   "name": "ANTI-HERO",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 20,
+   "past": 15,
+   "id": "603175883",
+   "name": "CRASH",
+   "artists": [
+    "ALLDAY PROJECT"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 21,
+   "past": 27,
+   "id": "603813511",
+   "name": "Dream Residue",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 22,
+   "past": 18,
+   "id": "602732384",
+   "name": "Pop Off Pop Off",
+   "artists": [
+    "KiiiKiii (키키)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 23,
+   "past": 23,
+   "id": "603339938",
+   "name": "푸른 하늘에 단비",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 24,
+   "past": 25,
+   "id": "603648403",
+   "name": "내 이름을 불러줘",
+   "artists": [
+    "TWS (투어스)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 25,
+   "past": 19,
+   "id": "603052340",
+   "name": "Dear my crazy soulmate",
+   "artists": [
+    "아이유"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 26,
+   "past": 20,
+   "id": "602940179",
+   "name": "Skibidi",
+   "artists": [
+    "소녀시대-효리수 (Girls' Generation-HRS)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 27,
+   "past": 26,
+   "id": "603692202",
+   "name": "Insomnia",
+   "artists": [
+    "RIIZE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 28,
+   "past": 29,
+   "id": "602951447",
+   "name": "부디 행복해질 것",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 29,
+   "past": 32,
+   "id": "603093102",
+   "name": "고양이가 세상을 구한다!",
+   "artists": [
+    "고세구"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 30,
+   "past": 31,
+   "id": "603574638",
+   "name": "The Sun",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 31,
+   "past": 30,
+   "id": "603339937",
+   "name": "꾼",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 32,
+   "past": 35,
+   "id": "603574640",
+   "name": "Dream After Dream",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 33,
+   "past": 33,
+   "id": "603339940",
+   "name": "The Answer Is Yes",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 34,
+   "past": 34,
+   "id": "603339941",
+   "name": "Rewind",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 35,
+   "past": 37,
+   "id": "603574646",
+   "name": "Smile for U",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 36,
+   "past": 38,
+   "id": "602951445",
+   "name": "Baila",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 37,
+   "past": 39,
+   "id": "602951444",
+   "name": "모이세",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 38,
+   "past": 40,
+   "id": "602951452",
+   "name": "살아온 우리에게",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 39,
+   "past": 41,
+   "id": "602951449",
+   "name": "모래 알갱이 RE",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 40,
+   "past": 42,
+   "id": "602951448",
+   "name": "미워요 RE",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 41,
+   "past": 28,
+   "id": "603052339",
+   "name": "이 별로부터",
+   "artists": [
+    "아이유"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 42,
+   "past": 47,
+   "id": "602951450",
+   "name": "사랑은 늘 도망가 RE",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 43,
+   "past": 44,
+   "id": "603574641",
+   "name": "Skydive",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 44,
+   "past": 43,
+   "id": "602951453",
+   "name": "New York",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 45,
+   "past": 45,
+   "id": "602951451",
+   "name": "A Bientot RE",
+   "artists": [
+    "임영웅"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 46,
+   "past": 49,
+   "id": "603574642",
+   "name": "Pressure",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 47,
+   "past": 48,
+   "id": "603574645",
+   "name": "Tumbler",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 48,
+   "past": 50,
+   "id": "603574643",
+   "name": "Watch U Watch Me",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 49,
+   "past": 36,
+   "id": "603019497",
+   "name": "Guitarist",
+   "artists": [
+    "도경수(D.O.)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 50,
+   "past": 52,
+   "id": "603574644",
+   "name": "Cool for Me",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 51,
+   "past": 53,
+   "id": "603574647",
+   "name": "This Is Your World",
+   "artists": [
+    "NCT DREAM"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 52,
+   "past": 46,
+   "id": "603445702",
+   "name": "Drip",
+   "artists": [
+    "ATEEZ(에이티즈)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 53,
+   "past": 51,
+   "id": "603196851",
+   "name": "I SPY",
+   "artists": [
+    "NCT WISH"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 54,
+   "past": 54,
+   "id": "603862285",
+   "name": "UP",
+   "artists": [
+    "ATEEZ(에이티즈)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 55,
+   "past": 55,
+   "id": "603442244",
+   "name": "긴 소원 (Birthday Wish)",
+   "artists": [
+    "NMIXX"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 56,
+   "past": 57,
+   "id": "603648401",
+   "name": "WE UP",
+   "artists": [
+    "TWS (투어스)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 57,
+   "past": 58,
+   "id": "603648404",
+   "name": "heavy",
+   "artists": [
+    "TWS (투어스)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 58,
+   "past": 56,
+   "id": "603382325",
+   "name": "미장센",
+   "artists": [
+    "에픽하이 (EPIK HIGH)",
+    "다비치"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 59,
+   "past": 59,
+   "id": "603882945",
+   "name": "Darling",
+   "artists": [
+    "도경수(D.O.)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 60,
+   "past": 61,
+   "id": "603539284",
+   "name": "Star Trace (Future House Remix by jeonghyeon)",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 61,
+   "past": 60,
+   "id": "603413231",
+   "name": "Star Trace (Afro Remix by IMLAY)",
+   "artists": [
+    "PLAVE"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 62,
+   "past": 62,
+   "id": "603282037",
+   "name": "크게 울어라",
+   "artists": [
+    "로이킴"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 63,
+   "past": 66,
+   "id": "603761119",
+   "name": "ADDICTED",
+   "artists": [
+    "지수 (JISOO)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 64,
+   "past": 65,
+   "id": "603196856",
+   "name": "꿈결 (Like A Dream)",
+   "artists": [
+    "NCT WISH"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 65,
+   "past": 63,
+   "id": "603097474",
+   "name": "사계, 그리고 너",
+   "artists": [
+    "이창섭"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 66,
+   "past": 67,
+   "id": "603860968",
+   "name": "밤무대",
+   "artists": [
+    "이무진"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 67,
+   "past": 64,
+   "id": "603233683",
+   "name": "계절의 끝",
+   "artists": [
+    "박재정"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 68,
+   "past": 68,
+   "id": "603382330",
+   "name": "SUPERSTAR",
+   "artists": [
+    "A2O",
+    "A2O SOUL"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 69,
+   "past": 71,
+   "id": "603196852",
+   "name": "We Own This Street",
+   "artists": [
+    "NCT WISH"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 70,
+   "past": 69,
+   "id": "603328982",
+   "name": "잔불 (Still)",
+   "artists": [
+    "엔플라잉 (N.Flying)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 71,
+   "past": 73,
+   "id": "603862283",
+   "name": "ANEMIA",
+   "artists": [
+    "ATEEZ(에이티즈)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 72,
+   "past": 76,
+   "id": "602872568",
+   "name": "SUN KISS",
+   "artists": [
+    "TUIDE (튜이드)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 73,
+   "past": 75,
+   "id": "603862286",
+   "name": "FAITH",
+   "artists": [
+    "ATEEZ(에이티즈)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 74,
+   "past": 80,
+   "id": "603196853",
+   "name": "UPGRADE",
+   "artists": [
+    "NCT WISH"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 75,
+   "past": 78,
+   "id": "603862287",
+   "name": "Hollow Victory",
+   "artists": [
+    "ATEEZ(에이티즈)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 76,
+   "past": 74,
+   "id": "602872574",
+   "name": "GRLS",
+   "artists": [
+    "TUIDE (튜이드)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 77,
+   "past": 72,
+   "id": "603339243",
+   "name": "Waste My Time",
+   "artists": [
+    "Marc Atlas"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 78,
+   "past": 82,
+   "id": "603284438",
+   "name": "ICONIC HEART (Korean Ver.)",
+   "artists": [
+    "Hearts2Hearts (하츠투하츠)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 79,
+   "past": 79,
+   "id": "603858396",
+   "name": "화",
+   "artists": [
+    "Panda Gomm",
+    "양홍원"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 80,
+   "past": 85,
+   "id": "603196854",
+   "name": "Super Major",
+   "artists": [
+    "NCT WISH"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 81,
+   "past": 87,
+   "id": "603196855",
+   "name": "Hubble Time",
+   "artists": [
+    "NCT WISH"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 82,
+   "past": 70,
+   "id": "603923732",
+   "name": "파급효과2 Remix (Ripple Effect2 Remix)",
+   "artists": [
+    "스윙스",
+    "hyeminsong",
+    "shinjihang",
+    "율음",
+    "BILL STAX (빌스택스)",
+    "그냥노창"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 83,
+   "past": 86,
+   "id": "603858397",
+   "name": "MOONWALK",
+   "artists": [
+    "Panda Gomm",
+    "양홍원"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 84,
+   "past": 83,
+   "id": "603858068",
+   "name": "Lovesick",
+   "artists": [
+    "채령 (ITZY)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 85,
+   "past": 81,
+   "id": "602644261",
+   "name": "살아보니 그렇더라",
+   "artists": [
+    "국악딴따라"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 86,
+   "past": 77,
+   "id": "603923721",
+   "name": "MIXWELL",
+   "artists": [
+    "스윙스",
+    "hyeminsong",
+    "율음",
+    "shinjihang",
+    "그냥노창"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 87,
+   "past": 84,
+   "id": "603923719",
+   "name": "SOLEMNIZE",
+   "artists": [
+    "hyeminsong",
+    "shinjihang",
+    "율음",
+    "그냥노창"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 88,
+   "past": 88,
+   "id": "603024680",
+   "name": "하늘땅 별땅",
+   "artists": [
+    "UNIS(유니스)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 89,
+   "past": 91,
+   "id": "603249748",
+   "name": "우리만의 이야기",
+   "artists": [
+    "WOODZ",
+    "이승철"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 90,
+   "past": 92,
+   "id": "603905196",
+   "name": "다시!",
+   "artists": [
+    "LUCY"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 91,
+   "past": 100,
+   "id": "603877088",
+   "name": "Dancing in the Dark",
+   "artists": [
+    "A2O",
+    "A2O SOUL"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 92,
+   "past": 98,
+   "id": "603689561",
+   "name": "DESERVE",
+   "artists": [
+    "BABYMONSTER"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 93,
+   "past": 94,
+   "id": "603542633",
+   "name": "Good Bye Sadness, Hello Happiness",
+   "artists": [
+    "박진서"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 94,
+   "past": 90,
+   "id": "602930028",
+   "name": "FALLEN ANGEL",
+   "artists": [
+    "제니 (JENNIE)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 95,
+   "past": 99,
+   "id": "603230295",
+   "name": "Count To Love (Korean Ver.)",
+   "artists": [
+    "BOYNEXTDOOR"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 96,
+   "past": 96,
+   "id": "603230284",
+   "name": "ANIMAL",
+   "artists": [
+    "BOYNEXTDOOR"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 97,
+   "past": 97,
+   "id": "603348048",
+   "name": "GO HARD",
+   "artists": [
+    "MEOVV (미야오)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 98,
+   "past": 95,
+   "id": "602858445",
+   "name": "Bloody Paradise",
+   "artists": [
+    "엔하이픈 (ENHYPEN)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 99,
+   "past": 0,
+   "id": "602733454",
+   "name": "ICONIC HEART",
+   "artists": [
+    "Hearts2Hearts (하츠투하츠)"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  },
+  {
+   "rank": 100,
+   "past": 89,
+   "id": "603923725",
+   "name": "The Ship Of Theseus",
+   "artists": [
+    "스윙스",
+    "hyeminsong",
+    "shinjihang",
+    "율음"
+   ],
+   "hot_score": null,
+   "users_1h_rel": null
+  }
+ ]
+}
