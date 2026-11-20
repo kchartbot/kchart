@@ -194,8 +194,8 @@ class Own:
         if not b and now.minute < 16:
             return None
         title = f"[{now:%H}:00] 멜론 탑100 순위표 / 이용자수 추이"
-        pngs = [a["png"]] + ([b["png"]] if b else [])
-        return {"key": "own_combo", "stamp": stamp, "title": title, "body": b["body"] if b else "", "png": a["png"], "pngs": pngs}
+        pngs = ([b["png"]] if b else []) + [a["png"]]  # 이용자수 이미지가 먼저 (순위표가 훨씬 길어서)
+        return {"key": "own_combo", "stamp": stamp, "title": title, "body": b["body"] if b else "", "png": pngs[0], "pngs": pngs}
 
     def predict(self, now, state):
         if now.minute < 50 or now.minute % 10 >= 6:
