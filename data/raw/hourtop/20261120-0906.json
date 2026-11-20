@@ -6,9 +6,6 @@
   "COMPRANK": "N",
   "RANKDAY": "2026.11.20",
   "RANKHOUR": "09:00",
-  "BIGERRCODE": [
-   "E0010"
-  ],
   "GRAPHDATALIST": [
    {
     "GRAPHRANK": 1,
@@ -185,7 +182,20 @@
      "CTYPE": "1",
      "CONTSTYPECODE": "N10001"
     },
-    "SHAREVALUE": "41"
+    "SHAREVALUE": "41",
+    "CHARTSTATIC": {
+     "IDX": 0,
+     "SONGID": 602290711,
+     "FEMALERT": "51.2",
+     "MALERT": "48.8",
+     "SUMMCNT": 250382,
+     "AGE10RT": "2",
+     "AGE20RT": "18",
+     "AGE30RT": "35",
+     "AGE40RT": "31",
+     "AGE50RT": "12",
+     "AGE60RT": "2"
+    }
    },
    {
     "GRAPHRANK": 2,
@@ -362,7 +372,20 @@
      "CTYPE": "1",
      "CONTSTYPECODE": "N10001"
     },
-    "SHAREVALUE": "30"
+    "SHAREVALUE": "30",
+    "CHARTSTATIC": {
+     "IDX": 1,
+     "SONGID": 603712834,
+     "FEMALERT": "52.5",
+     "MALERT": "47.5",
+     "SUMMCNT": 168949,
+     "AGE10RT": "4",
+     "AGE20RT": "21",
+     "AGE30RT": "30",
+     "AGE40RT": "31",
+     "AGE50RT": "12",
+     "AGE60RT": "2"
+    }
    },
    {
     "GRAPHRANK": 3,
@@ -543,7 +566,20 @@
      "CTYPE": "1",
      "CONTSTYPECODE": "N10001"
     },
-    "SHAREVALUE": "29"
+    "SHAREVALUE": "29",
+    "CHARTSTATIC": {
+     "IDX": 2,
+     "SONGID": 603382333,
+     "FEMALERT": "60.5",
+     "MALERT": "39.5",
+     "SUMMCNT": 198357,
+     "AGE10RT": "3",
+     "AGE20RT": "20",
+     "AGE30RT": "36",
+     "AGE40RT": "29",
+     "AGE50RT": "10",
+     "AGE60RT": "2"
+    }
    }
   ],
   "FIVECHARTFLAG": "Y",
