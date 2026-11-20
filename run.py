@@ -155,7 +155,7 @@ def publish(job, cfg, uploader, state, out):
             log.info("이전 글과 간격을 두기 위해 %.0f초 대기", wait)
             time.sleep(wait)
         _LAST_POST[0] = time.monotonic()
-    uploader.post(job["title"], job["body"], job["png"], out)
+    uploader.post(job["title"], job["body"], job.get("pngs") or job["png"], out)
     log.info("업로드 완료: %s (%s)", job["title"], f"{datetime.now(KST):%H:%M:%S}")
     state[job["key"]] = job["stamp"]
     for f in sorted(out.glob(f"{job['key']}_2*"))[:-6]:  # 오래된 산출물 정리 (최근 3회분 png+html 유지)
@@ -303,7 +303,7 @@ def own_loop(cfg, uploader, out, state, minutes):
     from chartbot.own import Own
     b = cfg["bot"]
     own = Own(out, os.environ.get("LIVE_DATA"), os.environ.get("GAISUM_USERS"))
-    prio = {"own_predict": 0, "own_hot5": 1, "own_melon5": 2, "own_top100": 3, "own_users": 4}
+    prio = {"own_predict": 0, "own_hot5": 1, "own_melon5": 2, "own_top100": 3, "own_users": 4, "own_combo": 3}
     pq = queue.PriorityQueue()
     stop = threading.Event()
     fails = [0]

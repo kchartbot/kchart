@@ -20,7 +20,7 @@ from chartbot.render import body_text, post_title, render_html, render_png
 
 log = logging.getLogger("chartbot.own")
 
-KEYS = ("own_top100", "own_users", "own_hot5", "own_melon5", "own_predict")
+KEYS = ("own_combo", "own_top100", "own_users", "own_hot5", "own_melon5", "own_predict")
 
 
 def _rec():
@@ -179,6 +179,23 @@ class Own:
         title = f"{now:%Y.%m.%d} {now:%H}:00 멜론 TOP100 순위표"
         html = predtable.page(title, rows, self.web_images(rows), logo=self.logo("melon"))
         return self.job("own_top100", stamp, f"[{now:%H}:00] 멜론 TOP100 순위표", "", html, 1.5)
+
+    def combo(self, now, state):
+        """순위표 + 이용자수 추이를 글 하나(이미지 두 장)로. 이용자수가 늦으면 정시 +16분부터는 순위표만 먼저 올린다"""
+        if now.minute >= 20:
+            return None
+        stamp = f"{now:%Y%m%d%H}00"
+        if state.get("own_combo") == stamp:
+            return None
+        a = self.top100(now, {})
+        if not a:
+            return None
+        b = self.users(now, {})
+        if not b and now.minute < 16:
+            return None
+        title = f"[{now:%H}:00] 멜론 탑100 순위표 / 이용자수 추이"
+        pngs = [a["png"]] + ([b["png"]] if b else [])
+        return {"key": "own_combo", "stamp": stamp, "title": title, "body": b["body"] if b else "", "png": a["png"], "pngs": pngs}
 
     def predict(self, now, state):
         if now.minute < 50 or now.minute % 10 >= 6:
@@ -417,7 +434,7 @@ class Own:
 
     def jobs(self, now, state, enabled=None):
         self.now = now
-        fns = (("own_predict", lambda: self.predict(now, state)),
+        fns = (("own_combo", lambda: self.combo(now, state)), ("own_predict", lambda: self.predict(now, state)),
                ("own_hot5", lambda: self.five(now, state, "hot")), ("own_melon5", lambda: self.five(now, state, "mel")),
                ("own_top100", lambda: self.top100(now, state)), ("own_users", lambda: self.users(now, state)))
         for key, fn in fns:

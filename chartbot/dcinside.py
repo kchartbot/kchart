@@ -251,8 +251,10 @@ class DcUploader:
                 pass
             raise RuntimeError("로그인에 실패했습니다 (캡차 또는 계정 정보 오류). 캡차는 자동으로 풀지 않습니다.")
 
-    def post(self, title: str, body_text: str, image_path: Path, err_dir: Path) -> None:
+    def post(self, title: str, body_text: str, image_path, err_dir: Path) -> None:
         from playwright.sync_api import sync_playwright
+        image_paths = [Path(x) for x in (image_path if isinstance(image_path, (list, tuple)) else [image_path])]
+        image_path = image_paths[0]
 
         err_dir.mkdir(parents=True, exist_ok=True)
         with sync_playwright() as p:
@@ -318,30 +320,32 @@ class DcUploader:
                 up.wait_for_function("document.getElementById('r_key').value && document.getElementById('gall_no').value", timeout=15000)
                 # 팝업 스크립트 자신의 XHR 은 서버에서 빈 응답을 받으므로, 같은 요청을 직접 보내고 응답을 '업로드 성공' 이벤트로 넘겨 준다
                 import base64
-                up.evaluate("""async (b64) => {
+                up.evaluate("""async (list) => {
                     const o = $('#fileupload').fileupload('option');
-                    const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-                    const fd = new FormData(); fd.append('files[]', new Blob([bin], {type: 'image/png'}), 'chart.png');
-                    ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
-                    fd.append('upload_ing', 'Y');
-                    let json = null, r = null, txt = '';
-                    for (let i = 0; i < 8 && !json; i++) {
-                        await new Promise(res => setTimeout(res, i ? 4000 : 6000));
-                        const f2 = new FormData(); for (const [k, v] of fd.entries()) f2.append(k, v);
-                        r = await fetch(o.url, {method: 'POST', body: f2, credentials: 'include'});
-                        txt = await r.text();
-                        console.log('DIRECT try' + i + ' ' + r.status + ' len=' + txt.length);
-                        try { json = JSON.parse(txt); } catch (e) { json = null; }
+                    for (let n = 0; n < list.length; n++) {
+                        const bin = Uint8Array.from(atob(list[n]), c => c.charCodeAt(0));
+                        const fd = new FormData(); fd.append('files[]', new Blob([bin], {type: 'image/png'}), 'chart' + (n + 1) + '.png');
+                        ['r_key','gall_id','gall_no','post_no','_GALLTYPE_'].forEach(k => fd.append(k, document.getElementById(k).value));
+                        fd.append('upload_ing', 'Y');
+                        let json = null, r = null, txt = '';
+                        for (let i = 0; i < 8 && !json; i++) {
+                            await new Promise(res => setTimeout(res, i ? 4000 : (n ? 2500 : 6000)));
+                            const f2 = new FormData(); for (const [k, v] of fd.entries()) f2.append(k, v);
+                            r = await fetch(o.url, {method: 'POST', body: f2, credentials: 'include'});
+                            txt = await r.text();
+                            console.log('DIRECT img' + n + ' try' + i + ' ' + r.status + ' len=' + txt.length);
+                            try { json = JSON.parse(txt); } catch (e) { json = null; }
+                        }
+                        if (!json) throw new Error('업로드 응답 없음: ' + r.status + ' ' + txt.slice(0, 200));
+                        console.log('DIRECT ' + r.status + ' ' + JSON.stringify(json).slice(0, 300));
+                        document.getElementById('upload_ing').value = 'N';
+                        $('.info_box').hide();
+                        const inst = $('#fileupload').data('blueimp-fileupload') || $('#fileupload').data('fileupload');
+                        inst._trigger('done', $.Event('done'), {result: json, textStatus: 'success', jqXHR: {}, files: [{name: 'chart' + (n + 1) + '.png'}]});
                     }
-                    if (!json) throw new Error('업로드 응답 없음: ' + r.status + ' ' + txt.slice(0, 200));
-                    console.log('DIRECT ' + r.status + ' ' + JSON.stringify(json).slice(0, 300));
-                    document.getElementById('upload_ing').value = 'N';
-                    $('.info_box').hide();
-                    const inst = $('#fileupload').data('blueimp-fileupload') || $('#fileupload').data('fileupload');
-                    inst._trigger('done', $.Event('done'), {result: json, textStatus: 'success', jqXHR: {}, files: [{name: 'chart.png'}]});
-                }""", base64.b64encode(Path(image_path).read_bytes()).decode())
+                }""", [base64.b64encode(x.read_bytes()).decode() for x in image_paths])
                 try:
-                    up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length > 0 && document.getElementById('upload_ing').value !== 'Y'", timeout=25000)
+                    up.wait_for_function("document.querySelectorAll('#sortable li .listDelip_img[data-no]').length >= "+str(len(image_paths))+" && document.getElementById('upload_ing').value !== 'Y'", timeout=25000)
                 except Exception:
                     try:
                         up.screenshot(path=str(err_dir / "dc_popup.png"))
