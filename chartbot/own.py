@@ -98,7 +98,19 @@ class Own:
         import re
         import urllib.request
         req = urllib.request.Request("https://www.melon.com/chart/index.htm", headers={"User-Agent": self.WEB_UA, "Accept-Language": "ko-KR,ko;q=0.9"})
-        h = urllib.request.urlopen(req, timeout=20).read().decode("utf-8")
+        last = self.__dict__.get("_web_fail", 0.0)
+        if time.monotonic() - last < 30:
+            raise TimeoutError("멜론 페이지 받기 실패 직후라 잠시 쉼")
+        h = None
+        for i in range(3):
+            try:
+                h = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
+                break
+            except Exception as e:
+                err = e
+        if h is None:
+            self._web_fail = time.monotonic()
+            raise err
         hour = re.search(r'<span class="hour">(\d\d:\d\d)</span>', h)
         rows = []
         for tr in re.findall(r'<tr[^>]*data-song-no="\d+".*?</tr>', h, re.S):
@@ -163,7 +175,20 @@ class Own:
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_top100") == stamp:
             return None
-        hour, rows = self.web_top100()
+        try:
+            hour, rows = self.web_top100()
+        except Exception as e:
+            # 멜론 페이지가 계속 안 받아지면(정시 +8분 이후) 기록해 둔 정시 순위로 대신 만든다 (앨범 이미지는 빠짐)
+            if now.minute < 8 or not self.live:
+                raise
+            self.refresh_live()
+            f = self.live / "top100" / f"{now:%Y%m%d-%H}00.json"
+            if not f.exists():
+                raise
+            log.warning("멜론 페이지를 못 받아 기록된 순위로 대신 만듭니다: %s", str(e)[:80])
+            lr = json.load(open(f, encoding="utf-8"))["rows"]
+            hour, rows = f"{now:%H}:00", [{"rank": r["rank"], "cur": r.get("previous"), "name": r["name"], "artists": r.get("artists", ""),
+                                            "image": str(r["rank"]), "url": "", "sid": ""} for r in lr]
         if hour != f"{now:%H}:00" or len(rows) < 100:
             return None
         # 정각 직후엔 페이지의 시각 표시만 먼저 바뀌고 순위는 이전 시간 것일 수 있다 -> 직전 시간 순위와 곡 순서까지 같으면 갱신 전으로 보고 다음에 다시 시도
