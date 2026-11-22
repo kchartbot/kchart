@@ -1,10 +1,10 @@
 {
  "hour": "20261122-0900",
- "source": "20261122-0901",
+ "source": "20261122-0906",
  "rows": [
   {
    "rank": 1,
-   "past": 2,
+   "past": 1,
    "id": "602290711",
    "name": "꿈꾸던 어른이 되었나요?",
    "artists": [
@@ -13,7 +13,7 @@
   },
   {
    "rank": 2,
-   "past": 1,
+   "past": 2,
    "id": "603712834",
    "name": "With",
    "artists": [
@@ -22,7 +22,7 @@
   },
   {
    "rank": 3,
-   "past": 4,
+   "past": 3,
    "id": "37928381",
    "name": "LOVE ATTACK",
    "artists": [
@@ -31,7 +31,7 @@
   },
   {
    "rank": 4,
-   "past": 3,
+   "past": 4,
    "id": "603712835",
    "name": "백화요란 (Inside Out)",
    "artists": [
@@ -40,16 +40,7 @@
   },
   {
    "rank": 5,
-   "past": 5,
-   "id": "39231685",
-   "name": "Deja Vu",
-   "artists": [
-    "RESCENE (리센느)"
-   ]
-  },
-  {
-   "rank": 6,
-   "past": 12,
+   "past": 6,
    "id": "603382333",
    "name": "NEON",
    "artists": [
@@ -58,8 +49,8 @@
    ]
   },
   {
-   "rank": 7,
-   "past": 17,
+   "rank": 6,
+   "past": 7,
    "id": "603709840",
    "name": "체포하겠어",
    "artists": [
@@ -67,17 +58,8 @@
    ]
   },
   {
-   "rank": 8,
-   "past": 6,
-   "id": "602450078",
-   "name": "Pretty Girl",
-   "artists": [
-    "RESCENE (리센느)"
-   ]
-  },
-  {
-   "rank": 9,
-   "past": 14,
+   "rank": 7,
+   "past": 9,
    "id": "4277838",
    "name": "연애의 조건 (Love Options)",
    "artists": [
@@ -85,8 +67,17 @@
    ]
   },
   {
-   "rank": 10,
-   "past": 18,
+   "rank": 8,
+   "past": 5,
+   "id": "39231685",
+   "name": "Deja Vu",
+   "artists": [
+    "RESCENE (리센느)"
+   ]
+  },
+  {
+   "rank": 9,
+   "past": 10,
    "id": "604028779",
    "name": "기립 (GiiiRIP)",
    "artists": [
@@ -94,26 +85,8 @@
    ]
   },
   {
-   "rank": 11,
-   "past": 7,
-   "id": "603712833",
-   "name": "Finest Thing",
-   "artists": [
-    "RESCENE (리센느)"
-   ]
-  },
-  {
-   "rank": 12,
-   "past": 8,
-   "id": "603712836",
-   "name": "MEME",
-   "artists": [
-    "RESCENE (리센느)"
-   ]
-  },
-  {
-   "rank": 13,
-   "past": 25,
+   "rank": 10,
+   "past": 13,
    "id": "602862199",
    "name": "퇴사할게여 (Narr. 기안84)",
    "artists": [
@@ -121,35 +94,17 @@
    ]
   },
   {
-   "rank": 14,
-   "past": 10,
-   "id": "603712837",
-   "name": "Dragon",
+   "rank": 11,
+   "past": 8,
+   "id": "602450078",
+   "name": "Pretty Girl",
    "artists": [
     "RESCENE (리센느)"
    ]
   },
   {
-   "rank": 15,
-   "past": 9,
-   "id": "601719493",
-   "name": "Runaway",
-   "artists": [
-    "RESCENE (리센느)"
-   ]
-  },
-  {
-   "rank": 16,
-   "past": 16,
-   "id": "602951446",
-   "name": "또또",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 17,
-   "past": 39,
+   "rank": 12,
+   "past": 17,
    "id": "36985781",
    "name": "생각을 멈추다 보면",
    "artists": [
@@ -157,8 +112,53 @@
    ]
   },
   {
+   "rank": 13,
+   "past": 11,
+   "id": "603712833",
+   "name": "Finest Thing",
+   "artists": [
+    "RESCENE (리센느)"
+   ]
+  },
+  {
+   "rank": 14,
+   "past": 15,
+   "id": "601719493",
+   "name": "Runaway",
+   "artists": [
+    "RESCENE (리센느)"
+   ]
+  },
+  {
+   "rank": 15,
+   "past": 12,
+   "id": "603712836",
+   "name": "MEME",
+   "artists": [
+    "RESCENE (리센느)"
+   ]
+  },
+  {
+   "rank": 16,
+   "past": 14,
+   "id": "603712837",
+   "name": "Dragon",
+   "artists": [
+    "RESCENE (리센느)"
+   ]
+  },
+  {
+   "rank": 17,
+   "past": 37,
+   "id": "602024048",
+   "name": "갑자기",
+   "artists": [
+    "아이오아이 (I.O.I)"
+   ]
+  },
+  {
    "rank": 18,
-   "past": 21,
+   "past": 18,
    "id": "34061322",
    "name": "사랑은 늘 도망가",
    "artists": [
@@ -167,151 +167,16 @@
   },
   {
    "rank": 19,
-   "past": 11,
-   "id": "603813508",
-   "name": "REBELS",
+   "past": 16,
+   "id": "602951446",
+   "name": "또또",
    "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
+    "임영웅"
    ]
   },
   {
    "rank": 20,
-   "past": 23,
-   "id": "602951447",
-   "name": "부디 행복해질 것",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 21,
-   "past": 24,
-   "id": "34908740",
-   "name": "우리들의 블루스",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 22,
-   "past": 26,
-   "id": "39765727",
-   "name": "순간을 영원처럼",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 23,
-   "past": 15,
-   "id": "603813507",
-   "name": "연애세포 (恋愛細胞)",
-   "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
-   ]
-  },
-  {
-   "rank": 24,
-   "past": 27,
-   "id": "602951444",
-   "name": "모이세",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 25,
-   "past": 32,
-   "id": "602951449",
-   "name": "모래 알갱이 RE",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 26,
-   "past": 30,
-   "id": "602951445",
-   "name": "Baila",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 27,
-   "past": 37,
-   "id": "602951451",
-   "name": "A Bientot RE",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 28,
-   "past": 36,
-   "id": "602951453",
-   "name": "New York",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 29,
-   "past": 34,
-   "id": "602951452",
-   "name": "살아온 우리에게",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 30,
-   "past": 33,
-   "id": "602951448",
-   "name": "미워요 RE",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 31,
-   "past": 19,
-   "id": "603813509",
-   "name": "BACK 2 THE FUTURE",
-   "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
-   ]
-  },
-  {
-   "rank": 32,
    "past": 35,
-   "id": "602951450",
-   "name": "사랑은 늘 도망가 RE",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 33,
-   "past": 20,
-   "id": "603813510",
-   "name": "ANTI-HERO",
-   "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
-   ]
-  },
-  {
-   "rank": 34,
-   "past": 22,
-   "id": "603813511",
-   "name": "Dream Residue",
-   "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
-   ]
-  },
-  {
-   "rank": 35,
-   "past": 13,
    "id": "37928383",
    "name": "Pinball",
    "artists": [
@@ -319,26 +184,8 @@
    ]
   },
   {
-   "rank": 36,
-   "past": 40,
-   "id": "39765731",
-   "name": "그댈 위한 멜로디",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 37,
-   "past": 54,
-   "id": "602024048",
-   "name": "갑자기",
-   "artists": [
-    "아이오아이 (I.O.I)"
-   ]
-  },
-  {
-   "rank": 38,
-   "past": 59,
+   "rank": 21,
+   "past": 38,
    "id": "603448999",
    "name": "Looks Can Kill",
    "artists": [
@@ -346,89 +193,8 @@
    ]
   },
   {
-   "rank": 39,
-   "past": 38,
-   "id": "603801191",
-   "name": "Angel Bite",
-   "artists": [
-    "투모로우바이투게더"
-   ]
-  },
-  {
-   "rank": 40,
-   "past": 44,
-   "id": "602839323",
-   "name": "BiiiG",
-   "artists": [
-    "BIGBANG (빅뱅)"
-   ]
-  },
-  {
-   "rank": 41,
-   "past": 43,
-   "id": "39765734",
-   "name": "나는야 HERO",
-   "artists": [
-    "임영웅"
-   ]
-  },
-  {
-   "rank": 42,
-   "past": 31,
-   "id": "600406668",
-   "name": "Nameless",
-   "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
-   ]
-  },
-  {
-   "rank": 43,
-   "past": 60,
-   "id": "36397952",
-   "name": "Drowning",
-   "artists": [
-    "WOODZ"
-   ]
-  },
-  {
-   "rank": 44,
-   "past": 28,
-   "id": "603093102",
-   "name": "고양이가 세상을 구한다!",
-   "artists": [
-    "고세구"
-   ]
-  },
-  {
-   "rank": 45,
-   "past": 29,
-   "id": "600406667",
-   "name": "Be My Light",
-   "artists": [
-    "이세계아이돌 (ISEGYE IDOL)"
-   ]
-  },
-  {
-   "rank": 46,
-   "past": 41,
-   "id": "600791038",
-   "name": "이 밤을 빌려 말해요",
-   "artists": [
-    "PLAVE"
-   ]
-  },
-  {
-   "rank": 47,
-   "past": 67,
-   "id": "603538665",
-   "name": "삐그덕 (Feat. 아이유)",
-   "artists": [
-    "Crush"
-   ]
-  },
-  {
-   "rank": 48,
-   "past": 62,
+   "rank": 22,
+   "past": 48,
    "id": "602322595",
    "name": "BAD",
    "artists": [
@@ -436,8 +202,53 @@
    ]
   },
   {
-   "rank": 49,
-   "past": 64,
+   "rank": 23,
+   "past": 20,
+   "id": "602951447",
+   "name": "부디 행복해질 것",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 24,
+   "past": 21,
+   "id": "34908740",
+   "name": "우리들의 블루스",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 25,
+   "past": 22,
+   "id": "39765727",
+   "name": "순간을 영원처럼",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 26,
+   "past": 43,
+   "id": "36397952",
+   "name": "Drowning",
+   "artists": [
+    "WOODZ"
+   ]
+  },
+  {
+   "rank": 27,
+   "past": 47,
+   "id": "603538665",
+   "name": "삐그덕 (Feat. 아이유)",
+   "artists": [
+    "Crush"
+   ]
+  },
+  {
+   "rank": 28,
+   "past": 49,
    "id": "602377105",
    "name": "만찬가",
    "artists": [
@@ -445,44 +256,17 @@
    ]
   },
   {
-   "rank": 50,
-   "past": 46,
-   "id": "38242510",
-   "name": "HOME SWEET HOME (feat. 태양, 대성)",
+   "rank": 29,
+   "past": 24,
+   "id": "602951444",
+   "name": "모이세",
    "artists": [
-    "G-DRAGON"
+    "임영웅"
    ]
   },
   {
-   "rank": 51,
-   "past": 68,
-   "id": "32061975",
-   "name": "어떻게 이별까지 사랑하겠어, 널 사랑하는 거지",
-   "artists": [
-    "AKMU (악뮤)"
-   ]
-  },
-  {
-   "rank": 52,
-   "past": 42,
-   "id": "603339939",
-   "name": "Star Trace",
-   "artists": [
-    "PLAVE"
-   ]
-  },
-  {
-   "rank": 53,
-   "past": 61,
-   "id": "601555642",
-   "name": "SWIM",
-   "artists": [
-    "방탄소년단"
-   ]
-  },
-  {
-   "rank": 54,
-   "past": 71,
+   "rank": 30,
+   "past": 54,
    "id": "601807965",
    "name": "REDRED",
    "artists": [
@@ -490,107 +274,134 @@
    ]
   },
   {
-   "rank": 55,
-   "past": 52,
-   "id": "603574639",
-   "name": "Boogie Woogie",
+   "rank": 31,
+   "past": 26,
+   "id": "602951445",
+   "name": "Baila",
    "artists": [
-    "NCT DREAM"
+    "임영웅"
    ]
   },
   {
-   "rank": 56,
-   "past": 78,
-   "id": "600287375",
-   "name": "Good Goodbye",
+   "rank": 32,
+   "past": 40,
+   "id": "602839323",
+   "name": "BiiiG",
    "artists": [
-    "화사 (HWASA)"
+    "BIGBANG (빅뱅)"
    ]
   },
   {
-   "rank": 57,
-   "past": 45,
-   "id": "603801190",
-   "name": "지금까지와는 다른 무언가가 필요해 (Storm is...)",
+   "rank": 33,
+   "past": 19,
+   "id": "603813508",
+   "name": "REBELS",
    "artists": [
-    "투모로우바이투게더"
+    "이세계아이돌 (ISEGYE IDOL)"
    ]
   },
   {
-   "rank": 58,
-   "past": 47,
-   "id": "603339938",
-   "name": "푸른 하늘에 단비",
+   "rank": 34,
+   "past": 29,
+   "id": "602951452",
+   "name": "살아온 우리에게",
    "artists": [
-    "PLAVE"
+    "임영웅"
    ]
   },
   {
-   "rank": 59,
-   "past": 63,
-   "id": "30244931",
-   "name": "봄날",
+   "rank": 35,
+   "past": 25,
+   "id": "602951449",
+   "name": "모래 알갱이 RE",
    "artists": [
-    "방탄소년단"
+    "임영웅"
    ]
   },
   {
-   "rank": 60,
-   "past": 56,
-   "id": "603692202",
-   "name": "Insomnia",
+   "rank": 36,
+   "past": 30,
+   "id": "602951448",
+   "name": "미워요 RE",
    "artists": [
-    "RIIZE"
+    "임영웅"
    ]
   },
   {
-   "rank": 61,
-   "past": 48,
-   "id": "603801192",
-   "name": "Higher Love",
-   "artists": [
-    "투모로우바이투게더"
-   ]
-  },
-  {
-   "rank": 62,
-   "past": 83,
-   "id": "38104031",
-   "name": "내게 사랑이 뭐냐고 물어본다면",
-   "artists": [
-    "로이킴"
-   ]
-  },
-  {
-   "rank": 63,
+   "rank": 37,
    "past": 51,
-   "id": "603801193",
-   "name": "Sweetest Escape",
+   "id": "32061975",
+   "name": "어떻게 이별까지 사랑하겠어, 널 사랑하는 거지",
    "artists": [
-    "투모로우바이투게더"
+    "AKMU (악뮤)"
    ]
   },
   {
-   "rank": 64,
+   "rank": 38,
+   "past": 32,
+   "id": "602951450",
+   "name": "사랑은 늘 도망가 RE",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 39,
+   "past": 27,
+   "id": "602951451",
+   "name": "A Bientot RE",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 40,
+   "past": 28,
+   "id": "602951453",
+   "name": "New York",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 41,
    "past": 50,
-   "id": "603801194",
-   "name": "Touch the Sky",
+   "id": "38242510",
+   "name": "HOME SWEET HOME (feat. 태양, 대성)",
+   "artists": [
+    "G-DRAGON"
+   ]
+  },
+  {
+   "rank": 42,
+   "past": 39,
+   "id": "603801191",
+   "name": "Angel Bite",
    "artists": [
     "투모로우바이투게더"
    ]
   },
   {
-   "rank": 65,
-   "past": 86,
-   "id": "36730261",
-   "name": "사랑하게 될 거야",
+   "rank": 43,
+   "past": 36,
+   "id": "39765731",
+   "name": "그댈 위한 멜로디",
    "artists": [
-    "한로로"
+    "임영웅"
    ]
   },
   {
-   "rank": 66,
-   "past": 84,
+   "rank": 44,
+   "past": 23,
+   "id": "603813507",
+   "name": "연애세포 (恋愛細胞)",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ]
+  },
+  {
+   "rank": 45,
+   "past": 66,
    "id": "601719416",
    "name": "기쁨, 슬픔, 아름다운 마음",
    "artists": [
@@ -598,80 +409,35 @@
    ]
   },
   {
-   "rank": 67,
-   "past": 49,
-   "id": "603801196",
-   "name": "Hate It or Love It",
+   "rank": 46,
+   "past": 56,
+   "id": "600287375",
+   "name": "Good Goodbye",
    "artists": [
-    "투모로우바이투게더"
+    "화사 (HWASA)"
    ]
   },
   {
-   "rank": 68,
-   "past": 53,
-   "id": "603339937",
-   "name": "꾼",
+   "rank": 47,
+   "past": 33,
+   "id": "603813510",
+   "name": "ANTI-HERO",
    "artists": [
-    "PLAVE"
+    "이세계아이돌 (ISEGYE IDOL)"
    ]
   },
   {
-   "rank": 69,
-   "past": 76,
-   "id": "4446485",
-   "name": "너의 모든 순간",
+   "rank": 48,
+   "past": 31,
+   "id": "603813509",
+   "name": "BACK 2 THE FUTURE",
    "artists": [
-    "성시경"
+    "이세계아이돌 (ISEGYE IDOL)"
    ]
   },
   {
-   "rank": 70,
-   "past": 55,
-   "id": "603339940",
-   "name": "The Answer Is Yes",
-   "artists": [
-    "PLAVE"
-   ]
-  },
-  {
-   "rank": 71,
-   "past": 72,
-   "id": "32872978",
-   "name": "Dynamite",
-   "artists": [
-    "방탄소년단"
-   ]
-  },
-  {
-   "rank": 72,
-   "past": 87,
-   "id": "33411344",
-   "name": "봄 내음보다 너를",
-   "artists": [
-    "김나영"
-   ]
-  },
-  {
-   "rank": 73,
-   "past": 57,
-   "id": "603339941",
-   "name": "Rewind",
-   "artists": [
-    "PLAVE"
-   ]
-  },
-  {
-   "rank": 74,
-   "past": 58,
-   "id": "601765464",
-   "name": "하루에 하루만 더 (Stick With You)",
-   "artists": [
-    "투모로우바이투게더"
-   ]
-  },
-  {
-   "rank": 75,
-   "past": 95,
+   "rank": 49,
+   "past": 75,
    "id": "601899271",
    "name": "It′s Me",
    "artists": [
@@ -679,17 +445,80 @@
    ]
   },
   {
-   "rank": 76,
-   "past": 74,
-   "id": "36617841",
-   "name": "Seven (feat. Latto) - Clean Ver.",
+   "rank": 50,
+   "past": 34,
+   "id": "603813511",
+   "name": "Dream Residue",
    "artists": [
-    "정국"
+    "이세계아이돌 (ISEGYE IDOL)"
    ]
   },
   {
-   "rank": 77,
-   "past": 90,
+   "rank": 51,
+   "past": 46,
+   "id": "600791038",
+   "name": "이 밤을 빌려 말해요",
+   "artists": [
+    "PLAVE"
+   ]
+  },
+  {
+   "rank": 52,
+   "past": 65,
+   "id": "36730261",
+   "name": "사랑하게 될 거야",
+   "artists": [
+    "한로로"
+   ]
+  },
+  {
+   "rank": 53,
+   "past": 62,
+   "id": "38104031",
+   "name": "내게 사랑이 뭐냐고 물어본다면",
+   "artists": [
+    "로이킴"
+   ]
+  },
+  {
+   "rank": 54,
+   "past": 41,
+   "id": "39765734",
+   "name": "나는야 HERO",
+   "artists": [
+    "임영웅"
+   ]
+  },
+  {
+   "rank": 55,
+   "past": 69,
+   "id": "4446485",
+   "name": "너의 모든 순간",
+   "artists": [
+    "성시경"
+   ]
+  },
+  {
+   "rank": 56,
+   "past": 53,
+   "id": "601555642",
+   "name": "SWIM",
+   "artists": [
+    "방탄소년단"
+   ]
+  },
+  {
+   "rank": 57,
+   "past": 52,
+   "id": "603339939",
+   "name": "Star Trace",
+   "artists": [
+    "PLAVE"
+   ]
+  },
+  {
+   "rank": 58,
+   "past": 77,
    "id": "600299706",
    "name": "타임캡슐",
    "artists": [
@@ -697,8 +526,44 @@
    ]
   },
   {
-   "rank": 78,
-   "past": 99,
+   "rank": 59,
+   "past": 72,
+   "id": "33411344",
+   "name": "봄 내음보다 너를",
+   "artists": [
+    "김나영"
+   ]
+  },
+  {
+   "rank": 60,
+   "past": 42,
+   "id": "600406668",
+   "name": "Nameless",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ]
+  },
+  {
+   "rank": 61,
+   "past": 44,
+   "id": "603093102",
+   "name": "고양이가 세상을 구한다!",
+   "artists": [
+    "고세구"
+   ]
+  },
+  {
+   "rank": 62,
+   "past": 45,
+   "id": "600406667",
+   "name": "Be My Light",
+   "artists": [
+    "이세계아이돌 (ISEGYE IDOL)"
+   ]
+  },
+  {
+   "rank": 63,
+   "past": 78,
    "id": "37473973",
    "name": "Popcorn",
    "artists": [
@@ -706,8 +571,8 @@
    ]
   },
   {
-   "rank": 79,
-   "past": 100,
+   "rank": 64,
+   "past": 79,
    "id": "38733032",
    "name": "어제보다 슬픈 오늘",
    "artists": [
@@ -715,17 +580,26 @@
    ]
   },
   {
-   "rank": 80,
-   "past": 102,
-   "id": "37228861",
-   "name": "천상연",
+   "rank": 65,
+   "past": 59,
+   "id": "30244931",
+   "name": "봄날",
    "artists": [
-    "이창섭"
+    "방탄소년단"
    ]
   },
   {
-   "rank": 81,
-   "past": 96,
+   "rank": 66,
+   "past": 55,
+   "id": "603574639",
+   "name": "Boogie Woogie",
+   "artists": [
+    "NCT DREAM"
+   ]
+  },
+  {
+   "rank": 67,
+   "past": 81,
    "id": "39504779",
    "name": "0+0",
    "artists": [
@@ -733,44 +607,8 @@
    ]
   },
   {
-   "rank": 82,
-   "past": 106,
-   "id": "36699489",
-   "name": "그대만 있다면 (여름날 우리 X 너드커넥션 (Nerd Connection))",
-   "artists": [
-    "너드커넥션 (Nerd Connection)"
-   ]
-  },
-  {
-   "rank": 83,
-   "past": 65,
-   "id": "603574638",
-   "name": "The Sun",
-   "artists": [
-    "NCT DREAM"
-   ]
-  },
-  {
-   "rank": 84,
-   "past": 94,
-   "id": "601555636",
-   "name": "Body to Body",
-   "artists": [
-    "방탄소년단"
-   ]
-  },
-  {
-   "rank": 85,
-   "past": 112,
-   "id": "30962526",
-   "name": "모든 날, 모든 순간 (Every day, Every Moment)",
-   "artists": [
-    "폴킴"
-   ]
-  },
-  {
-   "rank": 86,
-   "past": 114,
+   "rank": 68,
+   "past": 86,
    "id": "602115220",
    "name": "LEMONADE",
    "artists": [
@@ -778,53 +616,17 @@
    ]
   },
   {
-   "rank": 87,
-   "past": 104,
-   "id": "601555637",
-   "name": "Hooligan",
+   "rank": 69,
+   "past": 60,
+   "id": "603692202",
+   "name": "Insomnia",
    "artists": [
-    "방탄소년단"
+    "RIIZE"
    ]
   },
   {
-   "rank": 88,
-   "past": 66,
-   "id": "603574640",
-   "name": "Dream After Dream",
-   "artists": [
-    "NCT DREAM"
-   ]
-  },
-  {
-   "rank": 89,
-   "past": 82,
-   "id": "38589554",
-   "name": "TOO BAD (feat. Anderson .Paak)",
-   "artists": [
-    "G-DRAGON"
-   ]
-  },
-  {
-   "rank": 90,
-   "past": 69,
-   "id": "603574646",
-   "name": "Smile for U",
-   "artists": [
-    "NCT DREAM"
-   ]
-  },
-  {
-   "rank": 91,
-   "past": 85,
-   "id": "603959458",
-   "name": "사랑해볼래, 나",
-   "artists": [
-    "미나미 of RESCENE"
-   ]
-  },
-  {
-   "rank": 92,
-   "past": 119,
+   "rank": 70,
+   "past": 92,
    "id": "601479669",
    "name": "캐치 캐치",
    "artists": [
@@ -832,62 +634,62 @@
    ]
   },
   {
-   "rank": 93,
-   "past": 89,
-   "id": "1913501",
-   "name": "하루 하루",
+   "rank": 71,
+   "past": 58,
+   "id": "603339938",
+   "name": "푸른 하늘에 단비",
    "artists": [
-    "BIGBANG (빅뱅)"
+    "PLAVE"
    ]
   },
   {
-   "rank": 94,
-   "past": 88,
-   "id": "34845949",
-   "name": "봄여름가을겨울 (Still Life)",
-   "artists": [
-    "BIGBANG (빅뱅)"
-   ]
-  },
-  {
-   "rank": 95,
-   "past": 101,
-   "id": "601555640",
-   "name": "2.0",
+   "rank": 72,
+   "past": 71,
+   "id": "32872978",
+   "name": "Dynamite",
    "artists": [
     "방탄소년단"
    ]
   },
   {
-   "rank": 96,
-   "past": 70,
-   "id": "602477615",
-   "name": "Ice Cream",
+   "rank": 73,
+   "past": 57,
+   "id": "603801190",
+   "name": "지금까지와는 다른 무언가가 필요해 (Storm is...)",
    "artists": [
-    "연준"
+    "투모로우바이투게더"
    ]
   },
   {
-   "rank": 97,
-   "past": 115,
-   "id": "38429074",
-   "name": "모르시나요(PROD.로코베리)",
+   "rank": 74,
+   "past": 76,
+   "id": "36617841",
+   "name": "Seven (feat. Latto) - Clean Ver.",
    "artists": [
-    "조째즈"
+    "정국"
    ]
   },
   {
-   "rank": 98,
-   "past": 91,
-   "id": "1698598",
-   "name": "거짓말",
+   "rank": 75,
+   "past": 80,
+   "id": "37228861",
+   "name": "천상연",
    "artists": [
-    "BIGBANG (빅뱅)"
+    "이창섭"
    ]
   },
   {
-   "rank": 99,
-   "past": 127,
+   "rank": 76,
+   "past": 61,
+   "id": "603801192",
+   "name": "Higher Love",
+   "artists": [
+    "투모로우바이투게더"
+   ]
+  },
+  {
+   "rank": 77,
+   "past": 99,
    "id": "601719413",
    "name": "소문의 낙원",
    "artists": [
@@ -895,10 +697,208 @@
    ]
   },
   {
-   "rank": 100,
+   "rank": 78,
+   "past": 82,
+   "id": "36699489",
+   "name": "그대만 있다면 (여름날 우리 X 너드커넥션 (Nerd Connection))",
+   "artists": [
+    "너드커넥션 (Nerd Connection)"
+   ]
+  },
+  {
+   "rank": 79,
+   "past": 64,
+   "id": "603801194",
+   "name": "Touch the Sky",
+   "artists": [
+    "투모로우바이투게더"
+   ]
+  },
+  {
+   "rank": 80,
+   "past": 63,
+   "id": "603801193",
+   "name": "Sweetest Escape",
+   "artists": [
+    "투모로우바이투게더"
+   ]
+  },
+  {
+   "rank": 81,
+   "past": 85,
+   "id": "30962526",
+   "name": "모든 날, 모든 순간 (Every day, Every Moment)",
+   "artists": [
+    "폴킴"
+   ]
+  },
+  {
+   "rank": 82,
+   "past": 67,
+   "id": "603801196",
+   "name": "Hate It or Love It",
+   "artists": [
+    "투모로우바이투게더"
+   ]
+  },
+  {
+   "rank": 83,
    "past": 107,
-   "id": "601555639",
-   "name": "FYA",
+   "id": "601332163",
+   "name": "RUDE!",
+   "artists": [
+    "Hearts2Hearts (하츠투하츠)"
+   ]
+  },
+  {
+   "rank": 84,
+   "past": 97,
+   "id": "38429074",
+   "name": "모르시나요(PROD.로코베리)",
+   "artists": [
+    "조째즈"
+   ]
+  },
+  {
+   "rank": 85,
+   "past": 119,
+   "id": "601983813",
+   "name": "외사랑 (feat. 최유리)",
+   "artists": [
+    "진영 (GOT7)"
+   ]
+  },
+  {
+   "rank": 86,
+   "past": 68,
+   "id": "603339937",
+   "name": "꾼",
+   "artists": [
+    "PLAVE"
+   ]
+  },
+  {
+   "rank": 87,
+   "past": 108,
+   "id": "602939768",
+   "name": "노스탈지아",
+   "artists": [
+    "BIG Naughty (서동현)"
+   ]
+  },
+  {
+   "rank": 88,
+   "past": 70,
+   "id": "603339940",
+   "name": "The Answer Is Yes",
+   "artists": [
+    "PLAVE"
+   ]
+  },
+  {
+   "rank": 89,
+   "past": 73,
+   "id": "603339941",
+   "name": "Rewind",
+   "artists": [
+    "PLAVE"
+   ]
+  },
+  {
+   "rank": 90,
+   "past": 103,
+   "id": "37390939",
+   "name": "소나기",
+   "artists": [
+    "이클립스 (ECLIPSE)"
+   ]
+  },
+  {
+   "rank": 91,
+   "past": 122,
+   "id": "600243411",
+   "name": "Blue Valentine",
+   "artists": [
+    "NMIXX"
+   ]
+  },
+  {
+   "rank": 92,
+   "past": 118,
+   "id": "31666417",
+   "name": "주저하는 연인들을 위해",
+   "artists": [
+    "잔나비"
+   ]
+  },
+  {
+   "rank": 93,
+   "past": 74,
+   "id": "601765464",
+   "name": "하루에 하루만 더 (Stick With You)",
+   "artists": [
+    "투모로우바이투게더"
+   ]
+  },
+  {
+   "rank": 94,
+   "past": 121,
+   "id": "38071559",
+   "name": "청춘만화",
+   "artists": [
+    "이무진"
+   ]
+  },
+  {
+   "rank": 95,
+   "past": 129,
+   "id": "38123338",
+   "name": "나는 반딧불",
+   "artists": [
+    "황가람"
+   ]
+  },
+  {
+   "rank": 96,
+   "past": 130,
+   "id": "601879407",
+   "name": "Heavy Serenade",
+   "artists": [
+    "NMIXX"
+   ]
+  },
+  {
+   "rank": 97,
+   "past": 89,
+   "id": "38589554",
+   "name": "TOO BAD (feat. Anderson .Paak)",
+   "artists": [
+    "G-DRAGON"
+   ]
+  },
+  {
+   "rank": 98,
+   "past": 101,
+   "id": "37140709",
+   "name": "첫 만남은 계획대로 되지 않아",
+   "artists": [
+    "TWS (투어스)"
+   ]
+  },
+  {
+   "rank": 99,
+   "past": 123,
+   "id": "36382580",
+   "name": "헤어지자 말해요",
+   "artists": [
+    "박재정"
+   ]
+  },
+  {
+   "rank": 100,
+   "past": 84,
+   "id": "601555636",
+   "name": "Body to Body",
    "artists": [
     "방탄소년단"
    ]
