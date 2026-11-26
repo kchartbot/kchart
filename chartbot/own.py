@@ -1,5 +1,6 @@
 from html import unescape as html_unescape
 import os
+import os as _os
 import base64
 import dataclasses
 import glob
@@ -171,7 +172,7 @@ class Own:
         return cache[plat]
 
     def top100(self, now, state):
-        if now.minute >= 20 and not os.environ.get("OWN_LATE"):
+        if now.minute >= 20 and not _os.environ.get("OWN_LATE"):
             return None
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_top100") == stamp:
@@ -208,7 +209,7 @@ class Own:
 
     def combo(self, now, state):
         """순위표 + 이용자수 추이를 글 하나(이미지 두 장)로. 이용자수가 늦으면 정시 +16분부터는 순위표만 먼저 올린다"""
-        if now.minute >= 20 and not os.environ.get("OWN_LATE"):
+        if now.minute >= 20 and not _os.environ.get("OWN_LATE"):
             return None
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_combo") == stamp:
@@ -331,7 +332,7 @@ class Own:
         return self.job(key, stamp, post_title(chart), self.body(chart), render_html(chart), 2.0, chart)
 
     def users(self, now, state):
-        if now.minute >= 20 and not os.environ.get("OWN_LATE"):
+        if now.minute >= 20 and not _os.environ.get("OWN_LATE"):
             return None
         stamp = f"{now:%Y%m%d%H}00"
         if state.get("own_users") == stamp:
