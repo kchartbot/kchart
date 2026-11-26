@@ -17,6 +17,10 @@ on:
         description: "이 차트만 (쉼표로 구분, 비우면 전부)"
         type: string
         default: ""
+      late:
+        description: "정시 창(20분)이 지나도 지금 시각 순위표를 올림 (밀린 글 수동 게시용)"
+        type: boolean
+        default: false
       reset:
         description: "게시 기록을 지울 키 (예: own_users)"
         type: string
@@ -102,6 +106,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry && 'true' || 'false' }}
           OWN_ONLY: ${{ inputs.only }}
           RESET_KEYS: ${{ inputs.reset }}
+          OWN_LATE: ${{ inputs.late && '1' || '' }}
           DC_HEADTEXT: 차트
           DC_HEAD_NO: ${{ vars.DC_HEAD_NO }}
           DC_ID: ${{ secrets.DC_ID }}
