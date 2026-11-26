@@ -341,7 +341,9 @@ class DcUploader:
                         document.getElementById('upload_ing').value = 'N';
                         $('.info_box').hide();
                         const inst = $('#fileupload').data('blueimp-fileupload') || $('#fileupload').data('fileupload');
-                        inst._trigger('done', $.Event('done'), {result: json, textStatus: 'success', jqXHR: {}, files: [{name: 'chart' + (n + 1) + '.png'}]});
+                        const fl = new File([bin], 'chart' + (n + 1) + '.png', {type: 'image/png'});
+                        try { inst._trigger('done', $.Event('done'), {result: json, textStatus: 'success', jqXHR: {}, files: [fl]}); }
+                        catch (e) { console.log('done trigger: ' + e); }
                     }
                 }""", [base64.b64encode(x.read_bytes()).decode() for x in image_paths])
                 try:
